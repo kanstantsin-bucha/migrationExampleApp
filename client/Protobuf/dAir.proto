@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+import 'nanopb.proto';
+
+package Detecta;
+
+message Request {
+    uint32 sessionId = 1;
+    uint32 requestId = 2;
+    oneof message {
+        SetWifiState setWifiState = 10;
+        SetWifiCreds setWifiCreds = 11;
+        GetWifiNetworkInfo getWifiNetworkInfo = 12;
+    }
+
+    message SetWifiState {
+        bool isEnabled = 1;
+    }
+
+    message SetWifiCreds {
+        string ssid = 1 [(nanopb).max_size = 32];
+        string password = 2 [(nanopb).max_size = 32];
+    }
+
+    message GetWifiNetworkInfo {
+    }
+}
+
+message Response {
+    uint32 sessionId = 1;
+    uint32 requestId = 2;
+    oneof message {
+        GetContextValues getContextValues = 10;
+        SetWifiState setWifiState = 11;
+        SetWifiCreds setWifiCreds = 12;
+        GetWifiNetworkInfo getWifiNetworkInfo = 13;
+    }
+
+    enum ProcessingStatus {
+        OK = 0;
+        Unsupported = 1;
+        ServiceError = 2;
+        GeneralError = 3;
+    }
+
+    message GetContextValues {
+        uint32 timestamp = 1;
+        uint32 freeHeap = 2;
+        uint32 deviceStateMask = 3;
+        uint32 alarmStateMask = 4;
+        uint32 powerSourceStateMask = 5;
+        float busVoltage = 6;
+        float coZeroV = 7;
+        float coV = 8;
+        float coPpm = 9;
+        float tempCelsius = 10;
+        float pressurePa = 11;
+        float humidity = 12;
+        float gasResistance = 13;
+        float iaq = 14;
+        float staticIaq = 15;
+        float co2Equivalent = 16;
+        float breathVocEquivalent = 17;
+        float compGasValue = 18;
+        float gasPercentage = 19;
+    }
+
+    message SetWifiState {
+        ProcessingStatus status = 1;
+    }
+
+    message SetWifiCreds {
+        ProcessingStatus status = 1;
+    }
+
+    message GetWifiNetworkInfo {
+        ProcessingStatus status = 1;
+        bool isConnected = 2;
+        string ipAddr = 3 [(nanopb).max_size = 15];
+        string mDNSName = 4 [(nanopb).max_size = 16];
+    }
+}
