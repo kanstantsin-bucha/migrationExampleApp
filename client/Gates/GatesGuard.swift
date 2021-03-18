@@ -10,7 +10,7 @@ import Foundation
 
 protocol GatesKeeper {
     func summonAll(launchOptions: [AnyHashable : Any]?)
-    var bleGate: GateKeeper { get }
+    var bleGate: GateKeeper & BleTransmitter { get }
 }
 
 protocol GateKeeper {
@@ -20,30 +20,24 @@ protocol GateKeeper {
     func summon(
         infoDictionary: [String : Any]?,
         launchOptions: [AnyHashable : Any]?
-    ) throws
+    )
     
-    func open() throws
+    func open()
     func close()
 }
 
-class GatesKeeperImpl: GatesKeeper {
-    static let shared: GatesKeeper = GatesKeeperImpl()
-    
-    let bleGate: GateKeeper = DefaultBleCoreGate()
+class DefaultGatesKeeper: GatesKeeper {
+    let bleGate: GateKeeper & BleTransmitter = DefaultBleCoreGate()
     
     func summonAll(
         launchOptions: [AnyHashable : Any]?
     ) {
         
         let info = Bundle.main.infoDictionary
-        do {
-            try bleGate.summon(
-                infoDictionary: info,
-                launchOptions: launchOptions
-            )
-        }
-        catch let error {
-            print("\(error)")
-        }
+
+        bleGate.summon(
+            infoDictionary: info,
+            launchOptions: launchOptions
+        )
     }
 }

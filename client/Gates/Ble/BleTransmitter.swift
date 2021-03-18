@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol BleTransmitter {
+    var isConnecting: Bool { get }
     /// Sets state of a network adapter on the peripheral
     /// - Parameter isEnabled: The network adapter is on when true
     func requestSetWifiState(isEnabled: Bool) throws

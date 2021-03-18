@@ -15,12 +15,12 @@ def shared_pods
     pod 'SwiftProtobuf'
 end
 
-target :'client' do
+target :'DetectaConnect' do
     project 'Client.xcodeproj'
     shared_pods
 end
 
-target :'clientTests' do
+target :'DetectaConnectTests' do
     project 'Client.xcodeproj'
     shared_pods
 end

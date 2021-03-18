@@ -25,12 +25,22 @@ final class MeasurementsViewController: UIViewController {
     
     //MARK: - Actions
     
-    @IBAction private func didTouchPreferences(sender: UIButton) {
+    @IBAction private func didTouchClear(sender: UIButton) {
+        data = []
+        table.reloadData()
+        clearFields()
     }
     
-    @IBAction private func didTouchClear(sender: UIButton) {
-        self.data = []
-        self.table.reloadData()
+    @IBAction private func didTouchStop(sender: UIButton) {
+        log.user("Did touch Stop")
+        let ble = service(GatesKeeper.self).bleGate
+        if ble.isOpen || ble.isConnecting {
+            service(GatesKeeper.self).bleGate.close()
+        }
+        else {
+            service(GatesKeeper.self).bleGate.open()
+        }
+        updateStartStopButtonState()
     }
     
     //MARK: - life cycle -
@@ -38,12 +48,12 @@ final class MeasurementsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
+        clearFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        try? gatesKeeper.bleGate.open()
+        service(GatesKeeper.self).bleGate.open()
         table.reloadData()
         subscribeToNotifications()
         updateStartStopButtonState()
@@ -52,7 +62,6 @@ final class MeasurementsViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
         unsubscribeFromNotification()
     }
     
@@ -61,11 +70,10 @@ final class MeasurementsViewController: UIViewController {
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        
         if motion == .motionShake {
-            
-            gatesKeeper.bleGate.close()
-            try? gatesKeeper.bleGate.open()
+            log.user("Motion gesture: Shake")
+            service(GatesKeeper.self).bleGate.close()
+            service(GatesKeeper.self).bleGate.open()
             updateStartStopButtonState()
         }
     }
@@ -73,7 +81,6 @@ final class MeasurementsViewController: UIViewController {
     //MARK: - logic -
     
     private func subscribeToNotifications() {
-        
         notificationToken = NotificationCenter.default.addObserver(
             forName: Constant.Notifications.ContextUpdate.name,
             object: nil,
@@ -92,9 +99,7 @@ final class MeasurementsViewController: UIViewController {
     }
     
     private func unsubscribeFromNotification() {
-        
         if let token = notificationToken {
-            
             NotificationCenter.default.removeObserver(token)
         }
     }
@@ -104,28 +109,14 @@ final class MeasurementsViewController: UIViewController {
         table.dataSource = self;
     }
     
-    @IBAction private func didTouchStop(sender: UIButton) {
-        
-        if  gatesKeeper.bleGate.isOpen {
-            gatesKeeper.bleGate.close()
-        }
-        else {
-            try? gatesKeeper.bleGate.open()
-        }
-        
-        updateStartStopButtonState()
-    }
-    
     private func updateStartStopButtonState() {
-        
-        let title = gatesKeeper.bleGate.isOpen ? "Stop" : "Start"
+        let ble = service(GatesKeeper.self).bleGate
+        let title = ble.isOpen || ble.isConnecting ? "Stop" : "Start"
         startStopButton.setTitle(title, for: .normal)
     }
     
     private func handleContextChange(values: ContextValues) {
-        
-        print("MeasurementsViewController handleContextChange \(values)")
-        
+        log.event("MeasurementsViewController handleContextChange \(values)")
         updateFields(values: values)
         
         let newIndexPath = IndexPath(row: 0, section: 0)
@@ -135,13 +126,20 @@ final class MeasurementsViewController: UIViewController {
             with: .automatic)
     }
     
-    func updateFields(values: ContextValues) {
-        
+    private func updateFields(values: ContextValues) {
         coField.text = "\(String(format: "%.0f", values.coPpm))"
         tempField.text = "\(String(format: "%.1fC", values.tempCelsius))"
         humidityField.text = "\(String(format: "%.1f%%", values.humidity))"
         pressureField.text = "\(String(format: "%.0fPa", values.pressurePa))"
     }
+    
+    private func clearFields() {
+        coField.text = "n/a"
+        tempField.text = "n/a"
+        humidityField.text = "n/a"
+        pressureField.text = "n/a"
+    }
+    
 }
 
 extension MeasurementsViewController: UITableViewDelegate, UITableViewDataSource {

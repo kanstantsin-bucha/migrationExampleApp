@@ -16,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        
-        gatesKeeper.summonAll(launchOptions: launchOptions)
+        setupServices()
+        service(GatesKeeper.self).summonAll(launchOptions: launchOptions)
+
         window = UIWindow()
         window?.rootViewController = ViewFactory.loadView(id: Constant.View.a.Values.id)
         window?.makeKeyAndVisible()

@@ -1,0 +1,44 @@
+//
+//  AppServices.swift
+//  client
+//
+//  Created by Kanstantsin Bucha on 8.03.21.
+//  Copyright © 2021 Detecta Group. All rights reserved.
+//
+
+import Foundation
+
+func service<T>(_ type: T.Type) -> T {
+    locator.service(type: type)
+}
+
+func setupServices() {
+    locator.addServices([
+        (GatesKeeper.self, DefaultGatesKeeper()),
+        (GuideInteractor.self, DefaultGuideInteractor()),
+        (AppRouter.self, DefaultAppRouter()),
+        (AlertRouter.self, DefaultAlertRouter())
+    ])
+}
+
+fileprivate let locator = ServiceLocator()
+
+fileprivate class ServiceLocator {
+    private lazy var list: [String: AnyObject] = [:]
+    
+    func addServices(_ services: [(type: Any.Type, impl: AnyObject)]) {
+        services.forEach { addService($0.type, impl: $0.impl)}
+    }
+
+    func addService(_ type: Any.Type, impl: AnyObject) {
+        list[key(type: type)] = impl
+    }
+
+    func service<T>(type: T.Type) -> T {
+        return list[key(type: type)] as! T
+    }
+    
+    private func key(type: Any.Type) -> String {
+        return "\(type.self)"
+    }
+}

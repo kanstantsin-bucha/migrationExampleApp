@@ -14,6 +14,7 @@ import SwiftProtobuf
 
 final class DefaultBleCoreGate: NSObject {
     private(set) var isOpen = false
+    private(set) var isConnecting = false
     
     private var dAirPeripheral: Peripheral<Connectable>!
     private var rxChar: Characteristic!
@@ -21,20 +22,18 @@ final class DefaultBleCoreGate: NSObject {
     
     // MARK: - Private methods
     
-    private func makeDAirPeripheral() throws {
-        txChar = try Characteristic(
-            uuid: Constant.Ble.Commands.Tx.uuid,
-            shouldObserveNotification: true
-        )
+    private func makeDAirPeripheral() {
+        txChar = Characteristic(Constant.Ble.Commands.Tx.uuid)
         
-        rxChar = try Characteristic(
-            uuid: Constant.Ble.Commands.Rx.uuid,
-            shouldObserveNotification: true
+        rxChar = Characteristic(
+            Constant.Ble.Commands.Rx.uuid,
+            isObserving: true
         )
         
         txChar.notifyHandler = { data in
-            print("Error: the transmit characteristic received a data")
-            print("tx data \(String(describing: data))")
+            log.event("the transmit characteristic received a data")
+            log.error("the transmit characteristic received a data")
+            log.debug("tx data \(String(describing: data))")
         }
         
         rxChar.notifyHandler = { [weak self] data in
@@ -42,19 +41,19 @@ final class DefaultBleCoreGate: NSObject {
             self?.handleRx(data: data)
         }
         
-        let service = try Service(
-            uuid: Constant.Ble.Commands.uuid,
+        let service = Service(
+            Constant.Ble.Commands.uuid,
             characteristics: [ txChar, rxChar ]
         )
         
-        let configuration = try Configuration(
-            services: [service],
-            advertisement: Constant.Ble.Commands.uuid
+        let configuration = Configuration(
+            Constant.Ble.Commands.uuid,
+            services: [service]
         )
         
         dAirPeripheral = Peripheral(configuration: configuration)
         
-        print("""
+        log.debug("""
             peripheral \(dAirPeripheral.isConnected) \(dAirPeripheral.configuration)
             \(rxChar.uuid)
             \(txChar.uuid)
@@ -63,17 +62,18 @@ final class DefaultBleCoreGate: NSObject {
     }
     
     private func sendTx(data: Data) {
-        print("sendRx \(data.hexEncodedString())")
+        log.operation("sendTx \(data.hexEncodedString())")
         dAirPeripheral.write(
             command: .data(data),
             characteristic: txChar,
             type: .withResponse
         ) { error in
             guard let error = error else {
-                print("Transmit suceeds")
+                log.success("sendTx")
                 return
             }
-            print("Transmit error: \(error)")
+            log.error("sendTx: \(error)")
+            log.failure("sendTx")
         }
     }
     
@@ -82,31 +82,39 @@ final class DefaultBleCoreGate: NSObject {
             print("Error: the receive haracteristic recieved no data")
             return
         }
-        print("handleRx \(data.hexEncodedString())")
+        log.debug("handleRx \(data.hexEncodedString())")
         
         let response: Detecta_Response
         do {
             response = try Detecta_Response(serializedData: data)
         } catch {
-            print("handleRx: \(error)")
+            log.error("handleRx: \(error)")
             return
         }
+        log.event("response session: \(response.sessionID), commandId: \(response.requestID)")
         
         guard let message = response.message else {
             let info = "session: \(response.sessionID), packet: \(response.requestID)"
-            print("handleRx message is nil, packetId: \(info)")
+            log.error("handleRx message is nil, packetId: \(info)")
             return
         }
         
         switch message {
         case .getContextValues(let values):
-            print("rx: getContextValues \(values.coPpm) \(values.tempCelsius)")
+            log.event("getContextValues \(values.timestamp) \(values.tempCelsius)")
             postContextChangesNotification(values: values)
-        case .setWifiState(let status):
-            print("rx: setWifiState \(status)")
             
-        default:
-            print("rx: other message")
+        case .setWifiState(let status):
+            log.event("setWifiState: \(status)")
+//            service(GuideInteractor.self).handleSetWifiCredsResponse(status: status.status)
+        
+        case .setWifiCreds(let status):
+            log.event("setWifiCreds: \(status)")
+            service(GuideInteractor.self).handleSetWifiCredsResponse(status: status.status)
+            
+        case .getWifiNetworkInfo(let info):
+            log.event("getWifiNetworkInfo: \(info.ipAddr), \(info.mDnsname), \(info.isConnected)")
+        
         }
     }
     
@@ -127,40 +135,48 @@ extension DefaultBleCoreGate: GateKeeper {
     func summon(
         infoDictionary: [String : Any]?,
         launchOptions: [AnyHashable : Any]?
-    ) throws {
-        try makeDAirPeripheral()
+    ) {
+        makeDAirPeripheral()
     }
     
-    func open() throws {
-        print("BleCoreGate open")
+    func open() {
+        log.debug("Ble open")
         
-        isOpen = true
-        
-        BluetoothConnection.shared.connect(dAirPeripheral) { error in
-            guard error == nil else {
-    
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
-                    
-                    try? self?.open()
-                }
-                print("connecting, got error \(String(describing: error))")
-                return
-            }
-            print("connected")
-        }
+        isConnecting = true
+        connect()
     }
     
     func close() {
-        print("BleCoreGate close")
+        log.operation("Ble close")
         
+        isConnecting = false
         isOpen = false
         
         if let peri = dAirPeripheral {
-            
             BluetoothConnection.shared.disconnect(peri)
-            try? makeDAirPeripheral()
+            makeDAirPeripheral()
         }
         BluetoothConnection.shared.stopScanning()
+    }
+    
+    private func connect() {
+        log.operation("Ble connect")
+        BluetoothConnection.shared.connect(dAirPeripheral) { [weak self] error in
+            guard let self = self, self.isConnecting else {
+                log.cancel("Ble connect - is Connecting false")
+                return
+            }
+            
+            guard error == nil else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) { [weak self] in
+                    self?.connect()
+                }
+                log.failure("Ble connect \(error)")
+                return
+            }
+            self.isOpen = true
+            log.success("Ble connect")
+        }
     }
 }
 

@@ -60,7 +60,7 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                         <state key="normal" title="+ Set up new Device ">
-                                                            <color key="titleColor" name="AirBlue"/>
+                                                            <color key="titleColor" name="ButtonTitle"/>
                                                         </state>
                                                         <connections>
                                                             <segue destination="thQ-xx-Rtd" kind="presentation" id="55M-i0-bEa"/>
@@ -148,8 +148,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="apNameField" destination="7TK-kW-Rix" id="N3m-kn-Yi7"/>
-                        <outlet property="apPassField" destination="OUm-Nq-DRY" id="eWd-bq-kMI"/>
                         <outlet property="scroll" destination="ZHc-hk-CNC" id="WC0-f4-F5P"/>
                         <outlet property="scrollContent" destination="lbx-vN-K2J" id="H7g-CI-yMd"/>
                         <outlet property="scrollPlaceholder" destination="bg3-EK-ORU" id="UI7-Eq-0XB"/>
@@ -170,16 +168,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-kW-Rix" customClass="NextResponderTextField" customModule="client" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-kW-Rix" customClass="NextResponderTextField" customModule="client" customModuleProvider="target">
                                 <rect key="frame" x="16" y="128" width="382" height="30"/>
                                 <color key="backgroundColor" name="FieldBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eOQ-Ma-c58"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
+                                <color key="textColor" name="AirBlue"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="username"/>
                                 <connections>
-                                    <outlet property="nextResponderField" destination="OUm-Nq-DRY" id="uK7-6f-Kmb"/>
+                                    <outlet property="nextResponderField" destination="OUm-Nq-DRY" id="zzX-p6-DJc"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name (SSID)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8I-Cv-fnl">
@@ -191,14 +190,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OUm-Nq-DRY" customClass="NextResponderTextField" customModule="client" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OUm-Nq-DRY" customClass="NextResponderTextField" customModule="client" customModuleProvider="target">
                                 <rect key="frame" x="16" y="215" width="382" height="30"/>
                                 <color key="backgroundColor" name="FieldBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="L7I-Qh-rg0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="address-line1"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plase enter wifi ssid and password to allow dAir connect to your wifi network" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHH-XY-3IO">
                                 <rect key="frame" x="20" y="275" width="374" height="48"/>
@@ -213,19 +213,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gw-4c-m5q">
-                                <rect key="frame" x="172.5" y="363" width="69" height="48"/>
+                                <rect key="frame" x="186.5" y="363" width="41" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" systemColor="systemGray4Color"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" name="ButtonTitle"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
                                         <integer key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" systemColor="systemBlueColor"/>
+                                        <color key="value" systemColor="systemGreenColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="goButtonDidTouchWithSender:" destination="thQ-xx-Rtd" eventType="touchUpInside" id="XKD-W9-qCG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWh-CS-Zo9">
                                 <rect key="frame" x="16" y="178" width="382" height="21"/>
@@ -261,6 +264,10 @@
                             <constraint firstItem="XHH-XY-3IO" firstAttribute="leading" secondItem="0x7-wm-hbq" secondAttribute="leading" constant="20" id="wWh-XU-7lH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passField" destination="OUm-Nq-DRY" id="EC8-cM-C3E"/>
+                        <outlet property="ssidField" destination="7TK-kW-Rix" id="JVz-br-dUG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM8-yf-wkS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,8 +286,8 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-Fire" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yg-4w-djo">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <color key="textColor" name="AirBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -300,7 +307,7 @@
                                         <rect key="frame" x="341" y="14.5" width="57" height="41"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <state key="normal" title="Prefs">
-                                            <color key="titleColor" red="0.5568627451" green="0.76470588240000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="ButtonTitle"/>
                                         </state>
                                         <connections>
                                             <segue destination="r2a-Em-pV8" kind="presentation" id="sVN-cF-mXF"/>
@@ -310,7 +317,7 @@
                                         <rect key="frame" x="181" y="14.5" width="52" height="41"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <state key="normal" title="Stop">
-                                            <color key="titleColor" red="0.5568627451" green="0.76470588240000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="ButtonTitle"/>
                                         </state>
                                         <connections>
                                             <action selector="didTouchStopWithSender:" destination="exM-pn-d8H" eventType="touchUpInside" id="mfE-X1-WaM"/>
@@ -320,14 +327,14 @@
                                         <rect key="frame" x="16" y="14.5" width="58" height="41"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                         <state key="normal" title="Clear">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="ButtonTitle"/>
                                         </state>
                                         <connections>
                                             <action selector="didTouchClearWithSender:" destination="exM-pn-d8H" eventType="touchUpInside" id="cYl-RJ-GMg"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="AirGray"/>
+                                <color key="backgroundColor" name="BarBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="xyY-RX-Q4w" secondAttribute="trailing" constant="16" id="792-ja-cjW"/>
                                     <constraint firstItem="dP8-Ye-iPR" firstAttribute="centerY" secondItem="JHt-Wp-Kjh" secondAttribute="centerY" id="7W8-ZB-8ck"/>
@@ -340,7 +347,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8P-jV-e15" userLabel="BottomPhoneXOutfit">
                                 <rect key="frame" x="0.0" y="862" width="414" height="34"/>
-                                <color key="backgroundColor" name="AirGray"/>
+                                <color key="backgroundColor" name="BarBackground"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8h-eQ-ss9" userLabel="CenterPlaceholder">
                                 <rect key="frame" x="0.0" y="99" width="414" height="693"/>
@@ -348,12 +355,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Measurements" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sI1-d5-FUL">
                                         <rect key="frame" x="16" y="120" width="382" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" name="AirBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4fp-lZ-tS5">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4fp-lZ-tS5">
                                         <rect key="frame" x="16" y="149.5" width="382" height="535.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="AirGray"/>
+                                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Prototype" rowHeight="100" id="OtW-VW-Fl2" customClass="MeasurementTableCell" customModule="client" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="382" height="100"/>
@@ -399,6 +407,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <color key="backgroundColor" name="AirGray"/>
                                                     <constraints>
                                                         <constraint firstItem="w2L-FT-p4c" firstAttribute="trailing" secondItem="M0V-xw-Tcu" secondAttribute="trailing" id="CXr-4J-8lX"/>
                                                         <constraint firstItem="w2L-FT-p4c" firstAttribute="top" secondItem="M0V-xw-Tcu" secondAttribute="bottom" constant="8" id="Dsp-cc-vQK"/>
@@ -491,7 +500,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R2F-VQ-NmF"/>
-                        <color key="backgroundColor" red="0.5568627451" green="0.76470588240000004" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="BarBackground"/>
                         <constraints>
                             <constraint firstItem="gFU-Io-BCL" firstAttribute="top" secondItem="R2F-VQ-NmF" secondAttribute="top" id="1id-xH-JMS"/>
                             <constraint firstItem="g8P-jV-e15" firstAttribute="leading" secondItem="iCh-s1-Rww" secondAttribute="leading" id="BFa-mr-9z2"/>
@@ -736,6 +745,12 @@ If you have a question or need help using the product, open a support ticket and
         <namedColor name="AirGray">
             <color red="0.49799999594688416" green="0.49799999594688416" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="BarBackground">
+            <color red="0.0" green="0.335999995470047" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ButtonTitle">
+            <color red="1" green="0.59399998188018799" blue="0.14399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="DeviceGuideBackground">
             <color red="0.23137254901960785" green="0.12941176470588237" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -743,16 +758,16 @@ If you have a question or need help using the product, open a support ticket and
             <color red="0.1803921568627451" green="0.11372549019607843" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="OptionsBackground">
-            <color red="0.22991090580221735" green="0.15886653878584137" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.22745098039215686" green="0.15686274509803921" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
