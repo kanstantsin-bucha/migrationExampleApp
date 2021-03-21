@@ -26,13 +26,13 @@ class DefaultGuideInteractor: GuideInteractor {
             log.failure("Connect Ble Device Wifi")
             return Promise<Void>.rejected(error: error)
         }
-        guard ssid.count < 15 && ssid.count > 0 else {
+        guard ssid.count <= 16 && ssid.count > 0 else {
             let error = GuideInteractorError.ssidInvalid
             log.error(error)
             log.failure("Connect Ble Device Wifi")
             return Promise<Void>.rejected(error: error)
         }
-        guard pass.count < 15 && pass.count > 0 else {
+        guard pass.count <= 16 && pass.count > 0 else {
             let error = GuideInteractorError.passInvalid
             log.error(error)
             log.failure("Connect Ble Device Wifi")
@@ -48,22 +48,26 @@ class DefaultGuideInteractor: GuideInteractor {
         } catch {
             return Promise<Void>.rejected(error: error)
         }
-        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(5)) { [weak self] in
-            if self?.connectBleDeviceWifiPromise === promise {
-                promise.reject(GuideInteractorError.timeout)
-                self?.connectBleDeviceWifiPromise = nil
+        DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(25)) { [weak self] in
+            onSerial {
+                if self?.connectBleDeviceWifiPromise === promise {
+                    promise.reject(GuideInteractorError.timeout)
+                    self?.connectBleDeviceWifiPromise = nil
+                }
             }
         }
         return promise
     }
     
     func handleSetWifiCredsResponse(status: Detecta_Response.ProcessingStatus) {
-        if !status.isError {
-            connectBleDeviceWifiPromise?.resolve(())
-        } else {
-            connectBleDeviceWifiPromise?.reject(status)
+        onSerial { [weak self] in
+            if !status.isError {
+                self?.connectBleDeviceWifiPromise?.resolve(())
+            } else {
+                self?.connectBleDeviceWifiPromise?.reject(status)
+            }
+            self?.connectBleDeviceWifiPromise = nil
         }
-        connectBleDeviceWifiPromise = nil
     }
     
     func checkConnectedDevice() -> Bool {

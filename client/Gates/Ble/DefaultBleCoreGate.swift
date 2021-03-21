@@ -193,7 +193,7 @@ extension DefaultBleCoreGate: BleTransmitter {
         ssid: String,
         pass: String
     ) throws {
-        guard ssid.count < 16 && pass.count < 16 else {
+        guard ssid.count <= 16 && pass.count <= 16 else {
             throw BleGateError.incosistentData
         }
         var wifiCreds = Detecta_Request.SetWifiCreds()

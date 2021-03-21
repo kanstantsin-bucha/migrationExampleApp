@@ -25,3 +25,9 @@ func onMain(closure: @escaping EmptyClosure) {
     }
     closure()
 }
+
+func onSerial(closure: @escaping EmptyClosure) {
+    onMain {
+        closure()
+    }
+}
