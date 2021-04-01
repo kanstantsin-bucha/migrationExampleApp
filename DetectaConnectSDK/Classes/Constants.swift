@@ -9,6 +9,10 @@
 import Foundation
 
 enum Constant {
+    enum Endpoint {
+        static let cloudServer = "http://detecta.group/api/1/"
+        static let measurements = "measurements"
+    }
     enum AppLink {
         static let supportUrl = URL(string: "http://detecta.group/support/")!
     }

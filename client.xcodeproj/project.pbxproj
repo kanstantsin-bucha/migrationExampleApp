@@ -7,45 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08167847256709830050D40C /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08167846256709830050D40C /* DataExtension.swift */; };
 		08723DC022AED8720088B8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723DBF22AED8720088B8ED /* AppDelegate.swift */; };
-		08723DC722AED8720088B8ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08723DC622AED8720088B8ED /* Assets.xcassets */; };
 		08723DCA22AED8720088B8ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08723DC822AED8720088B8ED /* LaunchScreen.storyboard */; };
-		08723DD522AED8730088B8ED /* clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723DD422AED8730088B8ED /* clientTests.swift */; };
-		08723E3022AEDA140088B8ED /* Collection+SafeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723DE522AEDA140088B8ED /* Collection+SafeIndex.swift */; };
-		08723E3322AEDA140088B8ED /* ActionTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723DEB22AEDA140088B8ED /* ActionTracker.swift */; };
-		08723E4A22AEDA140088B8ED /* NextResponderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E0F22AEDA140088B8ED /* NextResponderTextField.swift */; };
-		08723E4E22AEDA140088B8ED /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E1522AEDA140088B8ED /* ViewControllerFactory.swift */; };
-		08723E5022AEDA140088B8ED /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E1922AEDA140088B8ED /* SupportViewController.swift */; };
-		08723E5222AEDA140088B8ED /* MeasurementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E1B22AEDA140088B8ED /* MeasurementsViewController.swift */; };
-		08723E5422AEDA140088B8ED /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E1D22AEDA140088B8ED /* PreferencesViewController.swift */; };
-		08723E5522AEDA140088B8ED /* Views.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08723E1E22AEDA140088B8ED /* Views.storyboard */; };
-		08723E5F22AEDA140088B8ED /* GatesGuard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723E2A22AEDA140088B8ED /* GatesGuard.swift */; };
-		08738C75256984FE00DECF1C /* dAir.proto in Sources */ = {isa = PBXBuildFile; fileRef = 08738C73256984FE00DECF1C /* dAir.proto */; };
-		08738C76256984FE00DECF1C /* dAir.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08738C74256984FE00DECF1C /* dAir.pb.swift */; };
-		08738C842569BCF300DECF1C /* ContextValuesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08738C832569BCF300DECF1C /* ContextValuesExtension.swift */; };
-		08AD51A222C00EC2001F42DE /* MeasurementTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AD51A122C00EC2001F42DE /* MeasurementTableCell.swift */; };
-		08DB946822B66A330071A7B6 /* DefaultBleCoreGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB946722B66A330071A7B6 /* DefaultBleCoreGate.swift */; };
 		08DB946C22B6765E0071A7B6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DB946B22B6765E0071A7B6 /* CoreBluetooth.framework */; };
 		D251718724BEC797D93D6BC7 /* Pods_DetectaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FD51F008119362D75866AE /* Pods_DetectaConnect.framework */; };
 		E8DF10C91A99381D28A94528 /* Pods_DetectaConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE84BB7F6F4161121FDFE74 /* Pods_DetectaConnectTests.framework */; };
-		FE343CA025F1FADB0037087B /* WifiGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE343C9F25F1FADB0037087B /* WifiGuideViewController.swift */; };
-		FE343CB425F206A00037087B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE343CB325F206A00037087B /* Constants.swift */; };
-		FE3CA7E425ED6050009572DB /* Data+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3CA7E325ED6050009572DB /* Data+Hex.swift */; };
-		FE3CA7EA25ED64C8009572DB /* BleTransmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3CA7E925ED64C8009572DB /* BleTransmitter.swift */; };
-		FE3CA7F125ED6C8E009572DB /* BleGateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3CA7F025ED6C8E009572DB /* BleGateError.swift */; };
-		FE6B636525F639D0006C181E /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B636425F639D0006C181E /* AppLogger.swift */; };
-		FE6B636925F64797006C181E /* GuideInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B636825F64797006C181E /* GuideInteractor.swift */; };
-		FE6B636E25F648C3006C181E /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B636D25F648C3006C181E /* AppServices.swift */; };
-		FE6B638625F6525F006C181E /* BlueSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B638525F6525F006C181E /* BlueSwift+Extensions.swift */; };
-		FE6B639125F6600B006C181E /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B639025F6600A006C181E /* Future.swift */; };
-		FE6B639525F66088006C181E /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B639425F66088006C181E /* Promise.swift */; };
-		FE6B639A25F662D8006C181E /* GuideInteractorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B639925F662D8006C181E /* GuideInteractorError.swift */; };
-		FE6B63B125F666E9006C181E /* AlertRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B63B025F666E9006C181E /* AlertRouter.swift */; };
-		FE6B63B725F66719006C181E /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B63B625F66719006C181E /* AppRouter.swift */; };
-		FE6B63BF25F692E3006C181E /* WifiGuideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B63BE25F692E2006C181E /* WifiGuideViewModel.swift */; };
-		FE6B63C325F6999E006C181E /* AppDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B63C225F6999E006C181E /* AppDispatch.swift */; };
-		FE7B9CC125E44B770042F712 /* DetectaProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7B9CC025E44B770042F712 /* DetectaProto.swift */; };
+		FE0B4ED32614ED3500679E3A /* ApiUrlBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,29 +26,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08167846256709830050D40C /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		08723DBC22AED8720088B8ED /* DetectaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DetectaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08723DBF22AED8720088B8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		08723DC622AED8720088B8ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08723DC922AED8720088B8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08723DCB22AED8720088B8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08723DD022AED8730088B8ED /* DetectaConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DetectaConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		08723DD422AED8730088B8ED /* clientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clientTests.swift; sourceTree = "<group>"; };
 		08723DD622AED8730088B8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		08723DE522AEDA140088B8ED /* Collection+SafeIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeIndex.swift"; sourceTree = "<group>"; };
-		08723DEB22AEDA140088B8ED /* ActionTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTracker.swift; sourceTree = "<group>"; };
-		08723E0F22AEDA140088B8ED /* NextResponderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextResponderTextField.swift; sourceTree = "<group>"; };
-		08723E1522AEDA140088B8ED /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
-		08723E1922AEDA140088B8ED /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
-		08723E1B22AEDA140088B8ED /* MeasurementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementsViewController.swift; sourceTree = "<group>"; };
-		08723E1D22AEDA140088B8ED /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
-		08723E1E22AEDA140088B8ED /* Views.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Views.storyboard; sourceTree = "<group>"; };
-		08723E2A22AEDA140088B8ED /* GatesGuard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatesGuard.swift; sourceTree = "<group>"; };
-		08738C73256984FE00DECF1C /* dAir.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = dAir.proto; sourceTree = "<group>"; };
-		08738C74256984FE00DECF1C /* dAir.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAir.pb.swift; sourceTree = "<group>"; };
-		08738C832569BCF300DECF1C /* ContextValuesExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextValuesExtension.swift; sourceTree = "<group>"; };
-		08AD51A122C00EC2001F42DE /* MeasurementTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementTableCell.swift; sourceTree = "<group>"; };
-		08DB946722B66A330071A7B6 /* DefaultBleCoreGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBleCoreGate.swift; sourceTree = "<group>"; };
 		08DB946B22B6765E0071A7B6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		09C9CEEF01124754690558B0 /* Pods-DetectaConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetectaConnect.debug.xcconfig"; path = "Target Support Files/Pods-DetectaConnect/Pods-DetectaConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		0B38130826F638F35B8AA934 /* Pods-clientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-clientTests.release.xcconfig"; path = "Target Support Files/Pods-clientTests/Pods-clientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,23 +47,7 @@
 		9A56E22EB3DBC839E6BEBADB /* Pods-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.release.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.release.xcconfig"; sourceTree = "<group>"; };
 		ECE84BB7F6F4161121FDFE74 /* Pods_DetectaConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetectaConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86C399E25ABF5E9D7300C5E /* Pods-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.debug.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.debug.xcconfig"; sourceTree = "<group>"; };
-		FE343C9F25F1FADB0037087B /* WifiGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiGuideViewController.swift; sourceTree = "<group>"; };
-		FE343CB325F206A00037087B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		FE3CA7E325ED6050009572DB /* Data+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Hex.swift"; sourceTree = "<group>"; };
-		FE3CA7E925ED64C8009572DB /* BleTransmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleTransmitter.swift; sourceTree = "<group>"; };
-		FE3CA7F025ED6C8E009572DB /* BleGateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleGateError.swift; sourceTree = "<group>"; };
-		FE6B636425F639D0006C181E /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
-		FE6B636825F64797006C181E /* GuideInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideInteractor.swift; sourceTree = "<group>"; };
-		FE6B636D25F648C3006C181E /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
-		FE6B638525F6525F006C181E /* BlueSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueSwift+Extensions.swift"; sourceTree = "<group>"; };
-		FE6B639025F6600A006C181E /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
-		FE6B639425F66088006C181E /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
-		FE6B639925F662D8006C181E /* GuideInteractorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideInteractorError.swift; sourceTree = "<group>"; };
-		FE6B63B025F666E9006C181E /* AlertRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRouter.swift; sourceTree = "<group>"; };
-		FE6B63B625F66719006C181E /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		FE6B63BE25F692E2006C181E /* WifiGuideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiGuideViewModel.swift; sourceTree = "<group>"; };
-		FE6B63C225F6999E006C181E /* AppDispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDispatch.swift; sourceTree = "<group>"; };
-		FE7B9CC025E44B770042F712 /* DetectaProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectaProto.swift; sourceTree = "<group>"; };
+		FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlBuilderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,38 +71,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0816783C256709510050D40C /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				FE6B638F25F65FFC006C181E /* Futures */,
-				08723E0F22AEDA140088B8ED /* NextResponderTextField.swift */,
-				08723DE522AEDA140088B8ED /* Collection+SafeIndex.swift */,
-				08167846256709830050D40C /* DataExtension.swift */,
-				08738C832569BCF300DECF1C /* ContextValuesExtension.swift */,
-				FE3CA7E325ED6050009572DB /* Data+Hex.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		084F940D2569197F00056E5C /* Protobuf */ = {
-			isa = PBXGroup;
-			children = (
-				08738C74256984FE00DECF1C /* dAir.pb.swift */,
-				08738C73256984FE00DECF1C /* dAir.proto */,
-				FE7B9CC025E44B770042F712 /* DetectaProto.swift */,
-			);
-			path = Protobuf;
-			sourceTree = "<group>";
-		};
-		085839962561C20B00E3B882 /* Measurements */ = {
-			isa = PBXGroup;
-			children = (
-				08723E1B22AEDA140088B8ED /* MeasurementsViewController.swift */,
-				08AD51A122C00EC2001F42DE /* MeasurementTableCell.swift */,
-			);
-			path = Measurements;
-			sourceTree = "<group>";
-		};
 		08723DB322AED8720088B8ED = {
 			isa = PBXGroup;
 			children = (
@@ -192,17 +94,7 @@
 		08723DBE22AED8720088B8ED /* client */ = {
 			isa = PBXGroup;
 			children = (
-				FE343CB325F206A00037087B /* Constants.swift */,
-				08723DE622AEDA140088B8ED /* AppLogic */,
-				FE6B63AF25F666CC006C181E /* Router */,
-				FE6B636C25F647AB006C181E /* Interactors */,
-				08723E0B22AEDA140088B8ED /* Views */,
-				FE6B639825F662A0006C181E /* Errors */,
-				08723DF722AEDA140088B8ED /* Gates */,
-				0816783C256709510050D40C /* Utils */,
-				FE343CC725F20C010037087B /* Factories */,
-				084F940D2569197F00056E5C /* Protobuf */,
-				08723DC622AED8720088B8ED /* Assets.xcassets */,
+				08723DBF22AED8720088B8ED /* AppDelegate.swift */,
 				08723DC822AED8720088B8ED /* LaunchScreen.storyboard */,
 				08723DCB22AED8720088B8ED /* Info.plist */,
 			);
@@ -212,42 +104,10 @@
 		08723DD322AED8730088B8ED /* clientTests */ = {
 			isa = PBXGroup;
 			children = (
-				08723DD422AED8730088B8ED /* clientTests.swift */,
 				08723DD622AED8730088B8ED /* Info.plist */,
+				FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */,
 			);
 			path = clientTests;
-			sourceTree = "<group>";
-		};
-		08723DE622AEDA140088B8ED /* AppLogic */ = {
-			isa = PBXGroup;
-			children = (
-				08723DBF22AED8720088B8ED /* AppDelegate.swift */,
-				08723DEB22AEDA140088B8ED /* ActionTracker.swift */,
-				FE6B636425F639D0006C181E /* AppLogger.swift */,
-				FE6B636D25F648C3006C181E /* AppServices.swift */,
-				FE6B63C225F6999E006C181E /* AppDispatch.swift */,
-			);
-			path = AppLogic;
-			sourceTree = "<group>";
-		};
-		08723DF722AEDA140088B8ED /* Gates */ = {
-			isa = PBXGroup;
-			children = (
-				FE3CA7EF25ED6C75009572DB /* Ble */,
-				08723E2A22AEDA140088B8ED /* GatesGuard.swift */,
-			);
-			path = Gates;
-			sourceTree = "<group>";
-		};
-		08723E0B22AEDA140088B8ED /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				FE343CA625F1FB890037087B /* Preferences */,
-				FE343CA325F1FAE60037087B /* Guides */,
-				085839962561C20B00E3B882 /* Measurements */,
-				08723E1E22AEDA140088B8ED /* Views.storyboard */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		D36AF4BF910970CC83412B09 /* Frameworks */ = {
@@ -277,77 +137,6 @@
 				57A033627564AA0AA6E84F95 /* Pods-DetectaConnectTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		FE343CA325F1FAE60037087B /* Guides */ = {
-			isa = PBXGroup;
-			children = (
-				FE343C9F25F1FADB0037087B /* WifiGuideViewController.swift */,
-				FE6B63BE25F692E2006C181E /* WifiGuideViewModel.swift */,
-			);
-			path = Guides;
-			sourceTree = "<group>";
-		};
-		FE343CA625F1FB890037087B /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				08723E1922AEDA140088B8ED /* SupportViewController.swift */,
-				08723E1D22AEDA140088B8ED /* PreferencesViewController.swift */,
-			);
-			path = Preferences;
-			sourceTree = "<group>";
-		};
-		FE343CC725F20C010037087B /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				08723E1522AEDA140088B8ED /* ViewControllerFactory.swift */,
-			);
-			path = Factories;
-			sourceTree = "<group>";
-		};
-		FE3CA7EF25ED6C75009572DB /* Ble */ = {
-			isa = PBXGroup;
-			children = (
-				FE3CA7F025ED6C8E009572DB /* BleGateError.swift */,
-				08DB946722B66A330071A7B6 /* DefaultBleCoreGate.swift */,
-				FE3CA7E925ED64C8009572DB /* BleTransmitter.swift */,
-				FE6B638525F6525F006C181E /* BlueSwift+Extensions.swift */,
-			);
-			path = Ble;
-			sourceTree = "<group>";
-		};
-		FE6B636C25F647AB006C181E /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				FE6B636825F64797006C181E /* GuideInteractor.swift */,
-			);
-			path = Interactors;
-			sourceTree = "<group>";
-		};
-		FE6B638F25F65FFC006C181E /* Futures */ = {
-			isa = PBXGroup;
-			children = (
-				FE6B639025F6600A006C181E /* Future.swift */,
-				FE6B639425F66088006C181E /* Promise.swift */,
-			);
-			path = Futures;
-			sourceTree = "<group>";
-		};
-		FE6B639825F662A0006C181E /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				FE6B639925F662D8006C181E /* GuideInteractorError.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
-		FE6B63AF25F666CC006C181E /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				FE6B63B025F666E9006C181E /* AlertRouter.swift */,
-				FE6B63B625F66719006C181E /* AppRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,7 +196,6 @@
 					};
 					08723DCF22AED8730088B8ED = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = 08723DBB22AED8720088B8ED;
 					};
 				};
 			};
@@ -436,8 +224,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				08723DCA22AED8720088B8ED /* LaunchScreen.storyboard in Resources */,
-				08723DC722AED8720088B8ED /* Assets.xcassets in Resources */,
-				08723E5522AEDA140088B8ED /* Views.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,37 +322,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08723E5422AEDA140088B8ED /* PreferencesViewController.swift in Sources */,
-				FE7B9CC125E44B770042F712 /* DetectaProto.swift in Sources */,
-				08723E5022AEDA140088B8ED /* SupportViewController.swift in Sources */,
-				08723E4E22AEDA140088B8ED /* ViewControllerFactory.swift in Sources */,
-				FE6B63BF25F692E3006C181E /* WifiGuideViewModel.swift in Sources */,
-				FE3CA7EA25ED64C8009572DB /* BleTransmitter.swift in Sources */,
-				08723E3022AEDA140088B8ED /* Collection+SafeIndex.swift in Sources */,
-				FE343CB425F206A00037087B /* Constants.swift in Sources */,
-				FE6B63B125F666E9006C181E /* AlertRouter.swift in Sources */,
-				FE6B63B725F66719006C181E /* AppRouter.swift in Sources */,
-				08723E3322AEDA140088B8ED /* ActionTracker.swift in Sources */,
-				08738C842569BCF300DECF1C /* ContextValuesExtension.swift in Sources */,
-				08DB946822B66A330071A7B6 /* DefaultBleCoreGate.swift in Sources */,
-				FE6B638625F6525F006C181E /* BlueSwift+Extensions.swift in Sources */,
-				08AD51A222C00EC2001F42DE /* MeasurementTableCell.swift in Sources */,
-				FE6B639A25F662D8006C181E /* GuideInteractorError.swift in Sources */,
-				FE6B636525F639D0006C181E /* AppLogger.swift in Sources */,
-				08723E5F22AEDA140088B8ED /* GatesGuard.swift in Sources */,
-				FE6B639125F6600B006C181E /* Future.swift in Sources */,
-				FE343CA025F1FADB0037087B /* WifiGuideViewController.swift in Sources */,
-				08723E5222AEDA140088B8ED /* MeasurementsViewController.swift in Sources */,
-				08723E4A22AEDA140088B8ED /* NextResponderTextField.swift in Sources */,
-				FE3CA7F125ED6C8E009572DB /* BleGateError.swift in Sources */,
-				08738C76256984FE00DECF1C /* dAir.pb.swift in Sources */,
-				FE3CA7E425ED6050009572DB /* Data+Hex.swift in Sources */,
-				FE6B636925F64797006C181E /* GuideInteractor.swift in Sources */,
-				08167847256709830050D40C /* DataExtension.swift in Sources */,
-				FE6B639525F66088006C181E /* Promise.swift in Sources */,
-				08738C75256984FE00DECF1C /* dAir.proto in Sources */,
-				FE6B63C325F6999E006C181E /* AppDispatch.swift in Sources */,
-				FE6B636E25F648C3006C181E /* AppServices.swift in Sources */,
 				08723DC022AED8720088B8ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08723DD522AED8730088B8ED /* clientTests.swift in Sources */,
+				FE0B4ED32614ED3500679E3A /* ApiUrlBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,7 +520,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42CBF9867556C5E197DB0424 /* Pods-DetectaConnectTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = clientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -777,7 +531,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/client.app/client";
 			};
 			name = Debug;
 		};
@@ -785,7 +538,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 57A033627564AA0AA6E84F95 /* Pods-DetectaConnectTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = clientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -797,7 +549,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/client.app/client";
 			};
 			name = Release;
 		};

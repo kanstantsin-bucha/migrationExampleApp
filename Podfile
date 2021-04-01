@@ -7,12 +7,8 @@ workspace 'Client.xcworkspace'
 def shared_pods
     platform :ios, '13'
     use_frameworks!
-
-    pod 'CDBKit', '~> 1.4.1'
-    pod 'BuchaSwift', '~> 1.0'
     
-    pod 'BlueSwift'
-    pod 'SwiftProtobuf'
+    pod 'DetectaConnectSDK', :path => "."
 end
 
 target :'DetectaConnect' do

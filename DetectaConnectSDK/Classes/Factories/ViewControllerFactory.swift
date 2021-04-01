@@ -11,13 +11,14 @@ import UIKit
 
 class ViewFactory {
     static var viewTypes: UIStoryboard {
-        let result = UIStoryboard(name: "Views", bundle: nil)
+        let result = UIStoryboard(name: "Views", bundle: DConnect.resourcesBundle)
         return result
     }
     
     //MARK: - logic -
     
     static func loadView(id: String) -> UIViewController {
-        return viewTypes.instantiateViewController(withIdentifier: id)
+        let view = viewTypes.instantiateViewController(withIdentifier: id)
+        return view
     }
 }

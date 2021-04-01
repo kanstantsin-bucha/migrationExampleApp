@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import DetectaConnectSDK
+
+//let podBundle = NSBundle(forClass: MyKitImageRetriever.self) // or any other class within the pod. technically doesn't have the be the same as the current file, but good practice to
+//if let url = podBundle.URLForResource("MyKit", withExtension: "bundle"){   // leave the extension as "bundle"
+//    let mykitBundle = NSBundle(URL: url)
+//    let retrievedImage = UIImage(named: "theimagename", inBundle:mykitBundle, compatibleWithTraitCollection: nil)
+//    // now you have the image
+//}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        setupServices()
-        service(GatesKeeper.self).summonAll(launchOptions: launchOptions)
-
         window = UIWindow()
-        window?.rootViewController = ViewFactory.loadView(id: Constant.View.a.Values.id)
+        window?.rootViewController = DConnect.initialise()
         window?.makeKeyAndVisible()
         return true
     }
@@ -50,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-
         return false
     }
 

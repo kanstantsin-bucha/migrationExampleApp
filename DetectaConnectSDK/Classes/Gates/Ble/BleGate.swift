@@ -8,11 +8,10 @@
 
 import Foundation
 import BlueSwift
-import BuchaSwift
 import CoreBluetooth
 import SwiftProtobuf
 
-final class DefaultBleCoreGate: NSObject {
+final class BleGate {
     private(set) var isOpen = false
     private(set) var isConnecting = false
     
@@ -131,11 +130,8 @@ final class DefaultBleCoreGate: NSObject {
     }
 }
 
-extension DefaultBleCoreGate: GateKeeper {
-    func summon(
-        infoDictionary: [String : Any]?,
-        launchOptions: [AnyHashable : Any]?
-    ) {
+extension BleGate: GateKeeper {
+    func summon() {
         makeDAirPeripheral()
     }
     
@@ -180,7 +176,7 @@ extension DefaultBleCoreGate: GateKeeper {
     }
 }
 
-extension DefaultBleCoreGate: BleTransmitter {
+extension BleGate: BleTransmitter {
     func requestSetWifiState(isEnabled: Bool) throws {
         var wifiState = Detecta_Request.SetWifiState()
         wifiState.isEnabled = isEnabled

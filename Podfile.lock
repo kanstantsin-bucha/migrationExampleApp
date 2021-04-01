@@ -1,36 +1,27 @@
 PODS:
   - BlueSwift (1.0.5)
-  - BuchaSwift (1.1.1)
-  - CDBKit (1.4.6):
-    - CDBKit/Array (= 1.4.6)
-    - CDBKit/Core (= 1.4.6)
-    - CDBKit/Localize (= 1.4.6)
-    - CDBKit/UI (= 1.4.6)
-  - CDBKit/Array (1.4.6)
-  - CDBKit/Core (1.4.6)
-  - CDBKit/Localize (1.4.6)
-  - CDBKit/UI (1.4.6)
+  - DetectaConnectSDK (0.1.0):
+    - BlueSwift
+    - SwiftProtobuf
   - SwiftProtobuf (1.15.0)
 
 DEPENDENCIES:
-  - BlueSwift
-  - BuchaSwift (~> 1.0)
-  - CDBKit (~> 1.4.1)
-  - SwiftProtobuf
+  - DetectaConnectSDK (from `.`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - BlueSwift
-    - BuchaSwift
-    - CDBKit
     - SwiftProtobuf
+
+EXTERNAL SOURCES:
+  DetectaConnectSDK:
+    :path: "."
 
 SPEC CHECKSUMS:
   BlueSwift: b6c3e75870ab82d5d0c8043e66aae2bfa1a2945b
-  BuchaSwift: 98d6f2da293c7a2ec48407df6a54768858e75c9d
-  CDBKit: d24cdc2039baaf27e1eabe9b024997a3fd8bc1fe
+  DetectaConnectSDK: 3ff7c3a32d6ad7a87415ff239285ee5de2519507
   SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
 
-PODFILE CHECKSUM: 3d3a289fa45df3eb47b609f370d578a7ac146afc
+PODFILE CHECKSUM: 1b392490b99cc29ce71ac42351e9f9916654f453
 
 COCOAPODS: 1.10.1
