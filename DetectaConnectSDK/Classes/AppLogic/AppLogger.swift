@@ -8,56 +8,80 @@
 
 import Foundation
 
-let log = Logger()
+let log: Logging = Logger()
 
-struct Logger {
-    func error(_ error: Error) {
-        printLog(error.localizedDescription, level: .error)
+protocol Logging {
+    func printLog(_ statement: String, level: LogType, prefix: String)
+    
+    func error(_ error: Error, prefix: String)
+    func error(_ message: String, prefix: String)
+    func warning(_ message: String, prefix: String)
+    func debug(_ message: String, prefix: String)
+    // MARK: - here are user actions
+    
+    func user(_ message: String, prefix: String)
+    func event(_ message: String, prefix: String)
+    
+    // MARK: - here are operations
+    
+    func operation(_ message: String, prefix: String)
+    func success(_ message: String, prefix: String)
+    func failure(_ message: String, prefix: String)
+    func cancel(_ message: String, prefix: String)
+}
+
+extension Logging {
+    func error(_ error: Error, prefix: String = #file) {
+        printLog(error.localizedDescription, level: .error, prefix: prefix)
     }
     
-    func error(_ message: String) {
-        printLog(message, level: .error)
+    func error(_ message: String, prefix: String = #file) {
+        printLog(message, level: .error, prefix: prefix)
     }
     
-    func warning(_ message: String) {
-        printLog(message, level: .warning)
+    func warning(_ message: String, prefix: String = #file) {
+        printLog(message, level: .warning, prefix: prefix)
     }
     
-    func debug(_ message: String) {
-        printLog(message, level: .debug)
+    func debug(_ message: String, prefix: String = #file) {
+        printLog(message, level: .debug, prefix: prefix)
     }
     
     // MARK: - here are user actions
     
-    func user(_ message: String) {
-        printLog(message, level: .userAction)
+    func user(_ message: String, prefix: String = #file) {
+        printLog(message, level: .userAction, prefix: prefix)
     }
     
-    func event(_ message: String) {
-        printLog(message, level: .event)
+    func event(_ message: String, prefix: String = #file) {
+        printLog(message, level: .event, prefix: prefix)
     }
     
     // MARK: - here are operations
     
-    func operation(_ message: String) {
-        printLog(message, level: .operation)
+    func operation(_ message: String, prefix: String = #file) {
+        printLog(message, level: .operation, prefix: prefix)
     }
     
-    func success(_ message: String) {
-        printLog(message, level: .success)
+    func success(_ message: String, prefix: String = #file) {
+        printLog(message, level: .success, prefix: prefix)
     }
     
-    func failure(_ message: String) {
-        printLog(message, level: .failure)
+    func failure(_ message: String, prefix: String = #file) {
+        printLog(message, level: .failure, prefix: prefix)
     }
     
-    func cancel(_ message: String) {
-        printLog(message, level: .cancel)
+    func cancel(_ message: String, prefix: String = #file) {
+        printLog(message, level: .cancel, prefix: prefix)
     }
+}
+
+struct Logger: Logging {
     
     // MARK: - Private methods
     
-    private func printLog(_ message: String, level: LogType) {
+    func printLog(_ statement: String, level: LogType, prefix: String) {
+        let message = truncated(prefix) + " " + statement
         switch level {
         case LogType.error:
             print("⛔️ \(message)")
@@ -91,9 +115,22 @@ struct Logger {
             print("⬜️ \(message)")
         }
     }
+    
+    // MARK: - Private methods
+    
+    private func truncated(_ prefix: String) -> String {
+        guard var index = prefix.lastIndex(of: "/") else {
+            return prefix
+        }
+
+        if index != prefix.endIndex {
+            index =  prefix.index(after: index)
+        }
+        return String(prefix.suffix(from: index))
+    }
 }
 
-fileprivate enum LogType {
+enum LogType {
     case error
     case warning
     case debug
