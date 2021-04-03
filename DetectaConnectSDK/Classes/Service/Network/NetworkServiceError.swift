@@ -8,16 +8,20 @@
 import Foundation
 
 enum NetworkServiceError: Error {
-    case noData
-    case invalidResultType
+    case noResponseData
+    case failedHttpCode
+    case dataConversionFailed
 }
 
 extension NetworkServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .noData:
-            return "No data received from the server"
-            
+        case .noResponseData:
+            return "No http data received from the server"
+        case .failedHttpCode:
+            return "Request has failed http code"
+        case .dataConversionFailed:
+            return "The data have incorrect format"
         }
     }
 }

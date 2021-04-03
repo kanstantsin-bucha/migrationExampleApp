@@ -8,8 +8,16 @@
 
 import Foundation
 
-func service<T>(_ type: T.Type) -> T {
+public func service<T>(_ type: T.Type) -> T {
     locator.service(type: type)
+}
+
+public func addService(_ type: Any.Type, impl: AnyObject) {
+    locator.addService(type, impl: impl)
+}
+
+public func removeAllServices() {
+    locator.removeAll()
 }
 
 func setupServices() {
@@ -17,7 +25,8 @@ func setupServices() {
         (GatesKeeper.self, DefaultGatesKeeper()),
         (GuideInteractor.self, DefaultGuideInteractor()),
         (AppRouter.self, DefaultAppRouter()),
-        (AlertRouter.self, DefaultAlertRouter())
+        (AlertRouter.self, DefaultAlertRouter()),
+        (NetworkService.self, DefaultNetworkService())
     ])
 }
 
@@ -40,5 +49,9 @@ fileprivate class ServiceLocator {
     
     private func key(type: Any.Type) -> String {
         return "\(type.self)"
+    }
+    
+    func removeAll() {
+        list = [:]
     }
 }

@@ -10,7 +10,7 @@
 
 import Foundation
 
-class Future<Value> {
+public class Future<Value> {
     typealias Result = Swift.Result<Value, Error>
     
     fileprivate var result: Result? {
