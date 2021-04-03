@@ -11,6 +11,7 @@ import Foundation
 protocol GatesKeeper {
     func summonAll()
     var bleGate: GateKeeper & BleTransmitter { get }
+    var cloudGate: DetectaCloudGate { get }
 }
 
 protocol GateKeeper {
@@ -23,6 +24,7 @@ protocol GateKeeper {
 
 class DefaultGatesKeeper: GatesKeeper {
     let bleGate: GateKeeper & BleTransmitter = BleGate()
+    let cloudGate: DetectaCloudGate = DetectaCloudGate()
     
     func summonAll() {
         bleGate.summon()

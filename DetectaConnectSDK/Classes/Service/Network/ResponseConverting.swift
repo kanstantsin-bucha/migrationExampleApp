@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+public protocol ResponseConverting {
+    associatedtype Value
+    func convert(data: Data?, response: HTTPURLResponse) -> Result<Value, Error>
+}

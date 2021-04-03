@@ -12,6 +12,8 @@
 		08DB946C22B6765E0071A7B6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DB946B22B6765E0071A7B6 /* CoreBluetooth.framework */; };
 		D251718724BEC797D93D6BC7 /* Pods_DetectaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12FD51F008119362D75866AE /* Pods_DetectaConnect.framework */; };
 		E8DF10C91A99381D28A94528 /* Pods_DetectaConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE84BB7F6F4161121FDFE74 /* Pods_DetectaConnectTests.framework */; };
+		FE05EC082618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */; };
+		FE05EC312618FB1300449D5C /* DetectaCloudGateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */; };
 		FE0B4ED32614ED3500679E3A /* ApiUrlBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		9A56E22EB3DBC839E6BEBADB /* Pods-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.release.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.release.xcconfig"; sourceTree = "<group>"; };
 		ECE84BB7F6F4161121FDFE74 /* Pods_DetectaConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetectaConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86C399E25ABF5E9D7300C5E /* Pods-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-client.debug.xcconfig"; path = "Target Support Files/Pods-client/Pods-client.debug.xcconfig"; sourceTree = "<group>"; };
+		FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder_DetectaCloud_Test.swift; sourceTree = "<group>"; };
+		FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectaCloudGateTests.swift; sourceTree = "<group>"; };
 		FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlBuilderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +110,8 @@
 			children = (
 				08723DD622AED8730088B8ED /* Info.plist */,
 				FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */,
+				FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */,
+				FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */,
 			);
 			path = clientTests;
 			sourceTree = "<group>";
@@ -330,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE05EC312618FB1300449D5C /* DetectaCloudGateTests.swift in Sources */,
+				FE05EC082618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift in Sources */,
 				FE0B4ED32614ED3500679E3A /* ApiUrlBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,31 @@
 
 import Foundation
 
-class DetectaCloudGate {
+fileprivate typealias c = DetectaCloud
+
+public class DetectaCloudGate {
+    private let converter = DetectaCloudResponseConverter()
+    private var cloudBuilder: ApiUrlBuilder { ApiUrlBuilder(c.Endpoint.cloudServer) }
     
-    init() {
+    public init() {}
+    
+    public func fetchLastContext() {
+        service(NetworkService.self).load(url: lastContext(), converter: converter)
+            .onSuccess { value in
+                
+            }
+            .onFailure { error in
+                
+            }
     }
     
+    private func lastContext() -> URL {
+        cloudBuilder
+            .addPath(path: c.Endpoint.measurements)
+            .addQuery(name: c.Query.limit, value: 1)
+            .addQuery(name: c.Query.sort, field: c.Field.timestamp, value: c.Order.descending)
+            .url()
+    }
 }
 
 extension DetectaCloudGate: GateKeeper {
