@@ -10,16 +10,22 @@ import Foundation
 
 
 struct DetectaCloudResponseConverter: ResponseConverting {
-    typealias Value = String
+    typealias Value = CloudContext
     
     func convert(data: Data?, response: HTTPURLResponse) -> Result<Value, Error> {
         let isSucceed = (200..<299).contains(response.statusCode)
         guard isSucceed else {
             return .failure(NetworkServiceError.failedHttpCode)
         }
-        guard let data = data,
-              let value = String(data: data, encoding: .utf8) else {
+        guard let data = data else {
             return .failure(NetworkServiceError.dataConversionFailed)
+        }
+        
+        let value: CloudContext
+        do {
+            value = try JSONDecoder().decode(CloudContext.self, from: data)
+        } catch {
+            return .failure(error)
         }
         return .success(value)
     }

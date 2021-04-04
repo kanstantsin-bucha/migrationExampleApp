@@ -9,13 +9,6 @@
 import UIKit
 import DetectaConnectSDK
 
-//let podBundle = NSBundle(forClass: MyKitImageRetriever.self) // or any other class within the pod. technically doesn't have the be the same as the current file, but good practice to
-//if let url = podBundle.URLForResource("MyKit", withExtension: "bundle"){   // leave the extension as "bundle"
-//    let mykitBundle = NSBundle(URL: url)
-//    let retrievedImage = UIImage(named: "theimagename", inBundle:mykitBundle, compatibleWithTraitCollection: nil)
-//    // now you have the image
-//}
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?

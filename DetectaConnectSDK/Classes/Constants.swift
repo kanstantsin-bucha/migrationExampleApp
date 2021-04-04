@@ -29,27 +29,4 @@ enum Constant {
             }
         }
     }
-    enum View {
-        enum Group {
-            enum Guide {
-                enum WiFi {
-                    static let id = "wifi-guide"
-                }
-            }
-        }
-        enum a {
-            enum Preferences {
-                static let id = "preferences"
-                enum Segue {
-                    static let showPreferences = "showPreferences"
-                }
-            }
-            enum Suport {
-                static let id = "support"
-            }
-            enum Values {
-                static let id = "values"
-            }
-        }
-    }
 }

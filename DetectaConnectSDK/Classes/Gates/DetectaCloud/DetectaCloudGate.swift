@@ -16,14 +16,8 @@ public class DetectaCloudGate {
     
     public init() {}
     
-    public func fetchLastContext() {
-        service(NetworkService.self).load(url: lastContext(), converter: converter)
-            .onSuccess { value in
-                
-            }
-            .onFailure { error in
-                
-            }
+    public func fetchLastContext() -> Future<CloudContext> {
+        return service(NetworkService.self).load(url: lastContext(), converter: converter)
     }
     
     private func lastContext() -> URL {

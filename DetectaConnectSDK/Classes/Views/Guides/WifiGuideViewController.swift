@@ -63,11 +63,13 @@ final class WifiGuideViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        service(GatesKeeper.self).bleGate.open()
         checkDevice()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         service(AppRouter.self).hideSpinner()
+        service(GatesKeeper.self).bleGate.close()
         super.viewDidDisappear(animated)
     }
     

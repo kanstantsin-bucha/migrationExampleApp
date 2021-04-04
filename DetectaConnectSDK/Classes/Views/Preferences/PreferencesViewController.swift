@@ -54,7 +54,6 @@ class PreferencesViewController: UIViewController {
         
         populateDataWithBle()
         registerKeyboardNotifications()
-        service(GatesKeeper.self).cloudGate.fetchLastContext()
     }
     
     override func viewDidAppear(_ animated: Bool) {

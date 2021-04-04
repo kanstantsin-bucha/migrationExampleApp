@@ -21,4 +21,12 @@ class ViewFactory {
         let view = viewTypes.instantiateViewController(withIdentifier: id)
         return view
     }
+    
+    static func loadView(nibName: String, owner: UIView) -> UIView {
+        let nib = UINib(nibName: nibName, bundle: DConnect.resourcesBundle)
+        guard let view = nib.instantiate(withOwner: owner, options: nil).first as? UIView else {
+            preconditionFailure("Failed to load view: \(nibName), owner: \(owner)")
+        }
+        return view
+    }
 }

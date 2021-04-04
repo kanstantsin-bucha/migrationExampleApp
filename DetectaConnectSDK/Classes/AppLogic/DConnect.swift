@@ -12,7 +12,7 @@ public class DConnect {
     public static func initialise() -> UIViewController {
         setupServices()
         service(GatesKeeper.self).summonAll()
-        return ViewFactory.loadView(id: Constant.View.a.Values.id)
+        return ViewFactory.loadView(id: View.root)
     }
     
     public static var resourcesBundle: Bundle {
