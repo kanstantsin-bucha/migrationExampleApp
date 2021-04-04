@@ -24,7 +24,7 @@ public class DetectaCloudGate {
         cloudBuilder
             .addPath(path: c.Endpoint.measurements)
             .addQuery(name: c.Query.limit, value: 1)
-            .addQuery(name: c.Query.sort, field: c.Field.timestamp, value: c.Order.descending)
+            .addQuery(name: c.Query.sort, field: c.Field.createdAt, value: c.Order.descending)
             .url()
     }
 }

@@ -14,10 +14,8 @@ enum DetectaCloud {
         static let measurements = "measurements"
     }
     enum Field {
-        static let cloudCreated = "created"
-        static let deviceMillis = "d_millis"
-        static let deviceUnixTime = "d_unix_t"
-        static let timestamp = "timestamp"
+        static let createdAt = "createdAt" // cloud created field
+        static let millis = "millis"
     }
     enum Query {
         static let limit = "$limit"
