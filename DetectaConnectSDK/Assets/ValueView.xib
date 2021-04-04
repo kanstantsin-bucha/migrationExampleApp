@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,16 +21,16 @@
             <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maY-gc-3zC" userLabel="Value">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="75" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="maY-gc-3zC" userLabel="Value">
                     <rect key="frame" x="0.0" y="34" width="130" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="6mu-HU-rUv"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ppm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5z-50-nq0" userLabel="Unit">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ppm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="n5z-50-nq0" userLabel="Unit">
                     <rect key="frame" x="0.0" y="72" width="130" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="izr-HW-QbF"/>
@@ -40,18 +39,18 @@
                     <color key="textColor" name="AirGray"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7du-AG-gl6" userLabel="Title">
-                    <rect key="frame" x="0.0" y="100" width="130" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7du-AG-gl6" userLabel="Title">
+                    <rect key="frame" x="0.0" y="124" width="130" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="6ch-cz-XuG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemGreenColor"/>
+            <color key="backgroundColor" red="0.4626281444088538" green="1" blue="0.58961648036139724" alpha="0.30181760204081631" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="7du-AG-gl6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="n5z-50-nq0" secondAttribute="bottom" id="8IG-PM-WnW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="maY-gc-3zC" secondAttribute="trailing" id="9Qd-k8-p8h"/>
@@ -59,7 +58,7 @@
                 <constraint firstItem="7du-AG-gl6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="KWP-zC-r93"/>
                 <constraint firstItem="maY-gc-3zC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QVg-Hl-8d8"/>
                 <constraint firstItem="n5z-50-nq0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TKy-pS-a0c"/>
-                <constraint firstAttribute="bottom" secondItem="7du-AG-gl6" secondAttribute="bottom" id="YNX-FU-87G"/>
+                <constraint firstAttribute="bottom" secondItem="7du-AG-gl6" secondAttribute="bottom" constant="-24" id="YNX-FU-87G"/>
                 <constraint firstItem="maY-gc-3zC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.75" id="atS-gf-JTg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7du-AG-gl6" secondAttribute="trailing" id="bFO-8S-JUr"/>
                 <constraint firstItem="n5z-50-nq0" firstAttribute="top" secondItem="maY-gc-3zC" secondAttribute="bottom" constant="8" id="hrz-iw-svW"/>
@@ -72,8 +71,5 @@
         <namedColor name="AirGray">
             <color red="0.49799999594688416" green="0.49799999594688416" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

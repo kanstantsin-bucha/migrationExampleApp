@@ -13,6 +13,13 @@ class ValueView: UIView {
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    
+    override var bounds: CGRect {
+        didSet {
+            // Make it round
+            contentView.layer.cornerRadius = contentView.frame.size.width / 2
+        }
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -20,7 +27,6 @@ class ValueView: UIView {
         let nibName = String(describing: type(of: self))
         contentView = ViewFactory.loadView(nibName: nibName, owner: self)
         contentView.frame = self.bounds
-        contentView.layer.cornerRadius = 30
         self.addSubview(contentView)
     }
     
