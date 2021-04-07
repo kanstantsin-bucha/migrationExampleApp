@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         window = UIWindow()
+        window?.backgroundColor = .white
         window?.rootViewController = DConnect.initialise()
         window?.makeKeyAndVisible()
         return true

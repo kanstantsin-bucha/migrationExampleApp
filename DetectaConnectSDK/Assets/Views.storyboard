@@ -162,11 +162,11 @@
             <objects>
                 <viewController storyboardIdentifier="wifi-guide" id="thQ-xx-Rtd" customClass="WifiGuideViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ueg-iB-zkt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-kW-Rix" customClass="NextResponderTextField" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                <rect key="frame" x="16" y="216" width="382" height="30"/>
+                                <rect key="frame" x="16" y="128" width="382" height="30"/>
                                 <color key="backgroundColor" name="FieldBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eOQ-Ma-c58"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name (SSID)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8I-Cv-fnl">
-                                <rect key="frame" x="16" y="179" width="382" height="21"/>
+                                <rect key="frame" x="16" y="91" width="382" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9cE-fQ-6cB"/>
                                 </constraints>
@@ -188,7 +188,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OUm-Nq-DRY" customClass="NextResponderTextField" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                <rect key="frame" x="16" y="303" width="382" height="30"/>
+                                <rect key="frame" x="16" y="215" width="382" height="30"/>
                                 <color key="backgroundColor" name="FieldBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="L7I-Qh-rg0"/>
@@ -198,20 +198,20 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHH-XY-3IO">
-                                <rect key="frame" x="20" y="363" width="374" height="95.5"/>
+                                <rect key="frame" x="20" y="275" width="374" height="95.5"/>
                                 <string key="text">Plase touch button on device. The LED color shoul became blue after a while. Spinner will disapper and you can enter Name and Pass of yours WiFi network.</string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" name="AirBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to WiFi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jua-Ww-r9U">
-                                <rect key="frame" x="97" y="110" width="220" height="39"/>
+                                <rect key="frame" x="97" y="22" width="220" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" name="AirBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gw-4c-m5q">
-                                <rect key="frame" x="186.5" y="498.5" width="41" height="48"/>
+                                <rect key="frame" x="186.5" y="410.5" width="41" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <state key="normal" title="Go">
                                     <color key="titleColor" name="ButtonTitle"/>
@@ -229,7 +229,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWh-CS-Zo9">
-                                <rect key="frame" x="16" y="266" width="382" height="21"/>
+                                <rect key="frame" x="16" y="178" width="382" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="md4-sW-7hC"/>
                                 </constraints>
@@ -536,11 +536,11 @@
             <objects>
                 <viewController storyboardIdentifier="ContextViewController" id="b37-CM-glZ" customClass="ContextViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AX9-8H-NjW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fnd-9t-SRj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZK4-ai-1xz" userLabel="DeviceDescription">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
@@ -821,17 +821,17 @@ If you have a question or need help using the product, open a support ticket and
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="Fem-m7-6a6" customClass="HomeViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VQW-16-cmQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User home label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-lt-01K">
-                                <rect key="frame" x="24" y="104" width="328" height="29"/>
+                                <rect key="frame" x="24" y="16" width="328" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfa-HI-SSx">
-                                <rect key="frame" x="368" y="92.5" width="30" height="52"/>
+                                <rect key="frame" x="368" y="4.5" width="30" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <state key="normal" title="+"/>
                                 <connections>
@@ -839,11 +839,11 @@ If you have a question or need help using the product, open a support ticket and
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfF-58-XuY">
-                                <rect key="frame" x="215" y="182" width="183" height="30"/>
+                                <rect key="frame" x="215" y="94" width="183" height="30"/>
                                 <state key="normal" title="Rooms"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-p5-7ZC">
-                                <rect key="frame" x="16" y="228" width="382" height="618"/>
+                                <rect key="frame" x="16" y="140" width="382" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="whY-Jg-FWc">
                                     <size key="itemSize" width="120" height="80"/>
@@ -878,13 +878,13 @@ If you have a question or need help using the product, open a support ticket and
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="home environment info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPH-YY-1PL">
-                                <rect key="frame" x="24" y="137" width="328" height="21"/>
+                                <rect key="frame" x="24" y="49" width="328" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkb-HG-vna">
-                                <rect key="frame" x="16" y="182" width="183" height="30"/>
+                                <rect key="frame" x="16" y="94" width="183" height="30"/>
                                 <state key="normal" title="Devices"/>
                             </button>
                         </subviews>
@@ -928,9 +928,11 @@ If you have a question or need help using the product, open a support ticket and
             <objects>
                 <navigationController storyboardIdentifier="rootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rpf-BR-Qox">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

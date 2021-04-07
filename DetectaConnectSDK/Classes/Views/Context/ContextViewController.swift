@@ -18,10 +18,10 @@ class ContextViewController: UIViewController {
     
     private var temperatureModel: ValueUnitModel = TemperatureValueUnitModel()
     private var humidityModel: ValueUnitModel = HumidityValueUnitModel()
-    private var pressureModel: ValueUnitModel = HumidityValueUnitModel()
-    private var coPpmModel: ValueUnitModel = HumidityValueUnitModel()
-    private var co2Model: ValueUnitModel = HumidityValueUnitModel()
-    private var vocModel: ValueUnitModel = HumidityValueUnitModel()
+    private var pressureModel: ValueUnitModel = PressureValueUnitModel()
+    private var co2PpmModel: ValueUnitModel = COValueUnitModel()
+    private var coPpmModel: ValueUnitModel = CO2ValueUnitModel()
+    private var vocPpmModel: ValueUnitModel = VocValueUnitModel()
     private var valueViews: [ValueView] = []
     
     private var isUpdating = false
@@ -55,8 +55,8 @@ class ContextViewController: UIViewController {
         valueView2.add(model: humidityModel)
         valueView3.add(model: pressureModel)
         valueView4.add(model: coPpmModel)
-        valueView5.add(model: co2Model)
-        valueView6.add(model: vocModel)
+        valueView5.add(model: co2PpmModel)
+        valueView6.add(model: vocPpmModel)
     }
     
     private func update() {
@@ -77,8 +77,8 @@ class ContextViewController: UIViewController {
                 self?.humidityModel.update(value: context.humidity)
                 self?.pressureModel.update(value: Float(context.pressureKPa))
                 self?.coPpmModel.update(value: context.coPpm)
-                self?.co2Model.update(value: context.coPpm)
-                self?.vocModel.update(value: context.coPpm)
+                self?.co2PpmModel.update(value: context.coPpm)
+                self?.vocPpmModel.update(value: context.coPpm)
                 onMain {
                     self?.iaqValueLabel.text = String(format: "%.0f", context.iaq)
                     self?.valueViews.forEach { view in
@@ -92,5 +92,4 @@ class ContextViewController: UIViewController {
                 }
             }
     }
-    
 }
