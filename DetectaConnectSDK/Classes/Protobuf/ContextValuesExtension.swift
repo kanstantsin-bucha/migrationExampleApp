@@ -12,9 +12,7 @@ extension ContextValues: CustomDebugStringConvertible {
     public var debugDescription: String {
         
         return """
-            <ContextValues timestamp: \(timestamp), freeHeap:\(freeHeap),
-            deviceStateMask \(deviceStateMask), alarmStateMask \(alarmStateMask)
-            powerSourceStateMask \(powerSourceStateMask), busVoltage \(busVoltage),
+            <ContextValues millis: \(millis), busVoltage \(busVoltage),
             coZeroV \(coZeroV), coV \(coV), coPpm \(coPpm),
             tempCelsius \(tempCelsius), pressurePa \(pressurePa), humidity \(humidity),
             gasResistance \(gasResistance), iaq \(iaq), staticIaq \(staticIaq),

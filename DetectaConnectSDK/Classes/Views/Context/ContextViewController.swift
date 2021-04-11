@@ -16,11 +16,13 @@ class ContextViewController: UIViewController {
     @IBOutlet var valueView6: ValueView!
     @IBOutlet var iaqValueLabel: UILabel!
     
+    var token: String!
+    
     private var temperatureModel: ValueUnitModel = TemperatureValueUnitModel()
     private var humidityModel: ValueUnitModel = HumidityValueUnitModel()
     private var pressureModel: ValueUnitModel = PressureValueUnitModel()
-    private var co2PpmModel: ValueUnitModel = COValueUnitModel()
-    private var coPpmModel: ValueUnitModel = CO2ValueUnitModel()
+    private var co2PpmModel: ValueUnitModel = CO2ValueUnitModel()
+    private var coPpmModel: ValueUnitModel = COValueUnitModel()
     private var vocPpmModel: ValueUnitModel = VocValueUnitModel()
     private var valueViews: [ValueView] = []
     
@@ -68,17 +70,17 @@ class ContextViewController: UIViewController {
     }
     
     private func fetch() {
-        service(GatesKeeper.self).cloudGate.fetchLastContext()
+        service(GatesKeeper.self).cloudGate.fetchLastContext(token: token)
             .onSuccess { [weak self] result in
                 guard let context = result.data.first?.context else {
                     return
                 }
                 self?.temperatureModel.update(value: context.tempCelsius)
                 self?.humidityModel.update(value: context.humidity)
-                self?.pressureModel.update(value: Float(context.pressureKPa))
+                self?.pressureModel.update(value: context.pressurePa)
                 self?.coPpmModel.update(value: context.coPpm)
-                self?.co2PpmModel.update(value: context.coPpm)
-                self?.vocPpmModel.update(value: context.coPpm)
+                self?.co2PpmModel.update(value: context.co2Equivalent)
+                self?.vocPpmModel.update(value: context.breathVocEquivalent)
                 onMain {
                     self?.iaqValueLabel.text = String(format: "%.0f", context.iaq)
                     self?.valueViews.forEach { view in

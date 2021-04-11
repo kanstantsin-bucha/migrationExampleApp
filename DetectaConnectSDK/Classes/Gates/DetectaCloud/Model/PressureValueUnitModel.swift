@@ -15,6 +15,6 @@ class PressureValueUnitModel: ValueUnitModel {
     private var valueNum: Float = 0
     
     func update(value: Float) {
-        valueNum = value
+        valueNum = value / 1000
     }
 }

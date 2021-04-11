@@ -9,7 +9,7 @@ import Foundation
 
 public struct CloudContextWrapper: Decodable {
     let _id: String
-    let timestamp: Int
-    let token: String
+    let millis: Int
+    let uid: String
     let context: CloudContextValues
 }

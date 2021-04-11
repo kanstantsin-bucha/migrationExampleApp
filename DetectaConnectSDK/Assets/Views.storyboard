@@ -838,21 +838,22 @@ If you have a question or need help using the product, open a support ticket and
                                     <segue destination="thQ-xx-Rtd" kind="show" id="4gp-Uh-P1l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfF-58-XuY">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfF-58-XuY">
                                 <rect key="frame" x="215" y="94" width="183" height="30"/>
                                 <state key="normal" title="Rooms"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-p5-7ZC">
                                 <rect key="frame" x="16" y="140" width="382" height="618"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="whY-Jg-FWc">
-                                    <size key="itemSize" width="120" height="80"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="whY-Jg-FWc">
+                                    <size key="itemSize" width="160" height="80"/>
+                                    <size key="estimatedItemSize" width="160" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Device" id="pmh-dG-EBD">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Device" id="pmh-dG-EBD" customClass="DeviceCollectionViewCell" customModule="DetectaConnectSDK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="92" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rhQ-nn-wdA">
@@ -862,18 +863,32 @@ If you have a question or need help using the product, open a support ticket and
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-Air" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkV-Ok-hp8" userLabel="DeviceTitle">
                                                     <rect key="frame" x="16" y="8" width="60" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="OkV-Ok-hp8" firstAttribute="top" secondItem="rhQ-nn-wdA" secondAttribute="top" constant="8" id="7Zo-Es-rvE"/>
                                                 <constraint firstAttribute="bottom" secondItem="OkV-Ok-hp8" secondAttribute="bottom" constant="8" id="Jl0-VJ-dOp"/>
                                                 <constraint firstAttribute="trailing" secondItem="OkV-Ok-hp8" secondAttribute="trailing" constant="16" id="YId-4s-cqB"/>
                                                 <constraint firstItem="OkV-Ok-hp8" firstAttribute="leading" secondItem="rhQ-nn-wdA" secondAttribute="leading" constant="16" id="rLk-ep-XiU"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="title" destination="OkV-Ok-hp8" id="Gbv-Ax-CTv"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

@@ -83,14 +83,15 @@ final class BleGate {
         }
         log.debug("handleRx \(data.hexEncodedString())")
         
-        let response: Detecta_Response
+        let response: D_Resp
         do {
-            response = try Detecta_Response(serializedData: data)
+            response = try D_Resp(serializedData: data)
         } catch {
             log.error("handleRx: \(error)")
             return
         }
-        log.event("response session: \(response.sessionID), commandId: \(response.requestID)")
+        log.event("response status: \(response.status), " +
+                    "session: \(response.sessionID), commandId: \(response.requestID)")
         
         guard let message = response.message else {
             let info = "session: \(response.sessionID), packet: \(response.requestID)"
@@ -99,20 +100,22 @@ final class BleGate {
         }
         
         switch message {
-        case .getContextValues(let values):
-            log.event("getContextValues \(values.timestamp) \(values.tempCelsius)")
+        case let .context(values):
+            log.event("ble context \(values.millis) \(values.tempCelsius)")
             postContextChangesNotification(values: values)
             
-        case .setWifiState(let status):
-            log.event("setWifiState: \(status)")
-//            service(GuideInteractor.self).handleSetWifiCredsResponse(status: status.status)
-        
-        case .setWifiCreds(let status):
-            log.event("setWifiCreds: \(status)")
-            service(GuideInteractor.self).handleSetWifiCredsResponse(status: status.status)
+        case let .setup(data):
+            log.event("ble setup: \(data)")
+            service(GuideInteractor.self).handleSetupResponse(
+                status: response.status,
+                token: data.token
+            )
+
+        case let .info(info):
+            log.event("ble info: \(info)")
             
-        case .getWifiNetworkInfo(let info):
-            log.event("getWifiNetworkInfo: \(info.ipAddr), \(info.mDnsname), \(info.isConnected)")
+        case let .state(state):
+            log.event("ble state: \(state)")
         
         }
     }
@@ -177,33 +180,20 @@ extension BleGate: GateKeeper {
 }
 
 extension BleGate: BleTransmitter {
-    func requestSetWifiState(isEnabled: Bool) throws {
-        var wifiState = Detecta_Request.SetWifiState()
-        wifiState.isEnabled = isEnabled
-        var message = Detecta_Request()
-        message.setWifiState = wifiState
-        try transmit(message: message)
-    }
-    
-    func requestSetWifiCreds(
+    func requestSetup(
         ssid: String,
         pass: String
     ) throws {
         guard ssid.count <= 16 && pass.count <= 16 else {
             throw BleGateError.incosistentData
         }
-        var wifiCreds = Detecta_Request.SetWifiCreds()
-        wifiCreds.said = ssid
-        wifiCreds.password = pass
-        var message = Detecta_Request()
-        message.setWifiCreds = wifiCreds
-        try transmit(message: message)
-    }
-    
-    func requestGetWifiNetworkInfo() throws {
-        let networkInfo = Detecta_Request.GetWifiNetworkInfo()
-        var message = Detecta_Request()
-        message.getWifiNetworkInfo = networkInfo
+        var connect = D_Req.Setup.Connect()
+        connect.ssid = ssid
+        connect.pass = pass
+        var message = D_Req()
+        var setup = D_Req.Setup()
+        setup.connect = connect
+        message.setup = setup
         try transmit(message: message)
     }
     

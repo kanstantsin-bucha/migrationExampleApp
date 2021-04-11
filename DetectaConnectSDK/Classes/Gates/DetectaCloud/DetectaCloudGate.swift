@@ -16,13 +16,17 @@ public class DetectaCloudGate {
     
     public init() {}
     
-    public func fetchLastContext() -> Future<CloudContext> {
-        return service(NetworkService.self).load(url: lastContext(), converter: converter)
+    public func fetchLastContext(token: String) -> Future<CloudContext> {
+        return service(NetworkService.self).load(
+            url: lastContext(token: token),
+            converter: converter
+        )
     }
     
-    private func lastContext() -> URL {
+    private func lastContext(token: String) -> URL {
         cloudBuilder
             .addPath(path: c.Endpoint.measurements)
+            .addItem(name: "uid", value: token)
             .addQuery(name: c.Query.limit, value: 1)
             .addQuery(name: c.Query.sort, field: c.Field.createdAt, value: c.Order.descending)
             .url()

@@ -18,8 +18,8 @@ message Req {
         Connect connect = 2;
         
         message Connect {
-            string ssid = 1 [(nanopb).max_size = 16];
-            string pass = 2 [(nanopb).max_size = 16];
+            string ssid = 1 [(nanopb).max_size = 17];
+            string pass = 2 [(nanopb).max_size = 17];
         }
     }
 
@@ -49,16 +49,16 @@ message Resp {
     }
 
     message Setup {
-        string token = 1 [(nanopb).max_size = 32];
+        string token = 1 [(nanopb).max_size = 33];
         Info info = 2;
         State state = 3;
     }
 
     message Info {
-        string model = 1 [(nanopb).max_size = 32];
-        string boardVersion = 2 [(nanopb).max_size = 20];
-        string factoryVersion = 3 [(nanopb).max_size = 20];
-        string otaVersion = 4 [(nanopb).max_size = 20]; 
+        string model = 1 [(nanopb).max_size = 33];
+        string boardVersion = 2 [(nanopb).max_size = 21];
+        string factoryVersion = 3 [(nanopb).max_size = 21];
+        string otaVersion = 4 [(nanopb).max_size = 21]; 
     }
 
     message State {
@@ -68,8 +68,8 @@ message Resp {
         Masks masks = 21;
 
         message Connect {
-            string ipV4Addres = 1 [(nanopb).max_size = 15];
-            string mDNSName = 2 [(nanopb).max_size = 16];
+            string ipV4Addres = 1 [(nanopb).max_size = 16];
+            string mDNSName = 2 [(nanopb).max_size = 17];
         }
 
         message Masks {

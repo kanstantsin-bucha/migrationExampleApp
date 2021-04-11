@@ -12,13 +12,7 @@ public struct CloudContextValues: Decodable {
     let coPpm: Float
     let tempCelsius: Float
     let humidity: Float
-    let pressureKPa: Float
-    
-    enum CodingKeys: String, CodingKey {
-        case iaq
-        case coPpm
-        case tempCelsius
-        case humidity
-        case pressureKPa = "pressurePa"
-    }
+    let pressurePa: Float
+    let co2Equivalent: Float
+    let breathVocEquivalent: Float
 }

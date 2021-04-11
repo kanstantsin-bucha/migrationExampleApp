@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct DetectaCloudResponseConverter: ResponseConverting {
     typealias Value = CloudContext
     

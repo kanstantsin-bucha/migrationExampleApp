@@ -11,7 +11,7 @@ import Foundation
 protocol GuideInteractor {
     func connectBleDeviceWifi(ssid: String, pass: String) -> Future<Void>
     func checkConnectedDevice() -> Bool
-    func handleSetWifiCredsResponse(status: Detecta_Response.ProcessingStatus)
+    func handleSetupResponse(status: D_Resp.Status, token: String)
 }
 
 class DefaultGuideInteractor: GuideInteractor {
@@ -41,7 +41,7 @@ class DefaultGuideInteractor: GuideInteractor {
         let promise = Promise<Void>()
         connectBleDeviceWifiPromise = promise
         do {
-            try service(GatesKeeper.self).bleGate.requestSetWifiCreds(
+            try service(GatesKeeper.self).bleGate.requestSetup(
                 ssid: ssid,
                 pass: pass
             )
@@ -59,9 +59,10 @@ class DefaultGuideInteractor: GuideInteractor {
         return promise
     }
     
-    func handleSetWifiCredsResponse(status: Detecta_Response.ProcessingStatus) {
+    func handleSetupResponse(status: D_Resp.Status, token: String) {
         onSerial { [weak self] in
             if !status.isError {
+                self?.updateDevice(token: token)
                 self?.connectBleDeviceWifiPromise?.resolve(())
             } else {
                 self?.connectBleDeviceWifiPromise?.reject(status)
@@ -72,5 +73,12 @@ class DefaultGuideInteractor: GuideInteractor {
     
     func checkConnectedDevice() -> Bool {
         service(GatesKeeper.self).bleGate.isOpen
+    }
+    
+    private func updateDevice(token: String) {
+        let persistence = service(DevicePersistence.self)
+        guard persistence.load(id: token) == nil else { return }
+        let device = DefaultDevice(id: token, name: "D-Air", token: token)
+        persistence.save(device: device)
     }
 }

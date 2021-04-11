@@ -26,7 +26,8 @@ func setupServices() {
         (GuideInteractor.self, DefaultGuideInteractor()),
         (AppRouter.self, DefaultAppRouter()),
         (AlertRouter.self, DefaultAlertRouter()),
-        (NetworkService.self, DefaultNetworkService())
+        (NetworkService.self, DefaultNetworkService()),
+        (DevicePersistence.self, DefaultDevicePersistence())
     ])
 }
 
