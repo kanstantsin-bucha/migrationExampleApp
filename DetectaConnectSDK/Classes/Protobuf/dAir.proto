@@ -2,81 +2,99 @@ syntax = "proto3";
 
 import 'nanopb.proto';
 
-package Detecta;
+package D;
 
-message Request {
+message Req {
     uint32 sessionId = 1;
     uint32 requestId = 2;
     oneof message {
-        SetWifiState setWifiState = 10;
-        SetWifiCreds setWifiCreds = 11;
-        GetWifiNetworkInfo getWifiNetworkInfo = 12;
+        Setup setup = 51;
+        Info info = 52;
+        State state = 53;
     }
 
-    message SetWifiState {
-        bool isEnabled = 1;
+    message Setup {
+        int32 timezone = 1;
+        Connect connect = 2;
+        
+        message Connect {
+            string ssid = 1 [(nanopb).max_size = 16];
+            string pass = 2 [(nanopb).max_size = 16];
+        }
     }
 
-    message SetWifiCreds {
-        string ssid = 1 [(nanopb).max_size = 32];
-        string password = 2 [(nanopb).max_size = 32];
-    }
-
-    message GetWifiNetworkInfo {
-    }
+    message Info {}
+    message State {}
 }
 
-message Response {
+message Resp {
     uint32 sessionId = 1;
     uint32 requestId = 2;
+    Status status = 3;
+    uint32 error = 4;
+
     oneof message {
-        GetContextValues getContextValues = 10;
-        SetWifiState setWifiState = 11;
-        SetWifiCreds setWifiCreds = 12;
-        GetWifiNetworkInfo getWifiNetworkInfo = 13;
+        Setup setup = 51;
+        Info info = 52;
+        State state = 53;
+        Context context = 54;
     }
 
-    enum ProcessingStatus {
+    enum Status {
         OK = 0;
         Unsupported = 1;
-        ServiceError = 2;
-        GeneralError = 3;
+        Timeout = 2;
+        ServiceError = 3;
+        GeneralError = 4;
     }
 
-    message GetContextValues {
-        uint32 timestamp = 1;
+    message Setup {
+        string token = 1 [(nanopb).max_size = 32];
+        Info info = 2;
+        State state = 3;
+    }
+
+    message Info {
+        string model = 1 [(nanopb).max_size = 32];
+        string boardVersion = 2 [(nanopb).max_size = 20];
+        string factoryVersion = 3 [(nanopb).max_size = 20];
+        string otaVersion = 4 [(nanopb).max_size = 20]; 
+    }
+
+    message State {
+        uint32 millis = 1;
         uint32 freeHeap = 2;
-        uint32 deviceStateMask = 3;
-        uint32 alarmStateMask = 4;
-        uint32 powerSourceStateMask = 5;
-        float busVoltage = 6;
-        float coZeroV = 7;
-        float coV = 8;
-        float coPpm = 9;
-        float tempCelsius = 10;
-        float pressurePa = 11;
-        float humidity = 12;
-        float gasResistance = 13;
-        float iaq = 14;
-        float staticIaq = 15;
-        float co2Equivalent = 16;
-        float breathVocEquivalent = 17;
-        float compGasValue = 18;
-        float gasPercentage = 19;
+        Connect connect = 20;
+        Masks masks = 21;
+
+        message Connect {
+            string ipV4Addres = 1 [(nanopb).max_size = 15];
+            string mDNSName = 2 [(nanopb).max_size = 16];
+        }
+
+        message Masks {
+            uint32 persistent = 1;
+            uint32 standby = 2;
+            uint32 state = 3;
+            uint32 alarm = 4;
+        }
     }
 
-    message SetWifiState {
-        ProcessingStatus status = 1;
-    }
-
-    message SetWifiCreds {
-        ProcessingStatus status = 1;
-    }
-
-    message GetWifiNetworkInfo {
-        ProcessingStatus status = 1;
-        bool isConnected = 2;
-        string ipAddr = 3 [(nanopb).max_size = 15];
-        string mDNSName = 4 [(nanopb).max_size = 16];
+    message Context {
+        uint32 millis = 1;
+        float busVoltage = 2;
+        float coZeroV = 3;
+        float coV = 4;
+        float coPpm = 5;
+        float tempCelsius = 6;
+        float pressurePa = 7;
+        float humidity = 8;
+        float gasResistance = 9;
+        float iaq = 10;
+        float staticIaq = 11;
+        float co2Equivalent = 12;
+        float breathVocEquivalent = 13;
+        float compGasValue = 14;
+        float gasPercentage = 15;
     }
 }

@@ -20,7 +20,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-public struct Detecta_Request {
+public struct D_Req {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -29,55 +29,55 @@ public struct Detecta_Request {
 
   public var requestID: UInt32 = 0
 
-  public var message: Detecta_Request.OneOf_Message? = nil
+  public var message: D_Req.OneOf_Message? = nil
 
-  public var setWifiState: Detecta_Request.SetWifiState {
+  public var setup: D_Req.Setup {
     get {
-      if case .setWifiState(let v)? = message {return v}
-      return Detecta_Request.SetWifiState()
+      if case .setup(let v)? = message {return v}
+      return D_Req.Setup()
     }
-    set {message = .setWifiState(newValue)}
+    set {message = .setup(newValue)}
   }
 
-  public var setWifiCreds: Detecta_Request.SetWifiCreds {
+  public var info: D_Req.Info {
     get {
-      if case .setWifiCreds(let v)? = message {return v}
-      return Detecta_Request.SetWifiCreds()
+      if case .info(let v)? = message {return v}
+      return D_Req.Info()
     }
-    set {message = .setWifiCreds(newValue)}
+    set {message = .info(newValue)}
   }
 
-  public var getWifiNetworkInfo: Detecta_Request.GetWifiNetworkInfo {
+  public var state: D_Req.State {
     get {
-      if case .getWifiNetworkInfo(let v)? = message {return v}
-      return Detecta_Request.GetWifiNetworkInfo()
+      if case .state(let v)? = message {return v}
+      return D_Req.State()
     }
-    set {message = .getWifiNetworkInfo(newValue)}
+    set {message = .state(newValue)}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Message: Equatable {
-    case setWifiState(Detecta_Request.SetWifiState)
-    case setWifiCreds(Detecta_Request.SetWifiCreds)
-    case getWifiNetworkInfo(Detecta_Request.GetWifiNetworkInfo)
+    case setup(D_Req.Setup)
+    case info(D_Req.Info)
+    case state(D_Req.State)
 
   #if !swift(>=4.1)
-    public static func ==(lhs: Detecta_Request.OneOf_Message, rhs: Detecta_Request.OneOf_Message) -> Bool {
+    public static func ==(lhs: D_Req.OneOf_Message, rhs: D_Req.OneOf_Message) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.setWifiState, .setWifiState): return {
-        guard case .setWifiState(let l) = lhs, case .setWifiState(let r) = rhs else { preconditionFailure() }
+      case (.setup, .setup): return {
+        guard case .setup(let l) = lhs, case .setup(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.setWifiCreds, .setWifiCreds): return {
-        guard case .setWifiCreds(let l) = lhs, case .setWifiCreds(let r) = rhs else { preconditionFailure() }
+      case (.info, .info): return {
+        guard case .info(let l) = lhs, case .info(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.getWifiNetworkInfo, .getWifiNetworkInfo): return {
-        guard case .getWifiNetworkInfo(let l) = lhs, case .getWifiNetworkInfo(let r) = rhs else { preconditionFailure() }
+      case (.state, .state): return {
+        guard case .state(let l) = lhs, case .state(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -86,33 +86,54 @@ public struct Detecta_Request {
   #endif
   }
 
-  public struct SetWifiState {
+  public struct Setup {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var isEnabled: Bool = false
+    public var timezone: Int32 = 0
+
+    public var connect: D_Req.Setup.Connect {
+      get {return _connect ?? D_Req.Setup.Connect()}
+      set {_connect = newValue}
+    }
+    /// Returns true if `connect` has been explicitly set.
+    public var hasConnect: Bool {return self._connect != nil}
+    /// Clears the value of `connect`. Subsequent reads from it will return its default value.
+    public mutating func clearConnect() {self._connect = nil}
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public struct Connect {
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
+
+      public var ssid: String = String()
+
+      public var pass: String = String()
+
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      public init() {}
+    }
+
+    public init() {}
+
+    fileprivate var _connect: D_Req.Setup.Connect? = nil
+  }
+
+  public struct Info {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
   }
 
-  public struct SetWifiCreds {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    public var said: String = String()
-
-    public var password: String = String()
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    public init() {}
-  }
-
-  public struct GetWifiNetworkInfo {
+  public struct State {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -125,77 +146,96 @@ public struct Detecta_Request {
   public init() {}
 }
 
-public struct Detecta_Response {
+public struct D_Resp {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var sessionID: UInt32 = 0
-
-  public var requestID: UInt32 = 0
-
-  public var message: Detecta_Response.OneOf_Message? = nil
-
-  public var getContextValues: Detecta_Response.GetContextValues {
-    get {
-      if case .getContextValues(let v)? = message {return v}
-      return Detecta_Response.GetContextValues()
-    }
-    set {message = .getContextValues(newValue)}
+  public var sessionID: UInt32 {
+    get {return _storage._sessionID}
+    set {_uniqueStorage()._sessionID = newValue}
   }
 
-  public var setWifiState: Detecta_Response.SetWifiState {
-    get {
-      if case .setWifiState(let v)? = message {return v}
-      return Detecta_Response.SetWifiState()
-    }
-    set {message = .setWifiState(newValue)}
+  public var requestID: UInt32 {
+    get {return _storage._requestID}
+    set {_uniqueStorage()._requestID = newValue}
   }
 
-  public var setWifiCreds: Detecta_Response.SetWifiCreds {
-    get {
-      if case .setWifiCreds(let v)? = message {return v}
-      return Detecta_Response.SetWifiCreds()
-    }
-    set {message = .setWifiCreds(newValue)}
+  public var status: D_Resp.Status {
+    get {return _storage._status}
+    set {_uniqueStorage()._status = newValue}
   }
 
-  public var getWifiNetworkInfo: Detecta_Response.GetWifiNetworkInfo {
+  public var error: UInt32 {
+    get {return _storage._error}
+    set {_uniqueStorage()._error = newValue}
+  }
+
+  public var message: OneOf_Message? {
+    get {return _storage._message}
+    set {_uniqueStorage()._message = newValue}
+  }
+
+  public var setup: D_Resp.Setup {
     get {
-      if case .getWifiNetworkInfo(let v)? = message {return v}
-      return Detecta_Response.GetWifiNetworkInfo()
+      if case .setup(let v)? = _storage._message {return v}
+      return D_Resp.Setup()
     }
-    set {message = .getWifiNetworkInfo(newValue)}
+    set {_uniqueStorage()._message = .setup(newValue)}
+  }
+
+  public var info: D_Resp.Info {
+    get {
+      if case .info(let v)? = _storage._message {return v}
+      return D_Resp.Info()
+    }
+    set {_uniqueStorage()._message = .info(newValue)}
+  }
+
+  public var state: D_Resp.State {
+    get {
+      if case .state(let v)? = _storage._message {return v}
+      return D_Resp.State()
+    }
+    set {_uniqueStorage()._message = .state(newValue)}
+  }
+
+  public var context: D_Resp.Context {
+    get {
+      if case .context(let v)? = _storage._message {return v}
+      return D_Resp.Context()
+    }
+    set {_uniqueStorage()._message = .context(newValue)}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Message: Equatable {
-    case getContextValues(Detecta_Response.GetContextValues)
-    case setWifiState(Detecta_Response.SetWifiState)
-    case setWifiCreds(Detecta_Response.SetWifiCreds)
-    case getWifiNetworkInfo(Detecta_Response.GetWifiNetworkInfo)
+    case setup(D_Resp.Setup)
+    case info(D_Resp.Info)
+    case state(D_Resp.State)
+    case context(D_Resp.Context)
 
   #if !swift(>=4.1)
-    public static func ==(lhs: Detecta_Response.OneOf_Message, rhs: Detecta_Response.OneOf_Message) -> Bool {
+    public static func ==(lhs: D_Resp.OneOf_Message, rhs: D_Resp.OneOf_Message) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.getContextValues, .getContextValues): return {
-        guard case .getContextValues(let l) = lhs, case .getContextValues(let r) = rhs else { preconditionFailure() }
+      case (.setup, .setup): return {
+        guard case .setup(let l) = lhs, case .setup(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.setWifiState, .setWifiState): return {
-        guard case .setWifiState(let l) = lhs, case .setWifiState(let r) = rhs else { preconditionFailure() }
+      case (.info, .info): return {
+        guard case .info(let l) = lhs, case .info(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.setWifiCreds, .setWifiCreds): return {
-        guard case .setWifiCreds(let l) = lhs, case .setWifiCreds(let r) = rhs else { preconditionFailure() }
+      case (.state, .state): return {
+        guard case .state(let l) = lhs, case .state(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
-      case (.getWifiNetworkInfo, .getWifiNetworkInfo): return {
-        guard case .getWifiNetworkInfo(let l) = lhs, case .getWifiNetworkInfo(let r) = rhs else { preconditionFailure() }
+      case (.context, .context): return {
+        guard case .context(let l) = lhs, case .context(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -204,12 +244,13 @@ public struct Detecta_Response {
   #endif
   }
 
-  public enum ProcessingStatus: SwiftProtobuf.Enum {
+  public enum Status: SwiftProtobuf.Enum {
     public typealias RawValue = Int
     case ok // = 0
     case unsupported // = 1
-    case serviceError // = 2
-    case generalError // = 3
+    case timeout // = 2
+    case serviceError // = 3
+    case generalError // = 4
     case UNRECOGNIZED(Int)
 
     public init() {
@@ -220,8 +261,9 @@ public struct Detecta_Response {
       switch rawValue {
       case 0: self = .ok
       case 1: self = .unsupported
-      case 2: self = .serviceError
-      case 3: self = .generalError
+      case 2: self = .timeout
+      case 3: self = .serviceError
+      case 4: self = .generalError
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -230,157 +272,167 @@ public struct Detecta_Response {
       switch self {
       case .ok: return 0
       case .unsupported: return 1
-      case .serviceError: return 2
-      case .generalError: return 3
+      case .timeout: return 2
+      case .serviceError: return 3
+      case .generalError: return 4
       case .UNRECOGNIZED(let i): return i
       }
     }
 
   }
 
-  public struct GetContextValues {
+  public struct Setup {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var timestamp: UInt32 {
-      get {return _storage._timestamp}
-      set {_uniqueStorage()._timestamp = newValue}
-    }
+    public var token: String = String()
 
-    public var freeHeap: UInt32 {
-      get {return _storage._freeHeap}
-      set {_uniqueStorage()._freeHeap = newValue}
+    public var info: D_Resp.Info {
+      get {return _info ?? D_Resp.Info()}
+      set {_info = newValue}
     }
+    /// Returns true if `info` has been explicitly set.
+    public var hasInfo: Bool {return self._info != nil}
+    /// Clears the value of `info`. Subsequent reads from it will return its default value.
+    public mutating func clearInfo() {self._info = nil}
 
-    public var deviceStateMask: UInt32 {
-      get {return _storage._deviceStateMask}
-      set {_uniqueStorage()._deviceStateMask = newValue}
+    public var state: D_Resp.State {
+      get {return _state ?? D_Resp.State()}
+      set {_state = newValue}
     }
-
-    public var alarmStateMask: UInt32 {
-      get {return _storage._alarmStateMask}
-      set {_uniqueStorage()._alarmStateMask = newValue}
-    }
-
-    public var powerSourceStateMask: UInt32 {
-      get {return _storage._powerSourceStateMask}
-      set {_uniqueStorage()._powerSourceStateMask = newValue}
-    }
-
-    public var busVoltage: Float {
-      get {return _storage._busVoltage}
-      set {_uniqueStorage()._busVoltage = newValue}
-    }
-
-    public var coZeroV: Float {
-      get {return _storage._coZeroV}
-      set {_uniqueStorage()._coZeroV = newValue}
-    }
-
-    public var coV: Float {
-      get {return _storage._coV}
-      set {_uniqueStorage()._coV = newValue}
-    }
-
-    public var coPpm: Float {
-      get {return _storage._coPpm}
-      set {_uniqueStorage()._coPpm = newValue}
-    }
-
-    public var tempCelsius: Float {
-      get {return _storage._tempCelsius}
-      set {_uniqueStorage()._tempCelsius = newValue}
-    }
-
-    public var pressurePa: Float {
-      get {return _storage._pressurePa}
-      set {_uniqueStorage()._pressurePa = newValue}
-    }
-
-    public var humidity: Float {
-      get {return _storage._humidity}
-      set {_uniqueStorage()._humidity = newValue}
-    }
-
-    public var gasResistance: Float {
-      get {return _storage._gasResistance}
-      set {_uniqueStorage()._gasResistance = newValue}
-    }
-
-    public var iaq: Float {
-      get {return _storage._iaq}
-      set {_uniqueStorage()._iaq = newValue}
-    }
-
-    public var staticIaq: Float {
-      get {return _storage._staticIaq}
-      set {_uniqueStorage()._staticIaq = newValue}
-    }
-
-    public var co2Equivalent: Float {
-      get {return _storage._co2Equivalent}
-      set {_uniqueStorage()._co2Equivalent = newValue}
-    }
-
-    public var breathVocEquivalent: Float {
-      get {return _storage._breathVocEquivalent}
-      set {_uniqueStorage()._breathVocEquivalent = newValue}
-    }
-
-    public var compGasValue: Float {
-      get {return _storage._compGasValue}
-      set {_uniqueStorage()._compGasValue = newValue}
-    }
-
-    public var gasPercentage: Float {
-      get {return _storage._gasPercentage}
-      set {_uniqueStorage()._gasPercentage = newValue}
-    }
+    /// Returns true if `state` has been explicitly set.
+    public var hasState: Bool {return self._state != nil}
+    /// Clears the value of `state`. Subsequent reads from it will return its default value.
+    public mutating func clearState() {self._state = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    fileprivate var _info: D_Resp.Info? = nil
+    fileprivate var _state: D_Resp.State? = nil
   }
 
-  public struct SetWifiState {
+  public struct Info {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var status: Detecta_Response.ProcessingStatus = .ok
+    public var model: String = String()
+
+    public var boardVersion: String = String()
+
+    public var factoryVersion: String = String()
+
+    public var otaVersion: String = String()
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
   }
 
-  public struct SetWifiCreds {
+  public struct State {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var status: Detecta_Response.ProcessingStatus = .ok
+    public var millis: UInt32 = 0
+
+    public var freeHeap: UInt32 = 0
+
+    public var connect: D_Resp.State.Connect {
+      get {return _connect ?? D_Resp.State.Connect()}
+      set {_connect = newValue}
+    }
+    /// Returns true if `connect` has been explicitly set.
+    public var hasConnect: Bool {return self._connect != nil}
+    /// Clears the value of `connect`. Subsequent reads from it will return its default value.
+    public mutating func clearConnect() {self._connect = nil}
+
+    public var masks: D_Resp.State.Masks {
+      get {return _masks ?? D_Resp.State.Masks()}
+      set {_masks = newValue}
+    }
+    /// Returns true if `masks` has been explicitly set.
+    public var hasMasks: Bool {return self._masks != nil}
+    /// Clears the value of `masks`. Subsequent reads from it will return its default value.
+    public mutating func clearMasks() {self._masks = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    public struct Connect {
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
+
+      public var ipV4Addres: String = String()
+
+      public var mDnsname: String = String()
+
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      public init() {}
+    }
+
+    public struct Masks {
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
+
+      public var persistent: UInt32 = 0
+
+      public var standby: UInt32 = 0
+
+      public var state: UInt32 = 0
+
+      public var alarm: UInt32 = 0
+
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      public init() {}
+    }
+
     public init() {}
+
+    fileprivate var _connect: D_Resp.State.Connect? = nil
+    fileprivate var _masks: D_Resp.State.Masks? = nil
   }
 
-  public struct GetWifiNetworkInfo {
+  public struct Context {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    public var status: Detecta_Response.ProcessingStatus = .ok
+    public var millis: UInt32 = 0
 
-    public var isConnected: Bool = false
+    public var busVoltage: Float = 0
 
-    public var ipAddr: String = String()
+    public var coZeroV: Float = 0
 
-    public var mDnsname: String = String()
+    public var coV: Float = 0
+
+    public var coPpm: Float = 0
+
+    public var tempCelsius: Float = 0
+
+    public var pressurePa: Float = 0
+
+    public var humidity: Float = 0
+
+    public var gasResistance: Float = 0
+
+    public var iaq: Float = 0
+
+    public var staticIaq: Float = 0
+
+    public var co2Equivalent: Float = 0
+
+    public var breathVocEquivalent: Float = 0
+
+    public var compGasValue: Float = 0
+
+    public var gasPercentage: Float = 0
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -388,15 +440,18 @@ public struct Detecta_Response {
   }
 
   public init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=4.2)
 
-extension Detecta_Response.ProcessingStatus: CaseIterable {
+extension D_Resp.Status: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  public static var allCases: [Detecta_Response.ProcessingStatus] = [
+  public static var allCases: [D_Resp.Status] = [
     .ok,
     .unsupported,
+    .timeout,
     .serviceError,
     .generalError,
   ]
@@ -406,16 +461,16 @@ extension Detecta_Response.ProcessingStatus: CaseIterable {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "Detecta"
+fileprivate let _protobuf_package = "D"
 
-extension Detecta_Request: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Request"
+extension D_Req: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Req"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sessionId"),
     2: .same(proto: "requestId"),
-    10: .same(proto: "setWifiState"),
-    11: .same(proto: "setWifiCreds"),
-    12: .same(proto: "getWifiNetworkInfo"),
+    51: .same(proto: "setup"),
+    52: .same(proto: "info"),
+    53: .same(proto: "state"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -426,32 +481,32 @@ extension Detecta_Request: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularUInt32Field(value: &self.sessionID) }()
       case 2: try { try decoder.decodeSingularUInt32Field(value: &self.requestID) }()
-      case 10: try {
-        var v: Detecta_Request.SetWifiState?
+      case 51: try {
+        var v: D_Req.Setup?
         if let current = self.message {
           try decoder.handleConflictingOneOf()
-          if case .setWifiState(let m) = current {v = m}
+          if case .setup(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.message = .setWifiState(v)}
+        if let v = v {self.message = .setup(v)}
       }()
-      case 11: try {
-        var v: Detecta_Request.SetWifiCreds?
+      case 52: try {
+        var v: D_Req.Info?
         if let current = self.message {
           try decoder.handleConflictingOneOf()
-          if case .setWifiCreds(let m) = current {v = m}
+          if case .info(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.message = .setWifiCreds(v)}
+        if let v = v {self.message = .info(v)}
       }()
-      case 12: try {
-        var v: Detecta_Request.GetWifiNetworkInfo?
+      case 53: try {
+        var v: D_Req.State?
         if let current = self.message {
           try decoder.handleConflictingOneOf()
-          if case .getWifiNetworkInfo(let m) = current {v = m}
+          if case .state(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.message = .getWifiNetworkInfo(v)}
+        if let v = v {self.message = .state(v)}
       }()
       default: break
       }
@@ -469,24 +524,24 @@ extension Detecta_Request: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     // allocates stack space for every case branch when no optimizations are
     // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.message {
-    case .setWifiState?: try {
-      guard case .setWifiState(let v)? = self.message else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+    case .setup?: try {
+      guard case .setup(let v)? = self.message else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 51)
     }()
-    case .setWifiCreds?: try {
-      guard case .setWifiCreds(let v)? = self.message else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    case .info?: try {
+      guard case .info(let v)? = self.message else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 52)
     }()
-    case .getWifiNetworkInfo?: try {
-      guard case .getWifiNetworkInfo(let v)? = self.message else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+    case .state?: try {
+      guard case .state(let v)? = self.message else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 53)
     }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Request, rhs: Detecta_Request) -> Bool {
+  public static func ==(lhs: D_Req, rhs: D_Req) -> Bool {
     if lhs.sessionID != rhs.sessionID {return false}
     if lhs.requestID != rhs.requestID {return false}
     if lhs.message != rhs.message {return false}
@@ -495,10 +550,11 @@ extension Detecta_Request: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension Detecta_Request.SetWifiState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Detecta_Request.protoMessageName + ".SetWifiState"
+extension D_Req.Setup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Req.protoMessageName + ".Setup"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "isEnabled"),
+    1: .same(proto: "timezone"),
+    2: .same(proto: "connect"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -507,31 +563,36 @@ extension Detecta_Request.SetWifiState: SwiftProtobuf.Message, SwiftProtobuf._Me
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBoolField(value: &self.isEnabled) }()
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.timezone) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._connect) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.isEnabled != false {
-      try visitor.visitSingularBoolField(value: self.isEnabled, fieldNumber: 1)
+    if self.timezone != 0 {
+      try visitor.visitSingularInt32Field(value: self.timezone, fieldNumber: 1)
+    }
+    if let v = self._connect {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Request.SetWifiState, rhs: Detecta_Request.SetWifiState) -> Bool {
-    if lhs.isEnabled != rhs.isEnabled {return false}
+  public static func ==(lhs: D_Req.Setup, rhs: D_Req.Setup) -> Bool {
+    if lhs.timezone != rhs.timezone {return false}
+    if lhs._connect != rhs._connect {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Detecta_Request.SetWifiCreds: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Detecta_Request.protoMessageName + ".SetWifiCreds"
+extension D_Req.Setup.Connect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Req.Setup.protoMessageName + ".Connect"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "said"),
-    2: .same(proto: "password"),
+    1: .same(proto: "ssid"),
+    2: .same(proto: "pass"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -540,33 +601,33 @@ extension Detecta_Request.SetWifiCreds: SwiftProtobuf.Message, SwiftProtobuf._Me
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.said) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.password) }()
+      case 1: try { try decoder.decodeSingularStringField(value: &self.ssid) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.pass) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.said.isEmpty {
-      try visitor.visitSingularStringField(value: self.said, fieldNumber: 1)
+    if !self.ssid.isEmpty {
+      try visitor.visitSingularStringField(value: self.ssid, fieldNumber: 1)
     }
-    if !self.password.isEmpty {
-      try visitor.visitSingularStringField(value: self.password, fieldNumber: 2)
+    if !self.pass.isEmpty {
+      try visitor.visitSingularStringField(value: self.pass, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Request.SetWifiCreds, rhs: Detecta_Request.SetWifiCreds) -> Bool {
-    if lhs.said != rhs.said {return false}
-    if lhs.password != rhs.password {return false}
+  public static func ==(lhs: D_Req.Setup.Connect, rhs: D_Req.Setup.Connect) -> Bool {
+    if lhs.ssid != rhs.ssid {return false}
+    if lhs.pass != rhs.pass {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Detecta_Request.GetWifiNetworkInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Detecta_Request.protoMessageName + ".GetWifiNetworkInfo"
+extension D_Req.Info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Req.protoMessageName + ".Info"
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -578,191 +639,61 @@ extension Detecta_Request.GetWifiNetworkInfo: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Request.GetWifiNetworkInfo, rhs: Detecta_Request.GetWifiNetworkInfo) -> Bool {
+  public static func ==(lhs: D_Req.Info, rhs: D_Req.Info) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Detecta_Response: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Response"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "sessionId"),
-    2: .same(proto: "requestId"),
-    10: .same(proto: "getContextValues"),
-    11: .same(proto: "setWifiState"),
-    12: .same(proto: "setWifiCreds"),
-    13: .same(proto: "getWifiNetworkInfo"),
-  ]
+extension D_Req.State: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Req.protoMessageName + ".State"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.sessionID) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.requestID) }()
-      case 10: try {
-        var v: Detecta_Response.GetContextValues?
-        if let current = self.message {
-          try decoder.handleConflictingOneOf()
-          if case .getContextValues(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.message = .getContextValues(v)}
-      }()
-      case 11: try {
-        var v: Detecta_Response.SetWifiState?
-        if let current = self.message {
-          try decoder.handleConflictingOneOf()
-          if case .setWifiState(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.message = .setWifiState(v)}
-      }()
-      case 12: try {
-        var v: Detecta_Response.SetWifiCreds?
-        if let current = self.message {
-          try decoder.handleConflictingOneOf()
-          if case .setWifiCreds(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.message = .setWifiCreds(v)}
-      }()
-      case 13: try {
-        var v: Detecta_Response.GetWifiNetworkInfo?
-        if let current = self.message {
-          try decoder.handleConflictingOneOf()
-          if case .getWifiNetworkInfo(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.message = .getWifiNetworkInfo(v)}
-      }()
-      default: break
-      }
+    while let _ = try decoder.nextFieldNumber() {
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.sessionID != 0 {
-      try visitor.visitSingularUInt32Field(value: self.sessionID, fieldNumber: 1)
-    }
-    if self.requestID != 0 {
-      try visitor.visitSingularUInt32Field(value: self.requestID, fieldNumber: 2)
-    }
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every case branch when no optimizations are
-    // enabled. https://github.com/apple/swift-protobuf/issues/1034
-    switch self.message {
-    case .getContextValues?: try {
-      guard case .getContextValues(let v)? = self.message else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-    }()
-    case .setWifiState?: try {
-      guard case .setWifiState(let v)? = self.message else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-    }()
-    case .setWifiCreds?: try {
-      guard case .setWifiCreds(let v)? = self.message else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-    }()
-    case .getWifiNetworkInfo?: try {
-      guard case .getWifiNetworkInfo(let v)? = self.message else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-    }()
-    case nil: break
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Response, rhs: Detecta_Response) -> Bool {
-    if lhs.sessionID != rhs.sessionID {return false}
-    if lhs.requestID != rhs.requestID {return false}
-    if lhs.message != rhs.message {return false}
+  public static func ==(lhs: D_Req.State, rhs: D_Req.State) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Detecta_Response.ProcessingStatus: SwiftProtobuf._ProtoNameProviding {
+extension D_Resp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Resp"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "OK"),
-    1: .same(proto: "Unsupported"),
-    2: .same(proto: "ServiceError"),
-    3: .same(proto: "GeneralError"),
-  ]
-}
-
-extension Detecta_Response.GetContextValues: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Detecta_Response.protoMessageName + ".GetContextValues"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "timestamp"),
-    2: .same(proto: "freeHeap"),
-    3: .same(proto: "deviceStateMask"),
-    4: .same(proto: "alarmStateMask"),
-    5: .same(proto: "powerSourceStateMask"),
-    6: .same(proto: "busVoltage"),
-    7: .same(proto: "coZeroV"),
-    8: .same(proto: "coV"),
-    9: .same(proto: "coPpm"),
-    10: .same(proto: "tempCelsius"),
-    11: .same(proto: "pressurePa"),
-    12: .same(proto: "humidity"),
-    13: .same(proto: "gasResistance"),
-    14: .same(proto: "iaq"),
-    15: .same(proto: "staticIaq"),
-    16: .same(proto: "co2Equivalent"),
-    17: .same(proto: "breathVocEquivalent"),
-    18: .same(proto: "compGasValue"),
-    19: .same(proto: "gasPercentage"),
+    1: .same(proto: "sessionId"),
+    2: .same(proto: "requestId"),
+    3: .same(proto: "status"),
+    4: .same(proto: "error"),
+    51: .same(proto: "setup"),
+    52: .same(proto: "info"),
+    53: .same(proto: "state"),
+    54: .same(proto: "context"),
   ]
 
   fileprivate class _StorageClass {
-    var _timestamp: UInt32 = 0
-    var _freeHeap: UInt32 = 0
-    var _deviceStateMask: UInt32 = 0
-    var _alarmStateMask: UInt32 = 0
-    var _powerSourceStateMask: UInt32 = 0
-    var _busVoltage: Float = 0
-    var _coZeroV: Float = 0
-    var _coV: Float = 0
-    var _coPpm: Float = 0
-    var _tempCelsius: Float = 0
-    var _pressurePa: Float = 0
-    var _humidity: Float = 0
-    var _gasResistance: Float = 0
-    var _iaq: Float = 0
-    var _staticIaq: Float = 0
-    var _co2Equivalent: Float = 0
-    var _breathVocEquivalent: Float = 0
-    var _compGasValue: Float = 0
-    var _gasPercentage: Float = 0
+    var _sessionID: UInt32 = 0
+    var _requestID: UInt32 = 0
+    var _status: D_Resp.Status = .ok
+    var _error: UInt32 = 0
+    var _message: D_Resp.OneOf_Message?
 
     static let defaultInstance = _StorageClass()
 
     private init() {}
 
     init(copying source: _StorageClass) {
-      _timestamp = source._timestamp
-      _freeHeap = source._freeHeap
-      _deviceStateMask = source._deviceStateMask
-      _alarmStateMask = source._alarmStateMask
-      _powerSourceStateMask = source._powerSourceStateMask
-      _busVoltage = source._busVoltage
-      _coZeroV = source._coZeroV
-      _coV = source._coV
-      _coPpm = source._coPpm
-      _tempCelsius = source._tempCelsius
-      _pressurePa = source._pressurePa
-      _humidity = source._humidity
-      _gasResistance = source._gasResistance
-      _iaq = source._iaq
-      _staticIaq = source._staticIaq
-      _co2Equivalent = source._co2Equivalent
-      _breathVocEquivalent = source._breathVocEquivalent
-      _compGasValue = source._compGasValue
-      _gasPercentage = source._gasPercentage
+      _sessionID = source._sessionID
+      _requestID = source._requestID
+      _status = source._status
+      _error = source._error
+      _message = source._message
     }
   }
 
@@ -781,25 +712,46 @@ extension Detecta_Response.GetContextValues: SwiftProtobuf.Message, SwiftProtobu
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._timestamp) }()
-        case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._freeHeap) }()
-        case 3: try { try decoder.decodeSingularUInt32Field(value: &_storage._deviceStateMask) }()
-        case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._alarmStateMask) }()
-        case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._powerSourceStateMask) }()
-        case 6: try { try decoder.decodeSingularFloatField(value: &_storage._busVoltage) }()
-        case 7: try { try decoder.decodeSingularFloatField(value: &_storage._coZeroV) }()
-        case 8: try { try decoder.decodeSingularFloatField(value: &_storage._coV) }()
-        case 9: try { try decoder.decodeSingularFloatField(value: &_storage._coPpm) }()
-        case 10: try { try decoder.decodeSingularFloatField(value: &_storage._tempCelsius) }()
-        case 11: try { try decoder.decodeSingularFloatField(value: &_storage._pressurePa) }()
-        case 12: try { try decoder.decodeSingularFloatField(value: &_storage._humidity) }()
-        case 13: try { try decoder.decodeSingularFloatField(value: &_storage._gasResistance) }()
-        case 14: try { try decoder.decodeSingularFloatField(value: &_storage._iaq) }()
-        case 15: try { try decoder.decodeSingularFloatField(value: &_storage._staticIaq) }()
-        case 16: try { try decoder.decodeSingularFloatField(value: &_storage._co2Equivalent) }()
-        case 17: try { try decoder.decodeSingularFloatField(value: &_storage._breathVocEquivalent) }()
-        case 18: try { try decoder.decodeSingularFloatField(value: &_storage._compGasValue) }()
-        case 19: try { try decoder.decodeSingularFloatField(value: &_storage._gasPercentage) }()
+        case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._sessionID) }()
+        case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._requestID) }()
+        case 3: try { try decoder.decodeSingularEnumField(value: &_storage._status) }()
+        case 4: try { try decoder.decodeSingularUInt32Field(value: &_storage._error) }()
+        case 51: try {
+          var v: D_Resp.Setup?
+          if let current = _storage._message {
+            try decoder.handleConflictingOneOf()
+            if case .setup(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._message = .setup(v)}
+        }()
+        case 52: try {
+          var v: D_Resp.Info?
+          if let current = _storage._message {
+            try decoder.handleConflictingOneOf()
+            if case .info(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._message = .info(v)}
+        }()
+        case 53: try {
+          var v: D_Resp.State?
+          if let current = _storage._message {
+            try decoder.handleConflictingOneOf()
+            if case .state(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._message = .state(v)}
+        }()
+        case 54: try {
+          var v: D_Resp.Context?
+          if let current = _storage._message {
+            try decoder.handleConflictingOneOf()
+            if case .context(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._message = .context(v)}
+        }()
         default: break
         }
       }
@@ -808,91 +760,54 @@ extension Detecta_Response.GetContextValues: SwiftProtobuf.Message, SwiftProtobu
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if _storage._timestamp != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._timestamp, fieldNumber: 1)
+      if _storage._sessionID != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._sessionID, fieldNumber: 1)
       }
-      if _storage._freeHeap != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._freeHeap, fieldNumber: 2)
+      if _storage._requestID != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._requestID, fieldNumber: 2)
       }
-      if _storage._deviceStateMask != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._deviceStateMask, fieldNumber: 3)
+      if _storage._status != .ok {
+        try visitor.visitSingularEnumField(value: _storage._status, fieldNumber: 3)
       }
-      if _storage._alarmStateMask != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._alarmStateMask, fieldNumber: 4)
+      if _storage._error != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._error, fieldNumber: 4)
       }
-      if _storage._powerSourceStateMask != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._powerSourceStateMask, fieldNumber: 5)
-      }
-      if _storage._busVoltage != 0 {
-        try visitor.visitSingularFloatField(value: _storage._busVoltage, fieldNumber: 6)
-      }
-      if _storage._coZeroV != 0 {
-        try visitor.visitSingularFloatField(value: _storage._coZeroV, fieldNumber: 7)
-      }
-      if _storage._coV != 0 {
-        try visitor.visitSingularFloatField(value: _storage._coV, fieldNumber: 8)
-      }
-      if _storage._coPpm != 0 {
-        try visitor.visitSingularFloatField(value: _storage._coPpm, fieldNumber: 9)
-      }
-      if _storage._tempCelsius != 0 {
-        try visitor.visitSingularFloatField(value: _storage._tempCelsius, fieldNumber: 10)
-      }
-      if _storage._pressurePa != 0 {
-        try visitor.visitSingularFloatField(value: _storage._pressurePa, fieldNumber: 11)
-      }
-      if _storage._humidity != 0 {
-        try visitor.visitSingularFloatField(value: _storage._humidity, fieldNumber: 12)
-      }
-      if _storage._gasResistance != 0 {
-        try visitor.visitSingularFloatField(value: _storage._gasResistance, fieldNumber: 13)
-      }
-      if _storage._iaq != 0 {
-        try visitor.visitSingularFloatField(value: _storage._iaq, fieldNumber: 14)
-      }
-      if _storage._staticIaq != 0 {
-        try visitor.visitSingularFloatField(value: _storage._staticIaq, fieldNumber: 15)
-      }
-      if _storage._co2Equivalent != 0 {
-        try visitor.visitSingularFloatField(value: _storage._co2Equivalent, fieldNumber: 16)
-      }
-      if _storage._breathVocEquivalent != 0 {
-        try visitor.visitSingularFloatField(value: _storage._breathVocEquivalent, fieldNumber: 17)
-      }
-      if _storage._compGasValue != 0 {
-        try visitor.visitSingularFloatField(value: _storage._compGasValue, fieldNumber: 18)
-      }
-      if _storage._gasPercentage != 0 {
-        try visitor.visitSingularFloatField(value: _storage._gasPercentage, fieldNumber: 19)
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch _storage._message {
+      case .setup?: try {
+        guard case .setup(let v)? = _storage._message else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 51)
+      }()
+      case .info?: try {
+        guard case .info(let v)? = _storage._message else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 52)
+      }()
+      case .state?: try {
+        guard case .state(let v)? = _storage._message else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 53)
+      }()
+      case .context?: try {
+        guard case .context(let v)? = _storage._message else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 54)
+      }()
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Response.GetContextValues, rhs: Detecta_Response.GetContextValues) -> Bool {
+  public static func ==(lhs: D_Resp, rhs: D_Resp) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
         let rhs_storage = _args.1
-        if _storage._timestamp != rhs_storage._timestamp {return false}
-        if _storage._freeHeap != rhs_storage._freeHeap {return false}
-        if _storage._deviceStateMask != rhs_storage._deviceStateMask {return false}
-        if _storage._alarmStateMask != rhs_storage._alarmStateMask {return false}
-        if _storage._powerSourceStateMask != rhs_storage._powerSourceStateMask {return false}
-        if _storage._busVoltage != rhs_storage._busVoltage {return false}
-        if _storage._coZeroV != rhs_storage._coZeroV {return false}
-        if _storage._coV != rhs_storage._coV {return false}
-        if _storage._coPpm != rhs_storage._coPpm {return false}
-        if _storage._tempCelsius != rhs_storage._tempCelsius {return false}
-        if _storage._pressurePa != rhs_storage._pressurePa {return false}
-        if _storage._humidity != rhs_storage._humidity {return false}
-        if _storage._gasResistance != rhs_storage._gasResistance {return false}
-        if _storage._iaq != rhs_storage._iaq {return false}
-        if _storage._staticIaq != rhs_storage._staticIaq {return false}
-        if _storage._co2Equivalent != rhs_storage._co2Equivalent {return false}
-        if _storage._breathVocEquivalent != rhs_storage._breathVocEquivalent {return false}
-        if _storage._compGasValue != rhs_storage._compGasValue {return false}
-        if _storage._gasPercentage != rhs_storage._gasPercentage {return false}
+        if _storage._sessionID != rhs_storage._sessionID {return false}
+        if _storage._requestID != rhs_storage._requestID {return false}
+        if _storage._status != rhs_storage._status {return false}
+        if _storage._error != rhs_storage._error {return false}
+        if _storage._message != rhs_storage._message {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -902,10 +817,22 @@ extension Detecta_Response.GetContextValues: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Detecta_Response.SetWifiState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Detecta_Response.protoMessageName + ".SetWifiState"
+extension D_Resp.Status: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
+    0: .same(proto: "OK"),
+    1: .same(proto: "Unsupported"),
+    2: .same(proto: "Timeout"),
+    3: .same(proto: "ServiceError"),
+    4: .same(proto: "GeneralError"),
+  ]
+}
+
+extension D_Resp.Setup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Resp.protoMessageName + ".Setup"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "token"),
+    2: .same(proto: "info"),
+    3: .same(proto: "state"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -914,30 +841,43 @@ extension Detecta_Response.SetWifiState: SwiftProtobuf.Message, SwiftProtobuf._M
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.status) }()
+      case 1: try { try decoder.decodeSingularStringField(value: &self.token) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._info) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._state) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.status != .ok {
-      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 1)
+    if !self.token.isEmpty {
+      try visitor.visitSingularStringField(value: self.token, fieldNumber: 1)
+    }
+    if let v = self._info {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    if let v = self._state {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Response.SetWifiState, rhs: Detecta_Response.SetWifiState) -> Bool {
-    if lhs.status != rhs.status {return false}
+  public static func ==(lhs: D_Resp.Setup, rhs: D_Resp.Setup) -> Bool {
+    if lhs.token != rhs.token {return false}
+    if lhs._info != rhs._info {return false}
+    if lhs._state != rhs._state {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Detecta_Response.SetWifiCreds: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Detecta_Response.protoMessageName + ".SetWifiCreds"
+extension D_Resp.Info: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Resp.protoMessageName + ".Info"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
+    1: .same(proto: "model"),
+    2: .same(proto: "boardVersion"),
+    3: .same(proto: "factoryVersion"),
+    4: .same(proto: "otaVersion"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -946,33 +886,48 @@ extension Detecta_Response.SetWifiCreds: SwiftProtobuf.Message, SwiftProtobuf._M
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.status) }()
+      case 1: try { try decoder.decodeSingularStringField(value: &self.model) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.boardVersion) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.factoryVersion) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.otaVersion) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.status != .ok {
-      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 1)
+    if !self.model.isEmpty {
+      try visitor.visitSingularStringField(value: self.model, fieldNumber: 1)
+    }
+    if !self.boardVersion.isEmpty {
+      try visitor.visitSingularStringField(value: self.boardVersion, fieldNumber: 2)
+    }
+    if !self.factoryVersion.isEmpty {
+      try visitor.visitSingularStringField(value: self.factoryVersion, fieldNumber: 3)
+    }
+    if !self.otaVersion.isEmpty {
+      try visitor.visitSingularStringField(value: self.otaVersion, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Response.SetWifiCreds, rhs: Detecta_Response.SetWifiCreds) -> Bool {
-    if lhs.status != rhs.status {return false}
+  public static func ==(lhs: D_Resp.Info, rhs: D_Resp.Info) -> Bool {
+    if lhs.model != rhs.model {return false}
+    if lhs.boardVersion != rhs.boardVersion {return false}
+    if lhs.factoryVersion != rhs.factoryVersion {return false}
+    if lhs.otaVersion != rhs.otaVersion {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Detecta_Response.GetWifiNetworkInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = Detecta_Response.protoMessageName + ".GetWifiNetworkInfo"
+extension D_Resp.State: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Resp.protoMessageName + ".State"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "status"),
-    2: .same(proto: "isConnected"),
-    3: .same(proto: "ipAddr"),
-    4: .same(proto: "mDNSName"),
+    1: .same(proto: "millis"),
+    2: .same(proto: "freeHeap"),
+    20: .same(proto: "connect"),
+    21: .same(proto: "masks"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -981,36 +936,240 @@ extension Detecta_Response.GetWifiNetworkInfo: SwiftProtobuf.Message, SwiftProto
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.status) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.isConnected) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.ipAddr) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.mDnsname) }()
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.millis) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.freeHeap) }()
+      case 20: try { try decoder.decodeSingularMessageField(value: &self._connect) }()
+      case 21: try { try decoder.decodeSingularMessageField(value: &self._masks) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.status != .ok {
-      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 1)
+    if self.millis != 0 {
+      try visitor.visitSingularUInt32Field(value: self.millis, fieldNumber: 1)
     }
-    if self.isConnected != false {
-      try visitor.visitSingularBoolField(value: self.isConnected, fieldNumber: 2)
+    if self.freeHeap != 0 {
+      try visitor.visitSingularUInt32Field(value: self.freeHeap, fieldNumber: 2)
     }
-    if !self.ipAddr.isEmpty {
-      try visitor.visitSingularStringField(value: self.ipAddr, fieldNumber: 3)
+    if let v = self._connect {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
+    }
+    if let v = self._masks {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: D_Resp.State, rhs: D_Resp.State) -> Bool {
+    if lhs.millis != rhs.millis {return false}
+    if lhs.freeHeap != rhs.freeHeap {return false}
+    if lhs._connect != rhs._connect {return false}
+    if lhs._masks != rhs._masks {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension D_Resp.State.Connect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Resp.State.protoMessageName + ".Connect"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ipV4Addres"),
+    2: .same(proto: "mDNSName"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.ipV4Addres) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.mDnsname) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.ipV4Addres.isEmpty {
+      try visitor.visitSingularStringField(value: self.ipV4Addres, fieldNumber: 1)
     }
     if !self.mDnsname.isEmpty {
-      try visitor.visitSingularStringField(value: self.mDnsname, fieldNumber: 4)
+      try visitor.visitSingularStringField(value: self.mDnsname, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Detecta_Response.GetWifiNetworkInfo, rhs: Detecta_Response.GetWifiNetworkInfo) -> Bool {
-    if lhs.status != rhs.status {return false}
-    if lhs.isConnected != rhs.isConnected {return false}
-    if lhs.ipAddr != rhs.ipAddr {return false}
+  public static func ==(lhs: D_Resp.State.Connect, rhs: D_Resp.State.Connect) -> Bool {
+    if lhs.ipV4Addres != rhs.ipV4Addres {return false}
     if lhs.mDnsname != rhs.mDnsname {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension D_Resp.State.Masks: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Resp.State.protoMessageName + ".Masks"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "persistent"),
+    2: .same(proto: "standby"),
+    3: .same(proto: "state"),
+    4: .same(proto: "alarm"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.persistent) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.standby) }()
+      case 3: try { try decoder.decodeSingularUInt32Field(value: &self.state) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.alarm) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.persistent != 0 {
+      try visitor.visitSingularUInt32Field(value: self.persistent, fieldNumber: 1)
+    }
+    if self.standby != 0 {
+      try visitor.visitSingularUInt32Field(value: self.standby, fieldNumber: 2)
+    }
+    if self.state != 0 {
+      try visitor.visitSingularUInt32Field(value: self.state, fieldNumber: 3)
+    }
+    if self.alarm != 0 {
+      try visitor.visitSingularUInt32Field(value: self.alarm, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: D_Resp.State.Masks, rhs: D_Resp.State.Masks) -> Bool {
+    if lhs.persistent != rhs.persistent {return false}
+    if lhs.standby != rhs.standby {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.alarm != rhs.alarm {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension D_Resp.Context: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = D_Resp.protoMessageName + ".Context"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "millis"),
+    2: .same(proto: "busVoltage"),
+    3: .same(proto: "coZeroV"),
+    4: .same(proto: "coV"),
+    5: .same(proto: "coPpm"),
+    6: .same(proto: "tempCelsius"),
+    7: .same(proto: "pressurePa"),
+    8: .same(proto: "humidity"),
+    9: .same(proto: "gasResistance"),
+    10: .same(proto: "iaq"),
+    11: .same(proto: "staticIaq"),
+    12: .same(proto: "co2Equivalent"),
+    13: .same(proto: "breathVocEquivalent"),
+    14: .same(proto: "compGasValue"),
+    15: .same(proto: "gasPercentage"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self.millis) }()
+      case 2: try { try decoder.decodeSingularFloatField(value: &self.busVoltage) }()
+      case 3: try { try decoder.decodeSingularFloatField(value: &self.coZeroV) }()
+      case 4: try { try decoder.decodeSingularFloatField(value: &self.coV) }()
+      case 5: try { try decoder.decodeSingularFloatField(value: &self.coPpm) }()
+      case 6: try { try decoder.decodeSingularFloatField(value: &self.tempCelsius) }()
+      case 7: try { try decoder.decodeSingularFloatField(value: &self.pressurePa) }()
+      case 8: try { try decoder.decodeSingularFloatField(value: &self.humidity) }()
+      case 9: try { try decoder.decodeSingularFloatField(value: &self.gasResistance) }()
+      case 10: try { try decoder.decodeSingularFloatField(value: &self.iaq) }()
+      case 11: try { try decoder.decodeSingularFloatField(value: &self.staticIaq) }()
+      case 12: try { try decoder.decodeSingularFloatField(value: &self.co2Equivalent) }()
+      case 13: try { try decoder.decodeSingularFloatField(value: &self.breathVocEquivalent) }()
+      case 14: try { try decoder.decodeSingularFloatField(value: &self.compGasValue) }()
+      case 15: try { try decoder.decodeSingularFloatField(value: &self.gasPercentage) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.millis != 0 {
+      try visitor.visitSingularUInt32Field(value: self.millis, fieldNumber: 1)
+    }
+    if self.busVoltage != 0 {
+      try visitor.visitSingularFloatField(value: self.busVoltage, fieldNumber: 2)
+    }
+    if self.coZeroV != 0 {
+      try visitor.visitSingularFloatField(value: self.coZeroV, fieldNumber: 3)
+    }
+    if self.coV != 0 {
+      try visitor.visitSingularFloatField(value: self.coV, fieldNumber: 4)
+    }
+    if self.coPpm != 0 {
+      try visitor.visitSingularFloatField(value: self.coPpm, fieldNumber: 5)
+    }
+    if self.tempCelsius != 0 {
+      try visitor.visitSingularFloatField(value: self.tempCelsius, fieldNumber: 6)
+    }
+    if self.pressurePa != 0 {
+      try visitor.visitSingularFloatField(value: self.pressurePa, fieldNumber: 7)
+    }
+    if self.humidity != 0 {
+      try visitor.visitSingularFloatField(value: self.humidity, fieldNumber: 8)
+    }
+    if self.gasResistance != 0 {
+      try visitor.visitSingularFloatField(value: self.gasResistance, fieldNumber: 9)
+    }
+    if self.iaq != 0 {
+      try visitor.visitSingularFloatField(value: self.iaq, fieldNumber: 10)
+    }
+    if self.staticIaq != 0 {
+      try visitor.visitSingularFloatField(value: self.staticIaq, fieldNumber: 11)
+    }
+    if self.co2Equivalent != 0 {
+      try visitor.visitSingularFloatField(value: self.co2Equivalent, fieldNumber: 12)
+    }
+    if self.breathVocEquivalent != 0 {
+      try visitor.visitSingularFloatField(value: self.breathVocEquivalent, fieldNumber: 13)
+    }
+    if self.compGasValue != 0 {
+      try visitor.visitSingularFloatField(value: self.compGasValue, fieldNumber: 14)
+    }
+    if self.gasPercentage != 0 {
+      try visitor.visitSingularFloatField(value: self.gasPercentage, fieldNumber: 15)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: D_Resp.Context, rhs: D_Resp.Context) -> Bool {
+    if lhs.millis != rhs.millis {return false}
+    if lhs.busVoltage != rhs.busVoltage {return false}
+    if lhs.coZeroV != rhs.coZeroV {return false}
+    if lhs.coV != rhs.coV {return false}
+    if lhs.coPpm != rhs.coPpm {return false}
+    if lhs.tempCelsius != rhs.tempCelsius {return false}
+    if lhs.pressurePa != rhs.pressurePa {return false}
+    if lhs.humidity != rhs.humidity {return false}
+    if lhs.gasResistance != rhs.gasResistance {return false}
+    if lhs.iaq != rhs.iaq {return false}
+    if lhs.staticIaq != rhs.staticIaq {return false}
+    if lhs.co2Equivalent != rhs.co2Equivalent {return false}
+    if lhs.breathVocEquivalent != rhs.breathVocEquivalent {return false}
+    if lhs.compGasValue != rhs.compGasValue {return false}
+    if lhs.gasPercentage != rhs.gasPercentage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
