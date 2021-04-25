@@ -13,7 +13,7 @@ class CO2ValueUnitModel: ValueUnitModel {
     var value: String { String(format: "%.0f", valueNum) }
     var state: ValueUnitState {
         switch valueNum {
-        case 0...580:
+        case 0...800:
             return .good
         case 800...1200:
             return .warning

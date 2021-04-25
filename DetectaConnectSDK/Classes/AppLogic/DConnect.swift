@@ -11,12 +11,19 @@ import Foundation
 public class DConnect {
     public static func initialise() -> UIViewController {
         setupServices()
+        setupAppearance()
         service(GatesKeeper.self).summonAll()
         return ViewFactory.loadView(id: View.root)
     }
     
     public static var resourcesBundle: Bundle {
         return Bundle(for: DConnect.self)
+    }
+    
+    // MARK: - Private methods
+    
+    private static func setupAppearance() {
+//        UIAppearance.
     }
 }
 

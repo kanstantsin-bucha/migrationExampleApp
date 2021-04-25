@@ -11,7 +11,7 @@ def shared_pods
     pod 'DetectaConnectSDK', :path => "."
 end
 
-target :'DetectaConnect' do
+target :'D-Connect' do
     project 'Client.xcodeproj'
     shared_pods
 end

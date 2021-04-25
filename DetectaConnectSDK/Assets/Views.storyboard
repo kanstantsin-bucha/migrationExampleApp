@@ -609,42 +609,42 @@
                                         <rect key="frame" x="0.0" y="208" width="414" height="566"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KD2-vH-VRV" userLabel="TopPlaceholder">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-yD-CVk" userLabel="ValueView1" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="106" width="124" height="124"/>
+                                                <rect key="frame" x="8" y="87" width="124" height="152.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="MlS-yD-CVk" secondAttribute="height" multiplier="1:1" id="D4a-9L-p6f"/>
+                                                    <constraint firstAttribute="width" secondItem="MlS-yD-CVk" secondAttribute="height" multiplier="13:16" id="D4a-9L-p6f"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-eo-Chq" userLabel="ValueView2" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="145" y="106" width="124" height="124"/>
+                                                <rect key="frame" x="145" y="87" width="124" height="152.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-mq-ny0" userLabel="ValueView3" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="282" y="106" width="124" height="124"/>
+                                                <rect key="frame" x="282" y="87" width="124" height="152.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-xS-PbM" userLabel="MiddlePlaceholder">
-                                                <rect key="frame" x="0.0" y="230" width="414" height="106"/>
+                                                <rect key="frame" x="0.0" y="239.5" width="414" height="87"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mah-q7-ObE" userLabel="ValueView4" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="336" width="124" height="124"/>
+                                                <rect key="frame" x="8" y="326.5" width="124" height="152.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFQ-We-q8y" userLabel="ValueView5" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="145" y="336" width="124" height="124"/>
+                                                <rect key="frame" x="145" y="326.5" width="124" height="152.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="To6-Dm-1f7" userLabel="ValueView6" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="282" y="336" width="124" height="124"/>
+                                                <rect key="frame" x="282" y="326.5" width="124" height="152.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qc-Np-JMB" userLabel="BottomPlaceholder">
-                                                <rect key="frame" x="0.0" y="460" width="414" height="106"/>
+                                                <rect key="frame" x="0.0" y="479" width="414" height="87"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>

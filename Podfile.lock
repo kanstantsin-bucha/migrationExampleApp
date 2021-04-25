@@ -3,7 +3,7 @@ PODS:
   - DetectaConnectSDK (0.1.0):
     - BlueSwift
     - SwiftProtobuf
-  - SwiftProtobuf (1.15.0)
+  - SwiftProtobuf (1.16.0)
 
 DEPENDENCIES:
   - DetectaConnectSDK (from `.`)
@@ -20,8 +20,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   BlueSwift: b6c3e75870ab82d5d0c8043e66aae2bfa1a2945b
   DetectaConnectSDK: 13680340773ee2a185ddd840f85155980d023b89
-  SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
+  SwiftProtobuf: 4e16842b83c6fda06b10fac50d73b3f1fce8ab7b
 
-PODFILE CHECKSUM: 1b392490b99cc29ce71ac42351e9f9916654f453
+PODFILE CHECKSUM: fda5f66093a5b822c7529586b9f08e3a4926afa2
 
 COCOAPODS: 1.10.1

@@ -7,12 +7,11 @@
 
 import Foundation
 
-class IAQValueUnitModel: CombinedValueUnitModel {
+class IAQValueUnitModel: ValueUnitModel {
     var title: String { "IAQ" }
     var unit: String { "" }
     var value: String { String(format: "%.0f", valueNum) }
-    var state = ValueUnitState.good
-    var valueState: ValueUnitState {
+    var state: ValueUnitState {
         switch valueNum {
         case 0...99:
             return .good
@@ -30,13 +29,6 @@ class IAQValueUnitModel: CombinedValueUnitModel {
     public init() {}
     
     func update(value: Float) {
-        update(value: value, models: [])
-    }
-    
-    func update(value: Float, models: [ValueUnitModel]) {
         valueNum = value
-        var combined = valueState
-        models.forEach { if $0.state.rawValue > combined.rawValue { combined = $0.state } }
-        state = combined
     }
 }

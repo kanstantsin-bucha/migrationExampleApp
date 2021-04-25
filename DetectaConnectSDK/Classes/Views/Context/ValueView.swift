@@ -7,20 +7,23 @@
 
 import UIKit
 
+class RoundView: UIView {
+    override var bounds: CGRect {
+        didSet {
+            // Make it round
+            layer.cornerRadius = frame.size.width / 2
+        }
+    }
+}
+
 class ValueView: UIView {
     private var contentView: UIView!
     private var model: ValueUnitModel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var roundView: RoundView!
     
-    override var bounds: CGRect {
-        didSet {
-            // Make it round
-            contentView.layer.cornerRadius = contentView.frame.size.width / 2
-        }
-    }
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
@@ -39,7 +42,7 @@ class ValueView: UIView {
     
     func refresh() {
         valueLabel.text = model.value
-        contentView.backgroundColor = color(forState: model.state)
+        roundView.backgroundColor = color(forState: model.state)
             .withAlphaComponent(0.4)
     }
     

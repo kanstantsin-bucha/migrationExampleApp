@@ -25,8 +25,7 @@ class ContextViewController: UIViewController {
     private var co2PpmModel: ValueUnitModel = CO2ValueUnitModel()
     private var coPpmModel: ValueUnitModel = COValueUnitModel()
     private var vocPpmModel: ValueUnitModel = VocValueUnitModel()
-    private var iaqModel: CombinedValueUnitModel = IAQValueUnitModel()
-    private var valueModels: [ValueUnitModel]  = []
+    private var iaqModel: ValueUnitModel = IAQValueUnitModel()
     private var valueViews: [ValueView] = []
     
     private var isUpdating = false
@@ -78,7 +77,6 @@ class ContextViewController: UIViewController {
     }
     
     private func configure() {
-        valueModels = [temperatureModel, humidityModel, pressureModel, co2PpmModel, coPpmModel, vocPpmModel]
         valueViews = [valueView1, valueView2, valueView3, valueView4, valueView5, valueView6]
         valueView1.add(model: temperatureModel)
         valueView2.add(model: humidityModel)
@@ -108,7 +106,7 @@ class ContextViewController: UIViewController {
                 self.coPpmModel.update(value: context.coPpm)
                 self.co2PpmModel.update(value: context.co2Equivalent)
                 self.vocPpmModel.update(value: context.breathVocEquivalent)
-                self.iaqModel.update(value: context.iaq, models: self.valueModels)
+                self.iaqModel.update(value: context.iaq)
                 onMain {
                     self.iaqValueLabel.text = self.iaqModel.value
                     self.updateIcon(state: self.iaqModel.state)

@@ -22,8 +22,3 @@ public protocol ValueUnitModel: class {
     
     func update(value: Float)
 }
-
-public protocol CombinedValueUnitModel: ValueUnitModel {
-    var valueState: ValueUnitState { get }
-    func update(value: Float, models: [ValueUnitModel])
-}
