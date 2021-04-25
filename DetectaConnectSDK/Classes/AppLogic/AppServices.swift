@@ -23,7 +23,7 @@ public func removeAllServices() {
 func setupServices() {
     locator.addServices([
         (GatesKeeper.self, DefaultGatesKeeper()),
-        (GuideInteractor.self, DefaultGuideInteractor()),
+        (GadgetSetupInteractor.self, DefaultGadgetSetupInteractor()),
         (AppRouter.self, DefaultAppRouter()),
         (AlertRouter.self, DefaultAlertRouter()),
         (NetworkService.self, DefaultNetworkService()),

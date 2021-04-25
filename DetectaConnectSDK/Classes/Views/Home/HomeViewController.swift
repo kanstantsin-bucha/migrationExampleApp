@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     @IBOutlet var devices: UICollectionView!
+    @IBOutlet weak var PlusButton: UIButton!
     private var devicesList: [Device] = []
     
     override func viewDidLoad() {
@@ -33,6 +34,10 @@ class HomeViewController: UIViewController {
     private func configure() {
         devices.dataSource = self
         devices.delegate = self
+        PlusButton.setImage(
+            (#imageLiteral(resourceName: "plus-medium") as FrameworkAsset).image.withTintColor(.frameworkAsset(named: "AirBlue")),
+            for: .normal
+        )
     }
     
     
@@ -40,6 +45,10 @@ class HomeViewController: UIViewController {
         if segue.identifier == View.a.Home.SegueId.toContext {
             let contextViewController = segue.destination as! ContextViewController
             contextViewController.token = sender as? String
+        }
+        if segue.identifier == View.a.SetupGadget.id {
+            let viewController = segue.destination as! SetupGadgetViewController
+            viewController.model = DefaultSetupGadgetViewModel()
         }
     }
 }

@@ -31,47 +31,47 @@ protocol Logging {
 }
 
 extension Logging {
-    func error(_ error: Error, prefix: String = #file) {
+    func error(_ error: Error, prefix: String = #fileID) {
         printLog(error.localizedDescription, level: .error, prefix: prefix)
     }
     
-    func error(_ message: String, prefix: String = #file) {
+    func error(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .error, prefix: prefix)
     }
     
-    func warning(_ message: String, prefix: String = #file) {
+    func warning(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .warning, prefix: prefix)
     }
     
-    func debug(_ message: String, prefix: String = #file) {
+    func debug(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .debug, prefix: prefix)
     }
     
     // MARK: - here are user actions
     
-    func user(_ message: String, prefix: String = #file) {
+    func user(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .userAction, prefix: prefix)
     }
     
-    func event(_ message: String, prefix: String = #file) {
+    func event(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .event, prefix: prefix)
     }
     
     // MARK: - here are operations
     
-    func operation(_ message: String, prefix: String = #file) {
+    func operation(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .operation, prefix: prefix)
     }
     
-    func success(_ message: String, prefix: String = #file) {
+    func success(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .success, prefix: prefix)
     }
     
-    func failure(_ message: String, prefix: String = #file) {
+    func failure(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .failure, prefix: prefix)
     }
     
-    func cancel(_ message: String, prefix: String = #file) {
+    func cancel(_ message: String, prefix: String = #fileID) {
         printLog(message, level: .cancel, prefix: prefix)
     }
 }

@@ -106,7 +106,7 @@ final class BleGate {
             
         case let .setup(data):
             log.event("ble setup: \(data)")
-            service(GuideInteractor.self).handleSetupResponse(
+            service(GadgetSetupInteractor.self).handleSetupResponse(
                 status: response.status,
                 token: data.token
             )

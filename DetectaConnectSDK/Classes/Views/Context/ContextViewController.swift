@@ -15,6 +15,7 @@ class ContextViewController: UIViewController {
     @IBOutlet var valueView5: ValueView!
     @IBOutlet var valueView6: ValueView!
     @IBOutlet var iaqValueLabel: UILabel!
+    @IBOutlet weak var iaqImageView: UIImageView!
     
     var token: String!
     
@@ -24,6 +25,8 @@ class ContextViewController: UIViewController {
     private var co2PpmModel: ValueUnitModel = CO2ValueUnitModel()
     private var coPpmModel: ValueUnitModel = COValueUnitModel()
     private var vocPpmModel: ValueUnitModel = VocValueUnitModel()
+    private var iaqModel: CombinedValueUnitModel = IAQValueUnitModel()
+    private var valueModels: [ValueUnitModel]  = []
     private var valueViews: [ValueView] = []
     
     private var isUpdating = false
@@ -39,6 +42,7 @@ class ContextViewController: UIViewController {
         onMain {
             self.isUpdating = true
             self.update()
+            self.updateIcon(state: .good)
         }
     }
     
@@ -51,8 +55,31 @@ class ContextViewController: UIViewController {
     
     // MARK: - Private method
     
+    private func updateIcon(state: ValueUnitState) {
+        self.iaqImageView.image = (#imageLiteral(resourceName: "detecta-medium") as FrameworkAsset).image.withTintColor(
+            self.color(forState: self.iaqModel.state)
+        )
+    }
+
+    private func color(forState state: ValueUnitState) -> UIColor {
+        switch state {
+        case .good:
+            return UIColor.frameworkAsset(named: "AirBlue")
+            
+        case .warning:
+            return .yellow
+            
+        case .danger:
+            return .orange
+        
+        case .alarm:
+            return .red
+        }
+    }
+    
     private func configure() {
-        valueViews = [ valueView1, valueView2, valueView3, valueView4, valueView5, valueView6]
+        valueModels = [temperatureModel, humidityModel, pressureModel, co2PpmModel, coPpmModel, vocPpmModel]
+        valueViews = [valueView1, valueView2, valueView3, valueView4, valueView5, valueView6]
         valueView1.add(model: temperatureModel)
         valueView2.add(model: humidityModel)
         valueView3.add(model: pressureModel)
@@ -72,20 +99,20 @@ class ContextViewController: UIViewController {
     private func fetch() {
         service(GatesKeeper.self).cloudGate.fetchLastContext(token: token)
             .onSuccess { [weak self] result in
-                guard let context = result.data.first?.context else {
+                guard let self = self, let context = result.data.first?.context else {
                     return
                 }
-                self?.temperatureModel.update(value: context.tempCelsius)
-                self?.humidityModel.update(value: context.humidity)
-                self?.pressureModel.update(value: context.pressurePa)
-                self?.coPpmModel.update(value: context.coPpm)
-                self?.co2PpmModel.update(value: context.co2Equivalent)
-                self?.vocPpmModel.update(value: context.breathVocEquivalent)
+                self.temperatureModel.update(value: context.tempCelsius)
+                self.humidityModel.update(value: context.humidity)
+                self.pressureModel.update(value: context.pressurePa)
+                self.coPpmModel.update(value: context.coPpm)
+                self.co2PpmModel.update(value: context.co2Equivalent)
+                self.vocPpmModel.update(value: context.breathVocEquivalent)
+                self.iaqModel.update(value: context.iaq, models: self.valueModels)
                 onMain {
-                    self?.iaqValueLabel.text = String(format: "%.0f", context.iaq)
-                    self?.valueViews.forEach { view in
-                        view.refresh()
-                    }
+                    self.iaqValueLabel.text = self.iaqModel.value
+                    self.updateIcon(state: self.iaqModel.state)
+                    self.valueViews.forEach { $0.refresh() }
                 }
             }
             .onFailure { error in

@@ -11,7 +11,6 @@ import Foundation
 extension Data {
     
     var humanReadable: String {
-        
         return self.compactMap({ String(format: "%02x ", $0) }).joined(separator: "-")
     }
     

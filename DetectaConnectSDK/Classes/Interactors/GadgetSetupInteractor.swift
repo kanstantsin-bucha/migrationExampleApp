@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol GuideInteractor {
+protocol GadgetSetupInteractor {
     func connectBleDeviceWifi(ssid: String, pass: String) -> Future<Void>
     func checkConnectedDevice() -> Bool
     func handleSetupResponse(status: D_Resp.Status, token: String)
 }
 
-class DefaultGuideInteractor: GuideInteractor {
+class DefaultGadgetSetupInteractor: GadgetSetupInteractor {
     private var connectBleDeviceWifiPromise: Promise<Void>?
     public init() {}
     
@@ -78,7 +78,8 @@ class DefaultGuideInteractor: GuideInteractor {
     private func updateDevice(token: String) {
         let persistence = service(DevicePersistence.self)
         guard persistence.load(id: token) == nil else { return }
-        let device = DefaultDevice(id: token, name: "D-Air", token: token)
+        let device = DefaultDevice(id: token, name: "D-Air", token: token, date: Date())
+        
         persistence.save(device: device)
     }
 }

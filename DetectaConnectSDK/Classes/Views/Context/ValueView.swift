@@ -39,5 +39,23 @@ class ValueView: UIView {
     
     func refresh() {
         valueLabel.text = model.value
+        contentView.backgroundColor = color(forState: model.state)
+            .withAlphaComponent(0.4)
+    }
+    
+    func color(forState state: ValueUnitState) -> UIColor {
+        switch state {
+        case .good:
+            return .green
+        
+        case .warning:
+            return .yellow
+            
+        case .danger:
+            return .orange
+            
+        case .alarm:
+            return .red
+        }
     }
 }

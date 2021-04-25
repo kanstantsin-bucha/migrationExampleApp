@@ -8,15 +8,13 @@
 import Foundation
 
 enum View {
-    static let root = "rootNavigation"
+    static let root = "RootNavigation"
     enum Group {
-        enum Guide {
-            enum WiFi {
-                static let id = "wifi-guide"
-            }
-        }
     }
     enum a {
+        enum SetupGadget {
+            static let id = "SetupGadget"
+        }
         enum Preferences {
             static let id = "preferences"
             enum SegueId {

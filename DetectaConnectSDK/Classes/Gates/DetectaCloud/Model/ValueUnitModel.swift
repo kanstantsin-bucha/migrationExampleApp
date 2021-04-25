@@ -7,10 +7,23 @@
 
 import Foundation
 
-protocol ValueUnitModel: class {
+public enum ValueUnitState: Int {
+    case good = 0
+    case warning
+    case danger
+    case alarm
+}
+
+public protocol ValueUnitModel: class {
     var title: String { get }
     var unit: String { get }
     var value: String { get }
+    var state: ValueUnitState { get }
     
     func update(value: Float)
+}
+
+public protocol CombinedValueUnitModel: ValueUnitModel {
+    var valueState: ValueUnitState { get }
+    func update(value: Float, models: [ValueUnitModel])
 }
