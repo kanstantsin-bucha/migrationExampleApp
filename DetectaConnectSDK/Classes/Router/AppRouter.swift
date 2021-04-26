@@ -52,7 +52,8 @@ class DefaultAppRouter: AppRouter {
             log.failure("Show spinner")
             return
         }
-        let spinner = UIActivityIndicatorView(style: .whiteLarge)
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.color = .darkGray
         
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.alpha = 0

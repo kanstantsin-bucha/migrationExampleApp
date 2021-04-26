@@ -55,6 +55,7 @@ final class SetupGadgetViewController: UIViewController {
                 
                 switch state {
                 case .connecting:
+                    self.view.isUserInteractionEnabled = false
                     service(GatesKeeper.self).bleGate.open()
                     self.goButton.isEnabled = false
                     service(AppRouter.self).showSpinner()
@@ -62,17 +63,20 @@ final class SetupGadgetViewController: UIViewController {
                     self.passField.resignFirstResponder()
                     
                 case .connected:
+                    self.view.isUserInteractionEnabled = true
                     self.goButton.isEnabled = true
                     service(AppRouter.self).hideSpinner()
                     self.ssidField.becomeFirstResponder()
                     
                 case .settingUp:
+                    self.view.isUserInteractionEnabled = false
                     self.goButton.isEnabled = false
                     service(AppRouter.self).showSpinner()
                     self.ssidField.resignFirstResponder()
                     self.passField.resignFirstResponder()
                     
                 case .setUp:
+                    self.view.isUserInteractionEnabled = true
                     // some logic moved from here to viewDidDisappear
                     if let navigation = self.navigationController {
                         navigation.popViewController(animated: true)
