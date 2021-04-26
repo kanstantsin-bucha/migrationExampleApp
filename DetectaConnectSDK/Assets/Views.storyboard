@@ -208,7 +208,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHH-XY-3IO">
                                 <rect key="frame" x="20" y="275" width="374" height="119.5"/>
-                                <string key="text">Please tap the button on the device. The LED color should became blue after a while. Spinner will disapper and you can enter Name and Pass of yours WiFi network.</string>
+                                <string key="text">Please tap the button on the device. The LED color should became blue after a while. Spinner will disapper and you can enter Name and Pass of your WiFi network.</string>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="textColor" name="AirBlue"/>
                                 <nil key="highlightedColor"/>
