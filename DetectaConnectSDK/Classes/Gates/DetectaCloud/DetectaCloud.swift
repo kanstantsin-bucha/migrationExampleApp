@@ -10,6 +10,7 @@ import Foundation
 enum DetectaCloud {
     enum Endpoint {
         // Don't put a tail slash here
+//        static let cloudServer = "http://192.168.100.12"
         static let cloudServer = "http://detecta.group/api/1"
         static let measurements = "measurements"
     }
@@ -20,6 +21,8 @@ enum DetectaCloud {
     enum Query {
         static let limit = "$limit"
         static let sort = "$sort"
+        static let greaterThanOrEqual = "$gte"
+        static let lessThanOrEqual = "$lte"
     }
     enum Order {
         static let ascending = 1

@@ -19,9 +19,9 @@ struct DetectaCloudResponseConverter: ResponseConverting {
             return .failure(NetworkServiceError.dataConversionFailed)
         }
         
-        let value: CloudContext
+        let value: Value
         do {
-            value = try JSONDecoder().decode(CloudContext.self, from: data)
+            value = try JSONDecoder().decode(Value.self, from: data)
         } catch {
             return .failure(error)
         }
