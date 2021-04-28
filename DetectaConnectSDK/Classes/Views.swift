@@ -30,6 +30,9 @@ enum View {
         enum Context {
             static let id = "ContextViewController"
         }
+        enum TimeSpan {
+            static let id = "TimeSpanViewController"
+        }
         enum Home {
             enum SegueId {
                 static let toContext = "HomeToContext"

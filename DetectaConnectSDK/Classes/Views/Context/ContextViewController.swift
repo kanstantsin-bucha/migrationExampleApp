@@ -16,6 +16,7 @@ class ContextViewController: UIViewController {
     @IBOutlet var valueView6: ValueView!
     @IBOutlet var iaqValueLabel: UILabel!
     @IBOutlet weak var iaqImageView: UIImageView!
+    @IBOutlet weak var timestampLabel: UILabel!
     
     var token: String!
     
@@ -29,6 +30,12 @@ class ContextViewController: UIViewController {
     private var valueViews: [ValueView] = []
     
     private var isUpdating = false
+    private lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +60,13 @@ class ContextViewController: UIViewController {
     }
     
     // MARK: - Private method
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == View.a.TimeSpan.id {
+            let viewController = segue.destination as! TimeSpanViewController
+            viewController.token = token
+        }
+    }
     
     private func updateIcon(state: ValueUnitState) {
         self.iaqImageView.image = (#imageLiteral(resourceName: "detecta-medium") as FrameworkAsset).image.withTintColor(
@@ -97,9 +111,11 @@ class ContextViewController: UIViewController {
     private func fetch() {
         service(GatesKeeper.self).cloudGate.fetchLastContext(token: token)
             .onSuccess { [weak self] result in
-                guard let self = self, let context = result.data.first?.context else {
+                guard let self = self, let wrapper = result.data.first else {
                     return
                 }
+                let timestamp = self.dateFormatter.string(from: wrapper.created)
+                let context = wrapper.context
                 self.temperatureModel.update(value: context.tempCelsius)
                 self.humidityModel.update(value: context.humidity)
                 self.pressureModel.update(value: context.pressurePa)
@@ -110,6 +126,7 @@ class ContextViewController: UIViewController {
                 onMain {
                     self.iaqValueLabel.text = self.iaqModel.value
                     self.updateIcon(state: self.iaqModel.state)
+                    self.timestampLabel.text = timestamp
                     self.valueViews.forEach { $0.refresh() }
                 }
             }

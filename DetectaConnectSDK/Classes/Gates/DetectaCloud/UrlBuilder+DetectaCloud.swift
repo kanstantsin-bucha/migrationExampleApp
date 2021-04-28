@@ -8,10 +8,10 @@
 import Foundation
 
 extension ApiUrlBuilder {
-    public func addQuery(name: String, field: String? = nil, value: Any) -> Self {
+    public func addQuery(name: String, params: String? = nil, value: Any) -> Self {
         var query = name
-        if let field = field {
-            query += "[\(field)]"
+        if let params = params {
+            query += "[\(params)]"
         }
         return addItem(name: query, value: value)
     }

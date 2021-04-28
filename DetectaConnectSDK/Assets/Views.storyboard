@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -155,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMg-UD-aaM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="361"/>
+            <point key="canvasLocation" x="3791" y="428"/>
         </scene>
         <!--Setup Gadget View Controller-->
         <scene sceneID="76n-lM-fyo">
@@ -364,7 +364,7 @@
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Prototype" rowHeight="100" id="OtW-VW-Fl2" customClass="MeasurementTableCell" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="382" height="100"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="382" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OtW-VW-Fl2" id="8ri-7b-bQi">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
@@ -529,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emI-ry-JHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472" y="361"/>
+            <point key="canvasLocation" x="2643" y="428"/>
         </scene>
         <!--Context View Controller-->
         <scene sceneID="f6G-5U-COc">
@@ -546,7 +546,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detecta D-Air" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-iP-FbO" userLabel="DeviceTitle">
-                                                <rect key="frame" x="16" y="8" width="382" height="40"/>
+                                                <rect key="frame" x="16" y="8" width="291" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="GRs-zr-icS"/>
                                                 </constraints>
@@ -554,11 +554,19 @@
                                                 <color key="textColor" name="AirBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="01.01.2022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Rr-Ln-rSu" userLabel="ContextTimestamp">
+                                                <rect key="frame" x="315" y="19.5" width="83" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="AirGray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="ZX8-iP-FbO" secondAttribute="trailing" constant="16" id="3My-jO-0WH"/>
+                                            <constraint firstItem="0Rr-Ln-rSu" firstAttribute="leading" secondItem="ZX8-iP-FbO" secondAttribute="trailing" constant="8" id="1O9-6A-8yY"/>
                                             <constraint firstItem="ZX8-iP-FbO" firstAttribute="leading" secondItem="ZK4-ai-1xz" secondAttribute="leading" constant="16" id="aDy-AM-3pZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="0Rr-Ln-rSu" secondAttribute="trailing" constant="16" id="b63-qy-BtY"/>
+                                            <constraint firstItem="0Rr-Ln-rSu" firstAttribute="firstBaseline" secondItem="ZX8-iP-FbO" secondAttribute="firstBaseline" id="eAn-gB-wBo"/>
                                             <constraint firstAttribute="bottom" secondItem="ZX8-iP-FbO" secondAttribute="bottom" id="rb9-i6-y82"/>
                                             <constraint firstItem="ZX8-iP-FbO" firstAttribute="top" secondItem="ZK4-ai-1xz" secondAttribute="top" constant="8" id="z4x-rV-CUF"/>
                                         </constraints>
@@ -609,42 +617,42 @@
                                         <rect key="frame" x="0.0" y="208" width="414" height="566"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KD2-vH-VRV" userLabel="TopPlaceholder">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="93.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-yD-CVk" userLabel="ValueView1" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="87" width="124" height="152.5"/>
+                                                <rect key="frame" x="16" y="93.5" width="116" height="142.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="MlS-yD-CVk" secondAttribute="height" multiplier="13:16" id="D4a-9L-p6f"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-eo-Chq" userLabel="ValueView2" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="145" y="87" width="124" height="152.5"/>
+                                                <rect key="frame" x="149" y="93.5" width="116" height="142.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-mq-ny0" userLabel="ValueView3" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="282" y="87" width="124" height="152.5"/>
+                                                <rect key="frame" x="282" y="93.5" width="116" height="142.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-xS-PbM" userLabel="MiddlePlaceholder">
-                                                <rect key="frame" x="0.0" y="239.5" width="414" height="87"/>
+                                                <rect key="frame" x="0.0" y="236" width="414" height="94"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mah-q7-ObE" userLabel="ValueView4" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="326.5" width="124" height="152.5"/>
+                                                <rect key="frame" x="16" y="330" width="116" height="142.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFQ-We-q8y" userLabel="ValueView5" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="145" y="326.5" width="124" height="152.5"/>
+                                                <rect key="frame" x="149" y="330" width="116" height="142.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="To6-Dm-1f7" userLabel="ValueView6" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="282" y="326.5" width="124" height="152.5"/>
+                                                <rect key="frame" x="282" y="330" width="116" height="142.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qc-Np-JMB" userLabel="BottomPlaceholder">
-                                                <rect key="frame" x="0.0" y="479" width="414" height="87"/>
+                                                <rect key="frame" x="0.0" y="472.5" width="414" height="93.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -662,7 +670,7 @@
                                             <constraint firstItem="To6-Dm-1f7" firstAttribute="centerY" secondItem="mah-q7-ObE" secondAttribute="centerY" id="CGR-Ps-0Xt"/>
                                             <constraint firstItem="KD2-vH-VRV" firstAttribute="top" secondItem="d1E-kv-uQI" secondAttribute="top" id="G0z-9x-ir5"/>
                                             <constraint firstItem="4kh-mq-ny0" firstAttribute="centerY" secondItem="MlS-yD-CVk" secondAttribute="centerY" id="Qee-Jp-gaR"/>
-                                            <constraint firstAttribute="trailing" secondItem="4kh-mq-ny0" secondAttribute="trailing" constant="8" id="QgB-tE-bf6"/>
+                                            <constraint firstAttribute="trailing" secondItem="4kh-mq-ny0" secondAttribute="trailing" constant="16" id="QgB-tE-bf6"/>
                                             <constraint firstItem="aFQ-We-q8y" firstAttribute="height" secondItem="MlS-yD-CVk" secondAttribute="height" id="RYi-hS-5aV"/>
                                             <constraint firstItem="aFQ-We-q8y" firstAttribute="centerX" secondItem="ZIk-eo-Chq" secondAttribute="centerX" id="Rsn-LU-g4N"/>
                                             <constraint firstItem="KD2-vH-VRV" firstAttribute="height" secondItem="4qc-Np-JMB" secondAttribute="height" id="SeZ-Pt-CEG"/>
@@ -673,7 +681,7 @@
                                             <constraint firstItem="FIE-xS-PbM" firstAttribute="trailing" secondItem="KD2-vH-VRV" secondAttribute="trailing" id="blZ-DH-MGV"/>
                                             <constraint firstAttribute="bottom" secondItem="4qc-Np-JMB" secondAttribute="bottom" id="cCJ-vw-9Lk"/>
                                             <constraint firstItem="mah-q7-ObE" firstAttribute="top" secondItem="FIE-xS-PbM" secondAttribute="bottom" id="cGv-6k-zoc"/>
-                                            <constraint firstItem="MlS-yD-CVk" firstAttribute="leading" secondItem="d1E-kv-uQI" secondAttribute="leading" constant="8" id="fMG-Uc-oan"/>
+                                            <constraint firstItem="MlS-yD-CVk" firstAttribute="leading" secondItem="d1E-kv-uQI" secondAttribute="leading" constant="16" id="fMG-Uc-oan"/>
                                             <constraint firstItem="ZIk-eo-Chq" firstAttribute="centerX" secondItem="d1E-kv-uQI" secondAttribute="centerX" id="gkR-Ga-Yk4"/>
                                             <constraint firstItem="ZIk-eo-Chq" firstAttribute="width" secondItem="MlS-yD-CVk" secondAttribute="width" id="lfW-9n-EH2"/>
                                             <constraint firstItem="FIE-xS-PbM" firstAttribute="leading" secondItem="KD2-vH-VRV" secondAttribute="leading" id="mWp-yj-qeP"/>
@@ -689,7 +697,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="MlS-yD-CVk" firstAttribute="width" secondItem="Fnd-9t-SRj" secondAttribute="width" multiplier="0.3" id="vl1-83-pSL"/>
+                                    <constraint firstItem="MlS-yD-CVk" firstAttribute="width" secondItem="Fnd-9t-SRj" secondAttribute="width" multiplier="0.28" id="vl1-83-pSL"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -702,10 +710,17 @@
                             <constraint firstItem="Fnd-9t-SRj" firstAttribute="top" secondItem="fka-rk-QAl" secondAttribute="top" id="tXV-JW-YLC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ce3-YH-94s"/>
+                    <navigationItem key="navigationItem" id="ce3-YH-94s">
+                        <barButtonItem key="rightBarButtonItem" title="TimeSpan" id="vxn-fc-PER" userLabel="TimeSpan">
+                            <connections>
+                                <segue destination="870-Cu-p4r" kind="show" identifier="TimeSpanViewController" id="qcD-H9-12B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="iaqImageView" destination="oc7-xG-NZN" id="AWR-cW-fCf"/>
                         <outlet property="iaqValueLabel" destination="ygb-Gx-Nq1" id="SF9-D0-dCQ"/>
+                        <outlet property="timestampLabel" destination="0Rr-Ln-rSu" id="YDr-WG-odg"/>
                         <outlet property="valueView1" destination="MlS-yD-CVk" id="uDt-ms-Sdr"/>
                         <outlet property="valueView2" destination="ZIk-eo-Chq" id="Ouo-vY-iQQ"/>
                         <outlet property="valueView3" destination="4kh-mq-ny0" id="bvd-OG-NCf"/>
@@ -716,7 +731,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYv-vS-DrZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1016" y="414"/>
+            <point key="canvasLocation" x="1015.9420289855074" y="413.83928571428572"/>
+        </scene>
+        <!--Time Span View Controller-->
+        <scene sceneID="d8Y-Gc-GsH">
+            <objects>
+                <viewController id="870-Cu-p4r" customClass="TimeSpanViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pdk-cn-wwp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUe-PQ-sun" userLabel="Contexts">
+                                <rect key="frame" x="16" y="16" width="382" height="742"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="AirBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dkP-J0-KDl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dkP-J0-KDl" firstAttribute="bottom" secondItem="FUe-PQ-sun" secondAttribute="bottom" constant="16" id="NeR-Y2-VCG"/>
+                            <constraint firstItem="FUe-PQ-sun" firstAttribute="top" secondItem="dkP-J0-KDl" secondAttribute="top" constant="16" id="ebQ-dA-C3c"/>
+                            <constraint firstItem="FUe-PQ-sun" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="toy-m9-tns"/>
+                            <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="FUe-PQ-sun" secondAttribute="trailing" constant="16" id="xfR-bC-nXW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="awk-Dv-Chu"/>
+                    <connections>
+                        <outlet property="contextsLabel" destination="FUe-PQ-sun" id="Crd-gK-8TW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAN-1r-KGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="414"/>
         </scene>
         <!--Support View Controller-->
         <scene sceneID="Z9Q-51-OMC">
@@ -1005,13 +1053,16 @@ If you have a question or need help using the product, open a support ticket and
             <color red="1" green="0.59399998188018799" blue="0.14399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="LightGrayBackground">
-            <color red="0.95310486469072164" green="0.95310486469072164" blue="0.95310486469072164" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.95300000905990601" green="0.95300000905990601" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="OptionsBackground">
             <color red="0.22745098039215686" green="0.15686274509803921" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

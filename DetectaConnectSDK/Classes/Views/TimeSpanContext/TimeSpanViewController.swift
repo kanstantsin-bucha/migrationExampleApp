@@ -1,5 +1,5 @@
 //
-//  TimeSpanContextViewController.swift
+//  TimeSpanViewController.swift
 //  DetectaConnectSDK
 //
 //  Created by Konstantin on 4/27/21.
@@ -7,8 +7,10 @@
 
 import UIKit
 
-class TimeSpanContextViewController: UIViewController {
+class TimeSpanViewController: UIViewController {
     var token: String!
+    
+    @IBOutlet weak var contextsLabel: UILabel!
     
     private var temperatureModel: ValueUnitModel = TemperatureValueUnitModel()
     private var humidityModel: ValueUnitModel = HumidityValueUnitModel()
@@ -55,12 +57,15 @@ class TimeSpanContextViewController: UIViewController {
         service(GatesKeeper.self).cloudGate.fetchPeriodContext(
             token: token,
             endDate: Date(),
-            period: .oneHour
+            period: .oneDay
         )
             .onSuccess { [weak self] result in
                 guard let self = self else { return }
                 let contextValues = result.data.map { $0.context }
                 onMain {
+                    self.contextsLabel.text = contextValues
+                        .map { String($0.iaq) }
+                        .joined(separator: ", ")
                     log.event("Load values: \(contextValues.count) \(contextValues.first)")
                 }
             }

@@ -50,7 +50,7 @@ public class DetectaCloudGate {
             .addPath(path: c.Endpoint.measurements)
             .addItem(name: "uid", value: token)
             .addQuery(name: c.Query.limit, value: 1)
-            .addQuery(name: c.Query.sort, field: c.Field.createdAt, value: c.Order.descending)
+            .addQuery(name: c.Query.sort, params: c.Field.createdAt, value: c.Order.descending)
             .url()
     }
     
@@ -59,13 +59,15 @@ public class DetectaCloudGate {
         startDate: Date,
         endDate: Date
     ) -> URL {
-        cloudBuilder
+        let start = UInt(startDate.timeIntervalSince1970)
+        let end = UInt(endDate.timeIntervalSince1970)
+        return cloudBuilder
             .addPath(path: c.Endpoint.measurements)
             .addItem(name: "uid", value: token)
-            .addQuery(name: c.Query.greaterThanOrEqual, value: startDate)
-            .addQuery(name: c.Query.lessThanOrEqual, value: endDate)
+            .addQuery(name: c.Field.createdAt, params: c.Query.greaterThanOrEqual, value: start)
+            .addQuery(name: c.Field.createdAt, params: c.Query.lessThanOrEqual, value: end)
             .addQuery(name: c.Query.limit, value: fetchLimit)
-            .addQuery(name: c.Query.sort, field: c.Field.createdAt, value: c.Order.ascending)
+            .addQuery(name: c.Query.sort, params: c.Field.createdAt, value: c.Order.ascending)
             .url()
     }
 }
