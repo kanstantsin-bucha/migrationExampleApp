@@ -10,7 +10,7 @@ import UIKit
 class TimeSpanViewController: UIViewController {
     var token: String!
     
-    @IBOutlet weak var contextsLabel: UILabel!
+    @IBOutlet weak var contextsView: UITextView!
     
     private var temperatureModel: ValueUnitModel = TemperatureValueUnitModel()
     private var humidityModel: ValueUnitModel = HumidityValueUnitModel()
@@ -61,12 +61,13 @@ class TimeSpanViewController: UIViewController {
         )
             .onSuccess { [weak self] result in
                 guard let self = self else { return }
-                let contextValues = result.data.map { $0.context }
+                let values = result.data
                 onMain {
-                    self.contextsLabel.text = contextValues
-                        .map { String($0.iaq) }
-                        .joined(separator: ", ")
-                    log.event("Load values: \(contextValues.count) \(contextValues.first)")
+                    var text = "Total \(values.count):\n"
+                    text += values.map { "\($0.created): \(String($0.context.iaq))" }
+                        .joined(separator: ",\n")
+                    log.event("Loaded \(values.count) values")
+                    self.contextsView.text = text
                 }
             }
             .onFailure { error in

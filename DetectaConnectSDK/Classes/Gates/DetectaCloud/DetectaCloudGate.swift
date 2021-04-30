@@ -17,7 +17,8 @@ public enum FetchPeriod: TimeInterval {
 }
 
 public class DetectaCloudGate {
-    private let fetchLimit = 1440
+    // on the D-Cloud there is the deflator logic that sends only representative results of count 50
+    private let fetchLimit = 50
     private let converter = DetectaCloudResponseConverter()
     private var cloudBuilder: ApiUrlBuilder { ApiUrlBuilder(c.Endpoint.cloudServer) }
     

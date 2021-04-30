@@ -741,25 +741,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUe-PQ-sun" userLabel="Contexts">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gH-mZ-ciQ">
                                 <rect key="frame" x="16" y="16" width="382" height="742"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="AirBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="AirGray"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dkP-J0-KDl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dkP-J0-KDl" firstAttribute="bottom" secondItem="FUe-PQ-sun" secondAttribute="bottom" constant="16" id="NeR-Y2-VCG"/>
-                            <constraint firstItem="FUe-PQ-sun" firstAttribute="top" secondItem="dkP-J0-KDl" secondAttribute="top" constant="16" id="ebQ-dA-C3c"/>
-                            <constraint firstItem="FUe-PQ-sun" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="toy-m9-tns"/>
-                            <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="FUe-PQ-sun" secondAttribute="trailing" constant="16" id="xfR-bC-nXW"/>
+                            <constraint firstItem="7gH-mZ-ciQ" firstAttribute="top" secondItem="dkP-J0-KDl" secondAttribute="top" constant="16" id="eXT-iE-Y8v"/>
+                            <constraint firstItem="7gH-mZ-ciQ" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="jUm-hM-4HI"/>
+                            <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="7gH-mZ-ciQ" secondAttribute="trailing" constant="16" id="klM-MG-Fbg"/>
+                            <constraint firstItem="dkP-J0-KDl" firstAttribute="bottom" secondItem="7gH-mZ-ciQ" secondAttribute="bottom" constant="16" id="wmL-d0-0yT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="awk-Dv-Chu"/>
                     <connections>
-                        <outlet property="contextsLabel" destination="FUe-PQ-sun" id="Crd-gK-8TW"/>
+                        <outlet property="contextsView" destination="7gH-mZ-ciQ" id="Zhz-Bv-6Dl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAN-1r-KGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1060,9 +1061,6 @@ If you have a question or need help using the product, open a support ticket and
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
