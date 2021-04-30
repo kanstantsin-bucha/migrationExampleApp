@@ -742,17 +742,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gH-mZ-ciQ">
-                                <rect key="frame" x="16" y="16" width="382" height="742"/>
+                                <rect key="frame" x="16" y="515.5" width="382" height="242.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="AirGray"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Fc-cD-gtz" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="16" width="382" height="483.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dkP-J0-KDl"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7gH-mZ-ciQ" firstAttribute="top" secondItem="dkP-J0-KDl" secondAttribute="top" constant="16" id="eXT-iE-Y8v"/>
+                            <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="3Fc-cD-gtz" secondAttribute="trailing" constant="16" id="9Th-N3-IGX"/>
+                            <constraint firstItem="3Fc-cD-gtz" firstAttribute="top" secondItem="dkP-J0-KDl" secondAttribute="top" constant="16" id="RX7-vd-BiC"/>
+                            <constraint firstItem="3Fc-cD-gtz" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="SCt-5n-tWx"/>
+                            <constraint firstItem="7gH-mZ-ciQ" firstAttribute="top" secondItem="3Fc-cD-gtz" secondAttribute="bottom" constant="16" id="eR2-Me-vQm"/>
+                            <constraint firstItem="7gH-mZ-ciQ" firstAttribute="height" secondItem="pdk-cn-wwp" secondAttribute="height" multiplier="0.3" id="f7d-YZ-nUf"/>
                             <constraint firstItem="7gH-mZ-ciQ" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="jUm-hM-4HI"/>
                             <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="7gH-mZ-ciQ" secondAttribute="trailing" constant="16" id="klM-MG-Fbg"/>
                             <constraint firstItem="dkP-J0-KDl" firstAttribute="bottom" secondItem="7gH-mZ-ciQ" secondAttribute="bottom" constant="16" id="wmL-d0-0yT"/>
@@ -761,11 +769,12 @@
                     <navigationItem key="navigationItem" id="awk-Dv-Chu"/>
                     <connections>
                         <outlet property="contextsView" destination="7gH-mZ-ciQ" id="Zhz-Bv-6Dl"/>
+                        <outlet property="lineChartView" destination="3Fc-cD-gtz" id="Sr3-sX-xsR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GAN-1r-KGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754" y="414"/>
+            <point key="canvasLocation" x="1753.6231884057972" y="413.83928571428572"/>
         </scene>
         <!--Support View Controller-->
         <scene sceneID="Z9Q-51-OMC">

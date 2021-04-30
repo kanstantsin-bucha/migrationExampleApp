@@ -14,6 +14,32 @@ public enum FetchPeriod: TimeInterval {
     case oneHour = 3600
     case eightHours = 28800
     case oneDay = 86400
+    
+    var spanCount: Int {
+        switch self {
+        case .oneHour:
+            return 6
+        
+        case .eightHours:
+            return 8
+            
+        case .oneDay:
+            return 6
+        }
+    }
+    
+    var normalizationCoefficient: Double {
+        switch self {
+        case .oneHour:
+            return 1 / 3600
+        
+        case .eightHours:
+            return 1 / 3600
+            
+        case .oneDay:
+            return 1 / 60
+        }
+    }
 }
 
 public class DetectaCloudGate {

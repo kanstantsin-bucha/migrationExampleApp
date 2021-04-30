@@ -36,4 +36,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation', 'UIKit', 'CoreBluetooth'
   s.dependency 'BlueSwift'
   s.dependency 'SwiftProtobuf'
+  s.dependency 'Charts'
 end

@@ -1,7 +1,11 @@
 PODS:
   - BlueSwift (1.0.5)
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - DetectaConnectSDK (0.1.0):
     - BlueSwift
+    - Charts
     - SwiftProtobuf
   - SwiftProtobuf (1.16.0)
 
@@ -11,6 +15,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - BlueSwift
+    - Charts
     - SwiftProtobuf
 
 EXTERNAL SOURCES:
@@ -19,7 +24,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlueSwift: b6c3e75870ab82d5d0c8043e66aae2bfa1a2945b
-  DetectaConnectSDK: 13680340773ee2a185ddd840f85155980d023b89
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  DetectaConnectSDK: a997b8d2b4666d90cb66c8d8d20ea592ebe8a572
   SwiftProtobuf: 4e16842b83c6fda06b10fac50d73b3f1fce8ab7b
 
 PODFILE CHECKSUM: fda5f66093a5b822c7529586b9f08e3a4926afa2
