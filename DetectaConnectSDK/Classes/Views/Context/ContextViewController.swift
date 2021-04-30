@@ -83,7 +83,7 @@ class ContextViewController: UIViewController {
             return .yellow
             
         case .danger:
-            return .orange
+            return .systemOrange
         
         case .alarm:
             return .red

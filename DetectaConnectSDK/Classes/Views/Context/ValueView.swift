@@ -49,13 +49,13 @@ class ValueView: UIView {
     func color(forState state: ValueUnitState) -> UIColor {
         switch state {
         case .good:
-            return .green
+            return .cyan
         
         case .warning:
             return .yellow
             
         case .danger:
-            return .orange
+            return .systemOrange
             
         case .alarm:
             return .red
