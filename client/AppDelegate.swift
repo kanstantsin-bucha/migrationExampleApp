@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         window = UIWindow()
         window?.backgroundColor = .white
-        window?.rootViewController = DConnect.initialise()
+        window?.rootViewController = DConnect.initialize()
         window?.makeKeyAndVisible()
         return true
     }

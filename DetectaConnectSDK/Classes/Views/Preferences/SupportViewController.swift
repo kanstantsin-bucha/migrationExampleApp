@@ -19,4 +19,6 @@ class SupportViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    // MARK: - Private methods
 }

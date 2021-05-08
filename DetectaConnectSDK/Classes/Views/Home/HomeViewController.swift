@@ -40,7 +40,6 @@ class HomeViewController: UIViewController {
         )
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == View.a.Home.SegueId.toContext {
             let contextViewController = segue.destination as! ContextViewController

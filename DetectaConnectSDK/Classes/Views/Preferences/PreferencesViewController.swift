@@ -70,7 +70,11 @@ class PreferencesViewController: UIViewController {
             .removeObserver(self)
     }
     
-    //MARK: - logic -
+    //MARK: - Private methods
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
     
     @objc func onUserTapOnFreeSpace(sender: UITapGestureRecognizer) {
         view.endEditing(true)

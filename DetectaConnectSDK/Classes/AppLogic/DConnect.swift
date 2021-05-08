@@ -9,11 +9,13 @@
 import Foundation
 
 public class DConnect {
-    public static func initialise() -> UIViewController {
+    public static func initialize() -> UIViewController {
         setupServices()
         setupAppearance()
         service(GatesKeeper.self).summonAll()
-        return ViewFactory.loadView(id: View.root)
+        let controller = ViewFactory.loadView(id: View.root)
+        (controller as? UINavigationController)?.navigationBar.barStyle = .black
+        return controller
     }
     
     public static var resourcesBundle: Bundle {
@@ -23,7 +25,7 @@ public class DConnect {
     // MARK: - Private methods
     
     private static func setupAppearance() {
-//        UIAppearance.
+//        UINavigationBar.appearance().barStyle = .black
     }
 }
 

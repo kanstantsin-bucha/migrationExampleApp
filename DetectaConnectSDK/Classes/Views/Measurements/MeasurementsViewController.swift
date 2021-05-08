@@ -78,7 +78,7 @@ final class MeasurementsViewController: UIViewController {
         }
     }
     
-    //MARK: - logic -
+    //MARK: - Private methods
     
     private func subscribeToNotifications() {
         notificationToken = NotificationCenter.default.addObserver(
@@ -139,7 +139,6 @@ final class MeasurementsViewController: UIViewController {
         humidityField.text = "n/a"
         pressureField.text = "n/a"
     }
-    
 }
 
 extension MeasurementsViewController: UITableViewDelegate, UITableViewDataSource {

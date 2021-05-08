@@ -4,21 +4,18 @@ workspace 'Client.xcworkspace'
 
 # ================= Client ================
 
-def shared_pods
+target :'D-Connect' do
     platform :ios, '13'
     use_frameworks!
-    
+    project 'Client.xcodeproj'
     pod 'DetectaConnectSDK', :path => "."
 end
 
-target :'D-Connect' do
-    project 'Client.xcodeproj'
-    shared_pods
-end
-
 target :'DetectaConnectTests' do
+    platform :ios, '13'
+    use_frameworks!
     project 'Client.xcodeproj'
-    shared_pods
+    pod 'DetectaConnectSDK', :path => "."
 end
 
 post_install do |installer|

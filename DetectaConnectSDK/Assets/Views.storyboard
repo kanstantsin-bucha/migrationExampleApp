@@ -1030,7 +1030,7 @@ If you have a question or need help using the product, open a support ticket and
         <!--Navigation Controller-->
         <scene sceneID="cIm-Pq-u1X">
             <objects>
-                <navigationController storyboardIdentifier="RootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" customClass="NavigationController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

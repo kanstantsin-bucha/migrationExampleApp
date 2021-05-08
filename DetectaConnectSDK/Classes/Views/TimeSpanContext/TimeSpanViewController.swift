@@ -51,7 +51,6 @@ class TimeSpanViewController: UIViewController {
         lineChartView.rightAxis.enabled = true
         lineChartView.drawBordersEnabled = false
         lineChartView.drawGridBackgroundEnabled = false
-        lineChartView.gridBackgroundColor = .white
         lineChartView.rightAxis.drawGridLinesEnabled = false
         lineChartView.legend.textColor = .systemBlue
         
@@ -78,33 +77,22 @@ class TimeSpanViewController: UIViewController {
     private func fetch() {
         let period = FetchPeriod.eightHours
         let valuePath: KeyPath<CloudContextWrapper, Float> = \.context.co2Equivalent
-        let periodStart = Date().timeIntervalSince1970 - period.rawValue
+        let targetDate: Date
+        do {
+            targetDate = try calculateStartDate(period: period)
+        } catch {
+            log.error(error)
+            return
+        }
         service(GatesKeeper.self).cloudGate.fetchPeriodContext(
             token: token,
-            endDate: Date(),
+            startDate: targetDate,
             period: period
         )
             .onSuccess { [weak self] result in
                 guard let self = self else { return }
                 let values = result.data
-                let chartEntries = values.enumerated().map { index, value in
-                    return ChartDataEntry(
-                        x: (value.createdAt - periodStart) * period.normalizationCoefficient,
-                        y: Double(value[keyPath: valuePath])
-                    )
-                }
-                let dataSet = LineChartDataSet(entries: chartEntries, label: "CO2")
-                dataSet.drawCirclesEnabled = false
-                dataSet.lineWidth = 3
-                dataSet.setColor(.systemBlue)
-                dataSet.fill = Fill(color: .cyan)
-                dataSet.fillAlpha = 0.1
-                dataSet.drawFilledEnabled = true
-                dataSet.highlightLineWidth = 2
-                dataSet.highlightColor = .green.withAlphaComponent(0.7)
-                dataSet.drawValuesEnabled = false
-                
-                let data = LineChartData(dataSet: dataSet)
+                let data = self.chartData(withValues: values, startDate: targetDate, valuePath: valuePath)
                 onMain {
                     self.lineChartView.xAxis.setLabelCount(period.spanCount, force: true)
                     self.lineChartView.data = data
@@ -121,6 +109,42 @@ class TimeSpanViewController: UIViewController {
                     service(AlertRouter.self).show(error: error)
                 }
             }
+    }
+    
+    private func calculateStartDate(period: FetchPeriod) throws -> Date {
+        let calendar = Calendar.current
+        let start = Date().addingTimeInterval(-period.rawValue)
+        var components = calendar.dateComponents([.era, .year, .month, .day, .hour], from: start)
+        components.hour = 1 + (components.hour ?? 0)
+        guard let date = calendar.date(from: components) else {
+            throw TimeSpanContextError.failedDateConversion
+        }
+        return date
+    }
+    
+    private func chartData(
+        withValues values: [CloudContextWrapper],
+        startDate: Date,
+        valuePath: KeyPath<CloudContextWrapper, Float>
+    ) -> LineChartData {
+        let unixTime = startDate.timeIntervalSince1970
+        let chartEntries = values.enumerated().map { index, value in
+            return ChartDataEntry(
+                x: (value.createdAt - unixTime) / 3600,
+                y: Double(value[keyPath: valuePath])
+            )
+        }
+        let dataSet = LineChartDataSet(entries: chartEntries, label: "CO2")
+        dataSet.drawCirclesEnabled = false
+        dataSet.lineWidth = 3
+        dataSet.setColor(.systemBlue)
+        dataSet.fill = Fill(color: .cyan)
+        dataSet.fillAlpha = 0.1
+        dataSet.drawFilledEnabled = true
+        dataSet.highlightEnabled = false
+        dataSet.drawValuesEnabled = false
+        
+        return LineChartData(dataSet: dataSet)
     }
 }
 
