@@ -18,26 +18,13 @@ public enum FetchPeriod: TimeInterval {
     var spanCount: Int {
         switch self {
         case .oneHour:
-            return 6
+            return 4
         
         case .eightHours:
-            return 8
+            return 4
             
         case .oneDay:
-            return 6
-        }
-    }
-    
-    var normalizationCoefficient: Double {
-        switch self {
-        case .oneHour:
-            return 1 / 3600
-        
-        case .eightHours:
-            return 1 / 3600
-            
-        case .oneDay:
-            return 1 / 60
+            return 4
         }
     }
 }

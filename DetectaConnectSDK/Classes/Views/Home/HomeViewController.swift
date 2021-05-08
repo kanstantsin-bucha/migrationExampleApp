@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
+    
     @IBOutlet var devices: UICollectionView!
     @IBOutlet weak var PlusButton: UIButton!
     private var devicesList: [Device] = []
