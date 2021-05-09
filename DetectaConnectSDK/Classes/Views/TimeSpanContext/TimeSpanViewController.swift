@@ -121,15 +121,11 @@ class TimeSpanViewController: UIViewController {
     }
     
     private func updateBadge(entry: ChartDataEntry?) {
-        guard let entry = entry else {
-            unitLabel.text = "ppm"
-            valueLabel.text = "~"
-            timeLabel.text = ""
-            return
-        }
-        unitLabel.text = "ppm"
-        valueLabel.text = String(format: "%.0f", entry.y)
-        timeLabel.text = service(ChartInteractor.self).hourlyString(timeInterval:entry.x)
+        let (value, color, unit, time) = model.badge(x: entry?.x, y: entry?.y)
+        unitLabel.text = unit
+        valueLabel.text = value
+        valueLabel.textColor = color
+        timeLabel.text = time
     }
     
     private func updateCharacteristics(min: Double, max: Double, average: Double) {

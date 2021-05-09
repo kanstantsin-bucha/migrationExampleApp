@@ -26,7 +26,7 @@ open class ChartInteractor {
     public func chartData(
         withValues values: [CloudContextWrapper],
         valuePath: KeyPath<CloudContextWrapper, Float>
-    ) -> LineChartData {
+    ) -> (data: LineChartData, preselectedEntry: ChartDataEntry?) {
         let chartEntries = values.enumerated().map { index, value in
             return ChartDataEntry(
                 x: value.createdAt,
@@ -35,7 +35,10 @@ open class ChartInteractor {
         }
         let dataSet = LineChartDataSet(entries: chartEntries, label: nil)
         dataSet.applyAppearance()
-        return LineChartData(dataSet: dataSet)
+        return (
+            data: LineChartData(dataSet: dataSet),
+            preselectedEntry: dataSet.first(where: { $0.y == dataSet.yMax })
+        )
     }
     
     // MARK: - Private methods

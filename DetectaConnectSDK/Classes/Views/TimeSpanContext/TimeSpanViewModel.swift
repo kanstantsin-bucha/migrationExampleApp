@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Charts
 import Foundation
 
 public enum TimeSpanViewState: Equatable {
@@ -53,6 +54,23 @@ open class TimeSpanViewModel {
         }
     }
     
+    public func badge(x: Double?, y: Double?) -> (value: String, color: UIColor, unit: String, time: String) {
+        guard let time = x, let value = y else {
+            return (
+                value: "~",
+                color: .systemGreen,
+                unit: "ppm",
+                time: ""
+            )
+        }
+        return (
+            value: String(format: "%.0f", value),
+            color: .systemGreen,
+            unit: "ppm",
+            time: service(ChartInteractor.self).hourlyString(timeInterval: time)
+        )
+    }
+    
     // MARK: - Private methods
     
     private func fetch(interval: FetchInterval) {
@@ -85,7 +103,7 @@ open class TimeSpanViewModel {
                 }
                 return
             }
-            let data = service(ChartInteractor.self).chartData(
+            let (data, preselectedEntry) = service(ChartInteractor.self).chartData(
                 withValues: values,
                 valuePath: valuePath
             )
@@ -98,7 +116,7 @@ open class TimeSpanViewModel {
                     xAverage: average,
                     xSpanCount: interval.spanCount,
                     data: data,
-                    badgeEntry: nil
+                    badgeEntry: preselectedEntry
                 )
             )
         }
