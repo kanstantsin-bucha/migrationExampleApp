@@ -13,6 +13,7 @@ open class ChartInteractor {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = .pad
         return formatter
     }()
     
