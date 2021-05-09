@@ -21,6 +21,14 @@ class TimeSpanViewController: UIViewController {
     
     @IBOutlet weak var contextsView: UITextView!
     @IBOutlet weak var lineChartView: LineChartView!
+    // Badge View
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var unitLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    // Characteristics View
+    @IBOutlet weak var minValueLabel: UILabel!
+    @IBOutlet weak var averageValueLabel: UILabel!
+    @IBOutlet weak var maxValueLabel: UILabel!
     
     private var temperatureModel: ValueUnitModel = TemperatureValueUnitModel()
     private var humidityModel: ValueUnitModel = HumidityValueUnitModel()
@@ -45,6 +53,7 @@ class TimeSpanViewController: UIViewController {
         onMain {
             self.isUpdating = true
             self.update()
+            self.updateBadge(entry: nil)
         }
     }
     
@@ -61,7 +70,7 @@ class TimeSpanViewController: UIViewController {
         marker = DotMarker(color: .green.withAlphaComponent(0.3))
         lineChartView.marker = marker
         
-        lineChartView.rightAxis.enabled = true
+        lineChartView.rightAxis.enabled = false
         lineChartView.drawBordersEnabled = false
         lineChartView.drawGridBackgroundEnabled = false
         lineChartView.rightAxis.drawGridLinesEnabled = false
@@ -78,10 +87,14 @@ class TimeSpanViewController: UIViewController {
         xAxis.valueFormatter = MyAxisValueFormatter()
         
         let yAxis = lineChartView.leftAxis
-        yAxis.labelFont = .systemFont(ofSize: 12)
-        yAxis.labelTextColor = UIColor.frameworkAsset(named: "AirGray")
-        yAxis.axisLineColor = .blue
-        yAxis.setLabelCount(6, force: true)
+        yAxis.drawLabelsEnabled = false
+        yAxis.drawAxisLineEnabled = false
+        yAxis.drawGridLinesEnabled = false
+        yAxis.drawZeroLineEnabled = false
+//        yAxis.labelFont = .systemFont(ofSize: 12)
+//        yAxis.labelTextColor = UIColor.frameworkAsset(named: "AirGray")
+//        yAxis.axisLineColor = .blue
+//        yAxis.setLabelCount(6, force: true)
     }
     
     private func update() {
@@ -90,7 +103,7 @@ class TimeSpanViewController: UIViewController {
     }
     
     private func fetch() {
-        let period = FetchPeriod.eightHours
+        let period = FetchPeriod.oneDay
         let valuePath: KeyPath<CloudContextWrapper, Float> = \.context.co2Equivalent
         let targetDate: Date
         do {
@@ -108,10 +121,13 @@ class TimeSpanViewController: UIViewController {
                 guard let self = self else { return }
                 let values = result.data
                 let data = self.chartData(withValues: values, startDate: targetDate, valuePath: valuePath)
+                let average = values.average { Double($0[keyPath: valuePath]) }
                 onMain {
+                    self.updateCharacteristics(min: data.yMin, max: data.yMax, average: average)
                     let unixTime = targetDate.timeIntervalSince1970
                     self.lineChartView.xAxis.axisMinimum = unixTime
                     self.lineChartView.xAxis.axisMaximum = unixTime + period.rawValue
+                    self.lineChartView.leftAxis.axisMinimum = data.getYMin() - abs(data.getYMin() * 0.3)
                     self.lineChartView.xAxis.setLabelCount(period.spanCount, force: true)
                     self.lineChartView.data = data
                     self.lineChartView.animate(xAxisDuration: 1)
@@ -176,6 +192,24 @@ class TimeSpanViewController: UIViewController {
         
         return LineChartData(dataSet: dataSet)
     }
+    
+    private func updateBadge(entry: ChartDataEntry?) {
+        guard let entry = entry else {
+            unitLabel.text = "ppm"
+            valueLabel.text = "~"
+            timeLabel.text = ""
+            return
+        }
+        unitLabel.text = "ppm"
+        valueLabel.text = String(format: "%.0f", entry.y)
+        timeLabel.text = TimeSpanViewController.formatter.string(for: hourlyComponents(entry.x))!
+    }
+    
+    private func updateCharacteristics(min: Double, max: Double, average: Double) {
+        minValueLabel.text = String(format: "%.0f", min)
+        averageValueLabel.text = String(format: "%.0f", average)
+        maxValueLabel.text = String(format: "%.0f", max)
+    }
 }
 
 extension TimeSpanViewController: ChartViewDelegate {
@@ -184,7 +218,9 @@ extension TimeSpanViewController: ChartViewDelegate {
         entry: ChartDataEntry,
         highlight: Highlight
     ) {
-        // TODO: set the value to the label text
+        onMain { [weak self] in
+            self?.updateBadge(entry: entry)
+        }
     }
 }
 

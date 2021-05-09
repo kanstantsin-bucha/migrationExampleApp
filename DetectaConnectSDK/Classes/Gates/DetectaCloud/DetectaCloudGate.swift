@@ -10,28 +10,10 @@ import Foundation
 
 fileprivate typealias c = DetectaCloud
 
-public enum FetchPeriod: TimeInterval {
-    case oneHour = 3600
-    case eightHours = 28800
-    case oneDay = 86400
-    
-    var spanCount: Int {
-        switch self {
-        case .oneHour:
-            return 4
-        
-        case .eightHours:
-            return 4
-            
-        case .oneDay:
-            return 4
-        }
-    }
-}
-
 public class DetectaCloudGate {
     // on the D-Cloud there is the deflator logic that sends only representative results of count 50
-    private let fetchLimit = 50
+    // this limit is the limit of fetch results of the search query on the server
+    private let fetchLimit = 2000
     private let converter = DetectaCloudResponseConverter()
     private var cloudBuilder: ApiUrlBuilder { ApiUrlBuilder(c.Endpoint.cloudServer) }
     
