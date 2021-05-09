@@ -64,7 +64,7 @@ class ContextViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == View.a.TimeSpan.id {
             let viewController = segue.destination as! TimeSpanViewController
-            viewController.token = token
+            viewController.model = TimeSpanViewModel(token: token)
         }
     }
 

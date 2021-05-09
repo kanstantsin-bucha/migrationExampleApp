@@ -26,16 +26,16 @@ public class DetectaCloudGate {
         )
     }
     
-    public func fetchPeriodContext(
+    public func fetchIntervalContext(
         token: String,
         startDate: Date,
-        period: FetchPeriod
+        interval: FetchInterval
     ) -> Future<CloudContext> {
         return service(NetworkService.self).load(
-            url: periodContext(
+            url: intervalContext(
                 token: token,
                 startDate: startDate,
-                endDate: startDate.addingTimeInterval(period.rawValue)
+                endDate: startDate.addingTimeInterval(interval.rawValue)
             ),
             converter: converter
         )
@@ -52,7 +52,7 @@ public class DetectaCloudGate {
             .url()
     }
     
-    private func periodContext(
+    private func intervalContext(
         token: String,
         startDate: Date,
         endDate: Date

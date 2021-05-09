@@ -27,7 +27,8 @@ func setupServices() {
         (AppRouter.self, DefaultAppRouter()),
         (AlertRouter.self, DefaultAlertRouter()),
         (NetworkService.self, DefaultNetworkService()),
-        (DevicePersistence.self, DefaultDevicePersistence())
+        (DevicePersistence.self, DefaultDevicePersistence()),
+        (ChartInteractor.self, ChartInteractor())
     ])
 }
 

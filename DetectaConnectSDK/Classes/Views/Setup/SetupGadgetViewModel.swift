@@ -23,7 +23,6 @@ public protocol SetupGadgetViewModel {
 }
 
 public class DefaultSetupGadgetViewModel: SetupGadgetViewModel {
-//    public var state: Published<SetupGadgetViewState>.Publisher { $_state }
     public var state = PassthroughSubject<SetupGadgetViewState, Never>()
     
     public init() {}
