@@ -76,6 +76,7 @@ class TimeSpanViewController: UIViewController {
         lineChartView.rightAxis.drawGridLinesEnabled = false
         lineChartView.legend.textColor = .systemBlue
         lineChartView.delegate = self
+        lineChartView.scaleYEnabled = false
         
         let xAxis = lineChartView.xAxis
         xAxis.labelPosition = .bottom
