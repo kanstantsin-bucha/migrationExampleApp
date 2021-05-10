@@ -545,8 +545,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZK4-ai-1xz" userLabel="DeviceDescription">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detecta D-Air" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-iP-FbO" userLabel="DeviceTitle">
-                                                <rect key="frame" x="16" y="8" width="291" height="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Room / D-Air" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-iP-FbO" userLabel="DeviceTitle">
+                                                <rect key="frame" x="16" y="8" width="374" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="GRs-zr-icS"/>
                                                 </constraints>
@@ -554,9 +554,9 @@
                                                 <color key="textColor" name="AirBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="01.01.2022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="0Rr-Ln-rSu" userLabel="ContextTimestamp">
-                                                <rect key="frame" x="315" y="19.5" width="83" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="0Rr-Ln-rSu" userLabel="ContextTimestamp">
+                                                <rect key="frame" x="398" y="28" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" name="AirGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -564,25 +564,25 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="0Rr-Ln-rSu" firstAttribute="leading" secondItem="ZX8-iP-FbO" secondAttribute="trailing" constant="8" id="1O9-6A-8yY"/>
+                                            <constraint firstItem="0Rr-Ln-rSu" firstAttribute="centerY" secondItem="ZX8-iP-FbO" secondAttribute="centerY" id="QfV-bF-mg5"/>
                                             <constraint firstItem="ZX8-iP-FbO" firstAttribute="leading" secondItem="ZK4-ai-1xz" secondAttribute="leading" constant="16" id="aDy-AM-3pZ"/>
                                             <constraint firstAttribute="trailing" secondItem="0Rr-Ln-rSu" secondAttribute="trailing" constant="16" id="b63-qy-BtY"/>
-                                            <constraint firstItem="0Rr-Ln-rSu" firstAttribute="firstBaseline" secondItem="ZX8-iP-FbO" secondAttribute="firstBaseline" id="eAn-gB-wBo"/>
                                             <constraint firstAttribute="bottom" secondItem="ZX8-iP-FbO" secondAttribute="bottom" id="rb9-i6-y82"/>
                                             <constraint firstItem="ZX8-iP-FbO" firstAttribute="top" secondItem="ZK4-ai-1xz" secondAttribute="top" constant="8" id="z4x-rV-CUF"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lyZ-pB-noC" userLabel="IAQValue">
-                                        <rect key="frame" x="0.0" y="48" width="414" height="160"/>
+                                        <rect key="frame" x="0.0" y="48" width="414" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-xG-NZN">
-                                                <rect key="frame" x="16" y="0.0" width="160" height="160"/>
+                                                <rect key="frame" x="16" y="24" width="110" height="110"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="160" id="1j5-gL-o11"/>
-                                                    <constraint firstAttribute="height" constant="160" id="IWE-Ig-SL5"/>
+                                                    <constraint firstAttribute="width" constant="110" id="1j5-gL-o11"/>
+                                                    <constraint firstAttribute="height" constant="110" id="IWE-Ig-SL5"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IAQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6L-4p-zVK">
-                                                <rect key="frame" x="184" y="34" width="214" height="40"/>
+                                                <rect key="frame" x="150" y="33" width="248" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="3Ru-YY-XlZ"/>
                                                 </constraints>
@@ -591,7 +591,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygb-Gx-Nq1">
-                                                <rect key="frame" x="184" y="70" width="214" height="60"/>
+                                                <rect key="frame" x="150" y="69" width="248" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="rgW-KP-6dx"/>
                                                 </constraints>
@@ -605,54 +605,54 @@
                                             <constraint firstItem="ygb-Gx-Nq1" firstAttribute="top" secondItem="k6L-4p-zVK" secondAttribute="bottom" constant="-4" id="68f-EZ-wzg"/>
                                             <constraint firstAttribute="trailing" secondItem="k6L-4p-zVK" secondAttribute="trailing" constant="16" id="Lxc-tm-t54"/>
                                             <constraint firstItem="ygb-Gx-Nq1" firstAttribute="trailing" secondItem="k6L-4p-zVK" secondAttribute="trailing" id="OGO-Ct-zu5"/>
-                                            <constraint firstItem="oc7-xG-NZN" firstAttribute="top" secondItem="lyZ-pB-noC" secondAttribute="top" id="Qf9-cN-o8s"/>
+                                            <constraint firstItem="oc7-xG-NZN" firstAttribute="top" secondItem="lyZ-pB-noC" secondAttribute="top" constant="24" id="Qf9-cN-o8s"/>
                                             <constraint firstAttribute="bottom" secondItem="oc7-xG-NZN" secondAttribute="bottom" id="VdR-y2-Njp"/>
                                             <constraint firstItem="oc7-xG-NZN" firstAttribute="leading" secondItem="lyZ-pB-noC" secondAttribute="leading" constant="16" id="b5j-Ws-j2G"/>
                                             <constraint firstItem="k6L-4p-zVK" firstAttribute="centerY" secondItem="oc7-xG-NZN" secondAttribute="centerY" constant="-26" id="bTq-0M-0DG"/>
-                                            <constraint firstItem="k6L-4p-zVK" firstAttribute="leading" secondItem="oc7-xG-NZN" secondAttribute="trailing" constant="8" id="fX1-oK-i63"/>
+                                            <constraint firstItem="k6L-4p-zVK" firstAttribute="leading" secondItem="oc7-xG-NZN" secondAttribute="trailing" constant="24" id="fX1-oK-i63"/>
                                             <constraint firstItem="ygb-Gx-Nq1" firstAttribute="leading" secondItem="k6L-4p-zVK" secondAttribute="leading" id="zQF-RQ-FAT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1E-kv-uQI" userLabel="ContextValues">
-                                        <rect key="frame" x="0.0" y="208" width="414" height="566"/>
+                                        <rect key="frame" x="0.0" y="182" width="414" height="592"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KD2-vH-VRV" userLabel="TopPlaceholder">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="93.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-yD-CVk" userLabel="ValueView1" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="93.5" width="116" height="142.5"/>
+                                                <rect key="frame" x="16" y="102" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="MlS-yD-CVk" secondAttribute="height" multiplier="13:16" id="D4a-9L-p6f"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-eo-Chq" userLabel="ValueView2" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="149" y="93.5" width="116" height="142.5"/>
+                                                <rect key="frame" x="149" y="102" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-mq-ny0" userLabel="ValueView3" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="282" y="93.5" width="116" height="142.5"/>
+                                                <rect key="frame" x="282" y="102" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIE-xS-PbM" userLabel="MiddlePlaceholder">
-                                                <rect key="frame" x="0.0" y="236" width="414" height="94"/>
+                                                <rect key="frame" x="0.0" y="245" width="414" height="102"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mah-q7-ObE" userLabel="ValueView4" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="16" y="330" width="116" height="142.5"/>
+                                                <rect key="frame" x="16" y="347" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFQ-We-q8y" userLabel="ValueView5" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="149" y="330" width="116" height="142.5"/>
+                                                <rect key="frame" x="149" y="347" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="To6-Dm-1f7" userLabel="ValueView6" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="282" y="330" width="116" height="142.5"/>
+                                                <rect key="frame" x="282" y="347" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qc-Np-JMB" userLabel="BottomPlaceholder">
-                                                <rect key="frame" x="0.0" y="472.5" width="414" height="93.5"/>
+                                                <rect key="frame" x="0.0" y="490" width="414" height="102"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -1053,16 +1053,16 @@ If you have a question or need help using the product, open a support ticket and
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-lt-01K">
-                                <rect key="frame" x="24" y="20" width="318" height="29"/>
+                                <rect key="frame" x="24" y="20" width="323" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfa-HI-SSx">
-                                <rect key="frame" x="358" y="28.5" width="40" height="40"/>
+                                <rect key="frame" x="363" y="31" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="JvT-08-Yhv"/>
-                                    <constraint firstAttribute="height" constant="40" id="QwF-ok-edB"/>
+                                    <constraint firstAttribute="width" constant="35" id="JvT-08-Yhv"/>
+                                    <constraint firstAttribute="height" constant="35" id="QwF-ok-edB"/>
                                 </constraints>
                                 <color key="tintColor" name="ButtonTitle"/>
                                 <state key="normal" image="plus-medium"/>
@@ -1079,21 +1079,20 @@ If you have a question or need help using the product, open a support ticket and
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="whY-Jg-FWc">
                                     <size key="itemSize" width="160" height="80"/>
-                                    <size key="estimatedItemSize" width="160" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Device" id="pmh-dG-EBD" customClass="DeviceCollectionViewCell" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rhQ-nn-wdA">
-                                            <rect key="frame" x="0.0" y="0.0" width="92" height="48"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D-Air" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkV-Ok-hp8" userLabel="DeviceTitle">
-                                                    <rect key="frame" x="16" y="8" width="60" height="32"/>
+                                                    <rect key="frame" x="16" y="8" width="128" height="64"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1124,8 +1123,8 @@ If you have a question or need help using the product, open a support ticket and
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To connect more devices hit plus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPH-YY-1PL">
-                                <rect key="frame" x="24" y="49" width="318" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To connect more devices hit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPH-YY-1PL">
+                                <rect key="frame" x="24" y="49" width="323" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1197,7 +1196,7 @@ If you have a question or need help using the product, open a support ticket and
     <resources>
         <image name="plus-medium" width="50" height="50"/>
         <namedColor name="AirBlue">
-            <color red="0.55699998140335083" green="0.76499998569488525" blue="0.92500001192092896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5725490196078431" green="0.77254901960784317" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AirGray">
             <color red="0.49799999594688416" green="0.49799999594688416" blue="0.49000000953674316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

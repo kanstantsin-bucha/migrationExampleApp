@@ -43,22 +43,22 @@ class ValueView: UIView {
     func refresh() {
         valueLabel.text = model.value
         roundView.backgroundColor = color(forState: model.state)
-            .withAlphaComponent(0.4)
+            .withAlphaComponent(0.3)
     }
     
     func color(forState state: ValueUnitState) -> UIColor {
         switch state {
         case .good:
-            return .cyan
-        
+            return .frameworkAsset(named: "AirBlue")
+            
         case .warning:
-            return .yellow
+            return .frameworkAsset(named: "AirYellow")
             
         case .danger:
-            return .systemOrange
-            
+            return .frameworkAsset(named: "AirOrange")
+        
         case .alarm:
-            return .red
+            return .frameworkAsset(named: "AirRed")
         }
     }
 }

@@ -80,8 +80,18 @@ extension HomeViewController: UICollectionViewDataSource {
             for: indexPath
         ) as! DeviceCollectionViewCell
         
-        cell.contentView.layer.borderColor = UIColor.darkGray.cgColor
+        cell.contentView.layer.borderColor = UIColor.frameworkAsset(named: "AirBlue").cgColor
         cell.update(withDevice: devicesList[indexPath.row])
         return cell
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 80)
     }
 }

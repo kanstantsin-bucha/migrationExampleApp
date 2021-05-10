@@ -13,6 +13,6 @@ class DeviceCollectionViewCell: UICollectionViewCell {
     
     func update(withDevice device: Device) {
         token = device.token
-        title.text = device.name + " " + device.token.prefix(2)
+        title.text = device.name + " " + device.token.prefix(4)
     }
 }

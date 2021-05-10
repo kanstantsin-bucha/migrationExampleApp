@@ -32,8 +32,7 @@ class ContextViewController: UIViewController {
     private var isUpdating = false
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
+        formatter.dateFormat = "dd.MM.yy\nHH:mm"
         return formatter
     }()
     
@@ -77,16 +76,16 @@ class ContextViewController: UIViewController {
     private func color(forState state: ValueUnitState) -> UIColor {
         switch state {
         case .good:
-            return UIColor.frameworkAsset(named: "AirBlue")
+            return .frameworkAsset(named: "AirBlue")
             
         case .warning:
-            return .yellow
+            return .frameworkAsset(named: "AirYellow")
             
         case .danger:
-            return .systemOrange
+            return .frameworkAsset(named: "AirOrange")
         
         case .alarm:
-            return .red
+            return .frameworkAsset(named: "AirRed")
         }
     }
     
