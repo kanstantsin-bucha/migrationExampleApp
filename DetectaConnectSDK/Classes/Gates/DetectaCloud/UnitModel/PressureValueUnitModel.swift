@@ -29,6 +29,6 @@ class PressureValueUnitModel: UnitValueModel {
     public init() {}
     
     func apply(value: Float) {
-        valueNum = value / 100
+        valueNum = value
     }
 }

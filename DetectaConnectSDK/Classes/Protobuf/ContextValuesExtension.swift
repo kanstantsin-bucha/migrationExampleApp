@@ -14,7 +14,7 @@ extension ContextValues: CustomDebugStringConvertible {
         return """
             <ContextValues millis: \(millis), busVoltage \(busVoltage),
             coZeroV \(coZeroV), coV \(coV), coPpm \(coPpm),
-            tempCelsius \(tempCelsius), pressurePa \(pressurePa), humidity \(humidity),
+            tempCelsius \(tempCelsius), pressureHPa \(pressureHpa), humidity \(humidity),
             gasResistance \(gasResistance), iaq \(iaq), staticIaq \(staticIaq),
             co2Equivalent \(co2Equivalent), breathVocEquivalent \(breathVocEquivalent),
             compGasValue \(compGasValue), gasPercentage \(gasPercentage),

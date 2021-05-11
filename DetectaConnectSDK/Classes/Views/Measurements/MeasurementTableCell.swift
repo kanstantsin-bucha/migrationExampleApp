@@ -23,7 +23,7 @@ class MeasurementTableCell: UITableViewCell {
         envField.text =
             String(format: "T: %.2fC, ", values.tempCelsius) +
             String(format: "H: %.2f%%, ", values.humidity) +
-            String(format: "P: %.0fPa", values.pressurePa)
+            String(format: "P: %.0fHPa", values.pressureHpa)
         
         debugField.text = String(
                 format: "co2: %.2f, iaq: %.2f, voc: %.2f",

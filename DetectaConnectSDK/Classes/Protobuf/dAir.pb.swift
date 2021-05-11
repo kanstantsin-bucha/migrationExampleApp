@@ -416,7 +416,7 @@ public struct D_Resp {
 
     public var tempCelsius: Float = 0
 
-    public var pressurePa: Float = 0
+    public var pressureHpa: Float = 0
 
     public var humidity: Float = 0
 
@@ -1068,7 +1068,7 @@ extension D_Resp.Context: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     4: .same(proto: "coV"),
     5: .same(proto: "coPpm"),
     6: .same(proto: "tempCelsius"),
-    7: .same(proto: "pressurePa"),
+    7: .same(proto: "pressureHPa"),
     8: .same(proto: "humidity"),
     9: .same(proto: "gasResistance"),
     10: .same(proto: "iaq"),
@@ -1091,7 +1091,7 @@ extension D_Resp.Context: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       case 4: try { try decoder.decodeSingularFloatField(value: &self.coV) }()
       case 5: try { try decoder.decodeSingularFloatField(value: &self.coPpm) }()
       case 6: try { try decoder.decodeSingularFloatField(value: &self.tempCelsius) }()
-      case 7: try { try decoder.decodeSingularFloatField(value: &self.pressurePa) }()
+      case 7: try { try decoder.decodeSingularFloatField(value: &self.pressureHpa) }()
       case 8: try { try decoder.decodeSingularFloatField(value: &self.humidity) }()
       case 9: try { try decoder.decodeSingularFloatField(value: &self.gasResistance) }()
       case 10: try { try decoder.decodeSingularFloatField(value: &self.iaq) }()
@@ -1124,8 +1124,8 @@ extension D_Resp.Context: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if self.tempCelsius != 0 {
       try visitor.visitSingularFloatField(value: self.tempCelsius, fieldNumber: 6)
     }
-    if self.pressurePa != 0 {
-      try visitor.visitSingularFloatField(value: self.pressurePa, fieldNumber: 7)
+    if self.pressureHpa != 0 {
+      try visitor.visitSingularFloatField(value: self.pressureHpa, fieldNumber: 7)
     }
     if self.humidity != 0 {
       try visitor.visitSingularFloatField(value: self.humidity, fieldNumber: 8)
@@ -1161,7 +1161,7 @@ extension D_Resp.Context: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     if lhs.coV != rhs.coV {return false}
     if lhs.coPpm != rhs.coPpm {return false}
     if lhs.tempCelsius != rhs.tempCelsius {return false}
-    if lhs.pressurePa != rhs.pressurePa {return false}
+    if lhs.pressureHpa != rhs.pressureHpa {return false}
     if lhs.humidity != rhs.humidity {return false}
     if lhs.gasResistance != rhs.gasResistance {return false}
     if lhs.iaq != rhs.iaq {return false}

@@ -87,7 +87,7 @@ message Resp {
         float coV = 4;
         float coPpm = 5;
         float tempCelsius = 6;
-        float pressurePa = 7;
+        float pressureHPa = 7;
         float humidity = 8;
         float gasResistance = 9;
         float iaq = 10;

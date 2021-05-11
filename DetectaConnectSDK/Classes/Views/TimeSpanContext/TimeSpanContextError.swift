@@ -9,7 +9,6 @@ import Foundation
 
 enum TimeSpanContextError: Error {
     case failedDateConversion
-    case noData
 }
 
 extension TimeSpanContextError: LocalizedError {
@@ -17,9 +16,6 @@ extension TimeSpanContextError: LocalizedError {
         switch self {
         case .failedDateConversion:
             return "Failed to get valid fetch interval for date"
-            
-        case .noData:
-            return "The server has no data for the interval"
         }
     }
 }

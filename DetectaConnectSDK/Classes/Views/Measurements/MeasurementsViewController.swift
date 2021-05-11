@@ -130,7 +130,7 @@ final class MeasurementsViewController: UIViewController {
         coField.text = "\(String(format: "%.0f", values.coPpm))"
         tempField.text = "\(String(format: "%.1fC", values.tempCelsius))"
         humidityField.text = "\(String(format: "%.1f%%", values.humidity))"
-        pressureField.text = "\(String(format: "%.0fPa", values.pressurePa))"
+        pressureField.text = "\(String(format: "%.0fPa", values.pressureHpa))"
     }
     
     private func clearFields() {
