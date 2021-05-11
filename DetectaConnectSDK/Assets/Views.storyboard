@@ -862,6 +862,40 @@
                                     <action selector="toggleIntervalButtonDidTouch" destination="870-Cu-p4r" eventType="touchUpInside" id="Q2q-PI-HEY"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVX-Sr-Boa" userLabel="No Data View">
+                                <rect key="frame" x="36" y="244.5" width="342" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have no data for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdq-1c-tMX">
+                                        <rect key="frame" x="16" y="140" width="310" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" name="AirGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.bin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vz9-CU-by3">
+                                        <rect key="frame" x="131" y="17" width="80" height="77.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="AirBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="LWK-rT-7nm"/>
+                                            <constraint firstAttribute="height" constant="80" id="xsR-xH-CDn"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="vz9-CU-by3" firstAttribute="centerX" secondItem="iVX-Sr-Boa" secondAttribute="centerX" id="0iB-TY-JbI"/>
+                                    <constraint firstItem="jdq-1c-tMX" firstAttribute="leading" secondItem="iVX-Sr-Boa" secondAttribute="leading" constant="16" id="3gx-sA-0U7"/>
+                                    <constraint firstAttribute="bottom" secondItem="jdq-1c-tMX" secondAttribute="bottom" constant="36" id="4Xf-1z-orE"/>
+                                    <constraint firstAttribute="trailing" secondItem="jdq-1c-tMX" secondAttribute="trailing" constant="16" id="QEj-5s-F0l"/>
+                                    <constraint firstAttribute="height" constant="200" id="ihX-xY-dWE"/>
+                                    <constraint firstItem="vz9-CU-by3" firstAttribute="top" secondItem="iVX-Sr-Boa" secondAttribute="top" constant="16" id="wu6-Me-iSO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V4C-nK-uoi" userLabel="Units Collection View">
                                 <rect key="frame" x="16" y="692" width="382" height="66"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -919,7 +953,9 @@
                         <constraints>
                             <constraint firstItem="ck2-Dg-Fp9" firstAttribute="centerX" secondItem="pdk-cn-wwp" secondAttribute="centerX" id="3sM-4x-Jb5"/>
                             <constraint firstItem="pdC-AN-c6T" firstAttribute="top" secondItem="dkP-J0-KDl" secondAttribute="top" constant="16" id="4Ag-tK-AQE"/>
+                            <constraint firstItem="iVX-Sr-Boa" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="36" id="9IY-Et-V5h"/>
                             <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="3Fc-cD-gtz" secondAttribute="trailing" constant="16" id="9Th-N3-IGX"/>
+                            <constraint firstItem="iVX-Sr-Boa" firstAttribute="centerY" secondItem="3Fc-cD-gtz" secondAttribute="centerY" id="Dn0-V2-jr2"/>
                             <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="V4C-nK-uoi" secondAttribute="trailing" constant="16" id="EH0-bm-arF"/>
                             <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="ck2-Dg-Fp9" secondAttribute="trailing" constant="16" id="HTR-j5-dPg"/>
                             <constraint firstItem="pdC-AN-c6T" firstAttribute="centerX" secondItem="pdk-cn-wwp" secondAttribute="centerX" id="His-8w-jEG"/>
@@ -927,6 +963,7 @@
                             <constraint firstItem="3Fc-cD-gtz" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="SCt-5n-tWx"/>
                             <constraint firstItem="3Fc-cD-gtz" firstAttribute="top" secondItem="pdC-AN-c6T" secondAttribute="bottom" constant="8" id="ZLy-Ti-oQ4"/>
                             <constraint firstItem="LQm-Xe-vZ1" firstAttribute="top" secondItem="3Fc-cD-gtz" secondAttribute="top" id="dgC-3e-dYi"/>
+                            <constraint firstItem="dkP-J0-KDl" firstAttribute="trailing" secondItem="iVX-Sr-Boa" secondAttribute="trailing" constant="36" id="exU-Hn-f61"/>
                             <constraint firstItem="V4C-nK-uoi" firstAttribute="top" secondItem="ck2-Dg-Fp9" secondAttribute="bottom" constant="36" id="gMp-yM-PWo"/>
                             <constraint firstItem="V4C-nK-uoi" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="jcR-7s-YA9"/>
                             <constraint firstItem="ck2-Dg-Fp9" firstAttribute="leading" secondItem="dkP-J0-KDl" secondAttribute="leading" constant="16" id="rQK-N1-SRo"/>
@@ -940,6 +977,7 @@
                         <outlet property="lineChartView" destination="3Fc-cD-gtz" id="Sr3-sX-xsR"/>
                         <outlet property="maxValueLabel" destination="EdJ-Hs-W1k" id="cRr-X7-zVm"/>
                         <outlet property="minValueLabel" destination="D08-Fk-Zmp" id="4RW-aU-g4P"/>
+                        <outlet property="noDataView" destination="iVX-Sr-Boa" id="QGG-kP-j8x"/>
                         <outlet property="timeLabel" destination="sN2-Bh-S8U" id="3mG-Lz-PAg"/>
                         <outlet property="toggleIntervalButton" destination="LQm-Xe-vZ1" id="3II-jK-b0Q"/>
                         <outlet property="unitLabel" destination="eeZ-IT-4Dh" id="sod-3o-FCF"/>
@@ -1224,6 +1262,7 @@ If you have a question or need help using the product, open a support ticket and
     </scenes>
     <resources>
         <image name="plus-medium" width="50" height="50"/>
+        <image name="xmark.bin" catalog="system" width="128" height="93"/>
         <namedColor name="AirBlue">
             <color red="0.5725490196078431" green="0.77254901960784317" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

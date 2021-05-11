@@ -17,7 +17,10 @@ public struct UnitsState: Equatable {
 public enum TimeSpanViewState: Equatable {
     case undefined
     case loading(intervalTitle: String)
-    case updated(data: EnhancedChartData, unitsState: UnitsState, intervalTitle: String)
+    case updated(data: EnhancedChartData,
+                 unitsState: UnitsState,
+                 intervalTitle: String,
+                 isNoData: Bool)
     case failed
 }
 
@@ -41,7 +44,7 @@ open class TimeSpanViewModel {
     
     private var fetchedContext: (start: TimeInterval, context: CloudContext)?
     private lazy var unit: UnitValueModel = units.first!
-    private var interval: FetchInterval = .oneDay
+    private var interval: FetchInterval = .oneHour
     private let token: String
     
     public init(token: String) {
@@ -163,10 +166,21 @@ open class TimeSpanViewModel {
         units: [UnitModel]
     ) {
         guard !values.isEmpty else {
-            state = .failed
-            onMain {
-                service(AlertRouter.self).show(error: TimeSpanContextError.noData)
-            }
+            self.state = .updated(
+                data: EnhancedChartData(
+                    xMin: 0,
+                    xMax: 0,
+                    xAverage: 0,
+                    data: nil,
+                    badgeEntry: nil
+                ),
+                unitsState: UnitsState(
+                    units: units,
+                    selectedIndex: units.firstIndex(where: { $0 == unitValue.unit })
+                ),
+                intervalTitle: interval.title,
+                isNoData: true
+            )
             return
         }
         let (data, preselectedEntry) = service(ChartInteractor.self).chartData(
@@ -186,7 +200,8 @@ open class TimeSpanViewModel {
                 units: units,
                 selectedIndex: units.firstIndex(where: { $0 == unitValue.unit })
             ),
-            intervalTitle: interval.title
+            intervalTitle: interval.title,
+            isNoData: false
         )
     }
 

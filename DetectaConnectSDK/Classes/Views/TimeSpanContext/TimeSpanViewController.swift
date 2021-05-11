@@ -24,6 +24,7 @@ class TimeSpanViewController: UIViewController {
     @IBOutlet weak var maxValueLabel: UILabel!
     // Toggle button
     @IBOutlet weak var toggleIntervalButton: UIButton!
+    @IBOutlet weak var noDataView: UIView!
     
     private var cancellable: AnyCancellable?
     private var unitsState = UnitsState(units: [], selectedIndex: nil)
@@ -80,6 +81,7 @@ class TimeSpanViewController: UIViewController {
                 case let .loading(intervalTitle):
                     self.view.isUserInteractionEnabled = false
                     service(AppRouter.self).showSpinner()
+                    self.noDataView.isHidden = true
                     self.updateInterval(title: intervalTitle)
                     self.updateBadge(entry: nil)
                     self.updateCharacteristics(min: 0, max: 0, average: 0)
@@ -87,12 +89,14 @@ class TimeSpanViewController: UIViewController {
                 case .failed:
                     self.view.isUserInteractionEnabled = true
                     service(AppRouter.self).hideSpinner()
+                    self.noDataView.isHidden = true
                     self.updateBadge(entry: nil)
                     self.update(data: nil)
                     
-                case let .updated(data, unitsState, intervalTitle):
+                case let .updated(data, unitsState, intervalTitle, isNoData):
                     self.view.isUserInteractionEnabled = true
                     service(AppRouter.self).hideSpinner()
+                    self.noDataView.isHidden = !isNoData
                     self.updateInterval(title: intervalTitle)
                     self.updateBadge(entry: data.badgeEntry)
                     self.update(data: data)
@@ -106,18 +110,24 @@ class TimeSpanViewController: UIViewController {
     }
     
     private func update(data: EnhancedChartData?) {
-        guard let data = data else {
+        guard let chartData = data else {
             updateCharacteristics(min: 0, max: 0, average: 0)
             lineChartView.data = nil
             return
         }
-        updateCharacteristics(min: data.data.yMin, max: data.data.yMax, average: data.xAverage)
         lineChartView.highlightValues(nil)
-        lineChartView.data = data.data
+        lineChartView.data = chartData.data
+        guard let data = chartData.data else {
+            lineChartView.animate(xAxisDuration: 1)
+            return
+        }
+        updateCharacteristics(min: data.yMin, max: data.yMax, average: chartData.xAverage)
+        
         lineChartView.updateAppearance(
-            xMin: data.xMin,
-            xMax: data.xMax,
-            yMin: data.data.getYMin()
+            xMin: chartData.xMin,
+            xMax: chartData.xMax,
+            yMin: data.getYMin(),
+            yMax: data.getYMax()
         )
         lineChartView.animate(xAxisDuration: 1)
     }

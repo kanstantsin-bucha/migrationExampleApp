@@ -118,11 +118,13 @@ extension LineChartView {
     func updateAppearance(
         xMin: TimeInterval,
         xMax: TimeInterval,
-        yMin: Double
+        yMin: Double,
+        yMax: Double
     ) {
         xAxis.axisMinimum = xMin
         xAxis.axisMaximum = xMax
-        leftAxis.axisMinimum = yMin - abs(yMin * 0.3)
+        leftAxis.axisMinimum = yMin - abs(yMin * 0.1)
+        leftAxis.axisMaximum = yMax + abs(yMin * 0.1)
     }
 }
 
