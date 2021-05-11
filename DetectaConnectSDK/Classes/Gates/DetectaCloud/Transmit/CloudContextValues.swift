@@ -12,7 +12,7 @@ public struct CloudContextValues: Decodable {
     let coPpm: Float
     let tempCelsius: Float
     let humidity: Float
-    let pressurePa: Float
+    let pressureHPa: Float
     let co2Equivalent: Float
     let breathVocEquivalent: Float
 }
