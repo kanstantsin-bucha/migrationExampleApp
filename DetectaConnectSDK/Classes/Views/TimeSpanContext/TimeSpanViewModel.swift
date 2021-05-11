@@ -9,21 +9,38 @@ import Combine
 import Charts
 import Foundation
 
+public struct UnitsState: Equatable {
+    public var units: [UnitModel]
+    public var selectedIndex: Int?
+}
+
 public enum TimeSpanViewState: Equatable {
     case undefined
-    case loading
-    case updated(data: EnhancedChartData)
+    case loading(intervalTitle: String)
+    case updated(data: EnhancedChartData, unitsState: UnitsState, intervalTitle: String)
     case failed
 }
 
 open class TimeSpanViewModel {
     public var stateSubject = PassthroughSubject<TimeSpanViewState, Never>()
-    public var intervalTitle: String { interval.title }
     private var state: TimeSpanViewState {
         didSet {
             stateSubject.send(state)
         }
     }
+    
+    private var units: [UnitValueModel] = [
+        IAQValueUnitModel(),
+        TemperatureValueUnitModel(),
+        HumidityValueUnitModel(),
+        CO2ValueUnitModel(),
+        COValueUnitModel(),
+        VocValueUnitModel(),
+        PressureValueUnitModel()
+    ]
+    
+    private var fetchedContext: (start: TimeInterval, context: CloudContext)?
+    private lazy var unit: UnitValueModel = units.first!
     private var interval: FetchInterval = .oneDay
     private let token: String
     
@@ -44,14 +61,16 @@ open class TimeSpanViewModel {
             case .oneDay:
                 self.interval = .oneHour
             }
-            self.fetch(interval: self.interval)
+            self.performFetch()
         }
     }
     
+    public func select(unit: UnitModel) {
+        onMain { self.performUnitSelection(incoming: unit) }
+    }
+    
     public func viewWillAppear() {
-        onMain {
-            self.fetch(interval: self.interval)
-        }
+        onMain { self.performFetch() }
     }
     
     public func badge(x: Double?, y: Double?) -> (value: String, color: UIColor, unit: String, time: String) {
@@ -59,27 +78,53 @@ open class TimeSpanViewModel {
             return (
                 value: "~",
                 color: .systemGreen,
-                unit: "ppm",
+                unit: unit.unit.unit,
                 time: ""
             )
         }
+        unit.apply(value: Float(value))
         return (
-            value: String(format: "%.0f", value),
-            color: .systemGreen,
-            unit: "ppm",
+            value: unit.value,
+            color: .with(state: unit.state),
+            unit: unit.unit.unit,
             time: service(ChartInteractor.self).hourlyString(timeInterval: time)
         )
     }
     
     // MARK: - Private methods
     
-    private func fetch(interval: FetchInterval) {
+    private func performFetch() {
+        fetch(
+            interval: interval,
+            unitValue: unit,
+            units: units.map { $0.unit }
+        )
+    }
+    
+    private func performUnitSelection(incoming: UnitModel) {
+        guard let targetUnit = units.first(where: { $0.unit.uuid == incoming.uuid }),
+              unit.unit != incoming else {
+            return
+        }
+        unit = targetUnit
+        guard let (start, context) = fetchedContext else {
+            performFetch()
+            return
+        }
+        update(
+            start: start,
+            values: context.data,
+            unitValue: unit,
+            units: units.map { $0.unit }
+        )
+    }
+    
+    private func fetch(interval: FetchInterval, unitValue: UnitValueModel, units: [UnitModel]) {
         log.operation("fetch \(interval)")
-        guard state != .loading else {
+        /* guard */ if case .loading = state {
             log.success("fetch skipped")
             return
         }
-        let valuePath: KeyPath<CloudContextWrapper, Float> = \.context.co2Equivalent
         let startDate: Date
         do {
             startDate = try calculateStartDate(interval: interval)
@@ -87,37 +132,20 @@ open class TimeSpanViewModel {
             log.failure("fetch error: \(error)")
             return
         }
-        self.state = .loading
+        self.state = .loading(intervalTitle: interval.title)
         service(GatesKeeper.self).cloudGate.fetchIntervalContext(
             token: token,
             startDate: startDate,
             interval: interval
         )
-        .onSuccess { [weak self] result in
-            guard let self = self else { return }
-            let values = result.data
-            guard !values.isEmpty else {
-                self.state = .failed
-                onMain {
-                    service(AlertRouter.self).show(error: TimeSpanContextError.noData)
-                }
-                return
-            }
-            let (data, preselectedEntry) = service(ChartInteractor.self).chartData(
-                withValues: values,
-                valuePath: valuePath
-            )
+        .onSuccess { [weak self] context in
             let start = startDate.timeIntervalSince1970
-            let average = values.average { Double($0[keyPath: valuePath]) }
-            self.state = .updated(
-                data: EnhancedChartData(
-                    xMin: start,
-                    xMax: start + interval.rawValue,
-                    xAverage: average,
-                    xSpanCount: interval.spanCount,
-                    data: data,
-                    badgeEntry: preselectedEntry
-                )
+            self?.fetchedContext = (start: start, context: context)
+            self?.update(
+                start: start,
+                values: context.data,
+                unitValue: unitValue,
+                units: units
             )
         }
         .onFailure { [weak self] error in
@@ -127,7 +155,40 @@ open class TimeSpanViewModel {
             }
         }
     }
-
+    
+    private func update(
+        start: TimeInterval,
+        values: [CloudContextWrapper],
+        unitValue: UnitValueModel,
+        units: [UnitModel]
+    ) {
+        guard !values.isEmpty else {
+            state = .failed
+            onMain {
+                service(AlertRouter.self).show(error: TimeSpanContextError.noData)
+            }
+            return
+        }
+        let (data, preselectedEntry) = service(ChartInteractor.self).chartData(
+            withValues: values,
+            valuePath: unitValue.valuePath
+        )
+        let average = values.average { Double($0[keyPath: unitValue.valuePath]) }
+        self.state = .updated(
+            data: EnhancedChartData(
+                xMin: start,
+                xMax: start + interval.rawValue,
+                xAverage: average,
+                data: data,
+                badgeEntry: preselectedEntry
+            ),
+            unitsState: UnitsState(
+                units: units,
+                selectedIndex: units.firstIndex(where: { $0 == unitValue.unit })
+            ),
+            intervalTitle: interval.title
+        )
+    }
 
     private func calculateStartDate(interval: FetchInterval) throws -> Date {
         let calendar = Calendar.current

@@ -7,11 +7,11 @@
 
 import Foundation
 
-class HumidityValueUnitModel: ValueUnitModel {
-    var title: String { "Humidity" }
-    var unit: String { "%" }
+class HumidityValueUnitModel: UnitValueModel {
+    let unit = UnitModel(title: "Humidity", unit: "%")
+    let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.humidity
     var value: String { String(format: "%.1f", valueNum) }
-    var state: ValueUnitState {
+    var state: UnitValueState {
         switch valueNum {
         case 40...60:
             return .good
@@ -28,7 +28,7 @@ class HumidityValueUnitModel: ValueUnitModel {
     
     public init() {}
     
-    func update(value: Float) {
+    func apply(value: Float) {
         valueNum = value
     }
 }

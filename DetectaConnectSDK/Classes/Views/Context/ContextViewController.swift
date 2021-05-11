@@ -8,26 +8,22 @@
 import UIKit
 
 class ContextViewController: UIViewController {
-    @IBOutlet var valueView1: ValueView!
-    @IBOutlet var valueView2: ValueView!
-    @IBOutlet var valueView3: ValueView!
-    @IBOutlet var valueView4: ValueView!
-    @IBOutlet var valueView5: ValueView!
-    @IBOutlet var valueView6: ValueView!
     @IBOutlet var iaqValueLabel: UILabel!
     @IBOutlet weak var iaqImageView: UIImageView!
     @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet var valueViews: [ValueView]!
     
     var token: String!
     
-    private var temperatureModel: ValueUnitModel = TemperatureValueUnitModel()
-    private var humidityModel: ValueUnitModel = HumidityValueUnitModel()
-    private var pressureModel: ValueUnitModel = PressureValueUnitModel()
-    private var co2PpmModel: ValueUnitModel = CO2ValueUnitModel()
-    private var coPpmModel: ValueUnitModel = COValueUnitModel()
-    private var vocPpmModel: ValueUnitModel = VocValueUnitModel()
-    private var iaqModel: ValueUnitModel = IAQValueUnitModel()
-    private var valueViews: [ValueView] = []
+    private var iaqModel: UnitValueModel = IAQValueUnitModel()
+    private var unitValueModels: [UnitValueModel] = [
+        TemperatureValueUnitModel(),
+        HumidityValueUnitModel(),
+        PressureValueUnitModel(),
+        CO2ValueUnitModel(),
+        COValueUnitModel(),
+        VocValueUnitModel()
+    ]
     
     private var isUpdating = false
     private lazy var dateFormatter: DateFormatter = {
@@ -67,36 +63,16 @@ class ContextViewController: UIViewController {
         }
     }
 
-    private func updateIcon(state: ValueUnitState) {
+    private func updateIcon(state: UnitValueState) {
         self.iaqImageView.image = (#imageLiteral(resourceName: "detecta-medium") as FrameworkAsset).image.withTintColor(
-            self.color(forState: self.iaqModel.state)
+            .with(state: self.iaqModel.state)
         )
-    }
-
-    private func color(forState state: ValueUnitState) -> UIColor {
-        switch state {
-        case .good:
-            return .frameworkAsset(named: "AirBlue")
-            
-        case .warning:
-            return .frameworkAsset(named: "AirYellow")
-            
-        case .danger:
-            return .frameworkAsset(named: "AirOrange")
-        
-        case .alarm:
-            return .frameworkAsset(named: "AirRed")
-        }
     }
     
     private func configure() {
-        valueViews = [valueView1, valueView2, valueView3, valueView4, valueView5, valueView6]
-        valueView1.add(model: temperatureModel)
-        valueView2.add(model: humidityModel)
-        valueView3.add(model: pressureModel)
-        valueView4.add(model: coPpmModel)
-        valueView5.add(model: co2PpmModel)
-        valueView6.add(model: vocPpmModel)
+        valueViews.enumerated().forEach { (index, valueView) in
+            valueView.add(model: unitValueModels[index])
+        }
     }
     
     private func update() {
@@ -114,14 +90,10 @@ class ContextViewController: UIViewController {
                     return
                 }
                 let timestamp = self.dateFormatter.string(from: wrapper.created)
-                let context = wrapper.context
-                self.temperatureModel.update(value: context.tempCelsius)
-                self.humidityModel.update(value: context.humidity)
-                self.pressureModel.update(value: context.pressurePa)
-                self.coPpmModel.update(value: context.coPpm)
-                self.co2PpmModel.update(value: context.co2Equivalent)
-                self.vocPpmModel.update(value: context.breathVocEquivalent)
-                self.iaqModel.update(value: context.iaq)
+                self.unitValueModels.forEach { model in
+                    model.apply(contextWrapper: wrapper)
+                }
+                self.iaqModel.apply(contextWrapper: wrapper)
                 onMain {
                     self.iaqValueLabel.text = self.iaqModel.value
                     self.updateIcon(state: self.iaqModel.state)

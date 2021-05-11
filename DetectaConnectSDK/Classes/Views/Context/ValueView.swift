@@ -18,7 +18,7 @@ class RoundView: UIView {
 
 class ValueView: UIView {
     private var contentView: UIView!
-    private var model: ValueUnitModel!
+    private var model: UnitValueModel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,32 +33,15 @@ class ValueView: UIView {
         self.addSubview(contentView)
     }
     
-    func add(model: ValueUnitModel) {
+    func add(model: UnitValueModel) {
         self.model = model
         
-        unitLabel.text = model.unit
-        titleLabel.text = model.title
+        unitLabel.text = model.unit.unit
+        titleLabel.text = model.unit.title
     }
     
     func refresh() {
         valueLabel.text = model.value
-        roundView.backgroundColor = color(forState: model.state)
-            .withAlphaComponent(0.3)
-    }
-    
-    func color(forState state: ValueUnitState) -> UIColor {
-        switch state {
-        case .good:
-            return .frameworkAsset(named: "AirBlue")
-            
-        case .warning:
-            return .frameworkAsset(named: "AirYellow")
-            
-        case .danger:
-            return .frameworkAsset(named: "AirOrange")
-        
-        case .alarm:
-            return .frameworkAsset(named: "AirRed")
-        }
+        roundView.backgroundColor = .with(state: model.state).withAlphaComponent(0.3)
     }
 }

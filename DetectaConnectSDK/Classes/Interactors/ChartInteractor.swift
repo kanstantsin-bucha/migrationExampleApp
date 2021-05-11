@@ -91,6 +91,7 @@ class DotMarker: MarkerImage {
 extension LineChartView {
     func applyAppearance() {
         marker = DotMarker(color: .green.withAlphaComponent(0.3))
+        legend.enabled = false
         
         rightAxis.enabled = false
         drawBordersEnabled = false
@@ -104,7 +105,7 @@ extension LineChartView {
         xAxis.labelFont = .systemFont(ofSize: 12)
         xAxis.labelTextColor = UIColor.frameworkAsset(named: "AirGray")
         xAxis.axisLineColor = .blue
-        xAxis.setLabelCount(6, force: true)
+        xAxis.setLabelCount(4, force: true)
         xAxis.drawGridLinesEnabled = false
         xAxis.valueFormatter = HourlyAxisValueFormatter()
         
@@ -117,12 +118,10 @@ extension LineChartView {
     func updateAppearance(
         xMin: TimeInterval,
         xMax: TimeInterval,
-        yMin: Double,
-        xSpanCount: Int
+        yMin: Double
     ) {
         xAxis.axisMinimum = xMin
         xAxis.axisMaximum = xMax
-        xAxis.setLabelCount(xSpanCount, force: true)
         leftAxis.axisMinimum = yMin - abs(yMin * 0.3)
     }
 }
@@ -151,7 +150,6 @@ extension LineChartDataSet {
         drawHorizontalHighlightIndicatorEnabled = false
         drawValuesEnabled = false
         mode = .linear
-//        valueFormatter = HourlyValueFormatter()
     }
 }
 //

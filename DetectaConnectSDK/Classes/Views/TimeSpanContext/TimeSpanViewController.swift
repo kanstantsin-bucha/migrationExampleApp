@@ -11,10 +11,9 @@ import UIKit
 
 class TimeSpanViewController: UIViewController {
     var model: TimeSpanViewModel!
-    
-    var token: String!
-    
+
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var unitsCollection: UICollectionView!
     // Badge View
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
@@ -26,8 +25,8 @@ class TimeSpanViewController: UIViewController {
     // Toggle button
     @IBOutlet weak var toggleIntervalButton: UIButton!
     
-
     private var cancellable: AnyCancellable?
+    private var unitsState = UnitsState(units: [], selectedIndex: nil)
     
     deinit {
         cancellable?.cancel()
@@ -52,6 +51,11 @@ class TimeSpanViewController: UIViewController {
         model.viewWillAppear()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+       
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         cancellable?.cancel()
         cancellable = nil
@@ -73,31 +77,32 @@ class TimeSpanViewController: UIViewController {
                     // Should not be called
                     break
                     
-                case .loading:
+                case let .loading(intervalTitle):
                     self.view.isUserInteractionEnabled = false
                     service(AppRouter.self).showSpinner()
-                    self.updateIntervalTitle()
+                    self.updateInterval(title: intervalTitle)
                     self.updateBadge(entry: nil)
                     self.updateCharacteristics(min: 0, max: 0, average: 0)
                 
                 case .failed:
                     self.view.isUserInteractionEnabled = true
                     service(AppRouter.self).hideSpinner()
-                    self.updateIntervalTitle()
                     self.updateBadge(entry: nil)
                     self.update(data: nil)
                     
-                case let .updated(data):
+                case let .updated(data, unitsState, intervalTitle):
                     self.view.isUserInteractionEnabled = true
                     service(AppRouter.self).hideSpinner()
-                    self.updateIntervalTitle()
+                    self.updateInterval(title: intervalTitle)
                     self.updateBadge(entry: data.badgeEntry)
                     self.update(data: data)
+                    self.displayUnits(state: unitsState)
                 }
             }
         }
         lineChartView.applyAppearance()
         lineChartView.delegate = self
+        (unitsCollection.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing = 10
     }
     
     private func update(data: EnhancedChartData?) {
@@ -107,17 +112,18 @@ class TimeSpanViewController: UIViewController {
             return
         }
         updateCharacteristics(min: data.data.yMin, max: data.data.yMax, average: data.xAverage)
+        lineChartView.highlightValues(nil)
         lineChartView.data = data.data
         lineChartView.updateAppearance(
             xMin: data.xMin,
             xMax: data.xMax,
-            yMin: data.data.getYMin(),
-            xSpanCount: data.xSpanCount)
+            yMin: data.data.getYMin()
+        )
         lineChartView.animate(xAxisDuration: 1)
     }
     
-    private func updateIntervalTitle() {
-        toggleIntervalButton.setTitle(model.intervalTitle, for: .normal)
+    private func updateInterval(title: String) {
+        toggleIntervalButton.setTitle(title, for: .normal)
     }
     
     private func updateBadge(entry: ChartDataEntry?) {
@@ -133,6 +139,18 @@ class TimeSpanViewController: UIViewController {
         averageValueLabel.text = String(format: "%.0f", average)
         maxValueLabel.text = String(format: "%.0f", max)
     }
+    
+    private func displayUnits(state: UnitsState) {
+        unitsState = state
+        unitsCollection.reloadData()
+        if let selectedIndex = state.selectedIndex {
+            unitsCollection.selectItem(
+                at: IndexPath(row: selectedIndex, section: 0),
+                animated: true,
+                scrollPosition: .centeredHorizontally
+            )
+        }
+    }
 }
 
 extension TimeSpanViewController: ChartViewDelegate {
@@ -144,6 +162,25 @@ extension TimeSpanViewController: ChartViewDelegate {
         onMain { [weak self] in
             self?.updateBadge(entry: entry)
         }
+    }
+}
+
+extension TimeSpanViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return unitsState.units.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(
+            withReuseIdentifier: "UnitsCollectionViewCell",
+            for: indexPath
+        )
+    }
+}
+
+extension TimeSpanViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        model.select(unit: unitsState.units[indexPath.row])
     }
 }
 

@@ -7,11 +7,11 @@
 
 import Foundation
 
-class TemperatureValueUnitModel: ValueUnitModel {
-    var title: String { "Temperature" }
-    var unit: String { "℃" }
+class TemperatureValueUnitModel: UnitValueModel {
+    let unit = UnitModel(title: "Temperature", unit: "℃")
+    let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.tempCelsius
     var value: String { String(format: "%.1f", valueNum) }
-    var state: ValueUnitState {
+    var state: UnitValueState {
         switch valueNum {
         case 18...28:
             return .good
@@ -28,7 +28,7 @@ class TemperatureValueUnitModel: ValueUnitModel {
     
     public init() {}
     
-    func update(value: Float) {
+    func apply(value: Float) {
         valueNum = value
     }
 }

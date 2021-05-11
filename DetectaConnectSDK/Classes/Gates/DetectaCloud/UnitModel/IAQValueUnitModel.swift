@@ -7,11 +7,11 @@
 
 import Foundation
 
-class IAQValueUnitModel: ValueUnitModel {
-    var title: String { "IAQ" }
-    var unit: String { "" }
+class IAQValueUnitModel: UnitValueModel {
+    let unit = UnitModel(title: "IAQ", unit: "")
+    let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.iaq
     var value: String { String(format: "%.0f", valueNum) }
-    var state: ValueUnitState {
+    var state: UnitValueState {
         switch valueNum {
         case 0...99:
             return .good
@@ -28,7 +28,7 @@ class IAQValueUnitModel: ValueUnitModel {
     
     public init() {}
     
-    func update(value: Float) {
+    func apply(value: Float) {
         valueNum = value
     }
 }

@@ -12,19 +12,6 @@ public enum FetchInterval: TimeInterval {
     case eightHours = 28800
     case oneDay = 86400
     
-    var spanCount: Int {
-        switch self {
-        case .oneHour:
-            return 4
-        
-        case .eightHours:
-            return 4
-            
-        case .oneDay:
-            return 4
-        }
-    }
-    
     var title: String {
         switch self {
         case .oneHour:

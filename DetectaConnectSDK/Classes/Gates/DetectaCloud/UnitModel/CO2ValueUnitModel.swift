@@ -1,5 +1,5 @@
 //
-//  COValueUnitModel.swift
+//  CO2ValueUnitModel.swift
 //  DetectaConnectSDK
 //
 //  Created by Kanstantsin Bucha on 7.04.21.
@@ -7,17 +7,17 @@
 
 import Foundation
 
-class COValueUnitModel: ValueUnitModel {
-    var title: String { "CO" }
-    var unit: String { "ppm" }
+class CO2ValueUnitModel: UnitValueModel {
+    let unit = UnitModel(title: "CO2", unit: "ppm")
+    let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.co2Equivalent
     var value: String { String(format: "%.0f", valueNum) }
-    var state: ValueUnitState {
+    var state: UnitValueState {
         switch valueNum {
-        case 0...9:
+        case 0...800:
             return .good
-        case 10...20:
+        case 800...1200:
             return .warning
-        case 21...40:
+        case 1200...2000:
             return .danger
         default:
             return .alarm
@@ -28,9 +28,7 @@ class COValueUnitModel: ValueUnitModel {
     
     public init() {}
     
-    func update(value: Float) {
-        valueNum = value > 0 ? value : 0
+    func apply(value: Float) {
+        valueNum = value
     }
 }
-
-
