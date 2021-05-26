@@ -8,7 +8,7 @@
 import Foundation
 
 class HumidityValueUnitModel: UnitValueModel {
-    let unit = UnitModel(title: "Humidity", unit: "%")
+    let unit = UnitModel(title: "Humidity", shortTitle: "H%", unit: "%")
     let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.humidity
     var value: String { String(format: "%.1f", valueNum) }
     var state: UnitValueState {

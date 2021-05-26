@@ -181,10 +181,13 @@ extension TimeSpanViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(
+        let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "UnitsCollectionViewCell",
             for: indexPath
-        )
+        ) as! UnitsCollectionViewCell
+        cell.title.text = unitsState.units[indexPath.row].shortTitle
+        cell.isActive = unitsState.selectedIndex == indexPath.row
+        return cell
     }
 }
 

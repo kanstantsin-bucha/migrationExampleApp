@@ -8,7 +8,7 @@
 import Foundation
 
 class TemperatureValueUnitModel: UnitValueModel {
-    let unit = UnitModel(title: "Temperature", unit: "℃")
+    let unit = UnitModel(title: "Temperature", shortTitle: "T", unit: "℃")
     let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.tempCelsius
     var value: String { String(format: "%.1f", valueNum) }
     var state: UnitValueState {

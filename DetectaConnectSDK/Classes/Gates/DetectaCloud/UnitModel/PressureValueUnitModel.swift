@@ -8,7 +8,7 @@
 import Foundation
 
 class PressureValueUnitModel: UnitValueModel {
-    let unit = UnitModel(title: "Pressure", unit: "hPa")
+    let unit = UnitModel(title: "Pressure", shortTitle: "P", unit: "hPa")
     let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.pressureHPa
     var value: String { String(format: "%.0f", valueNum) }
     var state: UnitValueState {
