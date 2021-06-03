@@ -160,6 +160,7 @@ class TimeSpanViewController: UIViewController {
                 scrollPosition: .centeredHorizontally
             )
         }
+        self.title = state.selectedUnit?.title
     }
 }
 

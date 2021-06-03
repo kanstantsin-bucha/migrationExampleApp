@@ -12,6 +12,11 @@ import Foundation
 public struct UnitsState: Equatable {
     public var units: [UnitModel]
     public var selectedIndex: Int?
+    
+    public var selectedUnit: UnitModel? {
+        guard let selected = selectedIndex, selected < units.count else { return nil }
+        return units[selected]
+    }
 }
 
 public enum TimeSpanViewState: Equatable {

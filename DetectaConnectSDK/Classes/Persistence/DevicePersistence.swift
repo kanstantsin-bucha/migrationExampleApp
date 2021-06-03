@@ -17,7 +17,7 @@ class DefaultDevicePersistence: DevicePersistence {
     let dictKey = "app.devices.dict"
     
     func loadAll() -> [Device] {
-        return Array(loadDict().values)
+        return Array(loadDict().values).sorted { $0.name > $1.name }
     }
     
     func load(id: String) -> Device? {

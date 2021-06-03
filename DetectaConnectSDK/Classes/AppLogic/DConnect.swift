@@ -25,7 +25,11 @@ public class DConnect {
     // MARK: - Private methods
     
     private static func setupAppearance() {
-//        UINavigationBar.appearance().barStyle = .black
+        let titleColor = UIColor.frameworkAsset(named: "AirBlue")
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: titleColor,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)
+        ]
     }
 }
 

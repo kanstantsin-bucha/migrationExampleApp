@@ -1251,7 +1251,7 @@ If you have a question or need help using the product, open a support ticket and
             <objects>
                 <navigationController storyboardIdentifier="RootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" customClass="NavigationController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox" customClass="NavigationBar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1269,7 +1269,7 @@ If you have a question or need help using the product, open a support ticket and
     </scenes>
     <resources>
         <image name="plus-medium" width="50" height="50"/>
-        <image name="xmark.bin" catalog="system" width="32" height="32"/>
+        <image name="xmark.bin" catalog="system" width="128" height="93"/>
         <namedColor name="AirBlue">
             <color red="0.5725490196078431" green="0.77254901960784317" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
