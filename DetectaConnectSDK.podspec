@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.author           = { 'Kanstantsin Bucha' => 'truebucha@gmail.com' }
   s.source           = { :git => 'https://github.com/truebucha/DetectaConnectSDK.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '12.3'
   s.swift_version = '5.3'
 
   s.source_files = 'DetectaConnectSDK/Classes/**/*'

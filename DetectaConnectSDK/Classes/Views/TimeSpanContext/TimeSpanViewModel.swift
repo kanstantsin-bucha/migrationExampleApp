@@ -30,7 +30,7 @@ public enum TimeSpanViewState: Equatable {
 }
 
 open class TimeSpanViewModel {
-    public var stateSubject = PassthroughSubject<TimeSpanViewState, Never>()
+    public var stateSubject = Subject<TimeSpanViewState>()
     private var state: TimeSpanViewState {
         didSet {
             stateSubject.send(state)

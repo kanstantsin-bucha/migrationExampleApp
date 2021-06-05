@@ -220,10 +220,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gw-4c-m5q">
-                                <rect key="frame" x="186.5" y="434.5" width="41" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <rect key="frame" x="187" y="434.5" width="40" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <state key="normal" title="Go">
-                                    <color key="titleColor" systemColor="linkColor"/>
+                                    <color key="titleColor" red="0.0" green="0.47843140360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -711,7 +711,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ce3-YH-94s">
-                        <barButtonItem key="rightBarButtonItem" title="TimeSpan" id="vxn-fc-PER" userLabel="TimeSpan">
+                        <barButtonItem key="rightBarButtonItem" image="graph" id="vxn-fc-PER" userLabel="TimeSpan">
                             <connections>
                                 <segue destination="870-Cu-p4r" kind="show" identifier="TimeSpanViewController" id="qcD-H9-12B"/>
                             </connections>
@@ -928,7 +928,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="gXD-6R-l9x" userLabel="Title">
                                                     <rect key="frame" x="8" y="8" width="44" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1237,8 +1237,8 @@ If you have a question or need help using the product, open a support ticket and
                     </view>
                     <navigationItem key="navigationItem" id="Jui-ae-dXr"/>
                     <connections>
-                        <outlet property="PlusButton" destination="Sfa-HI-SSx" id="wFE-ge-Sxc"/>
                         <outlet property="devices" destination="2Xi-p5-7ZC" id="tN3-n5-ceJ"/>
+                        <outlet property="plusButton" destination="Sfa-HI-SSx" id="wFE-ge-Sxc"/>
                         <segue destination="b37-CM-glZ" kind="show" identifier="HomeToContext" id="q5C-D0-hEL"/>
                     </connections>
                 </viewController>
@@ -1268,6 +1268,7 @@ If you have a question or need help using the product, open a support ticket and
         </scene>
     </scenes>
     <resources>
+        <image name="graph" width="24" height="24"/>
         <image name="plus-medium" width="50" height="50"/>
         <image name="xmark.bin" catalog="system" width="128" height="93"/>
         <namedColor name="AirBlue">
@@ -1280,7 +1281,7 @@ If you have a question or need help using the product, open a support ticket and
             <color red="0.0" green="0.335999995470047" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ButtonTitle">
-            <color red="1" green="0.59399998188018799" blue="0.14399999380111694" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.46274509803921571" green="0.55294117647058827" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="LightGrayBackground">
             <color red="0.95300000905990601" green="0.95300000905990601" blue="0.95300000905990601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

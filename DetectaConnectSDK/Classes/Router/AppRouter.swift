@@ -15,6 +15,13 @@ protocol AppRouter {
 }
 
 class DefaultAppRouter: AppRouter {
+    private var spinnerStyle: UIActivityIndicatorView.Style {
+        if #available(iOS 13.0, *) {
+            return .large
+        }
+        return .gray
+    }
+    
     private static var root: UIViewController? {
         return UIApplication.shared.keyWindow?.rootViewController
     }
@@ -52,7 +59,8 @@ class DefaultAppRouter: AppRouter {
             log.failure("Show spinner")
             return
         }
-        let spinner = UIActivityIndicatorView(style: .large)
+       
+        let spinner = UIActivityIndicatorView(style: spinnerStyle)
         spinner.color = .darkGray
         
         spinner.translatesAutoresizingMaskIntoConstraints = false

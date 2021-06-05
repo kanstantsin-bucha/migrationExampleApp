@@ -8,10 +8,15 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        }
+        return .default
+    }
     
     @IBOutlet var devices: UICollectionView!
-    @IBOutlet weak var PlusButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
     private var devicesList: [Device] = []
     
     override func viewDidLoad() {
@@ -36,10 +41,7 @@ class HomeViewController: UIViewController {
     private func configure() {
         devices.dataSource = self
         devices.delegate = self
-        PlusButton.setImage(
-            (#imageLiteral(resourceName: "plus-medium") as FrameworkAsset).image.withTintColor(.frameworkAsset(named: "AirBlue")),
-            for: .normal
-        )
+        plusButton.setImage((#imageLiteral(resourceName: "plus-medium") as FrameworkAsset).image, for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

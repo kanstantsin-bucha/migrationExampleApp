@@ -17,7 +17,6 @@ final class SetupGadgetViewController: UIViewController {
     private var isPendingConnection = false
     private let longPressGestureRecognizer = UILongPressGestureRecognizer()
     var model: SetupGadgetViewModel!
-    private var cancellable: AnyCancellable?
     
     // MARK: - Actions
     
@@ -48,7 +47,7 @@ final class SetupGadgetViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cancellable = model.state.sink { [weak self] state in
+        model.stateSubject.subscribe { [weak self] state in
             onMain {
                 log.event("update state: \(state)")
                 guard let self = self else { return }
@@ -90,7 +89,7 @@ final class SetupGadgetViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        cancellable?.cancel()
+        model.stateSubject.cancel()
         service(AppRouter.self).hideSpinner()
         service(GatesKeeper.self).bleGate.close()
         super.viewDidDisappear(animated)

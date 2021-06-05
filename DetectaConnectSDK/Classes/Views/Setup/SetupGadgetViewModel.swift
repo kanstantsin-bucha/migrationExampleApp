@@ -17,13 +17,13 @@ public enum SetupGadgetViewState {
 }
 
 public protocol SetupGadgetViewModel {
-    var state: PassthroughSubject<SetupGadgetViewState, Never> { get }
+    var stateSubject: Subject<SetupGadgetViewState> { get }
     func setupDevice(ssid: String, pass: String)
     func viewWillAppear()
 }
 
 public class DefaultSetupGadgetViewModel: SetupGadgetViewModel {
-    public var state = PassthroughSubject<SetupGadgetViewState, Never>()
+    public var stateSubject = Subject<SetupGadgetViewState>()
     
     public init() {}
     
@@ -33,7 +33,7 @@ public class DefaultSetupGadgetViewModel: SetupGadgetViewModel {
     
     public func setupDevice(ssid: String, pass: String) {
         log.user("Setup Gadget")
-        state.send(.settingUp)
+        stateSubject.send(.settingUp)
         _ = service(GadgetSetupInteractor.self).connectBleDeviceWifi(
             ssid: ssid,
             pass: pass
@@ -41,16 +41,16 @@ public class DefaultSetupGadgetViewModel: SetupGadgetViewModel {
             self?.checkDevice()
             service(AlertRouter.self).show(error: error)
         }.onSuccess { [weak self] _ in
-            self?.state.send(.setUp)
+            self?.stateSubject.send(.setUp)
         }
     }
     
     private func checkDevice() {
         log.debug("Check Gadget")
         if service(GadgetSetupInteractor.self).checkConnectedDevice() {
-            state.send(.connected)
+            stateSubject.send(.connected)
         } else {
-            state.send(.connecting)
+            stateSubject.send(.connecting)
             onMain(afterSeconds: 3) { [weak self] in
                 self?.checkDevice()
             }

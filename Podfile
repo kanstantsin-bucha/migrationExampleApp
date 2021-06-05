@@ -5,14 +5,14 @@ workspace 'Client.xcworkspace'
 # ================= Client ================
 
 target :'D-Connect' do
-    platform :ios, '13'
+    platform :ios, '12.3'
     use_frameworks!
     project 'Client.xcodeproj'
     pod 'DetectaConnectSDK', :path => "."
 end
 
 target :'DetectaConnectTests' do
-    platform :ios, '13'
+    platform :ios, '12.3'
     use_frameworks!
     project 'Client.xcodeproj'
     pod 'DetectaConnectSDK', :path => "."

@@ -26,11 +26,10 @@ class TimeSpanViewController: UIViewController {
     @IBOutlet weak var toggleIntervalButton: UIButton!
     @IBOutlet weak var noDataView: UIView!
     
-    private var cancellable: AnyCancellable?
     private var unitsState = UnitsState(units: [], selectedIndex: nil)
     
     deinit {
-        cancellable?.cancel()
+        model.stateSubject.cancel()
     }
     
     // MARK: - Actions
@@ -58,8 +57,7 @@ class TimeSpanViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        cancellable?.cancel()
-        cancellable = nil
+        model.stateSubject.cancel()
         service(AppRouter.self).hideSpinner()
         super.viewDidDisappear(animated)
     }
@@ -67,7 +65,7 @@ class TimeSpanViewController: UIViewController {
     // MARK: - Private method
     
     private func configure() {
-        cancellable = model.stateSubject.sink { [weak self] state in
+        model.stateSubject.subscribe { [weak self] state in
             onMain {
                 log.event("update state: \(state)")
                 guard let self = self else { return }

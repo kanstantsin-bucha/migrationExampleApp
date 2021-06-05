@@ -73,7 +73,10 @@ class PreferencesViewController: UIViewController {
     //MARK: - Private methods
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        }
+        return .default
     }
     
     @objc func onUserTapOnFreeSpace(sender: UITapGestureRecognizer) {

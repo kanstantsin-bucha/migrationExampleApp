@@ -64,9 +64,8 @@ class ContextViewController: UIViewController {
     }
 
     private func updateIcon(state: UnitValueState) {
-        self.iaqImageView.image = (#imageLiteral(resourceName: "detecta-medium") as FrameworkAsset).image.withTintColor(
-            .with(state: self.iaqModel.state)
-        )
+        self.iaqImageView.tintColor = .with(state: self.iaqModel.state)
+        self.iaqImageView.image = (#imageLiteral(resourceName: "detecta-medium") as FrameworkAsset).image
     }
     
     private func configure() {
