@@ -27,6 +27,10 @@ final class SetupGadgetViewController: UIViewController {
     @objc func viewDidLongPress(sender: UILongPressGestureRecognizer) {
         guard goButton.isEnabled else { return }
         let alert = UIAlertController(title: "Set Default", message: nil, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Wroclaw", style: .default) { _ in
+            self.model.setupDevice(ssid: "UPC3EEA79D", pass: "VXd6pnamwy4z")
+        })
         alert.addAction(UIAlertAction(title: "Lida", style: .default) { _ in
             self.model.setupDevice(ssid: "tut", pass: "20082014")
         })
