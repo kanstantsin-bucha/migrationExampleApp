@@ -9,7 +9,6 @@
 import UIKit
 
 class SupportViewController: UIViewController {
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var linkButton: UIButton!
     @IBOutlet weak var supportButton: UIButton!
     
@@ -20,5 +19,19 @@ class SupportViewController: UIViewController {
 
     }
     
-    // MARK: - Private methods
+    @IBAction func supportDidTouch(sender: UIButton) {
+        UIApplication.shared.open(
+            Constant.AppLink.supportUrl,
+            options: [:],
+            completionHandler: nil
+        )
+    }
+    
+    @IBAction func linkDidTouch(_ sender: UIButton) {
+        UIApplication.shared.open(
+            Constant.AppLink.supportUrl,
+            options: [:],
+            completionHandler: nil
+        )
+    }
 }
