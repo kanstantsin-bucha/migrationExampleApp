@@ -10,7 +10,7 @@ import Foundation
 
 enum Constant {
     enum AppLink {
-        static let supportUrl = URL(string: "http://detecta.group/support/")!
+        static let supportUrl = URL(string: "http://detecta.group/")!
     }
     enum Notifications {
         enum ContextUpdate {
