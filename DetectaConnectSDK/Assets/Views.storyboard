@@ -1001,11 +1001,11 @@
             <objects>
                 <viewController storyboardIdentifier="support" id="DzP-gS-qef" customClass="SupportViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yl4-S1-qll">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85P-vv-9eK" userLabel="TopBar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdC-9g-Ei0">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
@@ -1024,7 +1024,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Jt-Lz-ceY" userLabel="BottomBar">
-                                <rect key="frame" x="0.0" y="792" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="704" width="414" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zh-mg-omU">
                                         <rect key="frame" x="16" y="14.5" width="55" height="41"/>
@@ -1042,11 +1042,11 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yC1-HN-I8F" userLabel="BottomPhoneXOutfit">
-                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="774" width="414" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wut-Av-UVB" userLabel="CenterPlaceholder">
-                                <rect key="frame" x="0.0" y="99" width="414" height="693"/>
+                                <rect key="frame" x="0.0" y="55" width="414" height="649"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-9T-jZ2">
                                         <rect key="frame" x="16" y="8" width="382" height="172"/>
@@ -1108,6 +1108,7 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="5Jt-Lz-ceY" firstAttribute="leading" secondItem="Aue-Y9-BAV" secondAttribute="leading" id="qjK-tY-SoO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ujq-HQ-gV0"/>
                     <connections>
                         <outlet property="backButton" destination="3Zh-mg-omU" id="mXI-Ph-dSZ"/>
                         <outlet property="linkButton" destination="FJH-eL-fCl" id="hIf-m0-beq"/>
@@ -1216,6 +1217,9 @@ If you have a question or need help using the product, open a support ticket and
                                     <constraint firstAttribute="height" constant="30" id="a74-pI-oYP"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="questionmark.folder.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="DzP-gS-qef" kind="show" id="WIn-04-GQd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="icl-nH-A8Z"/>
