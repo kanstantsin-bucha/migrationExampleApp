@@ -1186,6 +1186,14 @@ If you have a question or need help using the product, open a support ticket and
                                     <color key="titleColor" name="AirBlue"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwl-ev-BsF">
+                                <rect key="frame" x="332" y="697" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="Oza-tX-BfG"/>
+                                    <constraint firstAttribute="height" constant="30" id="a74-pI-oYP"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="questionmark.folder.fill" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="icl-nH-A8Z"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1196,6 +1204,7 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="2Xi-p5-7ZC" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="16" id="5rA-Al-Kls"/>
                             <constraint firstItem="Sfa-HI-SSx" firstAttribute="leading" secondItem="2VN-lt-01K" secondAttribute="trailing" constant="16" id="6bj-ZJ-dEv"/>
                             <constraint firstItem="RPH-YY-1PL" firstAttribute="leading" secondItem="2VN-lt-01K" secondAttribute="leading" id="7Fr-TV-Dzd"/>
+                            <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="Iwl-ev-BsF" secondAttribute="trailing" constant="51" id="8bK-nD-Qwn"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="centerY" secondItem="Kkb-HG-vna" secondAttribute="centerY" id="9ru-VP-UgL"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="Sfa-HI-SSx" secondAttribute="trailing" constant="16" id="AvH-au-aTK"/>
                             <constraint firstItem="Sfa-HI-SSx" firstAttribute="centerY" secondItem="2VN-lt-01K" secondAttribute="centerY" constant="14" id="BAz-Vt-RfI"/>
@@ -1209,6 +1218,7 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="dfF-58-XuY" firstAttribute="centerY" secondItem="Kkb-HG-vna" secondAttribute="centerY" id="UHE-kl-l9Z"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="leading" secondItem="Kkb-HG-vna" secondAttribute="trailing" constant="16" id="abF-Cb-4LN"/>
                             <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="eJg-1p-vvX"/>
+                            <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="Iwl-ev-BsF" secondAttribute="bottom" constant="47" id="sZb-nW-BVL"/>
                             <constraint firstItem="Kkb-HG-vna" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="uDc-lx-KrE"/>
                         </constraints>
                     </view>
@@ -1247,6 +1257,7 @@ If you have a question or need help using the product, open a support ticket and
     <resources>
         <image name="graph" width="24" height="24"/>
         <image name="plus-medium" width="50" height="50"/>
+        <image name="questionmark.folder.fill" catalog="system" width="128" height="97"/>
         <image name="xmark.bin" catalog="system" width="128" height="93"/>
         <namedColor name="AirBlue">
             <color red="0.5725490196078431" green="0.77254901960784317" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
