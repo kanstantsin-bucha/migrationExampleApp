@@ -28,6 +28,11 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="JdP-jq-no7" secondAttribute="height" id="WHx-A6-duf"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="maY-gc-3zC" userLabel="Value">
                     <rect key="frame" x="0.0" y="45" width="130" height="30"/>
