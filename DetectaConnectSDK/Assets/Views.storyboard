@@ -1024,7 +1024,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wut-Av-UVB" userLabel="CenterPlaceholder">
-                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <rect key="frame" x="0.0" y="55" width="414" height="719"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-9T-jZ2">
                                         <rect key="frame" x="16" y="16" width="382" height="215"/>
@@ -1050,7 +1050,7 @@ If you have a question or need help using the product, open a support ticket and
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-eL-fCl">
-                                        <rect key="frame" x="88" y="710" width="238" height="41"/>
+                                        <rect key="frame" x="88" y="666" width="238" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="detecta.group/support/">
                                             <color key="titleColor" systemColor="linkColor"/>
@@ -1283,6 +1283,9 @@ If you have a question or need help using the product, open a support ticket and
         <namedColor name="OptionsBackground">
             <color red="0.22745098039215686" green="0.15686274509803921" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
