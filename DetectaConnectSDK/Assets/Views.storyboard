@@ -1097,9 +1097,9 @@ If you have a question or need help using the product, open a support ticket and
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-eL-fCl">
-                                        <rect key="frame" x="88" y="666" width="238" height="41"/>
+                                        <rect key="frame" x="135" y="666" width="144" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="detecta.group/support/">
+                                        <state key="normal" title="detecta.group">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                         <connections>
@@ -1234,11 +1234,12 @@ If you have a question or need help using the product, open a support ticket and
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwl-ev-BsF">
-                                <rect key="frame" x="348" y="708.5" width="30" height="29"/>
+                                <rect key="frame" x="363" y="703.5" width="35" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Oza-tX-BfG"/>
+                                    <constraint firstAttribute="width" constant="35" id="Oza-tX-BfG"/>
                                     <constraint firstAttribute="width" secondItem="Iwl-ev-BsF" secondAttribute="height" multiplier="1:1" id="PTB-kB-Zjs"/>
                                 </constraints>
+                                <color key="tintColor" name="AirBlue"/>
                                 <state key="normal" backgroundImage="questionmark.circle" catalog="system"/>
                                 <connections>
                                     <segue destination="DzP-gS-qef" kind="show" id="WIn-04-GQd"/>
@@ -1254,7 +1255,6 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="2Xi-p5-7ZC" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="16" id="5rA-Al-Kls"/>
                             <constraint firstItem="Sfa-HI-SSx" firstAttribute="leading" secondItem="2VN-lt-01K" secondAttribute="trailing" constant="16" id="6bj-ZJ-dEv"/>
                             <constraint firstItem="RPH-YY-1PL" firstAttribute="leading" secondItem="2VN-lt-01K" secondAttribute="leading" id="7Fr-TV-Dzd"/>
-                            <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="Iwl-ev-BsF" secondAttribute="trailing" constant="36" id="8bK-nD-Qwn"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="centerY" secondItem="Kkb-HG-vna" secondAttribute="centerY" id="9ru-VP-UgL"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="Sfa-HI-SSx" secondAttribute="trailing" constant="16" id="AvH-au-aTK"/>
                             <constraint firstItem="Sfa-HI-SSx" firstAttribute="centerY" secondItem="2VN-lt-01K" secondAttribute="centerY" constant="14" id="BAz-Vt-RfI"/>
@@ -1268,6 +1268,7 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="dfF-58-XuY" firstAttribute="centerY" secondItem="Kkb-HG-vna" secondAttribute="centerY" id="UHE-kl-l9Z"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="leading" secondItem="Kkb-HG-vna" secondAttribute="trailing" constant="16" id="abF-Cb-4LN"/>
                             <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="eJg-1p-vvX"/>
+                            <constraint firstItem="Iwl-ev-BsF" firstAttribute="trailing" secondItem="Sfa-HI-SSx" secondAttribute="trailing" id="eTr-O4-oTV"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="Iwl-ev-BsF" secondAttribute="bottom" constant="36" id="sZb-nW-BVL"/>
                             <constraint firstItem="Kkb-HG-vna" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="uDc-lx-KrE"/>
                         </constraints>
@@ -1288,7 +1289,7 @@ If you have a question or need help using the product, open a support ticket and
             <objects>
                 <navigationController storyboardIdentifier="RootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" customClass="NavigationController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox" customClass="NavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox" customClass="NavigationBar" customModule="DetectaConnectSDK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1333,9 +1334,6 @@ If you have a question or need help using the product, open a support ticket and
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
