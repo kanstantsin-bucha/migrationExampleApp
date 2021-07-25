@@ -1024,7 +1024,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wut-Av-UVB" userLabel="CenterPlaceholder">
-                                <rect key="frame" x="0.0" y="99" width="414" height="763"/>
+                                <rect key="frame" x="0.0" y="55" width="414" height="719"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-9T-jZ2">
                                         <rect key="frame" x="16" y="16" width="382" height="215"/>
@@ -1050,7 +1050,7 @@ If you have a question or need help using the product, open a support ticket and
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-eL-fCl">
-                                        <rect key="frame" x="88" y="710" width="238" height="41"/>
+                                        <rect key="frame" x="88" y="666" width="238" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="detecta.group/support/">
                                             <color key="titleColor" systemColor="linkColor"/>
@@ -1104,7 +1104,7 @@ If you have a question or need help using the product, open a support ticket and
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-lt-01K">
-                                <rect key="frame" x="24" y="20" width="323" height="29"/>
+                                <rect key="frame" x="67" y="20" width="280" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1122,7 +1122,7 @@ If you have a question or need help using the product, open a support ticket and
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfF-58-XuY">
-                                <rect key="frame" x="219" y="94" width="179" height="30"/>
+                                <rect key="frame" x="215" y="94" width="183" height="30"/>
                                 <state key="normal" title="Rooms"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-p5-7ZC">
@@ -1175,18 +1175,18 @@ If you have a question or need help using the product, open a support ticket and
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To connect more devices hit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPH-YY-1PL">
-                                <rect key="frame" x="24" y="49" width="323" height="21"/>
+                                <rect key="frame" x="67" y="49" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkb-HG-vna">
-                                <rect key="frame" x="24" y="94" width="179" height="30"/>
+                                <rect key="frame" x="16" y="94" width="183" height="30"/>
                                 <state key="normal" title="Devices">
                                     <color key="titleColor" name="AirBlue"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwl-ev-BsF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwl-ev-BsF" userLabel="User Support Button">
                                 <rect key="frame" x="348" y="708.5" width="30" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="Oza-tX-BfG"/>
@@ -1196,6 +1196,15 @@ If you have a question or need help using the product, open a support ticket and
                                 <connections>
                                     <segue destination="DzP-gS-qef" kind="show" id="WIn-04-GQd"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PA-rr-rdF" userLabel="User Profile Button">
+                                <rect key="frame" x="16" y="31" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4tP-nN-ePK"/>
+                                    <constraint firstAttribute="width" constant="35" id="KUl-5W-Aq0"/>
+                                </constraints>
+                                <color key="tintColor" name="AirBlue"/>
+                                <state key="normal" image="person.crop.circle" catalog="system"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="icl-nH-A8Z"/>
@@ -1211,18 +1220,22 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="dfF-58-XuY" firstAttribute="centerY" secondItem="Kkb-HG-vna" secondAttribute="centerY" id="9ru-VP-UgL"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="Sfa-HI-SSx" secondAttribute="trailing" constant="16" id="AvH-au-aTK"/>
                             <constraint firstItem="Sfa-HI-SSx" firstAttribute="centerY" secondItem="2VN-lt-01K" secondAttribute="centerY" constant="14" id="BAz-Vt-RfI"/>
+                            <constraint firstItem="2PA-rr-rdF" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="16" id="FnL-II-0wx"/>
                             <constraint firstItem="Kkb-HG-vna" firstAttribute="top" secondItem="RPH-YY-1PL" secondAttribute="bottom" constant="24" id="GIN-mn-oBF"/>
                             <constraint firstItem="RPH-YY-1PL" firstAttribute="leading" secondItem="2VN-lt-01K" secondAttribute="leading" id="GW8-fi-dA1"/>
                             <constraint firstItem="2VN-lt-01K" firstAttribute="top" secondItem="icl-nH-A8Z" secondAttribute="top" constant="20" id="KH0-SD-Feq"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="dfF-58-XuY" secondAttribute="trailing" constant="16" id="OUW-mr-cdu"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="2Xi-p5-7ZC" secondAttribute="bottom" constant="16" id="OUu-cT-uQp"/>
+                            <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="2PA-rr-rdF" secondAttribute="trailing" constant="16" id="Qlc-Qn-Aq4"/>
+                            <constraint firstItem="Sfa-HI-SSx" firstAttribute="top" secondItem="2PA-rr-rdF" secondAttribute="top" id="SZP-qM-4G9"/>
                             <constraint firstItem="2Xi-p5-7ZC" firstAttribute="top" secondItem="Kkb-HG-vna" secondAttribute="bottom" constant="16" id="Sau-RW-cfk"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="2Xi-p5-7ZC" secondAttribute="trailing" constant="16" id="U6D-s7-5tm"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="centerY" secondItem="Kkb-HG-vna" secondAttribute="centerY" id="UHE-kl-l9Z"/>
+                            <constraint firstItem="Kkb-HG-vna" firstAttribute="leading" secondItem="2PA-rr-rdF" secondAttribute="leading" id="YVl-dc-j6b"/>
+                            <constraint firstItem="Sfa-HI-SSx" firstAttribute="bottom" secondItem="2PA-rr-rdF" secondAttribute="bottom" id="a8y-Sg-3nU"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="leading" secondItem="Kkb-HG-vna" secondAttribute="trailing" constant="16" id="abF-Cb-4LN"/>
-                            <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="eJg-1p-vvX"/>
+                            <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="67" id="eJg-1p-vvX"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="Iwl-ev-BsF" secondAttribute="bottom" constant="36" id="sZb-nW-BVL"/>
-                            <constraint firstItem="Kkb-HG-vna" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="uDc-lx-KrE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jui-ae-dXr"/>
@@ -1259,6 +1272,7 @@ If you have a question or need help using the product, open a support ticket and
     </scenes>
     <resources>
         <image name="graph" width="24" height="24"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="plus-medium" width="50" height="50"/>
         <image name="questionmark.circle" catalog="system" width="128" height="121"/>
         <image name="xmark.bin" catalog="system" width="128" height="93"/>
@@ -1283,6 +1297,9 @@ If you have a question or need help using the product, open a support ticket and
         <namedColor name="OptionsBackground">
             <color red="0.22745098039215686" green="0.15686274509803921" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
