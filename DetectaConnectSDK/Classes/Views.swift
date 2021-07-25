@@ -33,6 +33,9 @@ enum View {
         enum TimeSpan {
             static let id = "TimeSpanViewController"
         }
+        enum DeviceSettings {
+            static let id = "DeviceSettingsViewController"
+        }
         enum Home {
             enum SegueId {
                 static let toContext = "HomeToContext"

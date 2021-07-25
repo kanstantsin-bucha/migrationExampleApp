@@ -532,39 +532,52 @@
             </objects>
             <point key="canvasLocation" x="2643" y="428"/>
         </scene>
-        <!--View Controller-->
+        <!--Device Settings View Controller-->
         <scene sceneID="upO-7x-f38">
             <objects>
-                <viewController id="OKK-Nn-Var" sceneMemberID="viewController">
+                <viewController id="OKK-Nn-Var" customClass="DeviceSettingsViewController" customModule="DetectaConnectSDK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HaB-kS-Zvs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNJ-ow-4cJ">
-                                <rect key="frame" x="108" y="20" width="198" height="38.5"/>
+                                <rect key="frame" x="16" y="20" width="382" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" name="AirBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xpW-gk-yow">
-                                <rect key="frame" x="0.0" y="66.5" width="414" height="707.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9A-pe-QYs" userLabel="DeviceNameLabel">
+                                <rect key="frame" x="16" y="82.5" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="AirGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAP-pj-MIT" userLabel="DeviceNameField">
+                                <rect key="frame" x="16" y="119.5" width="382" height="34"/>
+                                <color key="backgroundColor" name="LightGrayBackground"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KeJ-v5-o9v"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="xpW-gk-yow" secondAttribute="trailing" id="2Lk-CF-CFc"/>
-                            <constraint firstItem="xpW-gk-yow" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" id="BUz-V7-j65"/>
+                            <constraint firstItem="n9A-pe-QYs" firstAttribute="top" secondItem="mNJ-ow-4cJ" secondAttribute="bottom" constant="24" id="9Yd-u5-p9h"/>
                             <constraint firstItem="mNJ-ow-4cJ" firstAttribute="top" secondItem="KeJ-v5-o9v" secondAttribute="top" constant="20" id="Elr-QU-SA2"/>
-                            <constraint firstItem="xpW-gk-yow" firstAttribute="bottom" secondItem="KeJ-v5-o9v" secondAttribute="bottom" id="KsP-tX-M7M"/>
-                            <constraint firstItem="mNJ-ow-4cJ" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="108" id="Lj6-gX-5x1"/>
-                            <constraint firstItem="xpW-gk-yow" firstAttribute="top" secondItem="mNJ-ow-4cJ" secondAttribute="bottom" constant="8" symbolic="YES" id="XQf-65-5Ci"/>
-                            <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="mNJ-ow-4cJ" secondAttribute="trailing" constant="108" id="XqN-2c-NQ8"/>
-                            <constraint firstItem="xpW-gk-yow" firstAttribute="top" secondItem="mNJ-ow-4cJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hRa-e6-FET"/>
+                            <constraint firstItem="oAP-pj-MIT" firstAttribute="trailing" secondItem="n9A-pe-QYs" secondAttribute="trailing" id="Jvx-0Q-w9q"/>
+                            <constraint firstItem="mNJ-ow-4cJ" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="16" id="Lj6-gX-5x1"/>
+                            <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="n9A-pe-QYs" secondAttribute="trailing" constant="16" id="Pou-8O-zB0"/>
+                            <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="mNJ-ow-4cJ" secondAttribute="trailing" constant="16" id="XqN-2c-NQ8"/>
+                            <constraint firstItem="oAP-pj-MIT" firstAttribute="leading" secondItem="n9A-pe-QYs" secondAttribute="leading" id="Ybe-xo-2r0"/>
+                            <constraint firstItem="n9A-pe-QYs" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="16" id="kuf-b2-YCt"/>
+                            <constraint firstItem="oAP-pj-MIT" firstAttribute="top" secondItem="n9A-pe-QYs" secondAttribute="bottom" constant="16" id="qqt-i5-IsZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8mP-IN-15n"/>
+                    <connections>
+                        <outlet property="deviceNameField" destination="oAP-pj-MIT" id="OrC-1E-lY5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5E-P4-Shq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -573,7 +586,7 @@
         <!--Context View Controller-->
         <scene sceneID="f6G-5U-COc">
             <objects>
-                <viewController storyboardIdentifier="ContextViewController" id="b37-CM-glZ" customClass="ContextViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContextViewController" id="b37-CM-glZ" customClass="ContextViewController" customModule="DetectaConnectSDK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AX9-8H-NjW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -751,20 +764,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="ce3-YH-94s">
                         <rightBarButtonItems>
+                            <barButtonItem id="D15-ET-JIa" userLabel="Settings">
+                                <imageReference key="image" image="gear" catalog="system" symbolScale="medium"/>
+                                <connections>
+                                    <segue destination="OKK-Nn-Var" kind="show" identifier="DeviceSettingsViewController" id="7Fy-1A-pZc"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="graph" id="vxn-fc-PER" userLabel="TimeSpan">
                                 <connections>
                                     <segue destination="870-Cu-p4r" kind="show" identifier="TimeSpanViewController" id="qcD-H9-12B"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem id="D15-ET-JIa">
-                                <imageReference key="image" image="gear" catalog="system" symbolScale="default"/>
-                                <connections>
-                                    <segue destination="OKK-Nn-Var" kind="show" id="7Fy-1A-pZc"/>
-                                </connections>
-                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="deviceTitleLabel" destination="ZX8-iP-FbO" id="p32-3R-E3x"/>
                         <outlet property="iaqImageView" destination="oc7-xG-NZN" id="AWR-cW-fCf"/>
                         <outlet property="iaqValueLabel" destination="ygb-Gx-Nq1" id="SF9-D0-dCQ"/>
                         <outlet property="timestampLabel" destination="0Rr-Ln-rSu" id="YDr-WG-odg"/>

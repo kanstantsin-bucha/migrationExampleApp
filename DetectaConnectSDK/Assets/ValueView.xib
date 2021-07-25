@@ -44,7 +44,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="n5z-50-nq0" userLabel="Unit">
-                    <rect key="frame" x="0.0" y="83" width="130" height="20"/>
+                    <rect key="frame" x="0.0" y="75" width="130" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="izr-HW-QbF"/>
                     </constraints>
@@ -76,7 +76,7 @@
                 <constraint firstAttribute="bottom" secondItem="7du-AG-gl6" secondAttribute="bottom" id="YNX-FU-87G"/>
                 <constraint firstItem="maY-gc-3zC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="0.75" id="atS-gf-JTg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7du-AG-gl6" secondAttribute="trailing" id="bFO-8S-JUr"/>
-                <constraint firstItem="n5z-50-nq0" firstAttribute="top" secondItem="maY-gc-3zC" secondAttribute="bottom" constant="8" id="hrz-iw-svW"/>
+                <constraint firstItem="n5z-50-nq0" firstAttribute="top" secondItem="maY-gc-3zC" secondAttribute="bottom" id="hrz-iw-svW"/>
                 <constraint firstItem="JdP-jq-no7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="l3c-aY-ggL"/>
                 <constraint firstItem="7du-AG-gl6" firstAttribute="top" secondItem="JdP-jq-no7" secondAttribute="bottom" id="nyx-kW-gKS"/>
             </constraints>
