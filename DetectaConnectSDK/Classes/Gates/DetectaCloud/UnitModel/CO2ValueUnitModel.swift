@@ -8,7 +8,7 @@
 import Foundation
 
 class CO2ValueUnitModel: UnitValueModel {
-    let unit = UnitModel(title: "CO2", unit: "ppm")
+    let unit = UnitModel(title: "CO\u{2082}", unit: "ppm")
     let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.co2Equivalent
     var value: String { String(format: "%.0f", valueNum) }
     var state: UnitValueState {

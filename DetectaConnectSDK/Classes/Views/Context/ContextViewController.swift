@@ -12,8 +12,12 @@ class ContextViewController: UIViewController {
     @IBOutlet weak var iaqImageView: UIImageView!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet var valueViews: [ValueView]!
+    @IBOutlet var deviceTitleLabel: UILabel!
+    private var deviceContainer: DeviceContainer!
     
-    var token: String!
+    public func apply(deviceContainer: DeviceContainer) {
+        self.deviceContainer = deviceContainer
+    }
     
     private var iaqModel: UnitValueModel = IAQValueUnitModel()
     private var unitValueModels: [UnitValueModel] = [
@@ -34,7 +38,6 @@ class ContextViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configure()
     }
     
@@ -44,12 +47,14 @@ class ContextViewController: UIViewController {
             self.isUpdating = true
             self.update()
             self.updateIcon(state: .good)
+            self.deviceTitleLabel.text = self.deviceContainer.device.name
         }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         onMain {
             self.isUpdating = false
+            self.deviceContainer?.clearCache()
         }
         super.viewDidDisappear(animated)
     }
@@ -58,8 +63,16 @@ class ContextViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == View.a.TimeSpan.id {
-            let viewController = segue.destination as! TimeSpanViewController
-            viewController.model = TimeSpanViewModel(token: token)
+            guard let viewController = segue.destination as? TimeSpanViewController else {
+                preconditionFailure(#fileID + "Segue destination is not a kind of TimeSpanViewController")
+            }
+            viewController.model = TimeSpanViewModel(token: deviceContainer.device.token)
+        }
+        if segue.identifier == View.a.DeviceSettings.id {
+            guard let viewController = segue.destination as? DeviceSettingsViewController else {
+                preconditionFailure(#fileID + "Segue destination is not a kind of DeviceSettingsViewController")
+            }
+            viewController.viewModel = DeviceSettingsViewModel(deviceContainer: deviceContainer)
         }
     }
 
@@ -83,7 +96,7 @@ class ContextViewController: UIViewController {
     }
     
     private func fetch() {
-        service(GatesKeeper.self).cloudGate.fetchLastContext(token: token)
+        service(GatesKeeper.self).cloudGate.fetchLastContext(token: deviceContainer.device.token)
             .onSuccess { [weak self] result in
                 guard let self = self, let wrapper = result.data.first else {
                     return

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -531,10 +532,61 @@
             </objects>
             <point key="canvasLocation" x="2643" y="428"/>
         </scene>
+        <!--Device Settings View Controller-->
+        <scene sceneID="upO-7x-f38">
+            <objects>
+                <viewController id="OKK-Nn-Var" customClass="DeviceSettingsViewController" customModule="DetectaConnectSDK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HaB-kS-Zvs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNJ-ow-4cJ">
+                                <rect key="frame" x="16" y="20" width="382" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" name="AirBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9A-pe-QYs" userLabel="DeviceNameLabel">
+                                <rect key="frame" x="16" y="82.5" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="AirGray"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oAP-pj-MIT" userLabel="DeviceNameField">
+                                <rect key="frame" x="16" y="119.5" width="382" height="34"/>
+                                <color key="backgroundColor" name="LightGrayBackground"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KeJ-v5-o9v"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n9A-pe-QYs" firstAttribute="top" secondItem="mNJ-ow-4cJ" secondAttribute="bottom" constant="24" id="9Yd-u5-p9h"/>
+                            <constraint firstItem="mNJ-ow-4cJ" firstAttribute="top" secondItem="KeJ-v5-o9v" secondAttribute="top" constant="20" id="Elr-QU-SA2"/>
+                            <constraint firstItem="oAP-pj-MIT" firstAttribute="trailing" secondItem="n9A-pe-QYs" secondAttribute="trailing" id="Jvx-0Q-w9q"/>
+                            <constraint firstItem="mNJ-ow-4cJ" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="16" id="Lj6-gX-5x1"/>
+                            <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="n9A-pe-QYs" secondAttribute="trailing" constant="16" id="Pou-8O-zB0"/>
+                            <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="mNJ-ow-4cJ" secondAttribute="trailing" constant="16" id="XqN-2c-NQ8"/>
+                            <constraint firstItem="oAP-pj-MIT" firstAttribute="leading" secondItem="n9A-pe-QYs" secondAttribute="leading" id="Ybe-xo-2r0"/>
+                            <constraint firstItem="n9A-pe-QYs" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="16" id="kuf-b2-YCt"/>
+                            <constraint firstItem="oAP-pj-MIT" firstAttribute="top" secondItem="n9A-pe-QYs" secondAttribute="bottom" constant="16" id="qqt-i5-IsZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8mP-IN-15n"/>
+                    <connections>
+                        <outlet property="deviceNameField" destination="oAP-pj-MIT" id="OrC-1E-lY5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A5E-P4-Shq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124.6376811594203" y="413.83928571428572"/>
+        </scene>
         <!--Context View Controller-->
         <scene sceneID="f6G-5U-COc">
             <objects>
-                <viewController storyboardIdentifier="ContextViewController" id="b37-CM-glZ" customClass="ContextViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContextViewController" id="b37-CM-glZ" customClass="ContextViewController" customModule="DetectaConnectSDK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AX9-8H-NjW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -711,13 +763,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ce3-YH-94s">
-                        <barButtonItem key="rightBarButtonItem" image="graph" id="vxn-fc-PER" userLabel="TimeSpan">
-                            <connections>
-                                <segue destination="870-Cu-p4r" kind="show" identifier="TimeSpanViewController" id="qcD-H9-12B"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem id="D15-ET-JIa" userLabel="Settings">
+                                <imageReference key="image" image="gear" catalog="system" symbolScale="medium"/>
+                                <connections>
+                                    <segue destination="OKK-Nn-Var" kind="show" identifier="DeviceSettingsViewController" id="7Fy-1A-pZc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="graph" id="vxn-fc-PER" userLabel="TimeSpan">
+                                <connections>
+                                    <segue destination="870-Cu-p4r" kind="show" identifier="TimeSpanViewController" id="qcD-H9-12B"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="deviceTitleLabel" destination="ZX8-iP-FbO" id="p32-3R-E3x"/>
                         <outlet property="iaqImageView" destination="oc7-xG-NZN" id="AWR-cW-fCf"/>
                         <outlet property="iaqValueLabel" destination="ygb-Gx-Nq1" id="SF9-D0-dCQ"/>
                         <outlet property="timestampLabel" destination="0Rr-Ln-rSu" id="YDr-WG-odg"/>
@@ -1052,7 +1113,7 @@ If you have a question or need help using the product, open a support ticket and
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-eL-fCl">
                                         <rect key="frame" x="88" y="666" width="238" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="detecta.group/support/">
+                                        <state key="normal" title="detecta.group">
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                         <connections>
@@ -1221,7 +1282,7 @@ If you have a question or need help using the product, open a support ticket and
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwl-ev-BsF" userLabel="User Support Button">
                                 <rect key="frame" x="368" y="728.5" width="30" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Oza-tX-BfG"/>
+                                    <constraint firstAttribute="width" constant="35" id="Oza-tX-BfG"/>
                                     <constraint firstAttribute="width" secondItem="Iwl-ev-BsF" secondAttribute="height" multiplier="1:1" id="PTB-kB-Zjs"/>
                                 </constraints>
                                 <color key="tintColor" name="AirBlue"/>
@@ -1272,6 +1333,8 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="dfF-58-XuY" firstAttribute="leading" secondItem="Kkb-HG-vna" secondAttribute="trailing" constant="16" id="abF-Cb-4LN"/>
                             <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="67" id="eJg-1p-vvX"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="Iwl-ev-BsF" secondAttribute="bottom" constant="16" id="sZb-nW-BVL"/>
+                            <constraint firstItem="Iwl-ev-BsF" firstAttribute="trailing" secondItem="Sfa-HI-SSx" secondAttribute="trailing" id="eTr-O4-oTV"/>
+                            <constraint firstItem="Kkb-HG-vna" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="uDc-lx-KrE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jui-ae-dXr"/>
@@ -1290,7 +1353,7 @@ If you have a question or need help using the product, open a support ticket and
             <objects>
                 <navigationController storyboardIdentifier="RootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" customClass="NavigationController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox" customClass="NavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox" customClass="NavigationBar" customModule="DetectaConnectSDK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1307,6 +1370,7 @@ If you have a question or need help using the product, open a support ticket and
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="graph" width="24" height="24"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="plus-medium" width="50" height="50"/>

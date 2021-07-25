@@ -7,22 +7,24 @@
 
 import Foundation
 
-protocol Device: Codable {
+public protocol Device: Codable {
     var id: String { get }
     var name: String { get }
     var token: String { get }
     var date: Date { get }
     
-    mutating func update(name: String)
+    mutating func update(name: String) -> Bool
 }
 
-struct DefaultDevice: Device {
-    var id: String
-    var name: String
-    var token: String
-    var date: Date
+public struct DefaultDevice: Device {
+    public var id: String
+    public var name: String
+    public var token: String
+    public var date: Date
     
-    mutating func update(name: String) {
+    public mutating func update(name: String) -> Bool {
+        guard self.name != name else { return false }
         self.name = name
+        return true
     }
 }

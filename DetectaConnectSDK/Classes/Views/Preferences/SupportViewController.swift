@@ -29,7 +29,7 @@ class SupportViewController: UIViewController {
     
     @IBAction func linkDidTouch(_ sender: UIButton) {
         UIApplication.shared.open(
-            Constant.AppLink.supportUrl,
+            Constant.AppLink.siteUrl,
             options: [:],
             completionHandler: nil
         )

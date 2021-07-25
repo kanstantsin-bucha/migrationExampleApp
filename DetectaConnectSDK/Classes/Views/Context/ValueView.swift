@@ -42,6 +42,6 @@ class ValueView: UIView {
     
     func refresh() {
         valueLabel.text = model.value
-        roundView.backgroundColor = .with(state: model.state).withAlphaComponent(0.3)
+        roundView.layer.borderColor = UIColor.with(state: model.state).cgColor
     }
 }

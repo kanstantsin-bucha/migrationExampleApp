@@ -46,11 +46,16 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == View.a.Home.SegueId.toContext {
-            let contextViewController = segue.destination as! ContextViewController
-            contextViewController.token = sender as? String
+            guard let contextViewController = segue.destination as? ContextViewController,
+                  let id = (sender as? DeviceCollectionViewCell)?.deviceId else {
+                preconditionFailure(#fileID + "Conditions for segue aren't met: \(segue)")
+            }
+            contextViewController.apply(deviceContainer: DeviceContainer(deviceId: id))
         }
         if segue.identifier == View.a.SetupGadget.id {
-            let viewController = segue.destination as! SetupGadgetViewController
+            guard let viewController = segue.destination as? SetupGadgetViewController else {
+                preconditionFailure(#fileID + "Conditions for segue aren't met: \(segue)")
+            }
             viewController.model = DefaultSetupGadgetViewModel()
         }
     }
@@ -63,7 +68,7 @@ extension HomeViewController: UICollectionViewDelegate {
         }
         performSegue(
             withIdentifier: View.a.Home.SegueId.toContext,
-            sender: cell.token
+            sender: cell
         )
     }
 }

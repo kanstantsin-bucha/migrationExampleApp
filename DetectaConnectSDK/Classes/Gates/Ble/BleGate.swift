@@ -170,7 +170,7 @@ extension BleGate: GateKeeper {
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(5)) { [weak self] in
                     self?.connect()
                 }
-                log.failure("Ble connect \(error)")
+                log.failure("Ble connect \(String(describing: error))")
                 return
             }
             self.isOpen = true
