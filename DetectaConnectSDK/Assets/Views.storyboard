@@ -1111,7 +1111,7 @@ If you have a question or need help using the product, open a support ticket and
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-eL-fCl">
-                                        <rect key="frame" x="88" y="666" width="238" height="41"/>
+                                        <rect key="frame" x="135" y="666" width="144" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="detecta.group">
                                             <color key="titleColor" systemColor="linkColor"/>
@@ -1176,7 +1176,7 @@ If you have a question or need help using the product, open a support ticket and
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V7T-Nm-G9t"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8NI-2f-dD5" firstAttribute="centerX" secondItem="q4S-ve-TeW" secondAttribute="centerX" id="X6D-oV-7mu"/>
                             <constraint firstItem="8NI-2f-dD5" firstAttribute="top" secondItem="V7T-Nm-G9t" secondAttribute="top" constant="40" id="rfs-4I-gJh"/>
@@ -1197,7 +1197,7 @@ If you have a question or need help using the product, open a support ticket and
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-lt-01K">
-                                <rect key="frame" x="67" y="20" width="280" height="29"/>
+                                <rect key="frame" x="75" y="20" width="272" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1268,7 +1268,7 @@ If you have a question or need help using the product, open a support ticket and
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To connect more devices hit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPH-YY-1PL">
-                                <rect key="frame" x="67" y="49" width="280" height="21"/>
+                                <rect key="frame" x="75" y="49" width="272" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1280,7 +1280,7 @@ If you have a question or need help using the product, open a support ticket and
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iwl-ev-BsF" userLabel="User Support Button">
-                                <rect key="frame" x="368" y="728.5" width="30" height="29"/>
+                                <rect key="frame" x="363" y="723.5" width="35" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="Oza-tX-BfG"/>
                                     <constraint firstAttribute="width" secondItem="Iwl-ev-BsF" secondAttribute="height" multiplier="1:1" id="PTB-kB-Zjs"/>
@@ -1292,10 +1292,9 @@ If you have a question or need help using the product, open a support ticket and
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PA-rr-rdF" userLabel="User Profile Button">
-                                <rect key="frame" x="16" y="31" width="35" height="35"/>
+                                <rect key="frame" x="16" y="28" width="43" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="4tP-nN-ePK"/>
-                                    <constraint firstAttribute="width" constant="35" id="KUl-5W-Aq0"/>
+                                    <constraint firstAttribute="width" secondItem="2PA-rr-rdF" secondAttribute="height" multiplier="1.05:1" id="dhd-TV-mHc"/>
                                 </constraints>
                                 <color key="tintColor" name="AirBlue"/>
                                 <state key="normal" image="person.crop.circle" catalog="system"/>
@@ -1324,17 +1323,15 @@ If you have a question or need help using the product, open a support ticket and
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="dfF-58-XuY" secondAttribute="trailing" constant="16" id="OUW-mr-cdu"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="2Xi-p5-7ZC" secondAttribute="bottom" constant="16" id="OUu-cT-uQp"/>
                             <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="2PA-rr-rdF" secondAttribute="trailing" constant="16" id="Qlc-Qn-Aq4"/>
-                            <constraint firstItem="Sfa-HI-SSx" firstAttribute="top" secondItem="2PA-rr-rdF" secondAttribute="top" id="SZP-qM-4G9"/>
+                            <constraint firstItem="Sfa-HI-SSx" firstAttribute="top" secondItem="2PA-rr-rdF" secondAttribute="top" constant="3" id="SZP-qM-4G9"/>
                             <constraint firstItem="2Xi-p5-7ZC" firstAttribute="top" secondItem="Kkb-HG-vna" secondAttribute="bottom" constant="16" id="Sau-RW-cfk"/>
                             <constraint firstItem="icl-nH-A8Z" firstAttribute="trailing" secondItem="2Xi-p5-7ZC" secondAttribute="trailing" constant="16" id="U6D-s7-5tm"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="centerY" secondItem="Kkb-HG-vna" secondAttribute="centerY" id="UHE-kl-l9Z"/>
                             <constraint firstItem="Kkb-HG-vna" firstAttribute="leading" secondItem="2PA-rr-rdF" secondAttribute="leading" id="YVl-dc-j6b"/>
-                            <constraint firstItem="Sfa-HI-SSx" firstAttribute="bottom" secondItem="2PA-rr-rdF" secondAttribute="bottom" id="a8y-Sg-3nU"/>
+                            <constraint firstItem="Sfa-HI-SSx" firstAttribute="bottom" secondItem="2PA-rr-rdF" secondAttribute="bottom" constant="-3" id="a8y-Sg-3nU"/>
                             <constraint firstItem="dfF-58-XuY" firstAttribute="leading" secondItem="Kkb-HG-vna" secondAttribute="trailing" constant="16" id="abF-Cb-4LN"/>
-                            <constraint firstItem="2VN-lt-01K" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="67" id="eJg-1p-vvX"/>
-                            <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="Iwl-ev-BsF" secondAttribute="bottom" constant="16" id="sZb-nW-BVL"/>
                             <constraint firstItem="Iwl-ev-BsF" firstAttribute="trailing" secondItem="Sfa-HI-SSx" secondAttribute="trailing" id="eTr-O4-oTV"/>
-                            <constraint firstItem="Kkb-HG-vna" firstAttribute="leading" secondItem="icl-nH-A8Z" secondAttribute="leading" constant="24" id="uDc-lx-KrE"/>
+                            <constraint firstItem="icl-nH-A8Z" firstAttribute="bottom" secondItem="Iwl-ev-BsF" secondAttribute="bottom" constant="16" id="sZb-nW-BVL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jui-ae-dXr"/>
@@ -1399,9 +1396,6 @@ If you have a question or need help using the product, open a support ticket and
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
