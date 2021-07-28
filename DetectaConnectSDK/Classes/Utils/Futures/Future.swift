@@ -13,7 +13,7 @@ import Foundation
 public class Future<Value> {
     public typealias PromiseResult = Swift.Result<Value, Error>
     
-    fileprivate var result: PromiseResult? {
+    public fileprivate(set) var result: PromiseResult? {
         willSet {
             guard result == nil else {
                 preconditionFailure("Promise can be resolved only once")

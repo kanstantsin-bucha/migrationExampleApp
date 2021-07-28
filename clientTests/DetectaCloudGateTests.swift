@@ -35,7 +35,7 @@ class DetectaCloudGateTests: XCTestCase {
         mockNetworkService.loadResult = .success(mockContext)
         
         // Act
-        let _ = gate.fetchLastContext(token: token)
+        let future = gate.fetchLastContext(token: token)
 
         // Assert
         XCTAssertEqual(mockNetworkService.loadCount, 1)
@@ -44,6 +44,7 @@ class DetectaCloudGateTests: XCTestCase {
             "http://detecta.group/api/1/measurements?uid=token&$limit=1&$sort[createdAt]=-1"
         )
         XCTAssertNotNil(mockNetworkService.loadParams?.converter as? MockDetectaCloudResponseConverter)
+        XCTAssertEqual(future.result?.isSuccess, true)
     }
 }
 
