@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct DetectaCloudResponseConverter: ResponseConverting {
-    typealias Value = CloudContext
+open class DetectaCloudResponseConverter: ResponseConverting {
+    public typealias Value = CloudContext
     
-    func convert(data: Data?, response: HTTPURLResponse) -> Result<Value, Error> {
+    public init() {}
+    
+    open func convert(data: Data?, response: HTTPURLResponse) -> Result<Value, Error> {
         let isSucceed = (200..<299).contains(response.statusCode)
         guard isSucceed else {
             return .failure(NetworkServiceError.failedHttpCode)

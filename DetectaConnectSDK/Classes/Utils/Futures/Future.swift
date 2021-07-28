@@ -11,9 +11,9 @@
 import Foundation
 
 public class Future<Value> {
-    typealias Result = Swift.Result<Value, Error>
+    public typealias PromiseResult = Swift.Result<Value, Error>
     
-    fileprivate var result: Result? {
+    fileprivate var result: PromiseResult? {
         willSet {
             guard result == nil else {
                 preconditionFailure("Promise can be resolved only once")
@@ -22,10 +22,10 @@ public class Future<Value> {
         // Observe whenever a result is assigned, and report it:
         didSet { result.map(report) }
     }
-    private var callbacks = [(Result) -> Void]()
+    private var callbacks = [(PromiseResult) -> Void]()
     
     @discardableResult
-    func onSuccess(_ closure: @escaping (Value) -> Void) -> Future<Value> {
+    public func onSuccess(_ closure: @escaping (Value) -> Void) -> Future<Value> {
         observe { result in
             if case .success(let value) = result {
                 closure(value)
@@ -35,7 +35,7 @@ public class Future<Value> {
     }
     
     @discardableResult
-    func onFailure(_ closure: @escaping (Error) -> Void) -> Future<Value> {
+    public func onFailure(_ closure: @escaping (Error) -> Void) -> Future<Value> {
         observe { result in
             if case .failure(let error) = result {
                 closure(error)
@@ -45,14 +45,14 @@ public class Future<Value> {
     }
     
     @discardableResult
-    func finally(_ closure: @escaping () -> Void) -> Future<Value> {
+    public func finally(_ closure: @escaping () -> Void) -> Future<Value> {
         observe { _ in
             closure()
         }
         return self
     }
     
-    private func observe(using callback: @escaping (Result) -> Void) {
+    private func observe(using callback: @escaping (PromiseResult) -> Void) {
         // If a result has already been set, call the callback directly:
         if let result = result {
             return callback(result)
@@ -61,18 +61,18 @@ public class Future<Value> {
         callbacks.append(callback)
     }
     
-    private func report(result: Result) {
+    private func report(result: PromiseResult) {
         callbacks.forEach { $0(result) }
         callbacks = []
     }
 }
 
 extension Promise {
-    func resolve(_ value: Value) {
+    public func resolve(_ value: Value) {
         result = .success(value)
     }
     
-    func reject(_ error: Error) {
+    public func reject(_ error: Error) {
         result = .failure(error)
     }
 }

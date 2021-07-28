@@ -14,10 +14,12 @@ public class DetectaCloudGate {
     // on the D-Cloud there is the deflator logic that sends only representative results of count 50
     // this limit is the limit of fetch results of the search query on the server
     private let fetchLimit = 2000
-    private let converter = DetectaCloudResponseConverter()
+    private let converter: DetectaCloudResponseConverter
     private var cloudBuilder: ApiUrlBuilder { ApiUrlBuilder(c.Endpoint.cloudServer) }
     
-    public init() {}
+    public init(converter: DetectaCloudResponseConverter = DetectaCloudResponseConverter()) {
+        self.converter = converter
+    }
     
     public func fetchLastContext(token: String) -> Future<CloudContext> {
         return service(NetworkService.self).load(

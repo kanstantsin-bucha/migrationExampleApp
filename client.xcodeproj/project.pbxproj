@@ -10,6 +10,9 @@
 		08723DC022AED8720088B8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723DBF22AED8720088B8ED /* AppDelegate.swift */; };
 		08723DCA22AED8720088B8ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08723DC822AED8720088B8ED /* LaunchScreen.storyboard */; };
 		08DB946C22B6765E0071A7B6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DB946B22B6765E0071A7B6 /* CoreBluetooth.framework */; };
+		1E19239426B1DBFE00B1A611 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19239226B1DBFA00B1A611 /* TestError.swift */; };
+		1E19239526B1DC0300B1A611 /* MockDetectaCloudResponseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19238F26B1DB1F00B1A611 /* MockDetectaCloudResponseConverter.swift */; };
+		1E19239826B1DDD800B1A611 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19239626B1DD1500B1A611 /* MockNetworkService.swift */; };
 		6E9D1ECE4D0FE8893B25303A /* Pods_D_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870C1F49DE9A1A3928FA20EC /* Pods_D_Connect.framework */; };
 		E5A6D1D4070B5A3D628303CD /* Pods_DetectaConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5CD78142144AD078D74B94 /* Pods_DetectaConnectTests.framework */; };
 		FE05EC082618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */; };
@@ -36,6 +39,9 @@
 		08723DD022AED8730088B8ED /* DetectaConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DetectaConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08723DD622AED8730088B8ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08DB946B22B6765E0071A7B6 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		1E19238F26B1DB1F00B1A611 /* MockDetectaCloudResponseConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetectaCloudResponseConverter.swift; sourceTree = "<group>"; };
+		1E19239226B1DBFA00B1A611 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		1E19239626B1DD1500B1A611 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		25859EC68DB0EFBB528B9D3A /* Pods-DetectaConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetectaConnectTests.debug.xcconfig"; path = "Target Support Files/Pods-DetectaConnectTests/Pods-DetectaConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55F64618CD41854C89D913E0 /* Pods-D-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-D-Connect.release.xcconfig"; path = "Target Support Files/Pods-D-Connect/Pods-D-Connect.release.xcconfig"; sourceTree = "<group>"; };
 		7A5CD78142144AD078D74B94 /* Pods_DetectaConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetectaConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,12 +109,31 @@
 		08723DD322AED8730088B8ED /* clientTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E19239126B1DBEA00B1A611 /* Utils */,
+				1E19238E26B1DAFF00B1A611 /* Mocks */,
 				08723DD622AED8730088B8ED /* Info.plist */,
 				FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */,
 				FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */,
 				FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */,
 			);
 			path = clientTests;
+			sourceTree = "<group>";
+		};
+		1E19238E26B1DAFF00B1A611 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1E19238F26B1DB1F00B1A611 /* MockDetectaCloudResponseConverter.swift */,
+				1E19239626B1DD1500B1A611 /* MockNetworkService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		1E19239126B1DBEA00B1A611 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1E19239226B1DBFA00B1A611 /* TestError.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		9ED96529D3C2FE86F14C25B0 /* Pods */ = {
@@ -324,7 +349,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E19239826B1DDD800B1A611 /* MockNetworkService.swift in Sources */,
+				1E19239426B1DBFE00B1A611 /* TestError.swift in Sources */,
 				FE05EC312618FB1300449D5C /* DetectaCloudGateTests.swift in Sources */,
+				1E19239526B1DC0300B1A611 /* MockDetectaCloudResponseConverter.swift in Sources */,
 				FE05EC082618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift in Sources */,
 				FE0B4ED32614ED3500679E3A /* ApiUrlBuilderTests.swift in Sources */,
 			);

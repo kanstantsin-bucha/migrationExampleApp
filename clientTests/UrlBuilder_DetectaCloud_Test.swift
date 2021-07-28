@@ -26,12 +26,12 @@ class UrlBuilder_DetectaCloud_Test: XCTestCase {
         _ = builder.addPath(path: "measurements")
         
         // Act
-        _ = builder.addQuery(name: "$sort", field: "millis", value: -1)
+        _ = builder.addItem(name: "$sort", value: -1)
         
         // Assert
         XCTAssertEqual(
             builder.url().absoluteString.removingPercentEncoding,
-            "https://api.com/measurements?$sort[millis]=-1"
+            "https://api.com/measurements?$sort=-1"
         )
     }
     
@@ -40,24 +40,12 @@ class UrlBuilder_DetectaCloud_Test: XCTestCase {
         _ = builder.addPath(path: "measurements")
         
         // Act
-        _ = builder.addQuery(name: "$limit", field: nil, value: 2)
+        _ = builder.addItem(name: "$limit", value: 2)
         
         // Assert
         XCTAssertEqual(
             builder.url().absoluteString,
             "https://api.com/measurements?$limit=2"
-        )
-    }
-    
-    func testThatProvidesValidUrlWhenFetchsLastContext() {
-        // Arrange
-        // Act
-        let url = builder.lastContext()
-        
-        // Assert
-        XCTAssertEqual(
-            url.absoluteString.removingPercentEncoding,
-            "http://detecta.group/api/1/measurements?$limit=1&$sort[timestamp]=-1"
         )
     }
 }

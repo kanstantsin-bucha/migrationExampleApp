@@ -8,10 +8,24 @@
 
 import Foundation
 
-class Promise<Value>: Future<Value> {
-    static func rejected(error: Error) -> Promise<Value> {
+public class Promise<Value>: Future<Value> {
+    override public init() {}
+    
+    public static func rejected(error: Error) -> Promise<Value> {
         let promise = Promise<Value>()
         promise.reject(error)
+        return promise
+    }
+    
+    public static func resolved(result: Future<Value>.PromiseResult) -> Promise<Value> {
+        let promise = Promise<Value>()
+        switch result {
+        case let .failure(error):
+            promise.reject(error)
+            
+        case let .success(value):
+            promise.resolve(value)
+        }
         return promise
     }
 }
