@@ -6,7 +6,7 @@
 //  Copyright © 2021 Detecta Group. All rights reserved.
 //
 
-import DetectaConnectSDK
+import DetectaConnect
 import Foundation
 import XCTest
 

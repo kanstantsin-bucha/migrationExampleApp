@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DetectaConnectSDK
+import DetectaConnect
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import DetectaConnectSDK
+import DetectaConnect
 
 class ApiUrlBuilderTest: XCTestCase {
     private var builder: ApiUrlBuilder!

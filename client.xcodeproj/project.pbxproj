@@ -3,18 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0803B71226C8353300D6392A /* DetectaConnect in Frameworks */ = {isa = PBXBuildFile; productRef = 0803B71126C8353300D6392A /* DetectaConnect */; };
 		08723DC022AED8720088B8ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08723DBF22AED8720088B8ED /* AppDelegate.swift */; };
 		08723DCA22AED8720088B8ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08723DC822AED8720088B8ED /* LaunchScreen.storyboard */; };
 		08DB946C22B6765E0071A7B6 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DB946B22B6765E0071A7B6 /* CoreBluetooth.framework */; };
 		1E19239426B1DBFE00B1A611 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19239226B1DBFA00B1A611 /* TestError.swift */; };
 		1E19239526B1DC0300B1A611 /* MockDetectaCloudResponseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19238F26B1DB1F00B1A611 /* MockDetectaCloudResponseConverter.swift */; };
 		1E19239826B1DDD800B1A611 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E19239626B1DD1500B1A611 /* MockNetworkService.swift */; };
-		6E9D1ECE4D0FE8893B25303A /* Pods_D_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870C1F49DE9A1A3928FA20EC /* Pods_D_Connect.framework */; };
-		E5A6D1D4070B5A3D628303CD /* Pods_DetectaConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5CD78142144AD078D74B94 /* Pods_DetectaConnectTests.framework */; };
 		FE05EC082618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */; };
 		FE05EC312618FB1300449D5C /* DetectaCloudGateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */; };
 		FE0B4ED32614ED3500679E3A /* ApiUrlBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */; };
@@ -32,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0803B71026C833AD00D6392A /* DetectaConnect */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DetectaConnect; sourceTree = "<group>"; };
 		08723DBC22AED8720088B8ED /* D-Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D-Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08723DBF22AED8720088B8ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08723DC922AED8720088B8ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,12 +42,6 @@
 		1E19238F26B1DB1F00B1A611 /* MockDetectaCloudResponseConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetectaCloudResponseConverter.swift; sourceTree = "<group>"; };
 		1E19239226B1DBFA00B1A611 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		1E19239626B1DD1500B1A611 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
-		25859EC68DB0EFBB528B9D3A /* Pods-DetectaConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetectaConnectTests.debug.xcconfig"; path = "Target Support Files/Pods-DetectaConnectTests/Pods-DetectaConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		55F64618CD41854C89D913E0 /* Pods-D-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-D-Connect.release.xcconfig"; path = "Target Support Files/Pods-D-Connect/Pods-D-Connect.release.xcconfig"; sourceTree = "<group>"; };
-		7A5CD78142144AD078D74B94 /* Pods_DetectaConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DetectaConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		870C1F49DE9A1A3928FA20EC /* Pods_D_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_D_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		96744481F91580DF6CFDBD72 /* Pods-D-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-D-Connect.debug.xcconfig"; path = "Target Support Files/Pods-D-Connect/Pods-D-Connect.debug.xcconfig"; sourceTree = "<group>"; };
-		C75E09C0E25DF0D421196FDD /* Pods-DetectaConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DetectaConnectTests.release.xcconfig"; path = "Target Support Files/Pods-DetectaConnectTests/Pods-DetectaConnectTests.release.xcconfig"; sourceTree = "<group>"; };
 		FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder_DetectaCloud_Test.swift; sourceTree = "<group>"; };
 		FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectaCloudGateTests.swift; sourceTree = "<group>"; };
 		FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlBuilderTests.swift; sourceTree = "<group>"; };
@@ -59,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0803B71226C8353300D6392A /* DetectaConnect in Frameworks */,
 				08DB946C22B6765E0071A7B6 /* CoreBluetooth.framework in Frameworks */,
-				6E9D1ECE4D0FE8893B25303A /* Pods_D_Connect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,21 +62,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5A6D1D4070B5A3D628303CD /* Pods_DetectaConnectTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0803B70F26C833AD00D6392A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				0803B71026C833AD00D6392A /* DetectaConnect */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		08723DB322AED8720088B8ED = {
 			isa = PBXGroup;
 			children = (
+				0803B70F26C833AD00D6392A /* Packages */,
 				08723DBE22AED8720088B8ED /* client */,
 				08723DD322AED8730088B8ED /* clientTests */,
 				08723DBD22AED8720088B8ED /* Products */,
 				D36AF4BF910970CC83412B09 /* Frameworks */,
-				9ED96529D3C2FE86F14C25B0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,23 +137,10 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		9ED96529D3C2FE86F14C25B0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				96744481F91580DF6CFDBD72 /* Pods-D-Connect.debug.xcconfig */,
-				55F64618CD41854C89D913E0 /* Pods-D-Connect.release.xcconfig */,
-				25859EC68DB0EFBB528B9D3A /* Pods-DetectaConnectTests.debug.xcconfig */,
-				C75E09C0E25DF0D421196FDD /* Pods-DetectaConnectTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		D36AF4BF910970CC83412B09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				08DB946B22B6765E0071A7B6 /* CoreBluetooth.framework */,
-				870C1F49DE9A1A3928FA20EC /* Pods_D_Connect.framework */,
-				7A5CD78142144AD078D74B94 /* Pods_DetectaConnectTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,17 +152,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08723DD922AED8730088B8ED /* Build configuration list for PBXNativeTarget "D-Connect" */;
 			buildPhases = (
-				697FB435CC97C53641E02275 /* [CP] Check Pods Manifest.lock */,
 				08723DB822AED8720088B8ED /* Sources */,
 				08723DB922AED8720088B8ED /* Frameworks */,
 				08723DBA22AED8720088B8ED /* Resources */,
-				1FA3740C1C381C97985A22D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "D-Connect";
+			packageProductDependencies = (
+				0803B71126C8353300D6392A /* DetectaConnect */,
+			);
 			productName = client;
 			productReference = 08723DBC22AED8720088B8ED /* D-Connect.app */;
 			productType = "com.apple.product-type.application";
@@ -183,11 +172,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08723DDC22AED8730088B8ED /* Build configuration list for PBXNativeTarget "DetectaConnectTests" */;
 			buildPhases = (
-				943FB93BB68E0F1FC0008403 /* [CP] Check Pods Manifest.lock */,
 				08723DCC22AED8730088B8ED /* Sources */,
 				08723DCD22AED8730088B8ED /* Frameworks */,
 				08723DCE22AED8730088B8ED /* Resources */,
-				1870B006B2C6C195BB3B776B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,7 +193,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = "Detecta Group";
 				TargetAttributes = {
 					08723DBB22AED8720088B8ED = {
@@ -254,87 +241,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1870B006B2C6C195BB3B776B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DetectaConnectTests/Pods-DetectaConnectTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DetectaConnectTests/Pods-DetectaConnectTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DetectaConnectTests/Pods-DetectaConnectTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1FA3740C1C381C97985A22D4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-D-Connect/Pods-D-Connect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-D-Connect/Pods-D-Connect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-D-Connect/Pods-D-Connect-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		697FB435CC97C53641E02275 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-D-Connect-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		943FB93BB68E0F1FC0008403 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DetectaConnectTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08723DB822AED8720088B8ED /* Sources */ = {
@@ -406,6 +312,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -467,6 +374,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -498,7 +406,6 @@
 		};
 		08723DDA22AED8730088B8ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96744481F91580DF6CFDBD72 /* Pods-D-Connect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -520,7 +427,6 @@
 		};
 		08723DDB22AED8730088B8ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55F64618CD41854C89D913E0 /* Pods-D-Connect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -542,7 +448,6 @@
 		};
 		08723DDD22AED8730088B8ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25859EC68DB0EFBB528B9D3A /* Pods-DetectaConnectTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = clientTests/Info.plist;
@@ -560,7 +465,6 @@
 		};
 		08723DDE22AED8730088B8ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C75E09C0E25DF0D421196FDD /* Pods-DetectaConnectTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = clientTests/Info.plist;
@@ -607,6 +511,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0803B71126C8353300D6392A /* DetectaConnect */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DetectaConnect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 08723DB422AED8720088B8ED /* Project object */;
 }
