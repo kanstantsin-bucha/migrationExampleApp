@@ -5,7 +5,7 @@
 //  Created by Konstantin on 5/8/21.
 //
 
-import Foundation
+import UIKit
 
 class NavigationController: UINavigationController {
     override var preferredStatusBarStyle: UIStatusBarStyle {

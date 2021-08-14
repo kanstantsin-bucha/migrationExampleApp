@@ -5,7 +5,7 @@
 //  Created by Konstantin on 7/25/21.
 //
 
-import Foundation
+import UIKit
 
 class DeviceSettingsViewController: UIViewController {
     @IBOutlet weak var deviceNameField: UITextField!

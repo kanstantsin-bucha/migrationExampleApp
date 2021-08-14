@@ -5,7 +5,7 @@
 //  Created by Konstantin on 5/10/21.
 //
 
-import Foundation
+import UIKit
 
 extension UIColor {
     static func with(state: UnitValueState) -> UIColor {

@@ -20,6 +20,7 @@ public func removeAllServices() {
     locator.removeAll()
 }
 
+@available(iOSApplicationExtension, unavailable)
 func setupServices() {
     locator.addServices([
         (GatesKeeper.self, DefaultGatesKeeper()),

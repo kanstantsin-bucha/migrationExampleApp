@@ -20,18 +20,10 @@ class SupportViewController: UIViewController {
     }
     
     @IBAction func supportDidTouch(sender: UIButton) {
-        UIApplication.shared.open(
-            Constant.AppLink.supportUrl,
-            options: [:],
-            completionHandler: nil
-        )
+        service(AppRouter.self).openSupportLink()
     }
     
     @IBAction func linkDidTouch(_ sender: UIButton) {
-        UIApplication.shared.open(
-            Constant.AppLink.siteUrl,
-            options: [:],
-            completionHandler: nil
-        )
+        service(AppRouter.self).openAppLink()
     }
 }

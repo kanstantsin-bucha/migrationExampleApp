@@ -6,7 +6,7 @@
 //
 
 import Charts
-import Foundation
+import UIKit
 
 open class ChartInteractor {
     let formatter: DateComponentsFormatter = {
@@ -34,7 +34,7 @@ open class ChartInteractor {
                 y: Double(value[keyPath: valuePath])
             )
         }
-        let dataSet = LineChartDataSet(entries: chartEntries, label: nil)
+        let dataSet = LineChartDataSet(entries: chartEntries, label: "")
         dataSet.applyAppearance()
         return (
             data: LineChartData(dataSet: dataSet),
@@ -51,8 +51,8 @@ open class ChartInteractor {
     }
 }
 
-public class HourlyAxisValueFormatter: IAxisValueFormatter {
-    public func stringForValue(
+public class HourlyAxisValueFormatter: IndexAxisValueFormatter {
+    public override func stringForValue(
         _ value: Double,
         axis: AxisBase?
     ) -> String {
@@ -144,7 +144,7 @@ extension LineChartDataSet {
         drawCirclesEnabled = false
         lineWidth = 1
         setColor(.systemBlue)
-        fill = Fill(color: .cyan)
+        fill = ColorFill(color: .cyan)
         fillAlpha = 0.1
         drawFilledEnabled = true
         highlightEnabled = true

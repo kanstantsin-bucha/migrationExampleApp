@@ -7,7 +7,7 @@
 
 import Combine
 import Charts
-import Foundation
+import UIKit
 
 public struct UnitsState: Equatable {
     public var units: [UnitModel]

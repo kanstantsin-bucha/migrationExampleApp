@@ -6,9 +6,10 @@
 //  Copyright © 2019 Detecta Group. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public class DConnect {
+    @available(iOSApplicationExtension, unavailable)
     public static func initialize() -> UIViewController {
         setupServices()
         setupAppearance()

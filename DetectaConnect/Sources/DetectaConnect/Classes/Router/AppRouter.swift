@@ -8,12 +8,15 @@
 
 import UIKit
 
-protocol AppRouter {
+public protocol AppRouter {
     func showAlert(_ alert: UIAlertController)
     func showSpinner()
     func hideSpinner()
+    func openSupportLink()
+    func openAppLink()
 }
 
+@available(iOSApplicationExtension, unavailable)
 class DefaultAppRouter: AppRouter {
     private var spinnerStyle: UIActivityIndicatorView.Style {
         if #available(iOS 13.0, *) {
@@ -30,7 +33,23 @@ class DefaultAppRouter: AppRouter {
     }
     private var spinnerView: UIView?
     
-    func showAlert(_ alert: UIAlertController) {
+    public func openSupportLink() {
+        UIApplication.shared.open(
+            Constant.AppLink.supportUrl,
+            options: [:],
+            completionHandler: nil
+        )
+    }
+    
+    public func openAppLink() {
+        UIApplication.shared.open(
+            Constant.AppLink.siteUrl,
+            options: [:],
+            completionHandler: nil
+        )
+    }
+    
+    public func showAlert(_ alert: UIAlertController) {
         log.operation("Show alert")
         guard alert.actions.count > 0 else {
             log.error("The alert have no actions")
@@ -48,7 +67,7 @@ class DefaultAppRouter: AppRouter {
         }
     }
     
-    func showSpinner() {
+    public func showSpinner() {
         log.operation("Show spinner")
         guard spinnerView == nil else {
             log.cancel("Show spinner - it is already shown")
@@ -81,7 +100,7 @@ class DefaultAppRouter: AppRouter {
         log.success("Show spinner")
     }
     
-    func hideSpinner() {
+    public func hideSpinner() {
         log.operation("Hide spinner")
         guard let spinner = spinnerView else {
             log.warning("No spinner while hide called")

@@ -124,8 +124,8 @@ class TimeSpanViewController: UIViewController {
         lineChartView.updateAppearance(
             xMin: chartData.xMin,
             xMax: chartData.xMax,
-            yMin: data.getYMin(),
-            yMax: data.getYMax()
+            yMin: data.getYMin(axis: .left),
+            yMax: data.getYMax(axis: .left)
         )
         lineChartView.animate(xAxisDuration: 1)
     }

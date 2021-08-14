@@ -16,6 +16,9 @@ let package = Package(
             targets: ["DetectaConnect"])
     ],
     dependencies: [
+        .package(url: "https://github.com/truebucha/BlueSwift.git", from: "1.0.4"),
+        .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.17.0"),
+        .package(url: "https://github.com/danielgindi/Charts.git", from: "4.0.1")
         // Dependencies declare other packages that this package depends on.
     ],
     targets: [
@@ -23,6 +26,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "DetectaConnect",
+            dependencies: [
+                "BlueSwift",
+                .product(name: "SwiftProtobuf", package: "SwiftProtobuf"),
+                "Charts"
+            ],
             exclude: ["Classes/Protobuf/dAir.proto"])
     ]
 )
