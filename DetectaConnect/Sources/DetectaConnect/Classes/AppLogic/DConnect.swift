@@ -20,7 +20,7 @@ public class DConnect {
     }
     
     public static var resourcesBundle: Bundle {
-        return Bundle(for: DConnect.self)
+        return Bundle.module
     }
     
     // MARK: - Private methods

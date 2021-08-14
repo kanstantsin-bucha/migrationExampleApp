@@ -7,15 +7,12 @@
 
 import UIKit
 
-fileprivate class Framework {}
-fileprivate var bundle: Bundle { Bundle(for: Framework.self) }
-
 struct FrameworkAsset: _ExpressibleByImageLiteral {
     let image: UIImage
 
     init(imageLiteralResourceName name: String) {
-        guard let image = UIImage(named: name, in: bundle, compatibleWith: nil) else {
-            preconditionFailure("Image named \(name) was not found in bundle \(bundle)")
+        guard let image = UIImage(named: name, in: DConnect.resourcesBundle, compatibleWith: nil) else {
+            preconditionFailure("Image named \(name) was not found in bundle \(DConnect.resourcesBundle)")
         }
         self.image = image
     }
@@ -23,8 +20,8 @@ struct FrameworkAsset: _ExpressibleByImageLiteral {
 
 extension UIColor {
     class func frameworkAsset(named name: String) -> UIColor {
-        guard let color = UIColor(named: name, in: bundle, compatibleWith: nil) else {
-            preconditionFailure("Color named \(name) was not found in bundle \(bundle)")
+        guard let color = UIColor(named: name, in: DConnect.resourcesBundle, compatibleWith: nil) else {
+            preconditionFailure("Color named \(name) was not found in bundle \(DConnect.resourcesBundle)")
         }
         return color
     }

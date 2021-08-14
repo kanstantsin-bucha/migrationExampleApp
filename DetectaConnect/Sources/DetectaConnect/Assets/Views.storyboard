@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19134"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,7 +15,7 @@
         <!--Preferences View Controller-->
         <scene sceneID="nNk-vg-Jus">
             <objects>
-                <viewController storyboardIdentifier="thingPreferences" id="r2a-Em-pV8" customClass="PreferencesViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="thingPreferences" id="r2a-Em-pV8" customClass="PreferencesViewController" customModule="DetectaConnect" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m9Q-3n-tQC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,7 +161,7 @@
         <!--Setup Gadget View Controller-->
         <scene sceneID="76n-lM-fyo">
             <objects>
-                <viewController storyboardIdentifier="wifi-guide" id="thQ-xx-Rtd" customClass="SetupGadgetViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wifi-guide" id="thQ-xx-Rtd" customClass="SetupGadgetViewController" customModule="DetectaConnect"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ueg-iB-zkt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +184,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-kW-Rix" customClass="NextResponderTextField" customModule="DetectaConnectSDK" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7TK-kW-Rix" customClass="NextResponderTextField" customModule="DetectaConnect" >
                                 <rect key="frame" x="16" y="128" width="382" height="30"/>
                                 <color key="backgroundColor" name="LightGrayBackground"/>
                                 <constraints>
@@ -197,7 +197,7 @@
                                     <outlet property="nextResponderField" destination="OUm-Nq-DRY" id="zzX-p6-DJc"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OUm-Nq-DRY" userLabel="Pass Field" customClass="NextResponderTextField" customModule="DetectaConnectSDK" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OUm-Nq-DRY" userLabel="Pass Field" customClass="NextResponderTextField" customModule="DetectaConnect" >
                                 <rect key="frame" x="16" y="215" width="382" height="30"/>
                                 <color key="backgroundColor" name="LightGrayBackground"/>
                                 <constraints>
@@ -277,7 +277,7 @@
         <!--Measurements View Controller-->
         <scene sceneID="dtx-tk-Oh0">
             <objects>
-                <viewController storyboardIdentifier="values" id="exM-pn-d8H" customClass="MeasurementsViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="values" id="exM-pn-d8H" customClass="MeasurementsViewController" customModule="DetectaConnect"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iCh-s1-Rww">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,8 +364,8 @@
                                         <color key="backgroundColor" name="AirGray"/>
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Prototype" rowHeight="100" id="OtW-VW-Fl2" customClass="MeasurementTableCell" customModule="DetectaConnectSDK" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="382" height="100"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Prototype" rowHeight="100" id="OtW-VW-Fl2" customClass="MeasurementTableCell" customModule="DetectaConnect" >
+                                                <rect key="frame" x="0.0" y="44.5" width="382" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OtW-VW-Fl2" id="8ri-7b-bQi">
                                                     <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
@@ -535,7 +535,7 @@
         <!--Device Settings View Controller-->
         <scene sceneID="upO-7x-f38">
             <objects>
-                <viewController id="OKK-Nn-Var" customClass="DeviceSettingsViewController" customModule="DetectaConnectSDK" sceneMemberID="viewController">
+                <viewController id="OKK-Nn-Var" customClass="DeviceSettingsViewController" customModule="DetectaConnect" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HaB-kS-Zvs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -586,7 +586,7 @@
         <!--Context View Controller-->
         <scene sceneID="f6G-5U-COc">
             <objects>
-                <viewController storyboardIdentifier="ContextViewController" id="b37-CM-glZ" customClass="ContextViewController" customModule="DetectaConnectSDK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContextViewController" id="b37-CM-glZ" customClass="ContextViewController" customModule="DetectaConnect" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AX9-8H-NjW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -672,18 +672,18 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-yD-CVk" userLabel="ValueView1" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-yD-CVk" userLabel="ValueView1" customClass="ValueView" customModule="DetectaConnect" >
                                                 <rect key="frame" x="16" y="102" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="MlS-yD-CVk" secondAttribute="height" multiplier="13:16" id="D4a-9L-p6f"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-eo-Chq" userLabel="ValueView2" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIk-eo-Chq" userLabel="ValueView2" customClass="ValueView" customModule="DetectaConnect" >
                                                 <rect key="frame" x="149" y="102" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-mq-ny0" userLabel="ValueView3" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-mq-ny0" userLabel="ValueView3" customClass="ValueView" customModule="DetectaConnect" >
                                                 <rect key="frame" x="282" y="102" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -691,15 +691,15 @@
                                                 <rect key="frame" x="0.0" y="245" width="414" height="102"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mah-q7-ObE" userLabel="ValueView4" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mah-q7-ObE" userLabel="ValueView4" customClass="ValueView" customModule="DetectaConnect" >
                                                 <rect key="frame" x="16" y="347" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFQ-We-q8y" userLabel="ValueView5" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aFQ-We-q8y" userLabel="ValueView5" customClass="ValueView" customModule="DetectaConnect" >
                                                 <rect key="frame" x="149" y="347" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="To6-Dm-1f7" userLabel="ValueView6" customClass="ValueView" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="To6-Dm-1f7" userLabel="ValueView6" customClass="ValueView" customModule="DetectaConnect" >
                                                 <rect key="frame" x="282" y="347" width="116" height="143"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -797,7 +797,7 @@
         <!--Time Span View Controller-->
         <scene sceneID="d8Y-Gc-GsH">
             <objects>
-                <viewController id="870-Cu-p4r" customClass="TimeSpanViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="870-Cu-p4r" customClass="TimeSpanViewController" customModule="DetectaConnect"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pdk-cn-wwp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -970,7 +970,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UnitsCollectionViewCell" id="vRB-RB-9E3" customClass="UnitsCollectionViewCell" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UnitsCollectionViewCell" id="vRB-RB-9E3" customClass="UnitsCollectionViewCell" customModule="DetectaConnect" >
                                         <rect key="frame" x="0.0" y="3" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZfA-GP-YUU">
@@ -1060,7 +1060,7 @@
         <!--Support View Controller-->
         <scene sceneID="Z9Q-51-OMC">
             <objects>
-                <viewController storyboardIdentifier="support" id="DzP-gS-qef" customClass="SupportViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="support" id="DzP-gS-qef" customClass="SupportViewController" customModule="DetectaConnect"  sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yl4-S1-qll">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1191,7 +1191,7 @@ If you have a question or need help using the product, open a support ticket and
         <!--Home View Controller-->
         <scene sceneID="h0z-t9-BA4">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="Fem-m7-6a6" customClass="HomeViewController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="Fem-m7-6a6" customClass="HomeViewController" customModule="DetectaConnect" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VQW-16-cmQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1228,7 +1228,7 @@ If you have a question or need help using the product, open a support ticket and
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Device" id="pmh-dG-EBD" customClass="DeviceCollectionViewCell" customModule="DetectaConnectSDK" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Device" id="pmh-dG-EBD" customClass="DeviceCollectionViewCell" customModule="DetectaConnect" >
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rhQ-nn-wdA">
@@ -1348,9 +1348,9 @@ If you have a question or need help using the product, open a support ticket and
         <!--Navigation Controller-->
         <scene sceneID="cIm-Pq-u1X">
             <objects>
-                <navigationController storyboardIdentifier="RootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" customClass="NavigationController" customModule="DetectaConnectSDK" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigation" automaticallyAdjustsScrollViewInsets="NO" id="Ls4-k8-sGM" customClass="NavigationController" customModule="DetectaConnect"  sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox" customClass="NavigationBar" customModule="DetectaConnectSDK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Rpf-BR-Qox" customClass="NavigationBar" customModule="DetectaConnect">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
