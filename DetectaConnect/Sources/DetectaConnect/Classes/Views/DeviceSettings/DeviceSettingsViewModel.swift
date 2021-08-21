@@ -8,7 +8,8 @@
 import Foundation
 
 public class DeviceSettingsViewModel {
-    var deviceName: String { deviceContainer.device.name }
+    var name: String { deviceContainer.device.name }
+    var token: String { deviceContainer.device.token }
     private let deviceContainer: DeviceContainer
     
     public init(deviceContainer: DeviceContainer) {

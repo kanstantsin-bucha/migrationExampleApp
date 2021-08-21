@@ -559,6 +559,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ie-OO-gc8" userLabel="DeviceTokenLabel">
+                                <rect key="frame" x="32" y="790" width="350" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" name="AirGray_K30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KeJ-v5-o9v"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -568,15 +574,19 @@
                             <constraint firstItem="oAP-pj-MIT" firstAttribute="trailing" secondItem="n9A-pe-QYs" secondAttribute="trailing" id="Jvx-0Q-w9q"/>
                             <constraint firstItem="mNJ-ow-4cJ" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="16" id="Lj6-gX-5x1"/>
                             <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="n9A-pe-QYs" secondAttribute="trailing" constant="16" id="Pou-8O-zB0"/>
+                            <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="4Ie-OO-gc8" secondAttribute="trailing" constant="32" id="XTL-pS-CH1"/>
                             <constraint firstItem="KeJ-v5-o9v" firstAttribute="trailing" secondItem="mNJ-ow-4cJ" secondAttribute="trailing" constant="16" id="XqN-2c-NQ8"/>
                             <constraint firstItem="oAP-pj-MIT" firstAttribute="leading" secondItem="n9A-pe-QYs" secondAttribute="leading" id="Ybe-xo-2r0"/>
                             <constraint firstItem="n9A-pe-QYs" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="16" id="kuf-b2-YCt"/>
+                            <constraint firstItem="4Ie-OO-gc8" firstAttribute="bottom" secondItem="KeJ-v5-o9v" secondAttribute="bottom" constant="16" id="nS0-MO-rJ9"/>
                             <constraint firstItem="oAP-pj-MIT" firstAttribute="top" secondItem="n9A-pe-QYs" secondAttribute="bottom" constant="16" id="qqt-i5-IsZ"/>
+                            <constraint firstItem="4Ie-OO-gc8" firstAttribute="leading" secondItem="KeJ-v5-o9v" secondAttribute="leading" constant="32" id="wJl-SJ-KvN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8mP-IN-15n"/>
                     <connections>
                         <outlet property="deviceNameField" destination="oAP-pj-MIT" id="OrC-1E-lY5"/>
+                        <outlet property="deviceTokenLabel" destination="4Ie-OO-gc8" id="fuG-zZ-lYx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A5E-P4-Shq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
