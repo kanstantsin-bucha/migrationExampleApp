@@ -30,6 +30,7 @@ class ValueView: UIView {
         let nibName = String(describing: type(of: self))
         contentView = ViewFactory.loadView(nibName: nibName, owner: self)
         contentView.frame = self.bounds
+        roundView.layer.borderColor = UIColor.white.cgColor
         self.addSubview(contentView)
     }
     
