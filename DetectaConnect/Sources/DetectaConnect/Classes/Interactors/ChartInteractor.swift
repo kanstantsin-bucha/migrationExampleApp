@@ -144,7 +144,7 @@ extension LineChartDataSet {
         drawCirclesEnabled = false
         lineWidth = 1
         setColor(.systemBlue)
-        fill = ColorFill(color: .cyan)
+        fill = Fill(color: .cyan)
         fillAlpha = 0.1
         drawFilledEnabled = true
         highlightEnabled = true
