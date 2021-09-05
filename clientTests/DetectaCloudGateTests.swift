@@ -41,7 +41,7 @@ class DetectaCloudGateTests: XCTestCase {
         XCTAssertEqual(mockNetworkService.loadCount, 1)
         XCTAssertEqual(
             mockNetworkService.loadParams?.url.absoluteString.removingPercentEncoding,
-            "http://detecta.group/api/1/measurements?uid=token&$limit=1&$sort[createdAt]=-1"
+            "https://detecta.group/api/1/measurements?uid=token&$limit=1&$sort[createdAt]=-1"
         )
         XCTAssertNotNil(mockNetworkService.loadParams?.converter as? MockDetectaCloudResponseConverter)
         XCTAssertEqual(future.result?.isSuccess, true)
