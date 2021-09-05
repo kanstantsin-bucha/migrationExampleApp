@@ -13,11 +13,11 @@ class COValueUnitModel: UnitValueModel {
     var value: String { String(format: "%.0f", valueNum) }
     var state: UnitValueState {
         switch valueNum {
-        case 0...9:
+        case 0..<10:
             return .good
-        case 10...20:
+        case 10..<20:
             return .warning
-        case 21...40:
+        case 20..<40:
             return .danger
         default:
             return .alarm

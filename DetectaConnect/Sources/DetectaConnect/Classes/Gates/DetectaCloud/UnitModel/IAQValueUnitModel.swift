@@ -13,11 +13,11 @@ class IAQValueUnitModel: UnitValueModel {
     var value: String { String(format: "%.0f", valueNum) }
     var state: UnitValueState {
         switch valueNum {
-        case 0...99:
+        case 0..<100:
             return .good
-        case 100...200:
+        case 100..<200:
             return .warning
-        case 201...300:
+        case 200..<400:
             return .danger
         default:
             return .alarm
