@@ -24,19 +24,6 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>detecta.group</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>Please allow app to communicate with a Detecta device</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
