@@ -15,9 +15,9 @@ class IAQValueUnitModel: UnitValueModel {
         switch valueNum {
         case 0..<100:
             return .good
-        case 100..<200:
+        case 100..<250:
             return .warning
-        case 200..<400:
+        case 250..<400:
             return .danger
         default:
             return .alarm
