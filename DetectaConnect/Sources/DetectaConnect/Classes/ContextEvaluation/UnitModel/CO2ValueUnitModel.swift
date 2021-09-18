@@ -15,9 +15,9 @@ class CO2ValueUnitModel: UnitValueModel {
         switch valueNum {
         case 0..<800:
             return .good
-        case 800..<1500:
+        case 800..<2000:
             return .warning
-        case 1500..<2000:
+        case 2000..<5000:
             return .danger
         default:
             return .alarm

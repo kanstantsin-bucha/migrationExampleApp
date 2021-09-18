@@ -1,5 +1,5 @@
 //
-//  HumidityValueUnitModel.swift
+//  TemperatureValueUnitModel.swift
 //  DetectaConnect
 //
 //  Created by Kanstantsin Bucha on 4.04.21.
@@ -7,17 +7,17 @@
 
 import Foundation
 
-class HumidityValueUnitModel: UnitValueModel {
-    let unit = UnitModel(title: "Humidity", shortTitle: "H%", unit: "%")
-    let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.humidity
+class TemperatureValueUnitModel: UnitValueModel {
+    let unit = UnitModel(title: "Temperature", shortTitle: "T", unit: "℃")
+    let valuePath: KeyPath<CloudContextWrapper, Float>  = \.context.tempCelsius
     var value: String { String(format: "%.1f", valueNum) }
     var state: UnitValueState {
         switch valueNum {
-        case 40...60:
+        case 16...33:
             return .good
-        case 30...70:
+        case 10...40:
             return .warning
-        case 25...75:
+        case 0...55:
             return .danger
         default:
             return .alarm

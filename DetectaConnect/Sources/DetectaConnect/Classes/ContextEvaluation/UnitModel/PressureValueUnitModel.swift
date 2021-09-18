@@ -13,11 +13,11 @@ class PressureValueUnitModel: UnitValueModel {
     var value: String { String(format: "%.0f", valueNum) }
     var state: UnitValueState {
         switch valueNum {
-        case 940...1020:
+        case 980...1030:
             return .good
-        case 920...1040:
+        case 790...1215:
             return .warning
-        case 900...1060:
+        case 650...1417:
             return .danger
         default:
             return .alarm
