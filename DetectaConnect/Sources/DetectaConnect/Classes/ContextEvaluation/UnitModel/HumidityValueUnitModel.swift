@@ -17,10 +17,8 @@ class HumidityValueUnitModel: UnitValueModel {
             return .good
         case 25...80:
             return .warning
-        case 20...90:
-            return .danger
         default:
-            return .alarm
+            return .danger
         }
     }
     
