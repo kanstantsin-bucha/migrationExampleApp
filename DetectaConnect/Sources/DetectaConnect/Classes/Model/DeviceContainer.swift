@@ -7,11 +7,11 @@
 
 import Foundation
 
-public class DeviceContainer {
+open class DeviceContainer {
     private let deviceId: String
     private var cachedDevice: Device?
     
-    public var device: Device {
+    open var device: Device {
         if let device = cachedDevice {
             return device
         }
@@ -26,7 +26,7 @@ public class DeviceContainer {
         self.deviceId = deviceId
     }
     
-    public func clearCache() {
+    open func clearCache() {
         cachedDevice = nil
     }
 }

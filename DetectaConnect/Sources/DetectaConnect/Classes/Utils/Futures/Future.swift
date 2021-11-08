@@ -45,7 +45,8 @@ public class Future<Value> {
     }
     
     @discardableResult
-    public func finally(_ closure: @escaping () -> Void) -> Future<Value> {
+    public func finally(_ closure: @escaping () -> Void) ->
+    Future<Value> {
         observe { _ in
             closure()
         }

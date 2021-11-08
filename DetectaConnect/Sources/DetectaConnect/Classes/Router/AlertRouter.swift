@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AlertRouter {
+public protocol AlertRouter {
     /// Shows Localised Error on UI
     /// - Parameter error: Error that should implement LocalizedError
     func show(error: Error)

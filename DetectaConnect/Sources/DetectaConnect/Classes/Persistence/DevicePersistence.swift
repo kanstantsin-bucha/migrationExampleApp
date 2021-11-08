@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DevicePersistence {
+public protocol DevicePersistence {
     func loadAll() -> [Device]
     func load(id: String) -> Device?
     func save(device: Device)
@@ -27,17 +27,17 @@ class DefaultDevicePersistence: DevicePersistence {
     func save(device: Device) {
         var dict = loadDict()
         dict[device.id] = device
-        save(dict: dict as! [String: DefaultDevice])
+        save(dict: dict as! [String: Device])
     }
     
     // MARK: - Private methods
     
-    func loadDict() -> [String: Device] {
+    private func loadDict() -> [String: Device] {
         guard let json = UserDefaults().data(forKey: dictKey) else { return [:] }
-        return (try? JSONDecoder().decode([String: DefaultDevice].self, from: json)) ?? [:]
+        return (try? JSONDecoder().decode([String: Device].self, from: json)) ?? [:]
     }
     
-    func save<Item: Encodable>(dict: [String: Item]) {
+    private func save<Item: Encodable>(dict: [String: Item]) {
         let json = try? JSONEncoder().encode(dict)
         UserDefaults().setValue(json, forKey: dictKey)
     }

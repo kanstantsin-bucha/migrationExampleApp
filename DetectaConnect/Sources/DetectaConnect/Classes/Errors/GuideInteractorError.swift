@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GuideInteractorError: Error {
+public enum GuideInteractorError: Error {
     case ssidInvalid
     case passInvalid
     case noDevice
@@ -16,7 +16,7 @@ enum GuideInteractorError: Error {
 }
 
 extension GuideInteractorError: LocalizedError {
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .passInvalid:
             return "The password length should be from 1 to 16 chars"

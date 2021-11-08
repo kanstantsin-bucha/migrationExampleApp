@@ -17,7 +17,7 @@
                BlueprintIdentifier = "08723DBB22AED8720088B8ED"
                BuildableName = "D-Connect.app"
                BlueprintName = "D-Connect"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:client.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,7 +33,7 @@
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
             BuildableName = "D-Connect.app"
             BlueprintName = "D-Connect"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:client.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -44,8 +44,13 @@
                BlueprintIdentifier = "08723DCF22AED8730088B8ED"
                BuildableName = "DetectaConnectTests.xctest"
                BlueprintName = "DetectaConnectTests"
-               ReferencedContainer = "container:Client.xcodeproj">
+               ReferencedContainer = "container:client.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "DefaultSetupGadgetViewModelTest/testSetupDeviceFailedConnecting()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
@@ -66,7 +71,7 @@
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
             BuildableName = "D-Connect.app"
             BlueprintName = "D-Connect"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -83,7 +88,7 @@
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
             BuildableName = "D-Connect.app"
             BlueprintName = "D-Connect"
-            ReferencedContainer = "container:Client.xcodeproj">
+            ReferencedContainer = "container:client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

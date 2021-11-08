@@ -24,8 +24,11 @@ public protocol SetupGadgetViewModel {
 
 public class DefaultSetupGadgetViewModel: SetupGadgetViewModel {
     public var stateSubject = Subject<SetupGadgetViewState>()
+    public let secondsToRepeat: Int
     
-    public init() {}
+    public init(secondsToRepeat: Int = 3) {
+        self.secondsToRepeat = secondsToRepeat
+    }
     
     public func viewWillAppear() {
         checkDevice()
@@ -51,7 +54,7 @@ public class DefaultSetupGadgetViewModel: SetupGadgetViewModel {
             stateSubject.send(.connected)
         } else {
             stateSubject.send(.connecting)
-            onMain(afterSeconds: 3) { [weak self] in
+            onMain(afterSeconds: secondsToRepeat) { [weak self] in
                 self?.checkDevice()
             }
         }
