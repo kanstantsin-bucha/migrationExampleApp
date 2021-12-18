@@ -18,7 +18,7 @@ class HumidityValueUnitModel: UnitValueModel {
         case 25...80:
             return .warning
         default:
-            return .danger
+            return .warning
         }
     }
     

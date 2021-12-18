@@ -13,9 +13,9 @@ class CO2ValueUnitModel: UnitValueModel {
     var value: String { String(format: "%.0f", valueNum) }
     var state: UnitValueState {
         switch valueNum {
-        case 0..<800:
+        case 0..<1000:
             return .good
-        case 800..<2000:
+        case 1000..<2000:
             return .warning
         case 2000..<5000:
             return .danger
