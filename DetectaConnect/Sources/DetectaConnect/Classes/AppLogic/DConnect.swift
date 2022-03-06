@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Sentry
 
 public class DConnect {
     @available(iOSApplicationExtension, unavailable)

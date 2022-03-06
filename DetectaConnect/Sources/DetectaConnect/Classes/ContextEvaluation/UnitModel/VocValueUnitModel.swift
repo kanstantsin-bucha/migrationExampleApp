@@ -13,11 +13,11 @@ class VocValueUnitModel: UnitValueModel {
     var value: String { String(format: "%.0f", valueNum) }
     var state: UnitValueState {
         switch valueNum {
-        case 0..<2:
+        case 0..<3:
             return .good
-        case 1..<5:
+        case 3..<10:
             return .warning
-        case 5..<10:
+        case 10..<20:
             return .danger
         default:
             return .alarm

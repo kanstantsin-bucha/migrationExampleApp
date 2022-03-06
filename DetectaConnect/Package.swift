@@ -18,7 +18,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/truebucha/BlueSwift.git", from: "1.0.4"),
         .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.17.0"),
-        .package(url: "https://github.com/danielgindi/Charts.git", .exact("3.6.0"))
+        .package(url: "https://github.com/danielgindi/Charts.git", .exact("3.6.0")),
+        .package(name: "Sentry", url: "https://github.com/getsentry/sentry-cocoa", from: "7.10.0"),
         // Dependencies declare other packages that this package depends on.
     ],
     targets: [
@@ -29,7 +30,8 @@ let package = Package(
             dependencies: [
                 "BlueSwift",
                 .product(name: "SwiftProtobuf", package: "SwiftProtobuf"),
-                "Charts"
+                "Charts",
+                "Sentry"
             ],
             exclude: ["Classes/Protobuf/dAir.proto"])
     ]
