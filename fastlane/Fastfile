@@ -1,0 +1,13 @@
+
+
+lane :upload_symbols do
+  download_dsyms(
+    username: 'estbyright@icloud.com',
+    app_identifier: 'group.detecta.apps.connect'
+  )
+  sentry_upload_dsym(
+    auth_token: '25165c3e073c41b697e2205da693637dac0f61c125d748c2b9258d88e20d6220',
+    org_slug: 'rosewood',
+    project_slug: 'detecta-connect',
+  )
+end
