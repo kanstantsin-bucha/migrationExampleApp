@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Sentry
 
 class ContextViewController: UIViewController {
     @IBOutlet var iaqValueLabel: UILabel!
@@ -49,6 +50,7 @@ class ContextViewController: UIViewController {
             self.updateIcon(state: .good)
             self.deviceTitleLabel.text = self.deviceContainer.device.name
         }
+        SentrySDK.capture(message: "ContextViewController appear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {

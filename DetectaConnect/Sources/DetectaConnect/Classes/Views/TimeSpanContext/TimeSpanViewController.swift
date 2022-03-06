@@ -8,6 +8,7 @@
 import Charts
 import Combine
 import UIKit
+import Sentry
 
 class TimeSpanViewController: UIViewController {
     var model: TimeSpanViewModel!
@@ -49,11 +50,11 @@ class TimeSpanViewController: UIViewController {
         super.viewWillAppear(animated)
         configure()
         model.viewWillAppear()
+        SentrySDK.capture(message: "TimeSpanViewController appear")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
     }
     
     override func viewDidDisappear(_ animated: Bool) {
