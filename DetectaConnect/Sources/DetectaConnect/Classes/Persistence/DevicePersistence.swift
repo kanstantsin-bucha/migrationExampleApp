@@ -27,7 +27,7 @@ class DefaultDevicePersistence: DevicePersistence {
     func save(device: Device) {
         var dict = loadDict()
         dict[device.id] = device
-        save(dict: dict as! [String: Device])
+        save(dict: dict)
     }
     
     // MARK: - Private methods

@@ -13,9 +13,9 @@ class TemperatureValueUnitModel: UnitValueModel {
     var value: String { String(format: "%.1f", valueNum) }
     var state: UnitValueState {
         switch valueNum {
-        case 16...33:
+        case 16...35:
             return .good
-        case 10...40:
+        case 10...45:
             return .warning
         case 0...55:
             return .danger

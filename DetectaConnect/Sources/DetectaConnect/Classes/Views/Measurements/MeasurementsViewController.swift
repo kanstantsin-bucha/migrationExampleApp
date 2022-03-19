@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Sentry
 
 final class MeasurementsViewController: UIViewController {
     
@@ -59,7 +58,6 @@ final class MeasurementsViewController: UIViewController {
         subscribeToNotifications()
         updateStartStopButtonState()
         _ = becomeFirstResponder()
-        SentrySDK.capture(message: "MeasurementsViewController appear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -50,7 +50,6 @@ class ContextViewController: UIViewController {
             self.updateIcon(state: .good)
             self.deviceTitleLabel.text = self.deviceContainer.device.name
         }
-        SentrySDK.capture(message: "ContextViewController appear")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -98,8 +97,16 @@ class ContextViewController: UIViewController {
     }
     
     private func fetch() {
+        let event = Event()
+        event.eventId = SentryId()
+        event.message = SentryMessage(formatted: "Last context fetch")
+        event.startTimestamp = Date()
+        event.type = "transaction"
+        event.transaction = "Context fetch"
         service(GatesKeeper.self).cloudGate.fetchLastContext(token: deviceContainer.device.token)
             .onSuccess { [weak self] result in
+                event.timestamp = Date()
+                SentrySDK.capture(event: event)
                 guard let self = self, let wrapper = result.data.first else {
                     return
                 }
