@@ -20,14 +20,9 @@ class ContextViewController: UIViewController {
         self.deviceContainer = deviceContainer
     }
     
-    private var iaqModel: UnitValueModel = IAQValueUnitModel()
-    private var unitValueModels: [UnitValueModel] = [
-        TemperatureValueUnitModel(),
-        HumidityValueUnitModel(),
-        PressureValueUnitModel(),
-        CO2ValueUnitModel(),
-        COValueUnitModel(),
-        VocValueUnitModel()
+    private var iaqModel: ValueUnitModel = .init(unit: .init(title: "", unit: "", contextKey: ""))
+    private var unitValueModels: [ValueUnitModel] = [
+      // TODO: reimplement
     ]
     
     private var isUpdating = false

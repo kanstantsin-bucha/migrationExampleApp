@@ -37,18 +37,12 @@ open class TimeSpanViewModel {
         }
     }
     
-    private var units: [UnitValueModel] = [
-        IAQValueUnitModel(),
-        TemperatureValueUnitModel(),
-        HumidityValueUnitModel(),
-        CO2ValueUnitModel(),
-        COValueUnitModel(),
-        VocValueUnitModel(),
-        PressureValueUnitModel()
+    private var units: [ValueUnitModel] = [
+        // TODO: reimplement
     ]
     
     private var fetchedContext: (start: TimeInterval, context: CloudContext)?
-    private lazy var unit: UnitValueModel = units.first!
+    private lazy var unit: ValueUnitModel = units.first!
     private var interval: FetchInterval = .oneHour
     private let token: String
     
@@ -90,7 +84,7 @@ open class TimeSpanViewModel {
                 time: ""
             )
         }
-        unit.apply(value: Float(value))
+        unit.apply(unitValue: Float(value))
         return (
             value: unit.value,
             color: .with(state: unit.state),
@@ -127,7 +121,7 @@ open class TimeSpanViewModel {
         )
     }
     
-    private func fetch(interval: FetchInterval, unitValue: UnitValueModel, units: [UnitModel]) {
+    private func fetch(interval: FetchInterval, unitValue: ValueUnitModel, units: [UnitModel]) {
         log.operation("fetch \(interval)")
         /* guard */ if case .loading = state {
             log.success("fetch skipped")
@@ -167,7 +161,7 @@ open class TimeSpanViewModel {
     private func update(
         start: TimeInterval,
         values: [CloudContextWrapper],
-        unitValue: UnitValueModel,
+        unitValue: ValueUnitModel,
         units: [UnitModel]
     ) {
         guard !values.isEmpty else {
@@ -188,11 +182,14 @@ open class TimeSpanViewModel {
             )
             return
         }
+        // TODO: reimplement
         let (data, preselectedEntry) = service(ChartInteractor.self).chartData(
             withValues: values,
-            valuePath: unitValue.valuePath
+            valuePath: \.context.breathVocEquivalent // unitValue.valuePath
         )
-        let average = values.average { Double($0[keyPath: unitValue.valuePath]) }
+        // TODO: reimplement
+        let average = 0.0
+        // values.average { Double($0[keyPath: unitValue.valuePath]) }
         self.state = .updated(
             data: EnhancedChartData(
                 xMin: start,

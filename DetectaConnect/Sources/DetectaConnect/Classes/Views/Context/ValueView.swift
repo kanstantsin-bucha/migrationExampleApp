@@ -18,7 +18,7 @@ class RoundView: UIView {
 
 class ValueView: UIView {
     private var contentView: UIView!
-    private var model: UnitValueModel!
+    private var model: ValueUnitModel!
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,7 +34,7 @@ class ValueView: UIView {
         self.addSubview(contentView)
     }
     
-    func add(model: UnitValueModel) {
+    func add(model: ValueUnitModel) {
         self.model = model
         
         unitLabel.text = model.unit.unit
