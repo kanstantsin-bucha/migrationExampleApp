@@ -32,10 +32,12 @@ protocol Logging {
 
 extension Logging {
     func error(_ error: Error, prefix: String = #fileID) {
+        SentryHelper.error("\(prefix) Error: \(error.localizedDescription)")
         printLog(error.localizedDescription, level: .error, prefix: prefix)
     }
     
     func error(_ message: String, prefix: String = #fileID) {
+        SentryHelper.error("\(prefix) Error: \(message)")
         printLog(message, level: .error, prefix: prefix)
     }
     

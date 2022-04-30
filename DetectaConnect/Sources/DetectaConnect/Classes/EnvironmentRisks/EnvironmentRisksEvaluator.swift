@@ -28,4 +28,8 @@ final class EnvironmentRisksEvaluator {
     public func updateModel(jsonData: Data) throws {
         model = try Self.createModel(jsonData: jsonData)
     }
+    
+    public func createEvaluationGroup() -> EvaluationGroup {
+        EvaluationGroup(model: model)
+    }
 }

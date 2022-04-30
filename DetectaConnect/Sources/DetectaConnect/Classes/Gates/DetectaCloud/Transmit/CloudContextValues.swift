@@ -16,7 +16,7 @@ public struct CloudContextValues: Decodable {
     let co2Equivalent: Float
     let breathVocEquivalent: Float
     
-    public subscript(key: String) -> Float {
+    public subscript(key: String) -> Float? {
         get
         {
             switch key {
@@ -29,7 +29,7 @@ public struct CloudContextValues: Decodable {
             case "breathVocEquivalent": return breathVocEquivalent
             default:
                 log.error("invalid subscript key: \(key), returning 0")
-                return 0
+                return nil
             }
         }
     }

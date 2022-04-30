@@ -35,7 +35,6 @@ func setupServices() {
         ])
     } catch {
         let message = "Failed to setup services with error: \(error)"
-        SentryHelper.error(message)
         log.error(message)
         preconditionFailure(message)
     }

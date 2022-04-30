@@ -15,15 +15,14 @@ class ContextViewController: UIViewController {
     @IBOutlet var valueViews: [ValueView]!
     @IBOutlet var deviceTitleLabel: UILabel!
     private var deviceContainer: DeviceContainer!
+    private lazy var evaluationGroup: EvaluationGroup =
+        service(EnvironmentRisksEvaluator.self).createEvaluationGroup()
     
     public func apply(deviceContainer: DeviceContainer) {
         self.deviceContainer = deviceContainer
     }
     
-    private var iaqModel: ValueUnitModel = .init(unit: .init(title: "", unit: "", contextKey: ""))
-    private var unitValueModels: [ValueUnitModel] = [
-      // TODO: reimplement
-    ]
+    private lazy var mainModel: ValueUnitModel = evaluationGroup.valueModels[0]
     
     private var isUpdating = false
     private lazy var dateFormatter: DateFormatter = {
@@ -73,13 +72,19 @@ class ContextViewController: UIViewController {
     }
 
     private func updateIcon(state: UnitValueState) {
-        self.iaqImageView.tintColor = .with(state: self.iaqModel.state)
+        self.iaqImageView.tintColor = .with(state: self.mainModel.state)
         self.iaqImageView.image = (#imageLiteral(resourceName: "detecta-medium") as FrameworkAsset).image.withRenderingMode(.alwaysTemplate)
     }
     
     private func configure() {
+        let requiredUnitsCount = valueViews.count + 1
+        guard evaluationGroup.valueModels.count >= requiredUnitsCount else {
+            log.error("Evaluation group have less than \(requiredUnitsCount) units")
+            return
+        }
+        // we skip main unit model (index: 0) cause it has it's own way to display value
         valueViews.enumerated().forEach { (index, valueView) in
-            valueView.add(model: unitValueModels[index])
+            valueView.add(model: evaluationGroup.valueModels[index + 1])
         }
     }
     
@@ -106,13 +111,10 @@ class ContextViewController: UIViewController {
                     return
                 }
                 let timestamp = self.dateFormatter.string(from: wrapper.created)
-                self.unitValueModels.forEach { model in
-                    model.apply(contextWrapper: wrapper)
-                }
-                self.iaqModel.apply(contextWrapper: wrapper)
+                self.evaluationGroup.apply(context: wrapper.context)
                 onMain {
-                    self.iaqValueLabel.text = self.iaqModel.value
-                    self.updateIcon(state: self.iaqModel.state)
+                    self.iaqValueLabel.text = self.mainModel.value
+                    self.updateIcon(state: self.mainModel.state)
                     self.timestampLabel.text = timestamp
                     self.valueViews.forEach { $0.refresh() }
                 }
