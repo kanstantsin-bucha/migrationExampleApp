@@ -26,7 +26,7 @@ public class DConnect {
         return controller
     }
     
-    public static var resourcesBundle: Bundle {
+    public static var assetsBundle: Bundle {
         return Bundle.module
     }
     

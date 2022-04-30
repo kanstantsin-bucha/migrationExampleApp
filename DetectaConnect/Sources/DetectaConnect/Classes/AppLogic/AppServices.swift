@@ -22,15 +22,23 @@ public func removeAllServices() {
 
 @available(iOSApplicationExtension, unavailable)
 func setupServices() {
-    locator.addServices([
-        (GatesKeeper.self, DefaultGatesKeeper()),
-        (GadgetSetupInteractor.self, DefaultGadgetSetupInteractor()),
-        (AppRouter.self, DefaultAppRouter()),
-        (AlertRouter.self, DefaultAlertRouter()),
-        (NetworkService.self, DefaultNetworkService()),
-        (DevicePersistence.self, DefaultDevicePersistence()),
-        (ChartInteractor.self, ChartInteractor())
-    ])
+    do {
+        locator.addServices([
+            (GatesKeeper.self, DefaultGatesKeeper()),
+            (GadgetSetupInteractor.self, DefaultGadgetSetupInteractor()),
+            (AppRouter.self, DefaultAppRouter()),
+            (AlertRouter.self, DefaultAlertRouter()),
+            (NetworkService.self, DefaultNetworkService()),
+            (DevicePersistence.self, DefaultDevicePersistence()),
+            (ChartInteractor.self, ChartInteractor()),
+            (EnvironmentRisksEvaluator.self, try EnvironmentRisksEvaluator())
+        ])
+    } catch {
+        let message = "Failed to setup services with error: \(error)"
+        SentryHelper.error(message)
+        log.error(message)
+        preconditionFailure(message)
+    }
 }
 
 fileprivate let locator = ServiceLocator()

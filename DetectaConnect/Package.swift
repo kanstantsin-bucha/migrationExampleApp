@@ -33,6 +33,7 @@ let package = Package(
                 "Charts",
                 "Sentry"
             ],
-            exclude: ["Classes/Protobuf/dAir.proto"])
+            exclude: ["Classes/Protobuf/dAir.proto"],
+            resources: [.process("Assets/unit_models.json")])
     ]
 )

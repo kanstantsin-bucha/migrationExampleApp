@@ -11,7 +11,7 @@ import UIKit
 
 class ViewFactory {
     static var viewTypes: UIStoryboard {
-        let result = UIStoryboard(name: "Views", bundle: DConnect.resourcesBundle)
+        let result = UIStoryboard(name: "Views", bundle: DConnect.assetsBundle)
         return result
     }
     
@@ -23,7 +23,7 @@ class ViewFactory {
     }
     
     static func loadView(nibName: String, owner: UIView) -> UIView {
-        let nib = UINib(nibName: nibName, bundle: DConnect.resourcesBundle)
+        let nib = UINib(nibName: nibName, bundle: DConnect.assetsBundle)
         guard let view = nib.instantiate(withOwner: owner, options: nil).first as? UIView else {
             preconditionFailure("Failed to load view: \(nibName), owner: \(owner)")
         }

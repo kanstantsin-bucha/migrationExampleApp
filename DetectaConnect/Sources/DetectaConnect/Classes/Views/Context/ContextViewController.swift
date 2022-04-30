@@ -55,7 +55,7 @@ class ContextViewController: UIViewController {
         super.viewDidDisappear(animated)
     }
     
-    // MARK: - Private method
+    // MARK: - Private methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == View.a.TimeSpan.id {
