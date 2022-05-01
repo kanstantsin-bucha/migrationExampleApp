@@ -26,12 +26,12 @@ open class ChartInteractor {
     
     public func chartData(
         withValues values: [CloudContextWrapper],
-        valuePath: KeyPath<CloudContextWrapper, Float>
+        extractor: ContextValueExtractor
     ) -> (data: LineChartData, preselectedEntry: ChartDataEntry?) {
         let chartEntries = values.enumerated().map { index, value in
             return ChartDataEntry(
                 x: value.createdAt,
-                y: Double(value[keyPath: valuePath])
+                y: Double(extractor(value.context))
             )
         }
         let dataSet = LineChartDataSet(entries: chartEntries, label: "")

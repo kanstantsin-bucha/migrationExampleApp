@@ -1,11 +1,13 @@
-{   "unit_models": [
+{
+    "version": "1.0.0",
+    "unit_models": [
     {
         "title": "IAQ",
         "unit": "",
         "context_value_key": "iaq",
-        "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 100}]},
-        "warning": {"enabled": true, "ranges": [{"lower": 100, "upper": 250}]},
-        "danger": {"enabled": true, "ranges": [{"lower": 250, "upper": 400}]},
+        "good": {"enabled": true, "range": {"lower": 0, "upper": 100}},
+        "warning": {"enabled": true, "range": {"lower": 100, "upper": 250}},
+        "danger": {"enabled": true, "range": {"lower": 250, "upper": 400}},
         "alarm": {"enabled": true}
     },
     {
@@ -14,9 +16,9 @@
         "unit": "℃",
         "float_precision": 1,
         "context_value_key": "tempCelsius",
-        "good": {"enabled": true, "ranges": [{"lower": 16, "upper": 34}]},
-        "warning": {"enabled": true, "ranges": [{"lower": 10, "upper": 15}, {"lower": 35, "upper": 44}]},
-        "danger": {"enabled": true, "ranges": [{"lower": 0, "upper": 9}, {"lower": 45, "upper": 54}]},
+        "good": {"enabled": true, "range": {"lower": 16, "upper": 34}},
+        "warning": {"enabled": true, "range": {"lower": 10, "upper": 44}},
+        "danger": {"enabled": true, "range": {"lower": 0, "upper": 54}},
         "alarm": {"enabled": true}
     },
     {
@@ -25,8 +27,8 @@
         "unit": "%",
         "float_precision": 1,
         "context_value_key": "humidity",
-        "good": {"enabled": true, "ranges": [{"lower": 20, "upper": 65}]},
-        "warning": {"enabled": true, "ranges": [{"lower": 0, "upper": 19}, {"lower": 100, "upper": 100}]},
+        "good": {"enabled": true, "range": {"lower": 25, "upper": 65}},
+        "warning": {"enabled": true},
         "danger": {"enabled": false},
         "alarm": {"enabled": false}
     },
@@ -35,36 +37,36 @@
         "title_short": "P",
         "unit": "hPa",
         "context_value_key": "pressureHPa",
-        "good": {"enabled": true, "ranges": [{"lower": 980, "upper": 1030}]},
-        "warning": {"enabled": true, "ranges": [{"lower": 790, "upper": 980}, {"lower": 1030, "upper": 1215}]},
-        "danger": {"enabled": true, "ranges": [{"lower": 650, "upper": 790}, {"lower": 1215, "upper": 1417}]},
+        "good": {"enabled": true, "range": {"lower": 980, "upper": 1030}},
+        "warning": {"enabled": true, "range": {"lower": 790, "upper": 1215}},
+        "danger": {"enabled": true, "range": {"lower": 650, "upper": 1417}},
         "alarm":  {"enabled": true}
     },
     {
         "title": "CO",
         "unit": "ppm",
         "context_value_key": "coPpm",
-        "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 10}]},
-        "warning": {"enabled": true, "ranges": [{"lower": 10, "upper": 20}]},
-        "danger":  {"enabled": true, "ranges": [{"lower": 20, "upper": 40}]},
+        "good": {"enabled": true, "range": {"lower": 0, "upper": 10}},
+        "warning": {"enabled": true, "range": {"lower": 10, "upper": 20}},
+        "danger":  {"enabled": true, "range": {"lower": 20, "upper": 40}},
         "alarm":  {"enabled": true }
     },
     {
         "title": "CO₂",
         "unit": "ppm",
         "context_value_key": "co2Equivalent",
-        "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 1200}]},
-        "warning": {"enabled": true, "ranges": [{"lower": 1200, "upper": 2500}]},
-        "danger":  {"enabled": true, "ranges": [{"lower": 2500, "upper": 5000}]},
+        "good": {"enabled": true, "range": {"lower": 0, "upper": 1200}},
+        "warning": {"enabled": true, "range": {"lower": 1200, "upper": 2500}},
+        "danger":  {"enabled": true, "range": {"lower": 2500, "upper": 5000}},
         "alarm":  {"enabled": true }
     },
     {
         "title": "VOC",
         "unit": "ppm",
         "context_value_key": "breathVocEquivalent",
-        "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 3}]},
-        "warning": {"enabled": true, "ranges": [{"lower": 3, "upper": 10}]},
-        "danger":  {"enabled": true, "ranges": [{"lower": 10, "upper": 20}]},
+        "good": {"enabled": true, "range": {"lower": 0, "upper": 3}},
+        "warning": {"enabled": true, "range": {"lower": 3, "upper": 10}},
+        "danger":  {"enabled": true, "range": {"lower": 10, "upper": 20}},
         "alarm":  {"enabled": true }
     }
     ]

@@ -8,6 +8,7 @@
 import Foundation
 
 final class EnvironmentRisksEvaluator {
+    public var modelsVersion: String { model.version }
     private var model: UnitsModel
     
     public init() throws {

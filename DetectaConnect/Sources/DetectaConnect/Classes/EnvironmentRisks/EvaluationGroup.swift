@@ -7,11 +7,17 @@
 
 import Foundation
 
+public typealias ContextValueExtractor = (CloudContextValues) -> Float
+
 final class EvaluationGroup {
     let valueModels: [ValueUnitModel]
     
     init(model: UnitsModel) {
         valueModels = model.models.map { ValueUnitModel(unit: $0) }
+    }
+    
+    func makeValueExtractor(model: ValueUnitModel) -> ContextValueExtractor {
+        return { $0[model.unit.contextKey] ?? 0 }
     }
     
     func apply(context: CloudContextValues) {

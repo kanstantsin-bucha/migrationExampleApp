@@ -37,18 +37,21 @@ open class TimeSpanViewModel {
         }
     }
     
-    private var units: [ValueUnitModel] = [
-        // TODO: reimplement
-    ]
+    private lazy var evaluationGroup: EvaluationGroup =
+        service(EnvironmentRisksEvaluator.self).createEvaluationGroup()
     
     private var fetchedContext: (start: TimeInterval, context: CloudContext)?
-    private lazy var unit: ValueUnitModel = units.first!
+    private lazy var selectedValueModel: ValueUnitModel? = evaluationGroup.valueModels.first!
     private var interval: FetchInterval = .oneHour
     private let token: String
     
     public init(token: String) {
         self.token = token
         self.state = .undefined
+    }
+    
+    public func configure() {
+        
     }
     
     public func toggleInterval() {
@@ -76,19 +79,19 @@ open class TimeSpanViewModel {
     }
     
     public func badge(x: Double?, y: Double?) -> (value: String, color: UIColor, unit: String, time: String) {
-        guard let time = x, let value = y else {
+        guard let valueModel = selectedValueModel, let time = x, let value = y else {
             return (
                 value: "~",
                 color: .systemGreen,
-                unit: unit.unit.unit,
+                unit: "",
                 time: ""
             )
         }
-        unit.apply(unitValue: Float(value))
+        valueModel.apply(unitValue: Float(value))
         return (
-            value: unit.value,
-            color: .with(state: unit.state),
-            unit: unit.unit.unit,
+            value: valueModel.value,
+            color: .with(state: valueModel.state),
+            unit: valueModel.unit.unit,
             time: service(ChartInteractor.self).hourlyString(timeInterval: time)
         )
     }
@@ -96,19 +99,23 @@ open class TimeSpanViewModel {
     // MARK: - Private methods
     
     private func performFetch() {
+        guard let valueModel = selectedValueModel else {
+            log.error("Starting fetch when no selected model exists. Skipping")
+            return
+        }
         fetch(
             interval: interval,
-            unitValue: unit,
-            units: units.map { $0.unit }
+            unitValue: valueModel,
+            units: evaluationGroup.valueModels.map { $0.unit }
         )
     }
     
     private func performUnitSelection(incoming: UnitModel) {
-        guard let targetUnit = units.first(where: { $0.unit.uuid == incoming.uuid }),
-              unit.unit != incoming else {
+        guard let targetUnit = evaluationGroup.valueModels.first(where: { $0.unit.uuid == incoming.uuid }),
+              selectedValueModel?.unit != incoming else {
             return
         }
-        unit = targetUnit
+        selectedValueModel = targetUnit
         guard let (start, context) = fetchedContext else {
             performFetch()
             return
@@ -116,8 +123,8 @@ open class TimeSpanViewModel {
         update(
             start: start,
             values: context.data,
-            unitValue: unit,
-            units: units.map { $0.unit }
+            unitValue: targetUnit,
+            units: evaluationGroup.valueModels.map { $0.unit }
         )
     }
     
@@ -182,12 +189,10 @@ open class TimeSpanViewModel {
             )
             return
         }
-        // TODO: reimplement
         let (data, preselectedEntry) = service(ChartInteractor.self).chartData(
             withValues: values,
-            valuePath: \.context.breathVocEquivalent // unitValue.valuePath
+            extractor: evaluationGroup.makeValueExtractor(model: unitValue)
         )
-        // TODO: reimplement
         let average = 0.0
         // values.average { Double($0[keyPath: unitValue.valuePath]) }
         self.state = .updated(

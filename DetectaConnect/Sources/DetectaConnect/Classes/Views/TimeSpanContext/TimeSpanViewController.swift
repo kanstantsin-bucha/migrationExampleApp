@@ -64,6 +64,7 @@ class TimeSpanViewController: UIViewController {
     // MARK: - Private method
     
     private func configure() {
+        model.configure()
         model.stateSubject.subscribe { [weak self] state in
             onMain {
                 log.event("update state: \(state)")

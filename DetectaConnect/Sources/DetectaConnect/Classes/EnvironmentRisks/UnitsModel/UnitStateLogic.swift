@@ -9,7 +9,7 @@ import Foundation
 
 public struct UnitStateLogic: Decodable {
     public var enabled: Bool
-    public var ranges: [UnitValueRange]?
+    public var range: UnitValueRange?
 }
 
 public struct UnitValueRange: Decodable {

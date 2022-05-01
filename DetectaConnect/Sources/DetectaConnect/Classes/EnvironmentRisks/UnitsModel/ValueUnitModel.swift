@@ -36,6 +36,8 @@ class ValueUnitModel {
         if evaluate(value: value, stateLogic: unit.alarm) {
             return .alarm
         }
+        let version = service(EnvironmentRisksEvaluator.self).modelsVersion
+        log.error("Evaluation failed for unit \(unit.title) at \(version)")
         return .alarm
     }
     
@@ -43,12 +45,9 @@ class ValueUnitModel {
         guard stateLogic.enabled else {
             return false
         }
-        guard let ranges = stateLogic.ranges else {
+        guard let range = stateLogic.range else {
             return true
         }
-        guard ranges.contains(where: { $0.range.contains(value) }) else {
-            return false
-        }
-        return true
+        return range.range.contains(value)
     }
 }
