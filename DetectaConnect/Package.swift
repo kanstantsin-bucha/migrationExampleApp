@@ -34,6 +34,6 @@ let package = Package(
                 "Sentry"
             ],
             exclude: ["Classes/Protobuf/dAir.proto"],
-            resources: [.process("Assets/unit_models.json")])
+            resources: [.process("Assets/environment.json")])
     ]
 )

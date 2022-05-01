@@ -12,7 +12,7 @@ final class EnvironmentRisksEvaluator {
     private var config: EnvironmentConfig
     
     public init() throws {
-        let fileUrl = try URL(frameworkAssetName: "unit_models.json")
+        let fileUrl = try URL(frameworkAssetName: "environment.json")
         let jsonData = try Data(contentsOf: fileUrl)
         let inAppConfig = try JSONDecoder().decode(EnvironmentConfig.self, from: jsonData)
         config = inAppConfig
