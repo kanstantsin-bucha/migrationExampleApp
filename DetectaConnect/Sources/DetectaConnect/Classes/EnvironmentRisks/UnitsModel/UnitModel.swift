@@ -15,16 +15,24 @@ public struct UnitModel: Decodable, Equatable {
     public var floatPrecision: Int?
     public var unit: String
     public var contextKey: String
+    public var good: UnitStateLogic
+    public var warning: UnitStateLogic
+    public var danger: UnitStateLogic
+    public var alarm: UnitStateLogic
     
     public static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.uuid == rhs.uuid
     }
     
     enum CodingKeys: String, CodingKey {
-        case title = "unit_title"
-        case _shortTitle = "unit_title_short"
-        case unit = "unit"
-        case contextKey = "context_value_key"
+        case title
+        case _shortTitle = "title_short"
         case floatPrecision = "float_precision"
+        case unit
+        case contextKey = "context_value_key"
+        case good
+        case warning
+        case danger
+        case alarm
     }
 }

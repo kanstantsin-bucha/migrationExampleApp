@@ -1,6 +1,6 @@
 {   "unit_models": [
     {
-        "unit_title": "IAQ",
+        "title": "IAQ",
         "unit": "",
         "context_value_key": "iaq",
         "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 100}]},
@@ -9,8 +9,8 @@
         "alarm": {"enabled": true}
     },
     {
-        "unit_title": "Temperature",
-        "unit_title_short": "T",
+        "title": "Temperature",
+        "title_short": "T",
         "unit": "℃",
         "float_precision": 1,
         "context_value_key": "tempCelsius",
@@ -20,8 +20,8 @@
         "alarm": {"enabled": true}
     },
     {
-        "unit_title": "Humidity",
-        "unit_title_short": "H%",
+        "title": "Humidity",
+        "title_short": "H%",
         "unit": "%",
         "float_precision": 1,
         "context_value_key": "humidity",
@@ -31,8 +31,8 @@
         "alarm": {"enabled": false}
     },
     {
-        "unit_title": "Pressure",
-        "unit_title_short": "P",
+        "title": "Pressure",
+        "title_short": "P",
         "unit": "hPa",
         "context_value_key": "pressureHPa",
         "good": {"enabled": true, "ranges": [{"lower": 980, "upper": 1030}]},
@@ -41,7 +41,7 @@
         "alarm":  {"enabled": true}
     },
     {
-        "unit_title": "CO",
+        "title": "CO",
         "unit": "ppm",
         "context_value_key": "coPpm",
         "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 10}]},
@@ -50,7 +50,7 @@
         "alarm":  {"enabled": true }
     },
     {
-        "unit_title": "CO₂",
+        "title": "CO₂",
         "unit": "ppm",
         "context_value_key": "co2Equivalent",
         "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 1200}]},
@@ -59,7 +59,7 @@
         "alarm":  {"enabled": true }
     },
     {
-        "unit_title": "VOC",
+        "title": "VOC",
         "unit": "ppm",
         "context_value_key": "breathVocEquivalent",
         "good": {"enabled": true, "ranges": [{"lower": 0, "upper": 3}]},
