@@ -17,7 +17,8 @@ class ValueUnitModel {
     }
     
     func apply(unitValue: Float) {
-        value = String(format: "%.0f", unitValue)
+        let precision = unit.floatPrecision ?? 0
+        value = String(format: "%.\(precision)f", unitValue)
         state = evaluate(value: unitValue)
     }
     
@@ -36,7 +37,7 @@ class ValueUnitModel {
         if evaluate(value: value, stateLogic: unit.alarm) {
             return .alarm
         }
-        let version = service(EnvironmentRisksEvaluator.self).modelsVersion
+        let version = service(EnvironmentRisksEvaluator.self).configVersion
         log.error("Evaluation failed for unit \(unit.title) at \(version)")
         return .alarm
     }

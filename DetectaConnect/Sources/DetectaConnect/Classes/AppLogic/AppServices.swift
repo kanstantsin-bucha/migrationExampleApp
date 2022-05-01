@@ -28,7 +28,7 @@ func setupServices() {
             (GadgetSetupInteractor.self, DefaultGadgetSetupInteractor()),
             (AppRouter.self, DefaultAppRouter()),
             (AlertRouter.self, DefaultAlertRouter()),
-            (NetworkService.self, DefaultNetworkService()),
+            (NetworkService.self, NetworkService()),
             (DevicePersistence.self, DefaultDevicePersistence()),
             (ChartInteractor.self, ChartInteractor()),
             (EnvironmentRisksEvaluator.self, try EnvironmentRisksEvaluator())

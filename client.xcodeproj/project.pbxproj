@@ -110,7 +110,6 @@
 				FE5FD2DE261A42600079F255 /* Assets.xcassets */,
 				08723DBF22AED8720088B8ED /* AppDelegate.swift */,
 				08723DC822AED8720088B8ED /* LaunchScreen.storyboard */,
-				1E19239126B1DBEA00B1A611 /* Utils */,
 				08723DCB22AED8720088B8ED /* Info.plist */,
 			);
 			path = client;
@@ -119,6 +118,7 @@
 		08723DD322AED8730088B8ED /* clientTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E19239126B1DBEA00B1A611 /* Utils */,
 				1E19238E26B1DAFF00B1A611 /* Mocks */,
 				08723DD622AED8730088B8ED /* Info.plist */,
 				FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */,

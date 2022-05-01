@@ -12,7 +12,7 @@ public typealias ContextValueExtractor = (CloudContextValues) -> Float
 final class EvaluationGroup {
     let valueModels: [ValueUnitModel]
     
-    init(model: UnitsModel) {
+    init(model: EnvironmentConfig) {
         valueModels = model.models.map { ValueUnitModel(unit: $0) }
     }
     

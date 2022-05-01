@@ -30,6 +30,10 @@ public class DConnect {
         return Bundle.module
     }
     
+    public static func applicationWillEnterForeground() {
+        service(EnvironmentRisksEvaluator.self).updateModelFromCloud()
+    }
+    
     // MARK: - Private methods
     
     private static func setupAppearance() {

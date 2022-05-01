@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UnitsModel: Decodable {
+public struct EnvironmentConfig: Decodable {
     var version: String
     var models: [UnitModel]
     enum CodingKeys: String, CodingKey {

@@ -147,8 +147,12 @@ open class TimeSpanViewModel {
             startDate: startDate,
             interval: interval
         )
-        .onSuccess { [weak self] context in
+        .onSuccess { [weak self] contextWrapper in
             let start = startDate.timeIntervalSince1970
+            guard case let .newData(context) = contextWrapper else {
+                log.error("Cloud failed to return new data for the fetch request")
+                return
+            }
             self?.fetchedContext = (start: start, context: context)
             self?.update(
                 start: start,

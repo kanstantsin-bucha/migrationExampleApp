@@ -12,6 +12,7 @@ enum DetectaCloud {
         // Don't put a tail slash here
         static let cloudServer = "https://detecta.group/api/1"
         static let measurements = "measurements"
+        static let environment = "environment"
     }
     enum Field {
         static let createdAt = "createdAt" // cloud created field
@@ -22,6 +23,7 @@ enum DetectaCloud {
         static let sort = "$sort"
         static let greaterThanOrEqual = "$gte"
         static let lessThanOrEqual = "$lte"
+        static let currentVersion = "current_version"
     }
     enum Order {
         static let ascending = 1

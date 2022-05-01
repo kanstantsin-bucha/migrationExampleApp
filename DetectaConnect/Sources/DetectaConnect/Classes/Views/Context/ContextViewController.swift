@@ -104,10 +104,19 @@ class ContextViewController: UIViewController {
         event.type = "transaction"
         event.transaction = "Context fetch"
         service(GatesKeeper.self).cloudGate.fetchLastContext(token: deviceContainer.device.token)
-            .onSuccess { [weak self] result in
+            .onSuccess { [weak self] resultWrapper in
                 event.timestamp = Date()
                 SentrySDK.capture(event: event)
-                guard let self = self, let wrapper = result.data.first else {
+                guard let self = self else {
+                    log.error("Fetch losed context")
+                    return
+                }
+                guard case let .newData(result) = resultWrapper else {
+                    log.error("Cloud fetch failed to return new data")
+                    return
+                }
+                guard let wrapper = result.data.first else {
+                    log.error("Cloud fetch returned no entries")
                     return
                 }
                 let timestamp = self.dateFormatter.string(from: wrapper.created)
