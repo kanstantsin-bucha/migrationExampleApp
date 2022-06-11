@@ -8,26 +8,37 @@
 
 import UIKit
 
-public protocol AppRouter {
-    func showAlert(_ alert: UIAlertController)
-    func showSpinner()
-    func hideSpinner()
-    func openSupportLink()
-    func openAppLink()
-}
 
 @available(iOSApplicationExtension, unavailable)
-class DefaultAppRouter: AppRouter {
+class AppRouter {
+    private var root = UIViewController()
+    
+    public func start(window: UIWindow) {
+        setupAppearance()
+        let controller = ViewFactory.loadView(id: View.root)
+        ((controller as? UINavigationController)?.navigationBar.barStyle = .black)
+        root = controller
+        window.rootViewController = controller
+        window.backgroundColor = .white
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupAppearance() {
+        let titleColor = UIColor.frameworkAsset(named: "AirGray_K30")
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: titleColor,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)
+        ]
+    }
+    
     private var spinnerStyle: UIActivityIndicatorView.Style {
         if #available(iOS 13.0, *) {
             return .large
         }
-        return .gray
+        return .medium
     }
     
-    private static var root: UIViewController? {
-        return UIApplication.shared.keyWindow?.rootViewController
-    }
     private var spinnerSuperview: UIView? {
         return topViewController()?.view
     }
@@ -121,11 +132,9 @@ class DefaultAppRouter: AppRouter {
     // MARK: - Private methods
     
     private func topViewController(
-        controller: UIViewController? = DefaultAppRouter.root
+        controller: UIViewController? = nil
     ) -> UIViewController? {
-        guard let controller = controller else {
-            return nil
-        }
+        let controller = controller ?? root
         guard let next = next(controller: controller),
               !(next is UIAlertController) else {
             return controller

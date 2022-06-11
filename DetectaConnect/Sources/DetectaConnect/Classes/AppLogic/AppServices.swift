@@ -26,7 +26,7 @@ func setupServices() {
         locator.addServices([
             (GatesKeeper.self, DefaultGatesKeeper()),
             (GadgetSetupInteractor.self, DefaultGadgetSetupInteractor()),
-            (AppRouter.self, DefaultAppRouter()),
+            (AppRouter.self, AppRouter()),
             (AlertRouter.self, DefaultAlertRouter()),
             (NetworkService.self, NetworkService()),
             (DevicePersistence.self, DefaultDevicePersistence()),

@@ -12,6 +12,7 @@ protocol GatesKeeper {
     func summonAll()
     var bleGate: GateKeeper & BleTransmitter { get }
     var cloudGate: DetectaCloudGate { get }
+    var notificationsGate: PushNotificationsGate { get }
 }
 
 protocol GateKeeper {
@@ -24,7 +25,8 @@ protocol GateKeeper {
 
 class DefaultGatesKeeper: GatesKeeper {
     let bleGate: GateKeeper & BleTransmitter = BleGate()
-    let cloudGate: DetectaCloudGate = DetectaCloudGate()
+    let cloudGate = DetectaCloudGate()
+    let notificationsGate = PushNotificationsGate()
     
     func summonAll() {
         bleGate.summon()

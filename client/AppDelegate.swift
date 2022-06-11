@@ -12,15 +12,17 @@ import DetectaConnect
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    private var engine: DConnect?
     
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        window = UIWindow()
-        window?.backgroundColor = .white
-        window?.rootViewController = DConnect.initialize()
-        window?.makeKeyAndVisible()
+        engine = DConnect.initialize()
+        let window = UIWindow()
+        engine?.setup(window: window)
+        window.makeKeyAndVisible()
+        self.window = window
         return true
     }
 
@@ -35,11 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        DConnect.applicationWillEnterForeground()
+        engine?.applicationWillEnterForeground()
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        engine?.applicationDidBecomeActive()
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
@@ -52,7 +55,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return false
     }
+    
+    // MARK: - Notifications
 
-
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+    ) {
+        engine?.didRegisterForRemoteNotifications(deviceToken: deviceToken)
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error
+    ) {
+        engine?.didFailToRegisterForRemoteNotifications(error: error)
+    }
 }
 
