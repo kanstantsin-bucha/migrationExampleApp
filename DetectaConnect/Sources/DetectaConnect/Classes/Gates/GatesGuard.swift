@@ -30,5 +30,7 @@ class DefaultGatesKeeper: GatesKeeper {
     
     func summonAll() {
         bleGate.summon()
+        cloudGate.summon()
+        notificationsGate.summon()
     }
 }
