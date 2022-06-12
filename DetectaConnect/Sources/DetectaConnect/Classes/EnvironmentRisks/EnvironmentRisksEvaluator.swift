@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class EnvironmentRisksEvaluator {
+final class EnvironmentRisksEvaluator: Service {
     public var configVersion: String { config.version }
     private var config: EnvironmentConfig
     

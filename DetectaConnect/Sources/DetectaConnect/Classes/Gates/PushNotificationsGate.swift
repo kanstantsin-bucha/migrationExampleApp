@@ -23,6 +23,12 @@ public final class PushNotificationsGate: NSObject {
     
     func handleFailToRegister(error: Error) {
         log.error("Failed to register for push notifications: \(error)")
+        DispatchQueue.global().asyncAfter(
+            deadline: .now() + .seconds(10 * 60)
+        ) { [weak self] in
+            // Try again after 10 min
+            self?.open()
+        }
     }
 }
 

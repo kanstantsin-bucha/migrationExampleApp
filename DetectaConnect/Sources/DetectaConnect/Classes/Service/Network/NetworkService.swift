@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService {
+class NetworkService: Service {
     private let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
     
     public func load<T: Decodable>(url: URL, converter: ResponseConverter<T>) -> Future<CloudResponseWrapper<T>> {

@@ -13,7 +13,7 @@ public protocol DevicePersistence {
     func save(device: Device)
 }
 
-class DefaultDevicePersistence: DevicePersistence {
+class DefaultDevicePersistence: Service, DevicePersistence {
     let dictKey = "app.devices.dict"
     
     func loadAll() -> [Device] {

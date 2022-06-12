@@ -19,7 +19,7 @@ extension Characteristic {
     }
 }
 
-extension Service {
+extension BlueSwift.Service {
     convenience init(_ uuid: String, characteristics: [Characteristic]) {
         do {
             try self.init(uuid: uuid, characteristics: characteristics)
@@ -30,7 +30,7 @@ extension Service {
 }
 
 extension Configuration {
-    init(_ advertisement: String, services: [Service]) {
+    init(_ advertisement: String, services: [BlueSwift.Service]) {
         do {
             try self.init(services: services, advertisement: advertisement)
         } catch {

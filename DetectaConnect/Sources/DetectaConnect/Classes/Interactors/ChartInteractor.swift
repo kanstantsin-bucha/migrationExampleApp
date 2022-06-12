@@ -8,7 +8,7 @@
 import Charts
 import UIKit
 
-open class ChartInteractor {
+open class ChartInteractor: Service {
     let formatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]

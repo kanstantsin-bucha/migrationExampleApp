@@ -14,7 +14,7 @@ public protocol GadgetSetupInteractor {
     func handleSetupResponse(status: D_Resp.Status, token: String)
 }
 
-class DefaultGadgetSetupInteractor: GadgetSetupInteractor {
+class DefaultGadgetSetupInteractor: Service, GadgetSetupInteractor {
     private var connectBleDeviceWifiPromise: Promise<Void>?
     public init() {}
     

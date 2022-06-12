@@ -40,7 +40,7 @@ final class BleGate {
             self?.handleRx(data: data)
         }
         
-        let service = Service(
+        let service = BlueSwift.Service(
             Constant.Ble.Commands.uuid,
             characteristics: [ txChar, rxChar ]
         )

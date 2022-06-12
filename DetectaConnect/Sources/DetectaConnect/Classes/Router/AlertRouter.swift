@@ -14,7 +14,7 @@ public protocol AlertRouter {
     func show(error: Error)
 }
 
-class DefaultAlertRouter: AlertRouter {
+class DefaultAlertRouter: Service, AlertRouter {
     func show(error: Error) {
         if !(error is LocalizedError) {
             log.error("Error is not localised: \(error)")

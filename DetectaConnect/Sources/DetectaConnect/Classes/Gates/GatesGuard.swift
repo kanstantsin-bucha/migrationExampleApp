@@ -23,7 +23,7 @@ protocol GateKeeper {
     func close()
 }
 
-class DefaultGatesKeeper: GatesKeeper {
+class DefaultGatesKeeper: Service, GatesKeeper {
     let bleGate: GateKeeper & BleTransmitter = BleGate()
     let cloudGate = DetectaCloudGate()
     let notificationsGate = PushNotificationsGate()

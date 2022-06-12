@@ -10,7 +10,7 @@ import UIKit
 
 
 @available(iOSApplicationExtension, unavailable)
-class AppRouter {
+class AppRouter: Service {
     private var root = UIViewController()
     
     public func start(window: UIWindow) {
