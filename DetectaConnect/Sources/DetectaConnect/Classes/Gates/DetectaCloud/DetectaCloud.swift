@@ -10,23 +10,20 @@ import Foundation
 enum DetectaCloud {
     enum Endpoint {
         // Don't put a tail slash here
-        static let cloudServer = "https://detecta.group/api/1"
-        static let measurements = "measurements"
-        static let environment = "environment"
-    }
-    enum Field {
-        static let createdAt = "createdAt" // cloud created field
-        static let millis = "millis"
+        static let cloudServer = "https://detecta.group/api/2"
+//        Uncomment for local development
+//        static let cloudServer = "http://192.168.0.193:4040"
+        static let measurements = "deviceReports"
+        static let environment = "environmentConfig/update"
     }
     enum Query {
-        static let limit = "$limit"
-        static let sort = "$sort"
-        static let greaterThanOrEqual = "$gte"
-        static let lessThanOrEqual = "$lte"
-        static let currentVersion = "current_version"
+        static let deviceId = "deviceId"
+        static let type = "type"
+        static let deviceVersion = "deviceVersion"
+        static let lastHoursCount = "lastHoursCount"
     }
-    enum Order {
-        static let ascending = 1
-        static let descending = -1
+    enum Path {
+        static let latestWithDevice = "latestWithDevice"
+        static let interval = "interval"
     }
 }

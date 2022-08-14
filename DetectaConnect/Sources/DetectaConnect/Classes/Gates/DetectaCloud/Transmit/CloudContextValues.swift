@@ -8,6 +8,7 @@
 import Foundation
 
 public struct CloudContextValues: Decodable {
+    let millis: Int
     let iaq: Float
     let coPpm: Float
     let tempCelsius: Float

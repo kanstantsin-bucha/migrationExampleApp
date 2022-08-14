@@ -13,13 +13,13 @@ import XCTest
 class DetectaCloudGateTests: XCTestCase {
     private var gate: DetectaCloudGate!
     private var mockDetectaCloudResponseConverter: MockDetectaCloudResponseConverter!
-    private var mockNetworkService: MockNetworkService<CloudContext>!
+    private var mockNetworkService: MockNetworkService<CloudContextWrapper>!
         
     override func setUp() {
         mockDetectaCloudResponseConverter = MockDetectaCloudResponseConverter()
         gate = DetectaCloudGate(converter: mockDetectaCloudResponseConverter)
         
-        mockNetworkService = MockNetworkService<CloudContext>()
+        mockNetworkService = MockNetworkService<CloudContextWrapper>()
         addService(NetworkService.self, impl: mockNetworkService)
     }
     
@@ -31,7 +31,7 @@ class DetectaCloudGateTests: XCTestCase {
     func testThatProvidesValidUrlWhenFetchesLastContext() {
         // Arrange
         let token = "token"
-        let mockContext = CloudContext(total: 2, limit: 3, skip: 1, data: [])
+        let mockContext = CloudContextWrapper(total: 2, limit: 3, skip: 1, data: [])
         mockNetworkService.loadResult = .success(mockContext)
         
         // Act

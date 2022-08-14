@@ -40,7 +40,7 @@ open class TimeSpanViewModel {
     private lazy var evaluationGroup: EvaluationGroup =
         service(EnvironmentRisksEvaluator.self).createEvaluationGroup()
     
-    private var fetchedContext: (start: TimeInterval, context: CloudContext)?
+    private var fetchedContext: (start: TimeInterval, context: [CloudContextWrapper])?
     private lazy var selectedValueModel: ValueUnitModel? = evaluationGroup.valueModels.first!
     private var interval: FetchInterval = .oneHour
     private let token: String
@@ -122,7 +122,7 @@ open class TimeSpanViewModel {
         }
         update(
             start: start,
-            values: context.data,
+            values: context,
             unitValue: targetUnit,
             units: evaluationGroup.valueModels.map { $0.unit }
         )
@@ -134,29 +134,21 @@ open class TimeSpanViewModel {
             log.success("fetch skipped")
             return
         }
-        let startDate: Date
-        do {
-            startDate = try calculateStartDate(interval: interval)
-        } catch {
-            log.failure("fetch error: \(error)")
-            return
-        }
         self.state = .loading(intervalTitle: interval.title)
         service(GatesKeeper.self).cloudGate.fetchIntervalContext(
             token: token,
-            startDate: startDate,
             interval: interval
         )
-        .onSuccess { [weak self] contextWrapper in
-            let start = startDate.timeIntervalSince1970
-            guard case let .newData(context) = contextWrapper else {
+        .onSuccess { [weak self] response in
+            guard case let .newData(contextWrappers) = response else {
                 log.error("Cloud failed to return new data for the fetch request")
                 return
             }
-            self?.fetchedContext = (start: start, context: context)
+            let start = contextWrappers.first?.createdAt.timeIntervalSince1970 ?? 0
+            self?.fetchedContext = (start: start, context: contextWrappers)
             self?.update(
                 start: start,
-                values: context.data,
+                values: contextWrappers,
                 unitValue: unitValue,
                 units: units
             )
@@ -197,12 +189,12 @@ open class TimeSpanViewModel {
             withValues: values,
             extractor: evaluationGroup.makeValueExtractor(model: unitValue)
         )
-        let average = 0.0
-        // values.average { Double($0[keyPath: unitValue.valuePath]) }
+        #warning("Fix this logic to calculate correct average value")
+        let average = (data.yMax + data.yMin) / 2
         self.state = .updated(
             data: EnhancedChartData(
                 xMin: start,
-                xMax: start + interval.rawValue,
+                xMax: start + TimeInterval(interval.rawValue * 3600),
                 xAverage: average,
                 data: data,
                 badgeEntry: preselectedEntry
@@ -214,16 +206,5 @@ open class TimeSpanViewModel {
             intervalTitle: interval.title,
             isNoData: false
         )
-    }
-
-    private func calculateStartDate(interval: FetchInterval) throws -> Date {
-        let calendar = Calendar.current
-        let start = Date().addingTimeInterval(-interval.rawValue)
-        var components = calendar.dateComponents([.era, .year, .month, .day, .hour], from: start)
-        components.hour = 1 + (components.hour ?? 0)
-        guard let date = calendar.date(from: components) else {
-            throw TimeSpanContextError.failedDateConversion
-        }
-        return date
     }
 }

@@ -11,10 +11,13 @@ public protocol DevicePersistence {
     func loadAll() -> [Device]
     func load(id: String) -> Device?
     func save(device: Device)
+    
+    var deviceId: String { get }
 }
 
 class DefaultDevicePersistence: Service, DevicePersistence {
-    let dictKey = "app.devices.dict"
+    private let dictKey = "app.devices.dict"
+    private let deviceIdKey = "app.deviceId.uuid"
     
     func loadAll() -> [Device] {
         return Array(loadDict().values).sorted { $0.date > $1.date }
@@ -28,6 +31,15 @@ class DefaultDevicePersistence: Service, DevicePersistence {
         var dict = loadDict()
         dict[device.id] = device
         save(dict: dict)
+    }
+    
+    var deviceId: String {
+        guard let persistedId = UserDefaults().string(forKey: deviceIdKey) else {
+            let id = "d-connect-ios-" + UUID().uuidString.lowercased()
+            UserDefaults().setValue(id, forKey: deviceIdKey)
+            return id
+        }
+        return persistedId
     }
     
     // MARK: - Private methods

@@ -30,8 +30,8 @@ open class ChartInteractor: Service {
     ) -> (data: LineChartData, preselectedEntry: ChartDataEntry?) {
         let chartEntries = values.enumerated().map { index, value in
             return ChartDataEntry(
-                x: value.createdAt,
-                y: Double(extractor(value.context))
+                x: value.createdAt.timeIntervalSince1970,
+                y: Double(extractor(value.data))
             )
         }
         let dataSet = LineChartDataSet(entries: chartEntries, label: "")

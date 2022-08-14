@@ -7,10 +7,10 @@
 
 import Foundation
 
-public enum FetchInterval: TimeInterval {
-    case oneHour = 3600
-    case eightHours = 28800
-    case oneDay = 86400
+public enum FetchInterval: UInt {
+    case oneHour = 1
+    case eightHours = 8
+    case oneDay = 24
     
     var title: String {
         switch self {

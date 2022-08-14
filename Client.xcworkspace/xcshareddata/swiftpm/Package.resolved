@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "Charts",
-        "repositoryURL": "https://github.com/danielgindi/Charts.git",
+        "repositoryURL": "https://github.com/kanstantsin-bucha/charts-fork.git",
         "state": {
           "branch": null,
-          "revision": "66546404a6739173b8e436ab6bc1f2897cd08594",
-          "version": "3.6.0"
+          "revision": "aeee443f5a5cc24b4670ab5a5e3aa8724a0f4e07",
+          "version": "100.0.2"
         }
       },
       {

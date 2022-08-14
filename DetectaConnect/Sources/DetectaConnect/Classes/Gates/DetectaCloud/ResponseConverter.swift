@@ -13,7 +13,7 @@ public enum CloudResponseWrapper<T> {
 }
 
 open class ResponseConverter<Value: Decodable> {
-    public typealias Value = CloudContext
+    public typealias Value = CloudContextWrapper
     
     public init() {}
     
@@ -31,7 +31,9 @@ open class ResponseConverter<Value: Decodable> {
         
         let value: Value
         do {
-            value = try JSONDecoder().decode(Value.self, from: data)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            value = try decoder.decode(Value.self, from: data)
         } catch {
             return .failure(error)
         }
