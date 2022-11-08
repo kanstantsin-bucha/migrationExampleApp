@@ -20,8 +20,8 @@ public class DetectaCloudGate {
     
     public func fetchLastContext(
         token: String,
-        converter: ResponseConverter<CloudContextWrapper> = ResponseConverter()
-    ) -> Future<CloudResponseWrapper<CloudContextWrapper>> {
+        converter: ResponseConverter<LocalContextPackage> = ResponseConverter()
+    ) -> Future<CloudResponseWrapper<LocalContextPackage>> {
         return service(NetworkService.self).load(
             url: lastContext(token: token),
             converter: converter
@@ -47,8 +47,8 @@ public class DetectaCloudGate {
     public func fetchIntervalContext(
         token: String,
         interval: FetchInterval,
-        converter: ResponseConverter<[CloudContextWrapper]> = ResponseConverter()
-    ) -> Future<CloudResponseWrapper<[CloudContextWrapper]>> {
+        converter: ResponseConverter<[LocalContextPackage]> = ResponseConverter()
+    ) -> Future<CloudResponseWrapper<[LocalContextPackage]>> {
         return service(NetworkService.self).load(
             url: intervalContext(
                 token: token,

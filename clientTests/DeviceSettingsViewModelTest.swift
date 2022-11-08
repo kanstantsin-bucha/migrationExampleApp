@@ -19,7 +19,7 @@ class DeviceSettingsViewModelTest: XCTestCase {
         mockDeviceContainer = MockDeviceContainer()
         viewModel = DeviceSettingsViewModel(deviceContainer: mockDeviceContainer)
         mockDevicePersistence = MockDevicePersistence()
-        addService(DevicePersistence.self, impl: mockDevicePersistence)
+        DetectaConnect.add(servicesList: [(mockDevicePersistence, DevicePersistence.self)])
     }
     
     override func tearDownWithError() throws {

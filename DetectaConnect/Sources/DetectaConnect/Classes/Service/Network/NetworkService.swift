@@ -7,10 +7,12 @@
 
 import Foundation
 
-class NetworkService: Service {
+open class NetworkService: Service {
     private let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
     
-    public func load<T: Decodable>(url: URL, converter: ResponseConverter<T>) -> Future<CloudResponseWrapper<T>> {
+    public init() {}
+    
+    open func load<T: Decodable>(url: URL, converter: ResponseConverter<T>) -> Future<CloudResponseWrapper<T>> {
         let promise = Promise<CloudResponseWrapper<T>>()
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
         let urlDesc = String(describing: url.absoluteString.removingPercentEncoding)

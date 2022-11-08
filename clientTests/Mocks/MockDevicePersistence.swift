@@ -9,20 +9,20 @@
 import Foundation
 import DetectaConnect
 
-class MockDevicePersistence: DevicePersistence {
-    
-    private(set) var saveCount = 0
-    private(set) var saveParams: Device?
-    var loadResult: Device?
+class MockDevicePersistence: DevicePersistence, Service {
+    var deviceId: String = UUID().uuidString
     
     func loadAll() -> [Device] {
         []
     }
     
+    var loadResult: Device?
     func load(id: String) -> Device? {
         loadResult
     }
     
+    private(set) var saveCount = 0
+    private(set) var saveParams: Device?
     func save(device: Device) {
         saveParams = device
         saveCount += 1

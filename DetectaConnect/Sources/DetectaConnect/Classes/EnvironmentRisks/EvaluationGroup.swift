@@ -7,7 +7,7 @@
 
 import Foundation
 
-public typealias ContextValueExtractor = (CloudContextValues) -> Float
+public typealias ContextValueExtractor = (LocalContextValues) -> Float
 
 final class EvaluationGroup {
     let valueModels: [ValueUnitModel]
@@ -20,7 +20,7 @@ final class EvaluationGroup {
         return { $0[model.unit.contextKey] ?? 0 }
     }
     
-    func apply(context: CloudContextValues) {
+    func apply(context: LocalContextValues) {
         valueModels.forEach { model in
             let key = model.unit.contextKey
             guard let value = context[model.unit.contextKey] else {

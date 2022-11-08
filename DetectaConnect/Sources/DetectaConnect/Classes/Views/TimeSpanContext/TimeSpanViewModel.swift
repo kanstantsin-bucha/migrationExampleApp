@@ -40,7 +40,7 @@ open class TimeSpanViewModel {
     private lazy var evaluationGroup: EvaluationGroup =
         service(EnvironmentRisksEvaluator.self).createEvaluationGroup()
     
-    private var fetchedContext: (start: TimeInterval, context: [CloudContextWrapper])?
+    private var fetchedContext: (start: TimeInterval, context: [LocalContextPackage])?
     private lazy var selectedValueModel: ValueUnitModel? = evaluationGroup.valueModels.first!
     private var interval: FetchInterval = .oneHour
     private let token: String
@@ -163,7 +163,7 @@ open class TimeSpanViewModel {
     
     private func update(
         start: TimeInterval,
-        values: [CloudContextWrapper],
+        values: [LocalContextPackage],
         unitValue: ValueUnitModel,
         units: [UnitModel]
     ) {

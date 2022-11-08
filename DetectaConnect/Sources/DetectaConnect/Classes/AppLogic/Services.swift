@@ -10,7 +10,7 @@ import Foundation
 
 
 public protocol Service: AnyObject {}
-fileprivate typealias ServiceDeclaration = (service: AnyObject, interface: Any.Type)
+public typealias ServiceDeclaration = (service: AnyObject, interface: Any.Type)
 
 fileprivate class ServiceLocator {
     private lazy var list: [String: AnyObject] = [:]
@@ -52,6 +52,12 @@ public func service<T>(_ interface: T.Type) -> T {
 
 public func removeAllServices() {
     locator.removeAll()
+}
+
+/// Adds services, for the testing purposes only
+/// - Parameter servicesList: (service: AnyObject, interface: Any.Type)
+public func add(servicesList: [ServiceDeclaration]) {
+    locator.add(servicesList: servicesList)
 }
 
 @available(iOSApplicationExtension, unavailable)

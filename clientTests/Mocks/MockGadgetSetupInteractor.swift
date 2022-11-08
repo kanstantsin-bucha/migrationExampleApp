@@ -10,7 +10,7 @@ import DetectaConnect
 import Foundation
 import XCTest
 
-class MockGadgetSetupInteractor: GadgetSetupInteractor {
+class MockGadgetSetupInteractor: GadgetSetupInteractor, Service {
     var connectBleDeviceWifiResult: Result<Void, Error> = .failure(TestError())
     var checkConnectedDeviceResults: [Bool] = []
     private(set)var checkConnectedDeviceCount = 0

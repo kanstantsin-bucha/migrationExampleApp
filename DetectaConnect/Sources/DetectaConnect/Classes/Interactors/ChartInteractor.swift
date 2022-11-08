@@ -25,7 +25,7 @@ open class ChartInteractor: Service {
     }
     
     public func chartData(
-        withValues values: [CloudContextWrapper],
+        withValues values: [LocalContextPackage],
         extractor: ContextValueExtractor
     ) -> (data: LineChartData, preselectedEntry: ChartDataEntry?) {
         let chartEntries = values.enumerated().map { index, value in

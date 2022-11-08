@@ -9,17 +9,18 @@
 import DetectaConnect
 import Foundation
 
-class MockNetworkService<T: Decodable>: NetworkService {
-    private(set) var loadCount = 0
-    private(set) var loadParams: (url: URL, converter: Any)?
-    var loadResult: Future<T>.PromiseResult = .failure(TestError())
+class MockNetworkService<Value: Decodable>: NetworkService {
     
-    func load<T, RC>(
+    private(set) var loadCount = 0
+    private(set) var loadParams: (url: URL, converter: ResponseConverter<Value>)?
+    var loadResult: Future<CloudResponseWrapper<Value>>.PromiseResult = .failure(TestError())
+    
+    override func load<T: Decodable>(
         url: URL,
-        converter: RC
-    ) -> Future<T> where T : Decodable, T == RC.Value, RC : ResponseConverting {
+        converter: ResponseConverter<T>
+    ) -> Future<CloudResponseWrapper<T>> {
         loadCount += 1
-        loadParams = (url: url, converter: converter)
-        return Promise<T>.resolved(result: loadResult as! Future<T>.PromiseResult)
+        loadParams = (url: url, converter: converter as! ResponseConverter<Value>)
+        return Promise<CloudResponseWrapper<T>>.resolved(result: loadResult as! Future<CloudResponseWrapper<T>>.PromiseResult)
     }
 }

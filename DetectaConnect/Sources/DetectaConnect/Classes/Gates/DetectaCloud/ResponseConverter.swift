@@ -13,8 +13,6 @@ public enum CloudResponseWrapper<T> {
 }
 
 open class ResponseConverter<Value: Decodable> {
-    public typealias Value = CloudContextWrapper
-    
     public init() {}
     
     open func convert(data: Data?, response: HTTPURLResponse) -> Result<CloudResponseWrapper<Value>, Error> {

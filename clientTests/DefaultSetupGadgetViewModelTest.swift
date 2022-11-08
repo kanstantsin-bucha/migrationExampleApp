@@ -19,15 +19,17 @@ class DefaultSetupGadgetViewModelTest: XCTestCase {
         setupGadgetViewModel = DefaultSetupGadgetViewModel(secondsToRepeat: 0)
         mockAlertRouter = MockAlertRouter()
         mockGadgetSetupInteractor = MockGadgetSetupInteractor()
-        addService(GadgetSetupInteractor.self, impl: mockGadgetSetupInteractor)
-        addService(AlertRouter.self, impl: mockAlertRouter)
+        DetectaConnect.add(servicesList: [
+            (mockGadgetSetupInteractor, GadgetSetupInteractor.self),
+            (mockAlertRouter, AlertRouter.self)
+        ])
     }
     
     override func tearDownWithError() throws {
         setupGadgetViewModel = nil
         mockAlertRouter = nil
         mockGadgetSetupInteractor = nil
-        removeAllServices()
+        DetectaConnect.removeAllServices()
     }
     
     func testSetupDeviceSucceed() throws {

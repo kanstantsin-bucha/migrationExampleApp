@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CloudContextValues: Decodable {
+public struct LocalContextValues: Decodable {
     let millis: Int
     let iaq: Float
     let coPpm: Float
@@ -16,6 +16,26 @@ public struct CloudContextValues: Decodable {
     let pressureHPa: Float
     let co2Equivalent: Float
     let breathVocEquivalent: Float
+    
+    public init(
+        millis: Int,
+        iaq: Float,
+        coPpm: Float,
+        tempCelsius: Float,
+        humidity: Float,
+        pressureHPa: Float,
+        co2Equivalent: Float,
+        breathVocEquivalent: Float
+    ) {
+        self.millis = millis
+        self.iaq = iaq
+        self.coPpm = coPpm
+        self.tempCelsius = tempCelsius
+        self.humidity = humidity
+        self.pressureHPa = pressureHPa
+        self.co2Equivalent = co2Equivalent
+        self.breathVocEquivalent = breathVocEquivalent
+    }
     
     public subscript(key: String) -> Float? {
         get

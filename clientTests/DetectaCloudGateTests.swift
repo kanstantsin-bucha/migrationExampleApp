@@ -11,39 +11,40 @@ import Foundation
 import XCTest
 
 class DetectaCloudGateTests: XCTestCase {
-    private var gate: DetectaCloudGate!
-    private var mockDetectaCloudResponseConverter: MockDetectaCloudResponseConverter!
-    private var mockNetworkService: MockNetworkService<CloudContextWrapper>!
+    private var sut: DetectaCloudGate!
+    private var mockNetworkService: MockNetworkService<LocalContextPackage>!
+    private var mockResponseConverter: MockResponseConverter<LocalContextPackage>!
         
     override func setUp() {
-        mockDetectaCloudResponseConverter = MockDetectaCloudResponseConverter()
-        gate = DetectaCloudGate(converter: mockDetectaCloudResponseConverter)
-        
-        mockNetworkService = MockNetworkService<CloudContextWrapper>()
-        addService(NetworkService.self, impl: mockNetworkService)
+        sut = DetectaCloudGate()
+        mockNetworkService = MockNetworkService()
+        mockResponseConverter = MockResponseConverter<LocalContextPackage>()
+        DetectaConnect.add(servicesList: [(mockNetworkService, NetworkService.self)])
     }
     
     override func tearDown() {
-        gate = nil
+        sut = nil
+        mockResponseConverter = nil
+        mockNetworkService = nil
         removeAllServices()
     }
     
     func testThatProvidesValidUrlWhenFetchesLastContext() {
-        // Arrange
+        // Given
         let token = "token"
-        let mockContext = CloudContextWrapper(total: 2, limit: 3, skip: 1, data: [])
-        mockNetworkService.loadResult = .success(mockContext)
+      
+        mockNetworkService.loadResult = .success(.newData(value: LocalContextPackage.stub()))
         
-        // Act
-        let future = gate.fetchLastContext(token: token)
+        // When
+        let future = sut.fetchLastContext(token: token, converter: mockResponseConverter)
 
-        // Assert
+        // Then
         XCTAssertEqual(mockNetworkService.loadCount, 1)
         XCTAssertEqual(
             mockNetworkService.loadParams?.url.absoluteString.removingPercentEncoding,
-            "https://detecta.group/api/1/measurements?uid=token&$limit=1&$sort[createdAt]=-1"
+            "https://detecta.group/api/2/deviceReports/latestWithDevice/token"
         )
-        XCTAssertNotNil(mockNetworkService.loadParams?.converter as? MockDetectaCloudResponseConverter)
+        XCTAssertNotNil(mockNetworkService.loadParams?.converter as? MockResponseConverter<LocalContextPackage>)
         XCTAssertEqual(future.result?.isSuccess, true)
     }
 }
