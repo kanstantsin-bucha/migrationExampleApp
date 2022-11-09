@@ -27,5 +27,7 @@ class MockDevicePersistence: DevicePersistence, Service {
         saveParams = device
         saveCount += 1
     }
+    
+    func deleteDevice(id: String) {}
 }
 
