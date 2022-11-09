@@ -24,6 +24,13 @@ public class DConnect {
         
         setupServices()
         service(GatesKeeper.self).summonAll()
+        // TODO: - remove
+        #warning("")
+        service(DevicePersistence.self).save(device: Device(id: "1", name: "1", token: "", date: Date()))
+        service(DevicePersistence.self).save(device: Device(id: "2", name: "2", token: "", date: Date()))
+        service(DevicePersistence.self).save(device: Device(id: "3", name: "3", token: "", date: Date()))
+        service(DevicePersistence.self).save(device: Device(id: "4", name: "4", token: "", date: Date()))
+        service(DevicePersistence.self).save(device: Device(id: "5", name: "5", token: "", date: Date()))
         return DConnect()
     }
     

@@ -15,9 +15,9 @@ class HomeViewController: UIViewController {
         return .default
     }
     
-    @IBOutlet var devices: UICollectionView!
+    @IBOutlet var devicesCollectionView: UICollectionView!
     @IBOutlet weak var plusButton: UIButton!
-    private var devicesList: [Device] = []
+    private var devices: [Device] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        devicesList = service(DevicePersistence.self).loadAll()
-        devices.reloadData()
+        devices = service(DevicePersistence.self).loadAll()
+        devicesCollectionView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -39,8 +39,25 @@ class HomeViewController: UIViewController {
     // MARK: - Private methods
     
     private func configure() {
-        devices.dataSource = self
-        devices.delegate = self
+        var config = UICollectionLayoutListConfiguration(appearance: .plain)
+        config.backgroundColor = .clear
+        config.separatorConfiguration.topSeparatorVisibility = .hidden
+        config.separatorConfiguration.bottomSeparatorVisibility = .hidden
+        config.trailingSwipeActionsConfigurationProvider = { indexPath in
+            let delete = UIContextualAction(style: .destructive, title: "Delete") {
+                [weak self] _, _, completion in
+                guard let self = self else {
+                    completion(false)
+                    return
+                }
+                self.delete(at: indexPath.row)
+                completion(true)
+            }
+            return UISwipeActionsConfiguration(actions: [delete])
+        }
+        devicesCollectionView.collectionViewLayout = UICollectionViewCompositionalLayout.list(using: config)
+        devicesCollectionView.dataSource = self
+        devicesCollectionView.delegate = self
         plusButton.setImage((#imageLiteral(resourceName: "plus-medium") as FrameworkAsset).image, for: .normal)
     }
     
@@ -59,6 +76,15 @@ class HomeViewController: UIViewController {
             viewController.model = DefaultSetupGadgetViewModel()
         }
     }
+    
+    private func delete(at index: Int) {
+        let isLastRow = index + 1 == devices.endIndex
+        service(DevicePersistence.self).deleteDevice(id: devices[index].id)
+        devices.remove(at: index)
+        if isLastRow {
+            devicesCollectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
@@ -75,20 +101,20 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return devicesList.count
+        return devices.count
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = devices.dequeueReusableCell(
+        let cell = devicesCollectionView.dequeueReusableCell(
             withReuseIdentifier: "Device",
             for: indexPath
         ) as! DeviceCollectionViewCell
         
         cell.contentView.layer.borderColor = UIColor.frameworkAsset(named: "AirBlue").cgColor
-        cell.update(withDevice: devicesList[indexPath.row])
+        cell.update(withDevice: devices[indexPath.row])
         return cell
     }
 }

@@ -11,6 +11,7 @@ public protocol DevicePersistence {
     func loadAll() -> [Device]
     func load(id: String) -> Device?
     func save(device: Device)
+    func deleteDevice(id: String)
     
     var deviceId: String { get }
 }
@@ -30,6 +31,12 @@ class DefaultDevicePersistence: Service, DevicePersistence {
     func save(device: Device) {
         var dict = loadDict()
         dict[device.id] = device
+        save(dict: dict)
+    }
+    
+    func deleteDevice(id: String) {
+        var dict = loadDict()
+        dict[id] = nil
         save(dict: dict)
     }
     
