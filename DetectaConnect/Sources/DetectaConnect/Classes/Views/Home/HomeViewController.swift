@@ -41,8 +41,7 @@ class HomeViewController: UIViewController {
     private func configure() {
         var config = UICollectionLayoutListConfiguration(appearance: .plain)
         config.backgroundColor = .clear
-        config.separatorConfiguration.topSeparatorVisibility = .hidden
-        config.separatorConfiguration.bottomSeparatorVisibility = .hidden
+        config.showsSeparators = false
         config.trailingSwipeActionsConfigurationProvider = { indexPath in
             let delete = UIContextualAction(style: .destructive, title: "Delete") {
                 [weak self] _, _, completion in
@@ -113,7 +112,6 @@ extension HomeViewController: UICollectionViewDataSource {
             for: indexPath
         ) as! DeviceCollectionViewCell
         
-        cell.contentView.layer.borderColor = UIColor.frameworkAsset(named: "AirBlue").cgColor
         cell.update(withDevice: devices[indexPath.row])
         return cell
     }
