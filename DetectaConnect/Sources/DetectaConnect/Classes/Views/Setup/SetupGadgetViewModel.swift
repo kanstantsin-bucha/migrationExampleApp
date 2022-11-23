@@ -1,5 +1,5 @@
 //
-//   SetupGadgetViewModel.swift
+//  SetupGadgetViewModel.swift
 //  client
 //
 //  Created by Kanstantsin Bucha on 8.03.21.
