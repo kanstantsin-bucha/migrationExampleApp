@@ -107,10 +107,7 @@ class ContextViewController: UIViewController {
             .onSuccess { [weak self] response in
                 event.timestamp = Date()
                 SentrySDK.capture(event: event)
-                guard let self = self else {
-                    log.error("Fetch losed context")
-                    return
-                }
+                guard let self = self else { return }
                 guard case let .newData(wrapper) = response else {
                     log.error("Cloud fetch failed to return new data")
                     return
