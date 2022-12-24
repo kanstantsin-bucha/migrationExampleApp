@@ -1,6 +1,7 @@
 name: iOS - build and test main branch -
 
 on:
+  workflow_dispatch
   push:
     branches: [ "main" ]
   pull_request:
