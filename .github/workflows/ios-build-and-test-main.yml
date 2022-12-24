@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Debounce 1 hour
-        uses: kanstantsin-bucha/github-actions-debounce
+        uses: kanstantsin-bucha/github-action-debounce
         with:
           wait: 3600 
       - name: Checkout
