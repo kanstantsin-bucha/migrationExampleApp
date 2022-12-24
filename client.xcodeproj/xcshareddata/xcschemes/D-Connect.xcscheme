@@ -17,7 +17,7 @@
                BlueprintIdentifier = "08723DBB22AED8720088B8ED"
                BuildableName = "D-Connect.app"
                BlueprintName = "D-Connect"
-               ReferencedContainer = "container:client.xcodeproj">
+               ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,7 +33,7 @@
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
             BuildableName = "D-Connect.app"
             BlueprintName = "D-Connect"
-            ReferencedContainer = "container:client.xcodeproj">
+            ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -44,7 +44,7 @@
                BlueprintIdentifier = "08723DCF22AED8730088B8ED"
                BuildableName = "DetectaConnectTests.xctest"
                BlueprintName = "DetectaConnectTests"
-               ReferencedContainer = "container:client.xcodeproj">
+               ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test
@@ -71,7 +71,7 @@
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
             BuildableName = "D-Connect.app"
             BlueprintName = "D-Connect"
-            ReferencedContainer = "container:client.xcodeproj">
+            ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -88,7 +88,7 @@
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
             BuildableName = "D-Connect.app"
             BlueprintName = "D-Connect"
-            ReferencedContainer = "container:client.xcodeproj">
+            ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
