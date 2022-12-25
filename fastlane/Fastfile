@@ -1,4 +1,4 @@
-lane :testflight do |options|
+lane :flight do |options|
   app_store_connect_api_key(
     key_id: "4ZSC9LK9FP",
     issuer_id: "69a6de7f-25e3-47e3-e053-5b8c7c11a4d1",
