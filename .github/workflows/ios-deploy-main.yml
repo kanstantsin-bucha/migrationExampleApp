@@ -18,7 +18,6 @@ jobs:
 
     - name: Fastlane Match Install Profile & Certificates
       run: fastlane -v
-          cp .github/deployment/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
    
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_14.1.app
@@ -32,15 +31,5 @@ jobs:
         #/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "EssentialApp/EssentialApp/Info.plist"
         echo "$buildNumber"
         
-    #- name: Build
-    #  run: xcodebuild clean archive -sdk iphoneos -workspace EssentialApp/EssentialApp.xcworkspace -configuration "Release" -scheme "EssentialApp" -derivedDataPath "DerivedData" -archivePath "DerivedData/Archive/EssentialApp.xcarchive"
-    
-    #- name: Export
-    #  run: xcodebuild -exportArchive -archivePath DerivedData/Archive/EssentialApp.xcarchive -exportOptionsPlist .github/deployment/ExportOptions.plist -exportPath DerivedData/ipa
-      
-    #- name: Deploy
-    #  run: xcrun altool --upload-app --type ios --file "DerivedData/ipa/EssentialApp.ipa" --username "${{ secrets.APPSTORE_USERNAME }}" --password "${{ secrets.APPSTORE_PASSWORD }}" --verbose
-    
     - name: Finish
       run: echo "Finished"
-    
