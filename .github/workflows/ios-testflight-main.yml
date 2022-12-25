@@ -10,7 +10,7 @@ jobs:
   build-and-deploy:
     name: Build IPA and Send to TestFlight
     runs-on: macos-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
 
     steps:
       - name: Select xCode
@@ -28,7 +28,4 @@ jobs:
       - name: Fastlane send to Testflight
         env:
           MATCH_PASSWORD: ${{ secrets.FASTLANE_MATCH_PASSWORD }}
-          MATCH_KEYCHAIN_PASSWORD: ""
-        run: fastlane testflight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}"
-      - name: List all certificates from keychain
-        run: security find-certificate -a
+        run: fastlane flight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}"
