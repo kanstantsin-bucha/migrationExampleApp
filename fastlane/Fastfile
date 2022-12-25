@@ -1,10 +1,4 @@
 lane :testflight do |options|
-  if options[:match]
-    sh("export MATCH_PASSWORD=#{options[:match]}")
-  end
-  if options[:keychain]
-    sh("export MATCH_KEYCHAIN_PASSWORD=#{options[:keychain]}")
-  end
   sync_code_signing(type: "appstore")
   increment_build_number
   app_store_connect_api_key(
