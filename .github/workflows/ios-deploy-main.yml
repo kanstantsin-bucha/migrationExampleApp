@@ -11,18 +11,5 @@ jobs:
     runs-on: macos-12
     
     steps:
-    - name: Checkout
-    - uses: actions/checkout@v2
     - name: Fastlane Match Install Profile & Certificates
       run: fastlane -v
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_14.1.app
-    - name: Print Xcode version
-      run: /usr/bin/xcodebuild -version
-    - name: Set build number
-      run: |
-        buildNumber=$(($GITHUB_RUN_NUMBER + 1))
-        #/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "EssentialApp/EssentialApp/Info.plist"
-        echo "$buildNumber"
-    - name: Finish
-      run: echo "Finished"
