@@ -12,4 +12,4 @@ jobs:
     
     steps:
     - name: Fastlane send to Testflight
-      run: fastlane testflight
+      run: fastlane testflight ${{ secrets.APPSTORE_API_PRIVATE_KEY }}
