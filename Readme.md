@@ -8,3 +8,10 @@ To get development profiles run
 ```
 fastlane match development --readonly
 ```
+
+To send to TestFlight, put ./AuthKey_4ZSC9LK9FP.p8 near that README,
+
+then run
+```
+fastlane testflight
+```

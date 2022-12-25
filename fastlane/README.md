@@ -13,18 +13,10 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-### upload_symbols
+### testflight
 
 ```sh
-[bundle exec] fastlane upload_symbols
-```
-
-
-
-### upload_bcsm
-
-```sh
-[bundle exec] fastlane upload_bcsm
+[bundle exec] fastlane testflight
 ```
 
 

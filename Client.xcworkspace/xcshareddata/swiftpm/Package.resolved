@@ -1,43 +1,41 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Charts",
-        "repositoryURL": "https://github.com/kanstantsin-bucha/charts-fork.git",
-        "state": {
-          "branch": null,
-          "revision": "aeee443f5a5cc24b4670ab5a5e3aa8724a0f4e07",
-          "version": "100.0.2"
-        }
-      },
-      {
-        "package": "BlueSwift",
-        "repositoryURL": "https://github.com/truebucha/fork-BlueSwift.git",
-        "state": {
-          "branch": null,
-          "revision": "7d065869532f660ae345316ba873976e0ac2c3ae",
-          "version": "5.0.1"
-        }
-      },
-      {
-        "package": "Sentry",
-        "repositoryURL": "https://github.com/getsentry/sentry-cocoa",
-        "state": {
-          "branch": null,
-          "revision": "6e20ea06950ea871b70b6a82e8b42248ee2176e5",
-          "version": "7.10.0"
-        }
-      },
-      {
-        "package": "SwiftProtobuf",
-        "repositoryURL": "https://github.com/apple/swift-protobuf.git",
-        "state": {
-          "branch": null,
-          "revision": "1f62db409f2c9b0223a3f68567b4a01333aae778",
-          "version": "1.17.0"
-        }
+  "pins" : [
+    {
+      "identity" : "charts-fork",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kanstantsin-bucha/charts-fork.git",
+      "state" : {
+        "revision" : "aeee443f5a5cc24b4670ab5a5e3aa8724a0f4e07",
+        "version" : "100.0.2"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "fork-blueswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/truebucha/fork-BlueSwift.git",
+      "state" : {
+        "revision" : "7d065869532f660ae345316ba873976e0ac2c3ae",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "sentry-cocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getsentry/sentry-cocoa",
+      "state" : {
+        "revision" : "6e20ea06950ea871b70b6a82e8b42248ee2176e5",
+        "version" : "7.10.0"
+      }
+    },
+    {
+      "identity" : "swift-protobuf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-protobuf.git",
+      "state" : {
+        "revision" : "1f62db409f2c9b0223a3f68567b4a01333aae778",
+        "version" : "1.17.0"
+      }
+    }
+  ],
+  "version" : 2
 }
