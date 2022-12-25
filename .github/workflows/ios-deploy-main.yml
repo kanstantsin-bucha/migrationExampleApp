@@ -9,6 +9,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: macos-12
+    timeout-minutes: 1
     
     steps:
     - name: Fastlane send to Testflight
