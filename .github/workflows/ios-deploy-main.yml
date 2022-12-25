@@ -11,5 +11,5 @@ jobs:
     runs-on: macos-12
     
     steps:
-    - name: Fastlane Match Install Profile & Certificates
-      run: fastlane -v
+    - name: Fastlane send to Testflight
+      run: fastlane testflight
