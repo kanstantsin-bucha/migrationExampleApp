@@ -36,3 +36,5 @@ jobs:
           MATCH_PASSWORD: ${{ secrets.FASTLANE_MATCH_PASSWORD }}
           MATCH_KEYCHAIN_PASSWORD: ""
         run: fastlane testflight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}"
+      - name: List all certificates from keychain
+        run: security find-certificate -a
