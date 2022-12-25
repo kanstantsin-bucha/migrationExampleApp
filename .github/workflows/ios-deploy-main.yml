@@ -12,5 +12,7 @@ jobs:
     timeout-minutes: 1
     
     steps:
+    - name: Checkout
+      run: actions/checkout@v3
     - name: Fastlane send to Testflight
       run: fastlane testflight "${{ secrets.APPSTORE_API_PRIVATE_KEY }}"
