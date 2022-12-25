@@ -32,6 +32,7 @@ lane :flight do |options|
   end
   increment_build_number
   commit_version_bump(message: "Build version bump")
+  sh("git push")
   build_app(scheme: "D-Connect",
             workspace: "Client.xcworkspace",
             export_method: "app-store",
