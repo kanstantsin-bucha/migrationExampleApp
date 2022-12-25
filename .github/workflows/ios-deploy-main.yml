@@ -22,7 +22,9 @@ jobs:
       - name: Create .ssh files
         run: |
           echo "${{ secrets.SSH_PUBLIC }}" >> ~/.ssh/id_rsa.pub
+          chmod 644 ~/.ssh/id_rsa.pub
           echo "${{ secrets.SSH_PRIVATE }}" >> ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           eval "$(ssh-agent -s)"
           echo "Host *.github.com\n\tAddKeysToAgent yes\n\tIgnoreUnknown UseKeychain\n\tIdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
       - name: Checkout
