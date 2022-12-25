@@ -8,17 +8,18 @@ on:
     
 jobs:
   build-and-deploy:
-    runs-on: macos-12
-    timeout-minutes: 1
-    
+    name: Build and Test default scheme using any available iPhone simulator
+    runs-on: macos-latest
+    timeout-minutes: 5
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Create unlocked keychain for build
-      run: |
-        security create-keychain -p "" build.keychain
-        security list-keychains -s ~/Library/Keychains/build.keychain
-        security default-keychain -s ~/Library/Keychains/build.keychain
-        security unlock-keychain -p "" ~/Library/Keychains/build.keychain
-    - name: Fastlane send to Testflight
-      run: fastlane testflight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}" match:${{ secrets.FASTLANE_MATCH_PASSWORD }} keychain:"" 
+      - name: Create unlocked keychain for build
+        run: |
+          security create-keychain -p "" build.keychain
+          security list-keychains -s ~/Library/Keychains/build.keychain
+          security default-keychain -s ~/Library/Keychains/build.keychain
+          security unlock-keychain -p "" ~/Library/Keychains/build.keychain
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Fastlane send to Testflight
+        run: fastlane testflight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}" match:${{ secrets.FASTLANE_MATCH_PASSWORD }} keychain:"" 
