@@ -15,12 +15,6 @@ jobs:
     steps:
       - name: Select xCode
         run: sudo xcode-select -s /Applications/Xcode_14.2.app
-      - name: Create unlocked keychain for build
-        run: |
-          security create-keychain -p "" build.keychain
-          security list-keychains -s ~/Library/Keychains/build.keychain
-          security default-keychain -s ~/Library/Keychains/build.keychain
-          security unlock-keychain -p "" ~/Library/Keychains/build.keychain
       - name: Create .ssh files
         run: |
           echo "${{ secrets.SSH_PUBLIC }}" >> ~/.ssh/id_rsa.pub
