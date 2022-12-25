@@ -10,7 +10,7 @@ jobs:
   build-and-deploy:
     name: Build IPA and Send to TestFlight
     runs-on: macos-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
 
     steps:
       - name: Select xCode
