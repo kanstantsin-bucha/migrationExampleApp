@@ -1,0 +1,46 @@
+name: iOS-Deploy-Main
+
+# Controls when the action will run. 
+# Triggers the workflow on push events but only for the master branch.
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
+    
+jobs:
+  build-and-deploy:
+    runs-on: macos-12
+    
+    steps:
+    - name: Checkout
+    - uses: actions/checkout@v2
+
+    - name: Fastlane Match Install Profile & Certificates
+      run: fastlane -v
+          cp .github/deployment/profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+   
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_14.1.app
+      
+    - name: Print Xcode version
+      run: /usr/bin/xcodebuild -version
+
+    - name: Set build number
+      run: |
+        buildNumber=$(($GITHUB_RUN_NUMBER + 1))
+        #/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "EssentialApp/EssentialApp/Info.plist"
+        echo "$buildNumber"
+        
+    #- name: Build
+    #  run: xcodebuild clean archive -sdk iphoneos -workspace EssentialApp/EssentialApp.xcworkspace -configuration "Release" -scheme "EssentialApp" -derivedDataPath "DerivedData" -archivePath "DerivedData/Archive/EssentialApp.xcarchive"
+    
+    #- name: Export
+    #  run: xcodebuild -exportArchive -archivePath DerivedData/Archive/EssentialApp.xcarchive -exportOptionsPlist .github/deployment/ExportOptions.plist -exportPath DerivedData/ipa
+      
+    #- name: Deploy
+    #  run: xcrun altool --upload-app --type ios --file "DerivedData/ipa/EssentialApp.ipa" --username "${{ secrets.APPSTORE_USERNAME }}" --password "${{ secrets.APPSTORE_PASSWORD }}" --verbose
+    
+    - name: Finish
+      run: echo "Finished"
+    
