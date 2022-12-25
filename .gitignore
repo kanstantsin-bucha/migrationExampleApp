@@ -1,6 +1,10 @@
 # OS X
 .DS_Store
 
+# Fastlane
+*.dSYM.zip
+fastlane/report.xml
+
 # Cocoapods
 Pods/
 
