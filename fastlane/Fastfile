@@ -22,7 +22,6 @@ lane :flight do |options|
       keychain_password: "123456",
       shallow_clone: true
     )
-    sh("echo 'List of installed certificates:'")
     sh("security find-certificate -a")
   else
     sync_code_signing(
