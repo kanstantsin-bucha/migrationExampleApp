@@ -21,8 +21,8 @@ jobs:
           security unlock-keychain -p "" ~/Library/Keychains/build.keychain
       - name: Create .ssh files
         run: |
-          echo ${{ secrets.SSH_PUBLIC }} >> ~/.ssh/id_rsa.pub
-          echo ${{ secrets.SSH_PRIVATE }} >> ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PUBLIC }}" >> ~/.ssh/id_rsa.pub
+          echo "${{ secrets.SSH_PRIVATE }}" >> ~/.ssh/id_rsa
           eval "$(ssh-agent -s)"
           echo "Host *.github.com\n\tAddKeysToAgent yes\n\tIgnoreUnknown UseKeychain\n\tIdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
       - name: Checkout
