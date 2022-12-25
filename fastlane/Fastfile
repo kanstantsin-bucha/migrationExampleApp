@@ -15,13 +15,18 @@ lane :testflight do |options|
       timeout: 3600,
       lock_when_sleeps: false
     )
-    match(
-      type: "appstore"
+    sync_code_signing(
+      readonly: true,
+      type: "appstore",
       keychain_name: "build",
-      keychain_password: "123456"
+      keychain_password: "123456",
+      shallow_clone: true
     )
   else
-    match(type: "appstore")
+    sync_code_signing(
+      type: "appstore",
+      readonly: true
+    )
   end
   increment_build_number
   build_app(scheme: "D-Connect",
