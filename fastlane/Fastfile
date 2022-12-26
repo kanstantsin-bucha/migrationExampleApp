@@ -29,9 +29,11 @@ lane :flight do |options|
       readonly: true
     )
   end
-  increment_build_number
-  commit_version_bump(message: "Build version bump")
-  sh("git push")
+  if "" != options[:event] 
+    increment_build_number
+    commit_version_bump(message: "Build version bump"
+    sh("git push")
+  end
   build_app(scheme: "D-Connect",
             workspace: "Client.xcworkspace",
             export_method: "app-store",
