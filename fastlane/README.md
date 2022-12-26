@@ -13,10 +13,18 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 # Available Actions
 
-### testflight
+### flight
 
 ```sh
-[bundle exec] fastlane testflight
+[bundle exec] fastlane flight
+```
+
+
+
+### reset_build_number
+
+```sh
+[bundle exec] fastlane reset_build_number
 ```
 
 

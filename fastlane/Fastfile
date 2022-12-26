@@ -44,3 +44,6 @@ lane :flight do |options|
     skip_waiting_for_build_processing: true
   )
 end
+lane :reset_build_number do
+  increment_build_number(build_number: 1)
+end
