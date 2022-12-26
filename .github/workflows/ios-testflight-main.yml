@@ -30,12 +30,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Fastlane send to Testflight (tag)
-        if: ${{ github.event_name != "workflow_dispatch" }}
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         env:
           MATCH_PASSWORD: ${{ secrets.FASTLANE_MATCH_PASSWORD }}
         run: fastlane flight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}" event:tag
       - name: Fastlane send to Testflight (dispatch)
-        if: ${{ github.event_name == "workflow_dispatch" }}
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
           MATCH_PASSWORD: ${{ secrets.FASTLANE_MATCH_PASSWORD }}
         run: fastlane flight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}" event:dispatch
