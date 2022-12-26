@@ -13,6 +13,10 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      - name: Log event
+        run: |
+          echo "github.event_name: "${{ github.event_name }}
+          echo "github.event.action: "${{ github.event.action }}
       - name: Select xCode
         run: sudo xcode-select -s /Applications/Xcode_14.2.app
       - name: Create .ssh files
