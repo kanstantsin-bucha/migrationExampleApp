@@ -22,7 +22,7 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE }}" >> ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           eval "$(ssh-agent -s)"
-          echo "Host *.github.com\n\tAddKeysToAgent yes\n\tIgnoreUnknown UseKeychain\n\tIdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
+          echo "Host *.github.com\n\tAddKeysToAgent yes\n\tIgnoreUnknown UseKeychain\n\tIdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
       - name: Checkout
         uses: actions/checkout@v3
       - name: Fastlane send to Testflight
