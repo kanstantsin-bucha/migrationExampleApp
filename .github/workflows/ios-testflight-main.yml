@@ -28,4 +28,4 @@ jobs:
       - name: Fastlane send to Testflight
         env:
           MATCH_PASSWORD: ${{ secrets.FASTLANE_MATCH_PASSWORD }}
-        run: fastlane flight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}"
+        run: fastlane flight apikey:"${{ secrets.APPSTORE_API_PRIVATE_KEY }}" event:${{ github.event_name }}
