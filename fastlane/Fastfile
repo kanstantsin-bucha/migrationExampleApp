@@ -29,9 +29,10 @@ lane :flight do |options|
       readonly: true
     )
   end
-  if "" != options[:event] 
+  if "tag" != options[:event]
+    puts options[:event]
     increment_build_number
-    commit_version_bump(message: "Build version bump"
+    commit_version_bump(message: "Build version bump")
     sh("git push")
   end
   build_app(scheme: "D-Connect",
