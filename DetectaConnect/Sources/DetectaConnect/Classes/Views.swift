@@ -37,6 +37,7 @@ enum ViewType {
             static let id = "DeviceSettingsViewController"
         }
         enum Home {
+            static let id = "HomeViewController"
             enum SegueId {
                 static let toContext = "HomeToContext"
             }
