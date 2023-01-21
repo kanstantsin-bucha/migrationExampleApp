@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum View {
+enum ViewType {
     static let root = "RootNavigation"
     enum Group {
     }
