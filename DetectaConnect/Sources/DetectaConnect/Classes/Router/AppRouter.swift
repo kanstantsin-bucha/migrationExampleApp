@@ -15,7 +15,9 @@ class AppRouter: Service {
     private var root = UIViewController()
     
     public var contentView: some View {
-        Text("It is framework!")
+        NavigationView {
+            HomeScreen()
+        }
     }
     
     public func start(window: UIWindow) {

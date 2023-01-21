@@ -17,8 +17,8 @@ class ViewFactory {
     
     //MARK: - logic -
     
-    static func loadView(id: String) -> UIViewController {
-        let view = viewTypes.instantiateViewController(withIdentifier: id)
+    static func loadView<T: UIViewController>(id: String) -> T {
+        let view = viewTypes.instantiateViewController(withIdentifier: id) as! T
         return view
     }
     
