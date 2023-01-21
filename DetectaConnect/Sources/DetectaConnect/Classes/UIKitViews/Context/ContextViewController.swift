@@ -57,13 +57,13 @@ class ContextViewController: UIViewController {
     // MARK: - Private methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == View.a.TimeSpan.id {
+        if segue.identifier == ViewType.a.TimeSpan.id {
             guard let viewController = segue.destination as? TimeSpanViewController else {
                 preconditionFailure(#fileID + "Segue destination is not a kind of TimeSpanViewController")
             }
             viewController.model = TimeSpanViewModel(token: deviceContainer.device.token)
         }
-        if segue.identifier == View.a.DeviceSettings.id {
+        if segue.identifier == ViewType.a.DeviceSettings.id {
             guard let viewController = segue.destination as? DeviceSettingsViewController else {
                 preconditionFailure(#fileID + "Segue destination is not a kind of DeviceSettingsViewController")
             }

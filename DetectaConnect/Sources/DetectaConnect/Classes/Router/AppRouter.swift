@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import SwiftUI
 
 
 @available(iOSApplicationExtension, unavailable)
 class AppRouter: Service {
     private var root = UIViewController()
     
+    public var contentView: some View {
+        NavigationView {
+            HomeScreen()
+        }
+    }
+    
     public func start(window: UIWindow) {
         setupAppearance()
-        let controller = ViewFactory.loadView(id: View.root)
+        let controller = ViewFactory.loadView(id: ViewType.root)
         ((controller as? UINavigationController)?.navigationBar.barStyle = .black)
         root = controller
         window.rootViewController = controller

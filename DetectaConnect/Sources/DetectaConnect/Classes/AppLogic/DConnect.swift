@@ -6,7 +6,7 @@
 //  Copyright © 2019 Detecta Group. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 import Sentry
 
 public class DConnect {
@@ -14,6 +14,16 @@ public class DConnect {
     
     public static var assetsBundle: Bundle {
         return Bundle.module
+    }
+    
+    public var contentView: some View {
+        service(AppRouter.self).contentView
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { [weak self] _ in
+                self?.applicationDidBecomeActive()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { [weak self] _ in
+                self?.applicationWillEnterForeground()
+            }
     }
     
     public static func initialize() -> DConnect {
@@ -25,10 +35,6 @@ public class DConnect {
         setupServices()
         service(GatesKeeper.self).summonAll()
         return DConnect()
-    }
-    
-    public func setup(window: UIWindow) {
-        service(AppRouter.self).start(window: window)
     }
     
     public func applicationWillEnterForeground() {

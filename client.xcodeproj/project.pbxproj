@@ -25,6 +25,7 @@
 		FE05EC082618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */; };
 		FE05EC312618FB1300449D5C /* DetectaCloudGateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */; };
 		FE0B4ED32614ED3500679E3A /* ApiUrlBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */; };
+		FE25FED9297C14230085156B /* ClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE25FED8297C14230085156B /* ClientApp.swift */; };
 		FE49B74B291AB1130024B98D /* LocalContextPackage+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49B74A291AB1130024B98D /* LocalContextPackage+Stub.swift */; };
 		FE49B74D291AB1520024B98D /* LocalContextValues+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49B74C291AB1520024B98D /* LocalContextValues+Stub.swift */; };
 		FE49B74F291AB34F0024B98D /* MockResponseConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49B74E291AB34F0024B98D /* MockResponseConverter.swift */; };
@@ -53,6 +54,7 @@
 		FE05EC072618B3B800449D5C /* UrlBuilder_DetectaCloud_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlBuilder_DetectaCloud_Test.swift; sourceTree = "<group>"; };
 		FE05EC302618FB1300449D5C /* DetectaCloudGateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectaCloudGateTests.swift; sourceTree = "<group>"; };
 		FE0B4EBB2614EA8A00679E3A /* ApiUrlBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlBuilderTests.swift; sourceTree = "<group>"; };
+		FE25FED8297C14230085156B /* ClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientApp.swift; sourceTree = "<group>"; };
 		FE49B74A291AB1130024B98D /* LocalContextPackage+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalContextPackage+Stub.swift"; sourceTree = "<group>"; };
 		FE49B74C291AB1520024B98D /* LocalContextValues+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalContextValues+Stub.swift"; sourceTree = "<group>"; };
 		FE49B74E291AB34F0024B98D /* MockResponseConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponseConverter.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				08723DBF22AED8720088B8ED /* AppDelegate.swift */,
 				08723DC822AED8720088B8ED /* LaunchScreen.storyboard */,
 				08723DCB22AED8720088B8ED /* Info.plist */,
+				FE25FED8297C14230085156B /* ClientApp.swift */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE25FED9297C14230085156B /* ClientApp.swift in Sources */,
 				08723DC022AED8720088B8ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.1.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -441,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.1.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -462,7 +466,7 @@
 				DEVELOPMENT_TEAM = J6252NJ42R;
 				INFOPLIST_FILE = client/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "D-Connect";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,7 +494,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J6252NJ42R;
 				INFOPLIST_FILE = client/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "D-Connect";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,7 +516,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = clientTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -530,7 +534,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = clientTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
