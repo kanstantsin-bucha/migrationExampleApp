@@ -22,16 +22,17 @@ class AppRouter: Service {
                 HomeScreen()
             }
         }
+        .preferredColorScheme(.light)
     }
     
-    public func start(window: UIWindow) {
-        setupAppearance()
-        let controller = ViewFactory.loadView(id: ViewType.root)
-        ((controller as? UINavigationController)?.navigationBar.barStyle = .black)
-        root = controller
-        window.rootViewController = controller
-        window.backgroundColor = .white
-    }
+//    public func start(window: UIWindow) {
+//        setupAppearance()
+//        let controller = ViewFactory.loadView(id: ViewType.root)
+//        ((controller as? UINavigationController)?.navigationBar.barStyle = .black)
+//        root = controller
+//        window.rootViewController = controller
+//        window.backgroundColor = .white
+//    }
     
     // MARK: - Private methods
     
