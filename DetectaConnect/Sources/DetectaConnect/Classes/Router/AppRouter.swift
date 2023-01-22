@@ -16,7 +16,11 @@ class AppRouter: Service {
     
     public var contentView: some View {
         NavigationView {
-            HomeScreen()
+            ZStack {
+                Color.white
+                    .ignoresSafeArea()
+                HomeScreen()
+            }
         }
     }
     
