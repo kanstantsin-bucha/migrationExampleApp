@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "08723DBB22AED8720088B8ED"
-               BuildableName = "D-Connect.app"
-               BlueprintName = "D-Connect"
+               BuildableName = "ExampleApp.app"
+               BlueprintName = "ExampleApp"
                ReferencedContainer = "container:Client.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,8 +31,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
-            BuildableName = "D-Connect.app"
-            BlueprintName = "D-Connect"
+            BuildableName = "ExampleApp.app"
+            BlueprintName = "ExampleApp"
             ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -69,8 +69,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
-            BuildableName = "D-Connect.app"
-            BlueprintName = "D-Connect"
+            BuildableName = "ExampleApp.app"
+            BlueprintName = "ExampleApp"
             ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "08723DBB22AED8720088B8ED"
-            BuildableName = "D-Connect.app"
-            BlueprintName = "D-Connect"
+            BuildableName = "ExampleApp.app"
+            BlueprintName = "ExampleApp"
             ReferencedContainer = "container:Client.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

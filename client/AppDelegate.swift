@@ -1,16 +1,8 @@
-//
-//  AppDelegate.swift
-//  client
-//
-//  Created by bucha on 6/10/19.
-//  Copyright © 2019 Detecta Group. All rights reserved.
-//
-
+import ExampleMain
 import UIKit
-import DetectaConnect
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var engine: DConnect?
+    var engine: ExampleApp?
     
     // MARK: - Notifications
 
