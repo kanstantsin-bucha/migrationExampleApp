@@ -26,7 +26,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Charts", package: "charts-fork")
             ],
-            resources: [.process("Assets/environment.json")]),
+            resources: [.process("Resources/environment.json")]),
         .testTarget(
             name: "ExampleMainTests",
             dependencies: ["ExampleMain"])
