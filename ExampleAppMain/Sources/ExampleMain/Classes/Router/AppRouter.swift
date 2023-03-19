@@ -5,13 +5,18 @@ import SwiftUI
 @available(iOSApplicationExtension, unavailable)
 class AppRouter: Service {
     private var root = UIViewController()
+    private let viewModelFactory: () -> HomeViewModel
+    
+    public init(viewModelFactory: @escaping () -> HomeViewModel) {
+        self.viewModelFactory = viewModelFactory
+    }
     
     public var contentView: some View {
         NavigationView {
             ZStack {
                 Color.white
                     .ignoresSafeArea()
-                HomeScreen()
+                HomeScreen(viewModel: viewModelFactory())
             }
         }  
         .preferredColorScheme(.light)

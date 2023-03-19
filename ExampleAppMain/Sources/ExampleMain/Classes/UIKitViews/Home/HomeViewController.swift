@@ -10,8 +10,19 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var devicesCollectionView: UICollectionView!
     @IBOutlet weak var plusButton: UIButton!
-    private let model = HomeViewModel()
+    private let model: HomeViewModel
     private var devices = [Device]()
+    
+    public init?(coder: NSCoder, model: HomeViewModel) {
+        self.model = model
+        super.init(coder: coder)
+    }
+    
+    @available(*, unavailable)
+    public required init?(coder: NSCoder) {
+        preconditionFailure()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
