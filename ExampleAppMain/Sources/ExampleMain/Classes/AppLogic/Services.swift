@@ -54,13 +54,14 @@ public func add(servicesList: [ServiceDeclaration]) {
 
 @available(iOSApplicationExtension, unavailable)
 func setupServices() {
+    let persistence = DefaultDevicePersistence()
     do {
         locator.add(servicesList: [
             (DefaultGatesKeeper(), GatesKeeper.self),
             (DefaultGadgetSetupInteractor(), GadgetSetupInteractor.self),
-            (AppRouter(), AppRouter.self),
+            (AppRouter(viewModelFactory: { HomeViewModel(persistence: persistence)}), AppRouter.self),
             (DefaultAlertRouter(), AlertRouter.self),
-            (DefaultDevicePersistence(), DevicePersistence.self),
+            (persistence, DevicePersistence.self),
             (ChartInteractor(), ChartInteractor.self),
             (try EnvironmentRisksEvaluator(), EnvironmentRisksEvaluator.self)
         ])

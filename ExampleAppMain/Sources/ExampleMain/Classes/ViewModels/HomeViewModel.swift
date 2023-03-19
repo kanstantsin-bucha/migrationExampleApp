@@ -2,13 +2,18 @@ import Foundation
 
 class HomeViewModel {
     var observeDevices: Observe<[Device]>? = nil
+    private let persistence: DevicePersistence
+    
+    init(persistence: DevicePersistence) {
+        self.persistence = persistence
+    }
     
     func onViewAppear() {
-        observeDevices?(service(DevicePersistence.self).loadAll())
+        observeDevices?(persistence.loadAll())
     }
     
     func delete(device: Device) {
-        service(DevicePersistence.self).deleteDevice(id: device.id)
-        observeDevices?(service(DevicePersistence.self).loadAll())
+        persistence.deleteDevice(id: device.id)
+        observeDevices?(persistence.loadAll())
     }
 }
